@@ -32,7 +32,7 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from rag.corpus_tools import CORPUS, CorpusError, corpus_sha256, load_corpus, rel, write_atomic
+from rag.corpus_tools import CORPUS, CorpusError, load_corpus_with_hash, rel, write_atomic
 from scanners.findings import PAGES, REPO, VERSIONS, Finding, FindingsFileError, load_findings
 
 MAPPER_VERSION = "mapper-v2-corpus-lookup"
@@ -87,12 +87,13 @@ def write_page(version: str, page: str, mapped: dict, rejected: dict, corpus_has
 def _skip(version: str, page: str, reason: str, problems: list[str]) -> None:
     """Report a skipped page and remove its old output so nobody reads last run's mapping."""
     stale = mapped_path(version, page)
-    if stale.exists():
-        try:
-            stale.unlink()
-            reason += f" (removed stale {rel(stale)})"
-        except OSError as e:  # e.g. the same permission problem that made the write fail
-            reason += f" (could not remove stale {rel(stale)}: {e})"
+    try:
+        stale.unlink()
+        reason += f" (removed stale {rel(stale)})"
+    except FileNotFoundError:
+        pass
+    except OSError as e:  # e.g. the same permission problem that made the write fail
+        reason += f" (could not remove stale {rel(stale)}: {e})"
     problems.append(f"skipped {version}/{page}: {reason}")
     print(f"SKIPPED {version}/{page}: {reason}", file=sys.stderr)
 
@@ -182,11 +183,11 @@ def append_spotcheck(results: list[tuple[str, str, set[str], bool]], scope: str 
 
 def spotcheck(mapped: dict[str, str], scope: str = "all pages") -> int:
     """Score a fixed-seed sample of `mapped` against the ground truth and log it. Returns the exit status."""
-    if not GROUND_TRUTH.exists():
-        print(f"ERROR {rel(GROUND_TRUTH)} not found; nothing appended.", file=sys.stderr)
-        return 1
     try:
         truth = read_ground_truth(GROUND_TRUTH)
+    except FileNotFoundError:
+        print(f"ERROR {rel(GROUND_TRUTH)} not found; nothing appended.", file=sys.stderr)
+        return 1
     except (ValueError, csv.Error, OSError) as e:  # UnicodeDecodeError is a ValueError
         print(f"ERROR {e}; nothing appended.", file=sys.stderr)
         return 1
@@ -217,8 +218,8 @@ def main(argv: list[str] | None = None) -> int:
     pages = (a.page,) if a.page else PAGES
     scope = f"{a.version or 'before+after'}/{a.page or 'all pages'}"
     try:
-        corpus, corpus_hash = load_corpus(), corpus_sha256()
-    except (CorpusError, OSError) as e:
+        corpus, corpus_hash = load_corpus_with_hash()  # one read, so the hash matches what was mapped
+    except CorpusError as e:
         print(f"ERROR {e}", file=sys.stderr)
         return 1
     mapped, problems = map_all(corpus, corpus_hash, versions, pages)

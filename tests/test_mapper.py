@@ -1,6 +1,8 @@
 """Track B: the corpus and the deterministic mapper. No network, no Bedrock."""
 
+import hashlib
 import json
+import os
 from datetime import date
 
 import pytest
@@ -183,3 +185,84 @@ def test_write_atomic_leaves_no_temp_file_when_it_fails(tmp_path, monkeypatch):
         corpus_tools.write_atomic(target, "new")
     assert target.read_text() == "old"
     assert [p.name for p in tmp_path.iterdir()] == ["out.json"]
+
+
+def test_corpus_check_reports_odd_shapes_instead_of_crashing():
+    rows = json.loads((REPO / "rag" / "wcag20_aa.json").read_text())
+    rows[0]["common_failures"] = 5
+    errors = corpus_errors(rows + [{"sc": ["1.1.1"]}])
+    assert any("common_failures must be a list" in e for e in errors)
+    assert any("['1.1.1']" in e and "not a WCAG 2.0" in e for e in errors)
+
+
+def test_commands_report_read_and_write_errors(tmp_path, monkeypatch, capsys):
+    not_utf8 = tmp_path / "corpus.json"
+    not_utf8.write_bytes(b"\xff\xfe not utf-8")
+    monkeypatch.setattr(corpus_tools, "CORPUS", not_utf8)
+    assert corpus_tools.validate() == 1
+    monkeypatch.setattr(corpus_tools, "MAP508", not_utf8)
+    assert corpus_tools.map508() == 1
+
+    def disk_full(path, text):
+        raise OSError("No space left on device")
+
+    monkeypatch.setattr(corpus_tools, "MAP508", tmp_path / "map.json")
+    monkeypatch.setattr(corpus_tools, "write_atomic", disk_full)
+    assert corpus_tools.map508() == 1
+    assert capsys.readouterr().out.count("ERROR") == 3
+
+
+def test_corpus_hash_comes_from_the_same_read():
+    corpus, sha = corpus_tools.load_corpus_with_hash()
+    assert corpus == load_corpus()
+    assert sha == hashlib.sha256((REPO / "rag" / "wcag20_aa.json").read_bytes()).hexdigest()[:12]
+    assert all(json.loads(p.read_text())["corpus_sha256"] == sha for p in (REPO / "data" / "mapped").glob("*.json"))
+
+
+@pytest.fixture
+def locked_dir(tmp_path):
+    """A folder nobody can list or enter (chmod 000). Skips the test where that has no effect, e.g. as root."""
+    folder = tmp_path / "locked"
+    folder.mkdir()
+    (folder / "file.json").write_text("[]")
+    folder.chmod(0o000)
+    try:
+        if os.access(folder, os.R_OK | os.X_OK):
+            pytest.skip("chmod 000 doesn't block this user (running as root?)")
+        yield folder
+    finally:
+        folder.chmod(0o755)
+
+
+def test_missing_or_locked_corpus_raises_corpus_error(tmp_path, locked_dir):
+    with pytest.raises(CorpusError, match="not found"):
+        load_corpus(tmp_path / "missing.json")
+    with pytest.raises(CorpusError, match="cannot read"):
+        load_corpus(locked_dir / "file.json")
+
+
+def test_locked_output_folder_skips_the_page_instead_of_crashing(monkeypatch, locked_dir, capsys):
+    monkeypatch.setattr(mapper, "MAPPED_DIR", locked_dir)
+    assert mapper.main(["--version", "before", "--page", "home"]) == 1
+    assert "SKIPPED before/home: could not write output" in capsys.readouterr().err
+
+
+def test_locked_ground_truth_folder_is_reported(monkeypatch, tmp_path, locked_dir, capsys):
+    monkeypatch.setattr(mapper, "GROUND_TRUTH", locked_dir / "ground_truth.csv")
+    monkeypatch.setattr(mapper, "SPOTCHECK_LOG", tmp_path / "log.md")
+    assert mapper.spotcheck({"F-1": "1.1.1"}) == 1
+    assert "nothing appended" in capsys.readouterr().err
+    assert not (tmp_path / "log.md").exists()
+
+
+def test_corpus_commands_report_locked_folders(monkeypatch, locked_dir, capsys):
+    def no_network():
+        raise AssertionError("build must stop before fetching the spec")
+
+    monkeypatch.setattr(corpus_tools, "fetch_spec", no_network)
+    monkeypatch.setattr(corpus_tools, "MAP508", locked_dir / "section508_map.json")
+    assert corpus_tools.map508() == 1
+    monkeypatch.setattr(corpus_tools, "CORPUS", locked_dir / "wcag20_aa.json")
+    assert corpus_tools.build(force=False) == 1  # stops at the existence check, before any network call
+    out = capsys.readouterr().out
+    assert "cannot read" in out and "cannot check" in out

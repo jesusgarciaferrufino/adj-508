@@ -364,9 +364,14 @@ def write_atomic(path: Path, text: str) -> None:
         raise
 
 
-def corpus_sha256(path: Path = CORPUS) -> str:
-    """First 12 hex digits of the corpus file's SHA-256: tells apart output made from different builds."""
-    return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
+def _write_or_report(path: Path, text: str) -> bool:
+    """write_atomic for the commands: print an ERROR line instead of a traceback (e.g. disk full)."""
+    try:
+        write_atomic(path, text)
+        return True
+    except OSError as e:
+        print(f"ERROR could not write {rel(path)}: {e}")
+        return False
 
 
 # ---------------------------------------------------------------- reading the spec
@@ -489,7 +494,7 @@ def corpus_errors(rows) -> list[str]:
             continue
         sc = r.get("sc")
         tag = f"row {i} ({sc})"
-        if sc not in CANONICAL:
+        if not isinstance(sc, str) or sc not in CANONICAL:
             errors.append(f"{tag}: not a WCAG 2.0 A/AA criterion")
             continue
         if sc in seen:
@@ -500,8 +505,9 @@ def corpus_errors(rows) -> list[str]:
         expected = {"name": name, "level": level, "source": f"{SPEC}#{anchor}", "intent": intent,
                     "common_failures": fails, "needs_human_when": human_when, "human_only": human_only}
         errors += [f"{tag}: {k} should be {v!r}" for k, v in expected.items() if r.get(k) != v]
-        if any(not FAILURE_ID.fullmatch(str(f)) for f in r.get("common_failures") or []):
-            errors.append(f"{tag}: bad failure ID")
+        failures = r.get("common_failures")
+        if not isinstance(failures, list) or any(not FAILURE_ID.fullmatch(str(f)) for f in failures):
+            errors.append(f"{tag}: common_failures must be a list of failure IDs like 'F65'")
         text = r.get("text")
         if not isinstance(text, str) or not text.strip():
             errors.append(f"{tag}: 'text' is empty")
@@ -513,12 +519,17 @@ def corpus_errors(rows) -> list[str]:
     return errors
 
 
-def load_corpus(path: Path = CORPUS) -> dict[str, dict]:
-    """The corpus as {sc: row}. Raises CorpusError if the file is missing or malformed."""
-    if not path.exists():
-        raise CorpusError(f"{rel(path)} not found. Build it: python -m rag.corpus_tools build")
+def load_corpus_with_hash(path: Path = CORPUS) -> tuple[dict[str, dict], str]:
+    """({sc: row}, first 12 hex digits of the file's SHA-256), both from a single read of the file.
+
+    The hash tells apart output made from different corpus builds. Raises CorpusError if the file
+    is missing or malformed.
+    """
     try:
-        rows = json.loads(path.read_text(encoding="utf-8"))
+        raw = path.read_bytes()
+        rows = json.loads(raw.decode("utf-8"))
+    except FileNotFoundError:
+        raise CorpusError(f"{rel(path)} not found. Build it: python -m rag.corpus_tools build") from None
     except json.JSONDecodeError as e:
         raise CorpusError(f"{rel(path)} is not valid JSON: {e}") from None
     except (OSError, UnicodeDecodeError) as e:
@@ -527,7 +538,12 @@ def load_corpus(path: Path = CORPUS) -> dict[str, dict]:
     if errors:
         raise CorpusError(f"{rel(path)} failed validation ({len(errors)} errors), first: {errors[0]}. "
                           "Run: python -m rag.corpus_tools validate")
-    return {r["sc"]: r for r in rows}
+    return {r["sc"]: r for r in rows}, hashlib.sha256(raw).hexdigest()[:12]
+
+
+def load_corpus(path: Path = CORPUS) -> dict[str, dict]:
+    """The corpus as {sc: row}. Raises CorpusError if the file is missing or malformed."""
+    return load_corpus_with_hash(path)[0]
 
 
 # ---------------------------------------------------------------- commands
@@ -535,9 +551,18 @@ def load_corpus(path: Path = CORPUS) -> dict[str, dict]:
 
 def build(force: bool) -> int:
     """Write the corpus from CANONICAL, CONTENT and the live spec text. Writes nothing on any error."""
-    if CORPUS.exists() and not force:
-        print(f"{rel(CORPUS)} exists; use --force to rebuild.")
-        return 1
+    if not force:
+        # stat(), not exists(): exists() hides a permission error on Python 3.14 but not on 3.13.
+        try:
+            CORPUS.stat()
+        except FileNotFoundError:
+            pass
+        except OSError as e:  # e.g. rag/ can't be searched
+            print(f"ERROR cannot check {rel(CORPUS)}: {e}")
+            return 1
+        else:
+            print(f"{rel(CORPUS)} exists; use --force to rebuild.")
+            return 1
     errors = canonical_errors()
     try:
         found = parse_spec(fetch_spec())
@@ -559,7 +584,8 @@ def build(force: bool) -> int:
             print("ERROR", e)
         print(f"Nothing written; {rel(CORPUS)} is unchanged.")
         return 1
-    write_atomic(CORPUS, json.dumps(rows, indent=2, ensure_ascii=False) + "\n")
+    if not _write_or_report(CORPUS, json.dumps(rows, indent=2, ensure_ascii=False) + "\n"):
+        return 1
     print(f"Wrote {len(rows)} criteria to {rel(CORPUS)}, text pulled from {SPEC}.")
     return 0
 
@@ -568,11 +594,12 @@ def validate() -> int:
     """Check the corpus file offline and print every error. Exit status 1 if there are any."""
     try:
         rows = json.loads(CORPUS.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as e:
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as e:
         print(f"ERROR cannot read {rel(CORPUS)}: {e}")
         return 1
     errors = corpus_errors(rows)
-    count = len({r.get("sc") for r in rows if isinstance(r, dict)}) if isinstance(rows, list) else 0
+    good_rows = [r for r in rows if isinstance(r, dict)] if isinstance(rows, list) else []
+    count = len({r["sc"] for r in good_rows if isinstance(r.get("sc"), str) and r["sc"] in CANONICAL})
     print(f"{count}/{len(CANONICAL)} criteria, {len(errors)} errors")
     for e in errors:
         print("ERROR", e)
@@ -616,31 +643,33 @@ def verify() -> int:
     canon = canonical_errors()
     canon_result = "; ".join(canon) if canon else f"identical ({len(CANONICAL)} criteria)."
     report += ["", f"`CANONICAL` vs `scanners/wcag.py`: {canon_result}"]
-    write_atomic(VERIFICATION, "\n".join(report) + "\n")
+    if not _write_or_report(VERIFICATION, "\n".join(report) + "\n"):
+        return 1
     print(f"{passed}/{len(CANONICAL)} criteria match the spec. Wrote {rel(VERIFICATION)}")
     return 1 if failed or canon else 0
 
 
 def map508() -> int:
     """Write the Revised 508 mapping, keeping any 'verified' flags a person has already set."""
-    previous = {}
-    if MAP508.exists():
-        try:
-            previous = json.loads(MAP508.read_text(encoding="utf-8"))
-        except json.JSONDecodeError as e:
-            print(f"ERROR {rel(MAP508)} is not valid JSON ({e}); fix or delete it first.")
-            return 1
-        bad = [sc for sc, v in previous.items() if not isinstance(v, dict)] if isinstance(previous, dict) else None
-        if bad is None or bad:
-            where = f"entries {sorted(bad)} are" if bad else "the file is"
-            print(f"ERROR {rel(MAP508)}: {where} not shaped like map508's output; fix or delete it first.")
-            return 1
+    try:
+        previous = json.loads(MAP508.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        previous = {}  # first run
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as e:
+        print(f"ERROR cannot read {rel(MAP508)} ({e}); fix or delete it first.")
+        return 1
+    bad = [sc for sc, v in previous.items() if not isinstance(v, dict)] if isinstance(previous, dict) else None
+    if bad is None or bad:
+        where = f"entries {sorted(bad)} are" if bad else "the file is"
+        print(f"ERROR {rel(MAP508)}: {where} not shaped like map508's output; fix or delete it first.")
+        return 1
     out = {sc: {"web": "E205.4",
                 "non_web_documents": None if sc in NON_WEB_EXCEPT else "E205.4",
                 "software": None if sc in NON_WEB_EXCEPT else "E207.2",
                 "authoring_tools": "504.2",
                 "verified": previous.get(sc, {}).get("verified") is True} for sc in CANONICAL}
-    write_atomic(MAP508, json.dumps(out, indent=2) + "\n")
+    if not _write_or_report(MAP508, json.dumps(out, indent=2) + "\n"):
+        return 1
     done = sum(v["verified"] for v in out.values())
     print(f"Wrote {rel(MAP508)} ({done}/{len(out)} verified). Have a person check it and flip 'verified' to true.")
     return 0

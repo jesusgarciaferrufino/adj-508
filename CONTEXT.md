@@ -23,6 +23,19 @@ Bedrock region: us-east-1. Model ID: TODO
 ## Current phase
 Week 2: one grey-area finding end to end (capture, scanners, mapper, router, FOR/AGAINST).
 
+## Phase history
+Kept so anyone catching up can see what earlier weeks built and what is still open.
+
+### Week 1 (Sep 16 to 25): setup, ground truth, baseline scan
+Goal: accounts and tools for everyone, one shared repo and AWS account,
+and "before AI" baseline numbers. Full steps: Week 1 Setup Guide.
+- Repo, folder layout, .gitignore, CONTEXT.md: done
+- Finding format (Step 8a): done, committed in week 2 as docs/finding.example.json
+- Bedrock model ID (Step 4e): not recorded yet (Model ID: TODO above)
+- Ground truth (Step 6): data/ground-truth/ground_truth.csv not in the repo yet
+- axe baseline (Step 7): baseline_axe.py was never committed; replaced in week 2
+  by scanners/axe_scan.py. Baseline recall numbers not recorded yet
+
 ## Team conventions
 - Who owns which file, branch rules, and open format questions: docs/TRACKS.md
 - Finding format everyone codes against: docs/finding.example.json

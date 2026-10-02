@@ -33,12 +33,13 @@ Goal: accounts and tools for everyone, one shared repo and AWS account,
 and "before AI" baseline numbers. Full steps: Week 1 Setup Guide.
 - Repo, folder layout, .gitignore, CONTEXT.md: done
 - Finding format (Step 8a): done, committed in week 2 as docs/finding.example.json
-- Bedrock model ID (Step 4e): not recorded yet (Model ID: TODO above)
+- Bedrock model ID (Step 4e): done in week 2 by Abel (PR #2): Claude Opus 4.6, see Stack above.
+  Smoke test: scripts/hello_bedrock.py
 - Ground truth (Step 6): data/ground-truth/ground_truth.csv not in the repo yet
 - axe baseline (Step 7): baseline_axe.py was never committed; replaced in week 2
   by scanners/axe_scan.py. Baseline recall numbers not recorded yet
 
 ## Team conventions
-- Who owns which file, branch rules, and open format questions: docs/TRACKS.md
+- Who owns which file, branch rules, and the agreed finding format decisions: docs/TRACKS.md
 - Finding format everyone codes against: docs/finding.example.json
 - Playwright 1.63 has no page.accessibility.snapshot(). Use page.aria_snapshot() or a CDP session.

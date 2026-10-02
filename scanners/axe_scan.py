@@ -10,7 +10,9 @@ For every flagged element we add an "_adj" block with:
                    (axe's own "html" field can be shortened)
   outer_html_len   length before our cap, so truncation is visible
   in_wrapper       True if the element is inside W3C's wrapper (#meta-header at
-                   the top or #meta-footer at the bottom), which is not part of the demo. The merge step filters on this;
+                   the top or #meta-footer at the bottom), which is not part of the demo.
+  dom_index        position in document.querySelectorAll('*'); the merge step's
+                   element identity (selectors differ between scanners). The merge step filters on this;
                    the scan keeps everything so nothing is lost here.
 
 The whole document is scanned on purpose: page-level failures such as a missing
@@ -47,17 +49,23 @@ AXE_OPTIONS = {
 
 # Runs in the page: for each selector, return full outerHTML and wrapper membership.
 ENRICH_JS = """
-([selectors, wrapper, cap]) => selectors.map(sel => {
+([selectors, wrapper, cap]) => {
+ const all = Array.from(document.querySelectorAll("*"));
+ return selectors.map(sel => {
   let el = null;
   try { el = document.querySelector(sel); } catch (e) { return {error: String(e)}; }
   if (!el) return {error: "selector matched nothing"};
-  const html = el.outerHTML;
+  // <html> and <body> contain the whole page; their opening tag is the evidence.
+  const whole = el === document.documentElement || el === document.body;
+  const html = whole ? el.outerHTML.slice(0, el.outerHTML.indexOf(">") + 1) : el.outerHTML;
   return {
     outer_html: html.length > cap ? html.slice(0, cap) : html,
     outer_html_len: html.length,
     in_wrapper: el.closest(wrapper) !== null,
+    dom_index: all.indexOf(el),
   };
-})
+ });
+}
 """
 
 
@@ -71,8 +79,12 @@ def node_selector(node):
 
 def scan_page(page, version, name):
     page.goto(page_url(version, name), wait_until="networkidle")
-    page.add_script_tag(path=str(AXE))
+    axe_tag = page.add_script_tag(path=str(AXE))
     results = page.evaluate("async (opts) => await axe.run(document, opts)", AXE_OPTIONS)
+    # Take axe's <script> back out before counting element positions. Left in, it
+    # shifts every dom_index after <head> by one versus a clean page (the Pa11y scan
+    # and the merge step), so the same element would get two different indices.
+    axe_tag.evaluate("e => e.remove()")
 
     nodes = [n for kind in ("violations", "incomplete") for r in results[kind] for n in r["nodes"]]
     selectors = [node_selector(n) or "" for n in nodes]

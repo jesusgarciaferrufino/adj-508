@@ -1,0 +1,6223 @@
+[
+  {
+    "finding_id": "F-after-tickets-0001",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+        "type": "notice",
+        "message": "Check that the content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0002",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+    "wcag": [
+      "1.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+        "type": "notice",
+        "message": "Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0003",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+    "wcag": [
+      "1.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+        "type": "notice",
+        "message": "Check that any information conveyed using colour alone is also available in text, or through other visual cues."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0004",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+    "wcag": [
+      "1.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+        "type": "notice",
+        "message": "Check that text can be resized without assistive technology up to 200 percent without loss of content or functionality."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0005",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+        "type": "notice",
+        "message": "If the technologies being used can achieve the visual presentation, check that text is used to convey information rather than images of text, except when the image of text is essential to the information being conveyed, or can be visually customised to the user's requirements."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0006",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+    "wcag": [
+      "2.2.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+        "type": "notice",
+        "message": "If any part of the content moves, scrolls or blinks for more than 5 seconds, or auto-updates, check that there is a mechanism available to pause, stop, or hide the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0007",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+    "wcag": [
+      "2.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+        "type": "notice",
+        "message": "Check that no component of the content flashes more than three times in any 1-second period, or that the size of any flashing area is sufficiently small."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0008",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+    "wcag": [
+      "2.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+        "type": "notice",
+        "message": "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0009",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+    "wcag": [
+      "2.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+        "type": "notice",
+        "message": "If this Web page is not part of a linear process, check that there is more than one way of locating this Web page within a set of Web pages."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0010",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+    "wcag": [
+      "2.4.6"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+        "type": "notice",
+        "message": "Check that headings and labels describe topic or purpose."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0011",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+    "wcag": [
+      "2.4.7"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+        "type": "notice",
+        "message": "Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0012",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+    "wcag": [
+      "3.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+        "type": "notice",
+        "message": "Ensure that any change in language is marked using the lang and/or xml:lang attribute on an element, as appropriate."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0013",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+    "wcag": [
+      "3.2.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+        "type": "notice",
+        "message": "Check that navigational mechanisms that are repeated on multiple Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0014",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_tickets_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+        "type": "notice",
+        "message": "Check that components that have the same functionality within this Web page are identified consistently in the set of Web pages to which it belongs."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0015",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+    "wcag": [
+      "2.4.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html > head > title",
+      "html_snippet": "<title>Citylights Tickets [Accessible Tickets Page]</title>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 2
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+        "type": "notice",
+        "message": "Check that the title element describes the document."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0016",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"#content\">Skip to content (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 58
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0017",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"#navtarget\">Skip to navigation (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 60
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0018",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a",
+      "html_snippet": "<a href=\"home.html\"><img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\"></a>",
+      "screenshot": "data/findings/shots/after_tickets_el0062.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 62
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0019",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a > img",
+      "html_snippet": "<img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\">",
+      "screenshot": "data/findings/shots/after_tickets_el0063.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 63
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0020",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > img",
+      "html_snippet": "<img src=\"./img/weather.png\" alt=\"Sunny Spells\">",
+      "screenshot": "data/findings/shots/after_tickets_el0064.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 64
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0021",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+    "wcag": [
+      "3.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_tickets_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+        "type": "notice",
+        "message": "If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0022",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+    "wcag": [
+      "3.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_tickets_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+        "type": "notice",
+        "message": "Check that descriptive labels or instructions (including for required fields) are provided for user input in this form."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0023",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+    "wcag": [
+      "3.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_tickets_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+        "type": "notice",
+        "message": "Check that this form provides suggested corrections to errors in user input, unless it would jeopardize the security or purpose of the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0024",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+    "wcag": [
+      "3.3.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_tickets_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+        "type": "notice",
+        "message": "If this form would bind a user to a financial or legal commitment, modify/delete user-controllable data, or submit test responses, ensure that submissions are either reversible, checked for input errors, and/or confirmed by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0025",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_tickets_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+        "type": "warning",
+        "message": "If this selection list contains groups of related options, they should be grouped with optgroup."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0026",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_tickets_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0027",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_tickets_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+        "type": "warning",
+        "message": "This select element does not have a value available to an accessibility API."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0028",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form > div > input",
+      "html_snippet": "<input type=\"submit\" value=\"Go\">",
+      "screenshot": "data/findings/shots/after_tickets_el0085.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 85
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0029",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".home > a[href$=\"home.html\"]",
+      "html_snippet": "<a href=\"home.html\">Home</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0030",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"home.html\">Home</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0031",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".news > a[href$=\"news.html\"]",
+      "html_snippet": "<a href=\"news.html\">News</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0032",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"news.html\">News</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0033",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".facts_set > a",
+      "html_snippet": "<a>Tickets</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0034",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(3) > a",
+      "html_snippet": "<a>Tickets</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0035",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(3) > a",
+      "html_snippet": "<a>Tickets</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+        "type": "warning",
+        "message": "Anchor element found with link content, but no href, ID or name attribute has been supplied."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0036",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".survey > a[href$=\"survey.html\"]",
+      "html_snippet": "<a href=\"survey.html\">Survey</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0037",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(4) > a",
+      "html_snippet": "<a href=\"survey.html\">Survey</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0038",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > h1",
+      "html_snippet": "<h1>Citylights Ticket Offers</h1>",
+      "screenshot": "data/findings/shots/after_tickets_el0105.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 105
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0039",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#sffloat1 > p:nth-child(1)",
+      "html_snippet": "<p>Citylights in partnership with globo enterprises are proud to offer specially priced tickets to see these great artists - <em><strong><span lang=\"fr\">Les Gar\u00e7ons</span> &amp; The Obelisks</strong></em></p>",
+      "screenshot": "data/findings/shots/after_tickets_el0108.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 108
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0040",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "em > strong",
+      "html_snippet": "<strong><span lang=\"fr\">Les Gar\u00e7ons</span> &amp; The Obelisks</strong>",
+      "screenshot": "data/findings/shots/after_tickets_el0110.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 110
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0041",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "strong > span[lang=\"fr\"]",
+      "html_snippet": "<span lang=\"fr\">Les Gar\u00e7ons</span>",
+      "screenshot": "data/findings/shots/after_tickets_el0111.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 111
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0042",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#sffloat1 > p:nth-child(2)",
+      "html_snippet": "<p>These <strong>special deals</strong> are exclusive to Citylights and can only be purchased by calling the ticket hotline.</p>",
+      "screenshot": "data/findings/shots/after_tickets_el0112.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 112
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0043",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#sffloat1 > p:nth-child(2) > strong",
+      "html_snippet": "<strong>special deals</strong>",
+      "screenshot": "data/findings/shots/after_tickets_el0113.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 113
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0044",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H73.3.NoSummary",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#sfdatetable",
+      "html_snippet": "<table id=\"sfdatetable\">\n                     <caption>Concert Dates</caption>\n                     <tbody><tr class=\"datahead\">\n                       <th scope=\"col\">Date</th>\n                       <th scope=\"col\">Event</th>\n                     </tr>\n                     <tr>\n                       <td>12 Feb 09</td>\n                       <td lang=\"fr\">Les Gar\u00e7ons</td>\n                     </tr>\n                     <tr>\n                       <td>24 Mar 09</td>\n                       <td>The Obelisks</td>\n                     </tr>\n                  </tbody></table>",
+      "screenshot": "data/findings/shots/after_tickets_el0115.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 115
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H73.3.NoSummary",
+        "type": "warning",
+        "message": "If this table is a data table, consider using the summary attribute of the table element to give an overview of this table."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.DataTable",
+        "type": "notice",
+        "message": "This table appears to be a data table. If it is meant to instead be a layout table, ensure there are no th elements, and no summary or caption."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H39.3.Check",
+        "type": "notice",
+        "message": "If this table is a data table, check that the caption element accurately describes this table."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0045",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#sfdatetable > caption",
+      "html_snippet": "<caption>Concert Dates</caption>",
+      "screenshot": "data/findings/shots/after_tickets_el0116.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 116
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0046",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(2) > td:nth-child(1)",
+      "html_snippet": "<td>12 Feb 09</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0122.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 122
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0047",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[lang=\"fr\"]",
+      "html_snippet": "<td lang=\"fr\">Les Gar\u00e7ons</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0123.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 123
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0048",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(3) > td:nth-child(1)",
+      "html_snippet": "<td>24 Mar 09</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0125.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 125
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0049",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#sfdatetable > tbody > tr:nth-child(3) > td:nth-child(2)",
+      "html_snippet": "<td>The Obelisks</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0126.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 126
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0050",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.DataTable",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table",
+      "html_snippet": "<table width=\"100%\" class=\"sfdtable\" summary=\"Ticket prices for each concert are indicated by seat allocation; there are separate sets of ticket prices for concessions and groups of 5 or more people\">\n                <caption class=\"head\">Ticket prices for the <span lang=\"fr\">Les Gar\u00e7ons</span> and The Obelisks concerts</caption>\n                <tbody><tr class=\"datahead\">\n                  <th id=\"c1\">Adult</th>\n                  <th id=\"c2\"><div>Front Seats</div></th>\n                  <th id=\"c3\">Rear Seats</th>\n                  <th id=\"c4\">Dress Circle</th>\n                  <th id=\"c5\">Special Tables</th>\n                </tr>\n                <tr>\n                  <th id=\"c6\" headers=\"c1\" abbr=\"Obelisks\">Obelisks - Monkey, Monkey</th>\n                  <td headers=\"c1 c2 c6\">$20.90</td>\n                  <td headers=\"c1 c3 c6\">$20.90</td>\n                  <td headers=\"c1 c4 c6\">$20.90</td>\n                  <td headers=\"c1 c5 c6\">$20.90</td>\n                </tr>\n                <tr>\n                  <th id=\"c7\" headers=\"c1\" abbr=\"Gar\u00e7ons\" lang=\"fr\">Les Gar\u00e7ons de la Plage</th>\n                  <td headers=\"c1 c2 c7\">$20.90</td>\n                  <td headers=\"c1 c3 c7\">$27.90</td>\n                  <td headers=\"c1 c4 c7\">$30.90</td>\n                  <td headers=\"c1 c5 c7\">$33.90</td>\n                </tr>\n                <tr class=\"datahead\">\n                  <th id=\"c8\" class=\"datahead\">Concession</th>\n                  <td headers=\"c2\"></td>\n                  <td headers=\"c3\"></td>\n                  <td headers=\"c4\"></td>\n                  <td headers=\"c5\"></td>\n                </tr>\n                <tr>\n                  <th id=\"c9\" headers=\"c8\" abbr=\"Obelisks\">Obelisks - Monkey, Monkey</th>\n                  <td headers=\"c8 c2 c9\">$20.90</td>\n                  <td headers=\"c8 c3 c9\">$20.90</td>\n                  <td headers=\"c8 c4 c9\">$20.90</td>\n                  <td headers=\"c8 c5 c9\">$20.90</td>\n                </tr>\n                <tr>\n                  <th id=\"c10\" headers=\"c8\" abbr=\"Gar\u00e7ons\" lang=\"fr\">Les Gar\u00e7ons de la Plage</th>\n                  <td headers=\"c8 c2 c10\">$20.90</td>\n                  <td headers=\"c8 c3 c10\">$27.90</td>\n                  <td headers=\"c8 c4 c10\">$30.90</td>\n                  <td headers=\"c8 c5 c10\">$33.90</td>\n                </tr>\n                <tr class=\"datahead\">\n                  <th id=\"c11\">Group (5 or more)</th>\n                  <td headers=\"c2\"></td>\n                  <td headers=\"c3\"></td>\n                  <td headers=\"c4\"></td>\n                  <td headers=\"c5\"></td>\n                </tr>\n                <tr>\n                  <th id=\"c12\" headers=\"c11\" abbr=\"Obelisks\">Obelisks - Monkey, Monkey</th>\n                  <td headers=\"c11 c2 c12\">$14.90</td>\n                  <td headers=\"c11 c3 c12\">$14.90</td>\n                  <td headers=\"c11 c4 c12\">$14.90</td>\n                  <td headers=\"c11 c5 c12\">$14.90</td>\n                </tr>\n                <tr>\n                  <th id=\"c13\" headers=\"c11\" abbr=\"Gar\u00e7ons\" lang=\"fr\">Les Gar\u00e7ons de la Plage</th>\n                  <td headers=\"c11 c2 c13\">$14.90</td>\n                  <td headers=\"c11 c3 c13\">$20.90</td>\n                  <td headers=\"c11 c4 c13\">$22.90</td>\n                  <td headers=\"c11 c5 c13\">$23.90</td>\n                </tr>\n              </tbody></table>",
+      "screenshot": "data/findings/shots/after_tickets_el0129.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 129
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.DataTable",
+        "type": "notice",
+        "message": "This table appears to be a data table. If it is meant to instead be a layout table, ensure there are no th elements, and no summary or caption."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H73.3.Check",
+        "type": "notice",
+        "message": "If this table is a data table, check that the summary attribute describes the table's organization or explains how to use the table."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H39.3.Check",
+        "type": "notice",
+        "message": "If this table is a data table, check that the caption element accurately describes this table."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0051",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".head",
+      "html_snippet": "<caption class=\"head\">Ticket prices for the <span lang=\"fr\">Les Gar\u00e7ons</span> and The Obelisks concerts</caption>",
+      "screenshot": "data/findings/shots/after_tickets_el0130.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 130
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0052",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".head > span[lang=\"fr\"]",
+      "html_snippet": "<span lang=\"fr\">Les Gar\u00e7ons</span>",
+      "screenshot": "data/findings/shots/after_tickets_el0131.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 131
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0053",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#c6",
+      "html_snippet": "<th id=\"c6\" headers=\"c1\" abbr=\"Obelisks\">Obelisks - Monkey, Monkey</th>",
+      "screenshot": "data/findings/shots/after_tickets_el0141.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 141
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0054",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(2) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c1 c2 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0142.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 142
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c2 c6\" but found \"c1 c2 c6\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0055",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c2 c6\"]",
+      "html_snippet": "<td headers=\"c1 c2 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0142.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 142
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0056",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(2) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c1 c3 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0143.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 143
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c3 c6\" but found \"c1 c3 c6\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0057",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c3 c6\"]",
+      "html_snippet": "<td headers=\"c1 c3 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0143.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 143
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0058",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(2) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c1 c4 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0144.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 144
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c4 c6\" but found \"c1 c4 c6\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0059",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c4 c6\"]",
+      "html_snippet": "<td headers=\"c1 c4 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0144.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 144
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0060",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(2) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c1 c5 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0145.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 145
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c5 c6\" but found \"c1 c5 c6\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0061",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c5 c6\"]",
+      "html_snippet": "<td headers=\"c1 c5 c6\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0145.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 145
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0062",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#c7",
+      "html_snippet": "<th id=\"c7\" headers=\"c1\" abbr=\"Gar\u00e7ons\" lang=\"fr\">Les Gar\u00e7ons de la Plage</th>",
+      "screenshot": "data/findings/shots/after_tickets_el0147.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 147
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0063",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(3) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c1 c2 c7\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0148.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 148
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c2 c7\" but found \"c1 c2 c7\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0064",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c2 c7\"]",
+      "html_snippet": "<td headers=\"c1 c2 c7\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0148.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 148
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0065",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(3) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c1 c3 c7\">$27.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0149.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 149
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c3 c7\" but found \"c1 c3 c7\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0066",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c3 c7\"]",
+      "html_snippet": "<td headers=\"c1 c3 c7\">$27.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0149.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 149
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0067",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(3) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c1 c4 c7\">$30.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0150.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 150
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c4 c7\" but found \"c1 c4 c7\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0068",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c4 c7\"]",
+      "html_snippet": "<td headers=\"c1 c4 c7\">$30.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0150.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 150
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0069",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(3) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c1 c5 c7\">$33.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0151.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 151
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c5 c7\" but found \"c1 c5 c7\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0070",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c1 c5 c7\"]",
+      "html_snippet": "<td headers=\"c1 c5 c7\">$33.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0151.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 151
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0071",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(4) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c2\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0154.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 154
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c2 c8\" but found \"c2\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0072",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(4) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c3\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0155.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 155
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c3 c8\" but found \"c3\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0073",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(4) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c4\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0156.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 156
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c4 c8\" but found \"c4\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0074",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(4) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c5\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0157.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 157
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c5 c8\" but found \"c5\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0075",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#c9",
+      "html_snippet": "<th id=\"c9\" headers=\"c8\" abbr=\"Obelisks\">Obelisks - Monkey, Monkey</th>",
+      "screenshot": "data/findings/shots/after_tickets_el0159.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 159
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0076",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(5) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c8 c2 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0160.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 160
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c2 c9\" but found \"c8 c2 c9\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0077",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c2 c9\"]",
+      "html_snippet": "<td headers=\"c8 c2 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0160.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 160
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0078",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(5) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c8 c3 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0161.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 161
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c3 c9\" but found \"c8 c3 c9\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0079",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c3 c9\"]",
+      "html_snippet": "<td headers=\"c8 c3 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0161.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 161
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0080",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(5) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c8 c4 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0162.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 162
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c4 c9\" but found \"c8 c4 c9\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0081",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c4 c9\"]",
+      "html_snippet": "<td headers=\"c8 c4 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0162.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 162
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0082",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(5) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c8 c5 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0163.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 163
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c5 c9\" but found \"c8 c5 c9\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0083",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c5 c9\"]",
+      "html_snippet": "<td headers=\"c8 c5 c9\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0163.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 163
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0084",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#c10",
+      "html_snippet": "<th id=\"c10\" headers=\"c8\" abbr=\"Gar\u00e7ons\" lang=\"fr\">Les Gar\u00e7ons de la Plage</th>",
+      "screenshot": "data/findings/shots/after_tickets_el0165.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 165
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0085",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(6) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c8 c2 c10\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0166.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 166
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c10 c2\" but found \"c8 c2 c10\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0086",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c2 c10\"]",
+      "html_snippet": "<td headers=\"c8 c2 c10\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0166.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 166
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0087",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(6) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c8 c3 c10\">$27.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0167.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 167
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c10 c3\" but found \"c8 c3 c10\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0088",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c3 c10\"]",
+      "html_snippet": "<td headers=\"c8 c3 c10\">$27.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0167.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 167
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0089",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(6) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c8 c4 c10\">$30.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0168.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 168
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c10 c4\" but found \"c8 c4 c10\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0090",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c4 c10\"]",
+      "html_snippet": "<td headers=\"c8 c4 c10\">$30.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0168.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 168
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0091",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(6) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c8 c5 c10\">$33.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0169.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 169
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c10 c5\" but found \"c8 c5 c10\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0092",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c8 c5 c10\"]",
+      "html_snippet": "<td headers=\"c8 c5 c10\">$33.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0169.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 169
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0093",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(7) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c2\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0172.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 172
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c11 c2\" but found \"c2\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0094",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(7) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c3\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0173.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 173
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c11 c3\" but found \"c3\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0095",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(7) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c4\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0174.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 174
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c11 c4\" but found \"c4\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0096",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(7) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c5\"></td>",
+      "screenshot": "data/findings/shots/after_tickets_el0175.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 175
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c11 c5\" but found \"c5\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0097",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#c12",
+      "html_snippet": "<th id=\"c12\" headers=\"c11\" abbr=\"Obelisks\">Obelisks - Monkey, Monkey</th>",
+      "screenshot": "data/findings/shots/after_tickets_el0177.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 177
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0098",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(8) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c11 c2 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0178.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 178
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c12 c2\" but found \"c11 c2 c12\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0099",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c2 c12\"]",
+      "html_snippet": "<td headers=\"c11 c2 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0178.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 178
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0100",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(8) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c11 c3 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0179.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 179
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c12 c3\" but found \"c11 c3 c12\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0101",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c3 c12\"]",
+      "html_snippet": "<td headers=\"c11 c3 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0179.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 179
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0102",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(8) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c11 c4 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0180.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 180
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c12 c4\" but found \"c11 c4 c12\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0103",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c4 c12\"]",
+      "html_snippet": "<td headers=\"c11 c4 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0180.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 180
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0104",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(8) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c11 c5 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0181.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 181
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c12 c5\" but found \"c11 c5 c12\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0105",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c5 c12\"]",
+      "html_snippet": "<td headers=\"c11 c5 c12\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0181.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 181
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0106",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#c13",
+      "html_snippet": "<th id=\"c13\" headers=\"c11\" abbr=\"Gar\u00e7ons\" lang=\"fr\">Les Gar\u00e7ons de la Plage</th>",
+      "screenshot": "data/findings/shots/after_tickets_el0183.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 183
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0107",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(9) > td:nth-child(2)",
+      "html_snippet": "<td headers=\"c11 c2 c13\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0184.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 184
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c13 c2\" but found \"c11 c2 c13\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0108",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c2 c13\"]",
+      "html_snippet": "<td headers=\"c11 c2 c13\">$14.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0184.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 184
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0109",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(9) > td:nth-child(3)",
+      "html_snippet": "<td headers=\"c11 c3 c13\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0185.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 185
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c13 c3\" but found \"c11 c3 c13\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0110",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c3 c13\"]",
+      "html_snippet": "<td headers=\"c11 c3 c13\">$20.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0185.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 185
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0111",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(9) > td:nth-child(4)",
+      "html_snippet": "<td headers=\"c11 c4 c13\">$22.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0186.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 186
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c13 c4\" but found \"c11 c4 c13\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0112",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c4 c13\"]",
+      "html_snippet": "<td headers=\"c11 c4 c13\">$22.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0186.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 186
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0113",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#content > table > tbody > tr:nth-child(9) > td:nth-child(5)",
+      "html_snippet": "<td headers=\"c11 c5 c13\">$23.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0187.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 187
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H43.IncorrectAttr",
+        "type": "error",
+        "message": "Incorrect headers attribute on this td element. Expected \"c13 c5\" but found \"c11 c5 c13\""
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0114",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "td[headers=\"c11 c5 c13\"]",
+      "html_snippet": "<td headers=\"c11 c5 c13\">$23.90</td>",
+      "screenshot": "data/findings/shots/after_tickets_el0187.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 187
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0115",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".boxcontent > h2",
+      "html_snippet": "<h2>Citylights Terms and Conditions</h2>",
+      "screenshot": "data/findings/shots/after_tickets_el0192.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 192
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0116",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "ol > li:nth-child(1)",
+      "html_snippet": "<li>You agree through the act of calling the M-U-S-I-C Line or by reading any part of these terms and conditions that you will not, now or ever, (a) transmit any material to any person, living or dead, that may be deemed by that person to be defamatory, harmful, unlawful, argumentative or confusing, and that furthermore (b) any resemblance between yourself or your family and any persons, vegetables or musical instruments living, dead or other featured on the Citylights website is entirely unintentional and that where such a resemblance may occur that you will take immediate action to prevent such resemblance reoccurring.</li>",
+      "screenshot": "data/findings/shots/after_tickets_el0194.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 194
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0117",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "ol > li:nth-child(2)",
+      "html_snippet": "<li>Citylights shall not be liable to you for any damages or loss of revenue, goodwill, enthusiasm or skin tone arising out of or in connection with any use or other interaction with (a) the Citylights websites, (b) reviews of the Citylights website, (c) any employees or potential employees of Citylights past or present or (d) any website linking to or linked from the Citylights website, whether directly or through other websites.</li>",
+      "screenshot": "data/findings/shots/after_tickets_el0195.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 195
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0118",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "ol > li:nth-child(3)",
+      "html_snippet": "<li>Remedies: Since Citylights would be irreparably damaged to an unforeseeable degree if Sections [1] and [2] were not specifically enforced, Citylights will be entitled without bond, other security or proof of damages, to appropriate equitable remedies with respect to breaches of such sections, in addition to any other available remedies.</li>",
+      "screenshot": "data/findings/shots/after_tickets_el0196.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 196
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0119",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p",
+      "html_snippet": "<p><a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a> \u00a9 2012 <a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a><sup>\u00ae</sup> (<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>, <a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>, <a href=\"http://www.keio.ac.jp/\">Keio</a>)</p>",
+      "screenshot": "data/findings/shots/after_tickets_el0198.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 198
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+        "type": "warning",
+        "message": "If this element contains a navigation section, it is recommended that it be marked up as a list."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0120",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(1)",
+      "html_snippet": "<a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0199.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 199
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0121",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(2)",
+      "html_snippet": "<a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a>",
+      "screenshot": "data/findings/shots/after_tickets_el0200.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 200
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0122",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(4)",
+      "html_snippet": "<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>",
+      "screenshot": "data/findings/shots/after_tickets_el0203.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 203
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0123",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(5)",
+      "html_snippet": "<a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>",
+      "screenshot": "data/findings/shots/after_tickets_el0205.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 205
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-tickets-0124",
+    "page": "tickets",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(6)",
+      "html_snippet": "<a href=\"http://www.keio.ac.jp/\">Keio</a>",
+      "screenshot": "data/findings/shots/after_tickets_el0207.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/tickets.html",
+      "captured_at": "2026-10-02T16:24:45.876Z",
+      "dom_index": 207
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  }
+]

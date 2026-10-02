@@ -8,6 +8,7 @@ plus an "_adj" block:
   outer_html       full outerHTML of the element, read in Playwright
   outer_html_len   length before the cap
   in_wrapper       True if inside W3C's #meta-header or #meta-footer (merge filters on this)
+  dom_index        element position in document order (see axe_scan.py)
 
 Warnings and notices are included on purpose. axe's "incomplete" results on these
 pages are almost all background-image contrast, so HTMLCS warnings/notices

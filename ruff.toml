@@ -1,0 +1,8 @@
+target-version = "py313"
+line-length = 100
+extend-exclude = ["data", "node_modules", ".venv"]
+
+[lint]
+# E/F: errors and pyflakes, B: likely bugs, I: import order,
+# UP: modern syntax, SIM: simplifications, BLE: blind except
+select = ["E", "F", "B", "I", "UP", "SIM", "BLE"]

@@ -1,19 +1,49 @@
 {
-  "finding_id": "F-before-home-0007",
+  "finding_id": "F-before-home-0032",
   "page": "home",
   "site_version": "before",
   "source": "axe-core",
+  "sources": [
+    "axe-core",
+    "pa11y"
+  ],
+  "scanner_status": "violation",
   "rule_id": "image-alt",
-  "wcag": ["1.1.1"],
-  "section508": ["E205.4 (WCAG 2.0 A/AA)"],
-  "bucket": "grey",
+  "wcag": [
+    "1.1.1"
+  ],
+  "section508": [
+    "E205.4 (WCAG 2.0 A/AA)"
+  ],
+  "bucket": null,
   "evidence": {
-    "selector": "#header > img:nth-child(1)",
-    "html_snippet": "<img src=\"logo.gif\">",
-    "screenshot": "s3://adj-evidence/before_home_0007.png",
+    "selector": "img[src$=\"top_weather.gif\"]",
+    "html_snippet": "<img src=\"./img/top_weather.gif\" width=\"128px\" height=\"86px\">",
+    "screenshot": "data/findings/shots/before_home_el0081.jpg",
     "page_url": "https://www.w3.org/WAI/demos/bad/before/home.html",
-    "captured_at": "2026-09-20T14:02:00Z"
+    "captured_at": "2026-10-02T16:24:39.819Z",
+    "dom_index": 81
   },
+  "scanner_details": [
+    {
+      "scanner": "axe-core",
+      "rule_id": "image-alt",
+      "type": "violations",
+      "message": "Element does not have an alt attribute"
+    },
+    {
+      "scanner": "pa11y",
+      "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37",
+      "type": "error",
+      "message": "Img element missing an alt attribute. Use the alt attribute to specify a short text alternative."
+    },
+    {
+      "scanner": "pa11y",
+      "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+      "type": "notice",
+      "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+    }
+  ],
   "ai": {
     "case_for": "",
     "case_against": "",

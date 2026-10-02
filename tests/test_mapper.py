@@ -7,8 +7,9 @@ import pytest
 
 from agents import mapper
 from agents.mapper import NotInCorpusError, map_finding, map_page, read_ground_truth, score_spotcheck
+from rag import corpus_tools
 from rag.corpus_tools import CANONICAL, CONTENT, CorpusError, canonical_errors, corpus_errors, load_corpus
-from scanners.findings import REPO, Finding, FindingsFileError, validate_findings
+from scanners.findings import REPO, Finding, FindingsFileError, load_findings, validate_findings
 from scanners.wcag import WCAG20_A, WCAG20_A_AA, WCAG20_AA
 
 
@@ -128,6 +129,57 @@ def test_spotcheck_appends_dated_result(tmp_path, monkeypatch):
     assert mapper.spotcheck({"F-1": "1.1.1"}) == 0
     text = log.read_text()
     assert text.startswith("# Mapper spot-check log")
-    assert text.count(f"## {date.today().isoformat()}: {mapper.MAPPER_VERSION}, seed 508") == 2
-    assert "**1/2 correct.**" in text and "**1/1 correct.**" in text
+    assert text.count(f"## {date.today().isoformat()}: all pages, {mapper.MAPPER_VERSION}, seed 508") == 2
+    assert "**1/2 correct** (target 8/10)." in text and "**1/1 correct** (target 8/10)." in text
     assert "| F-2 | 1.3.1 | 4.1.2 | NO |" in text
+    assert text.count("### Misses and why") == 2
+    assert "- F-2: mapped 1.3.1, ground truth 4.1.2. Why:\n" in text
+    assert text.rstrip().endswith("No misses.")
+
+
+def test_spotcheck_command_end_to_end_with_fake_ground_truth(tmp_path, monkeypatch):
+    """`python -m agents.mapper --spotcheck --version before --page home` against a small fake CSV."""
+    ids = [f.finding_id for f in load_findings("before", "home")][:12]
+    wrong = set(ids[:3])  # the fake sheet disagrees with the mapper on these three
+    rows = ["finding_id,wcag,notes"] + [f"{fid},{'9.9.9' if fid in wrong else fid.rsplit('-', 1)[1]},"
+                                        for fid in ids]
+    rows.append("F-after-news-el0001-1.1.1,1.1.1,")  # another page: outside --version/--page, never sampled
+    truth = tmp_path / "ground_truth.csv"
+    truth.write_text("\n".join(rows) + "\n")
+    log = tmp_path / "docs" / "mapper_spotcheck.md"
+    monkeypatch.setattr(mapper, "GROUND_TRUTH", truth)
+    monkeypatch.setattr(mapper, "SPOTCHECK_LOG", log)
+    monkeypatch.setattr(mapper, "MAPPED_DIR", tmp_path / "mapped")
+
+    assert mapper.main(["--spotcheck", "--version", "before", "--page", "home"]) == 0
+    assert [p.name for p in (tmp_path / "mapped").iterdir()] == ["before_home.json"]
+
+    expected = score_spotcheck({fid: fid.rsplit("-", 1)[1] for fid in ids},
+                               {fid: {"9.9.9" if fid in wrong else fid.rsplit("-", 1)[1]} for fid in ids})
+    assert len(expected) == 10
+    misses = [fid for fid, _, _, ok in expected if not ok]
+    text = log.read_text()
+    assert f"## {date.today().isoformat()}: before/home, {mapper.MAPPER_VERSION}, seed 508" in text
+    assert f"**{10 - len(misses)}/10 correct** (target 8/10)." in text
+    assert "F-after-news" not in text
+    section = text.split("### Misses and why", 1)[1]
+    assert [ln.split(":")[0][2:] for ln in section.strip().splitlines()] == misses
+    assert all(ln.endswith("Why:") for ln in section.strip().splitlines())
+
+    # A second run adds a second dated entry rather than replacing the first.
+    assert mapper.main(["--spotcheck", "--version", "before", "--page", "home"]) == 0
+    assert log.read_text().count("### Misses and why") == 2
+
+
+def test_write_atomic_leaves_no_temp_file_when_it_fails(tmp_path, monkeypatch):
+    target = tmp_path / "out.json"
+    target.write_text("old")
+
+    def broken_replace(src, dst):
+        raise OSError("No space left on device")
+
+    monkeypatch.setattr(corpus_tools.os, "replace", broken_replace)
+    with pytest.raises(OSError, match="No space"):
+        corpus_tools.write_atomic(target, "new")
+    assert target.read_text() == "old"
+    assert [p.name for p in tmp_path.iterdir()] == ["out.json"]

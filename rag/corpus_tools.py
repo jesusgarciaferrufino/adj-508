@@ -19,6 +19,7 @@ import json
 import os
 import re
 import sys
+import tempfile
 import time
 import urllib.request
 from datetime import date
@@ -351,9 +352,16 @@ def rel(path: Path) -> str:
 def write_atomic(path: Path, text: str) -> None:
     """Write via a temporary file and rename, so a crash never leaves a half-written file."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(path.name + ".tmp")
-    tmp.write_text(text, encoding="utf-8")
-    os.replace(tmp, path)
+    fd, name = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp")
+    tmp = Path(name)
+    try:
+        os.fchmod(fd, 0o644)  # mkstemp makes the file owner-only; keep normal permissions
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            fh.write(text)
+        os.replace(tmp, path)
+    except BaseException:
+        tmp.unlink(missing_ok=True)  # don't leave the temporary file behind (e.g. disk full)
+        raise
 
 
 def corpus_sha256(path: Path = CORPUS) -> str:
@@ -513,6 +521,8 @@ def load_corpus(path: Path = CORPUS) -> dict[str, dict]:
         rows = json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
         raise CorpusError(f"{rel(path)} is not valid JSON: {e}") from None
+    except (OSError, UnicodeDecodeError) as e:
+        raise CorpusError(f"cannot read {rel(path)}: {e}") from None
     errors = corpus_errors(rows)
     if errors:
         raise CorpusError(f"{rel(path)} failed validation ({len(errors)} errors), first: {errors[0]}. "
@@ -604,7 +614,8 @@ def verify() -> int:
         *lines,
     ]
     canon = canonical_errors()
-    report += ["", "`CANONICAL` vs `scanners/wcag.py`: " + ("; ".join(canon) if canon else "identical (38 criteria).")]
+    canon_result = "; ".join(canon) if canon else f"identical ({len(CANONICAL)} criteria)."
+    report += ["", f"`CANONICAL` vs `scanners/wcag.py`: {canon_result}"]
     write_atomic(VERIFICATION, "\n".join(report) + "\n")
     print(f"{passed}/{len(CANONICAL)} criteria match the spec. Wrote {rel(VERIFICATION)}")
     return 1 if failed or canon else 0

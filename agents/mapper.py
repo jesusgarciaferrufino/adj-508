@@ -1,7 +1,12 @@
 """Track B requirement mapper: attach the corpus entry for each finding's WCAG 2.0 criterion.
 
     python -m agents.mapper              # map every page into data/mapped/{version}_{page}.json
-    python -m agents.mapper --spotcheck  # score 10 sampled findings against the ground truth
+    python -m agents.mapper --spotcheck  # also score 10 sampled findings against the ground truth
+    python -m agents.mapper --spotcheck --version before --page home   # one page only
+
+--version and --page limit both the pages mapped and the findings the spot-check samples from.
+Each spot-check run appends a dated entry to docs/mapper_spotcheck.md, including a "Misses and
+why" section with one line per miss for a person to explain.
 
 Run it as a module from the repo root; `python agents/mapper.py` can't import rag/ or scanners/.
 
@@ -65,6 +70,7 @@ def map_page(findings: list[Finding], corpus: dict[str, dict]) -> tuple[dict, di
 
 
 def mapped_path(version: str, page: str) -> Path:
+    """Where one page's mapping is written: data/mapped/{version}_{page}.json."""
     return MAPPED_DIR / f"{version}_{page}.json"
 
 
@@ -82,20 +88,24 @@ def _skip(version: str, page: str, reason: str, problems: list[str]) -> None:
     """Report a skipped page and remove its old output so nobody reads last run's mapping."""
     stale = mapped_path(version, page)
     if stale.exists():
-        stale.unlink()
-        reason += f" (removed stale {rel(stale)})"
+        try:
+            stale.unlink()
+            reason += f" (removed stale {rel(stale)})"
+        except OSError as e:  # e.g. the same permission problem that made the write fail
+            reason += f" (could not remove stale {rel(stale)}: {e})"
     problems.append(f"skipped {version}/{page}: {reason}")
     print(f"SKIPPED {version}/{page}: {reason}", file=sys.stderr)
 
 
-def map_all(corpus: dict[str, dict], corpus_hash: str) -> tuple[dict[str, str], list[str]]:
-    """Map and write every page. Returns ({finding_id: sc} for everything mapped, [problems])."""
+def map_all(corpus: dict[str, dict], corpus_hash: str, versions: tuple[str, ...] = VERSIONS,
+            pages: tuple[str, ...] = PAGES) -> tuple[dict[str, str], list[str]]:
+    """Map and write the given pages. Returns ({finding_id: sc} for everything mapped, [problems])."""
     all_mapped, problems = {}, []
-    for version in VERSIONS:
-        for page in PAGES:
+    for version in versions:
+        for page in pages:
             try:
                 findings = load_findings(version, page)
-            except FindingsFileError as e:
+            except (FindingsFileError, OSError, UnicodeDecodeError) as e:
                 _skip(version, page, str(e), problems)
                 continue
             mapped, rejected = map_page(findings, corpus)
@@ -140,9 +150,10 @@ def score_spotcheck(mapped: dict[str, str], truth: dict[str, set[str]],
     return [(fid, mapped[fid], truth[fid], mapped[fid] in truth[fid]) for fid in sorted(sample)]
 
 
-def append_spotcheck(results: list[tuple[str, str, set[str], bool]]) -> None:
-    """Append a dated section with the score and one table row per sampled finding."""
+def append_spotcheck(results: list[tuple[str, str, set[str], bool]], scope: str = "all pages") -> None:
+    """Append a dated entry: score, one table row per sampled finding, and a "Misses and why" section."""
     correct = sum(ok for *_, ok in results)
+    misses = [(fid, sc, t) for fid, sc, t, ok in results if not ok]
     lines = [] if SPOTCHECK_LOG.exists() else [
         "# Mapper spot-check log",
         "",
@@ -151,27 +162,32 @@ def append_spotcheck(results: list[tuple[str, str, set[str], bool]]) -> None:
     ]
     lines += [
         "",
-        f"## {date.today().isoformat()}: {MAPPER_VERSION}, seed {SPOTCHECK_SEED}",
+        f"## {date.today().isoformat()}: {scope}, {MAPPER_VERSION}, seed {SPOTCHECK_SEED}",
         "",
-        f"**{correct}/{len(results)} correct.**",
+        f"**{correct}/{len(results)} correct** (target 8/10).",
         "",
         "| finding_id | Mapped | Ground truth | Match |",
         "| --- | --- | --- | --- |",
         *(f"| {fid} | {sc} | {', '.join(sorted(t))} | {'yes' if ok else 'NO'} |" for fid, sc, t, ok in results),
+        "",
+        "### Misses and why",
+        "",
+        *(f"- {fid}: mapped {sc}, ground truth {', '.join(sorted(t))}. Why:" for fid, sc, t in misses),
+        *([] if misses else ["No misses."]),
     ]
     SPOTCHECK_LOG.parent.mkdir(parents=True, exist_ok=True)
     with SPOTCHECK_LOG.open("a", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
 
 
-def spotcheck(mapped: dict[str, str]) -> int:
+def spotcheck(mapped: dict[str, str], scope: str = "all pages") -> int:
     """Score a fixed-seed sample of `mapped` against the ground truth and log it. Returns the exit status."""
     if not GROUND_TRUTH.exists():
         print(f"ERROR {rel(GROUND_TRUTH)} not found; nothing appended.", file=sys.stderr)
         return 1
     try:
         truth = read_ground_truth(GROUND_TRUTH)
-    except (ValueError, csv.Error) as e:
+    except (ValueError, csv.Error, OSError) as e:  # UnicodeDecodeError is a ValueError
         print(f"ERROR {e}; nothing appended.", file=sys.stderr)
         return 1
     results = score_spotcheck(mapped, truth)
@@ -179,7 +195,11 @@ def spotcheck(mapped: dict[str, str]) -> int:
         print("ERROR no finding_id appears in both the mapper output and the ground truth; nothing appended.",
               file=sys.stderr)
         return 1
-    append_spotcheck(results)
+    try:
+        append_spotcheck(results, scope)
+    except OSError as e:
+        print(f"ERROR could not append to {rel(SPOTCHECK_LOG)}: {e}", file=sys.stderr)
+        return 1
     correct = sum(ok for *_, ok in results)
     print(f"Spot-check: {correct}/{len(results)} correct. Appended to {rel(SPOTCHECK_LOG)}")
     return 0
@@ -190,17 +210,22 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="python -m agents.mapper", description=__doc__.splitlines()[0])
     ap.add_argument("--spotcheck", action="store_true",
                     help=f"also score {SPOTCHECK_SIZE} sampled findings against the ground truth")
+    ap.add_argument("--version", choices=VERSIONS, help="only this site version (default: both)")
+    ap.add_argument("--page", choices=PAGES, help="only this page (default: all)")
     a = ap.parse_args(argv)
+    versions = (a.version,) if a.version else VERSIONS
+    pages = (a.page,) if a.page else PAGES
+    scope = f"{a.version or 'before+after'}/{a.page or 'all pages'}"
     try:
         corpus, corpus_hash = load_corpus(), corpus_sha256()
     except (CorpusError, OSError) as e:
         print(f"ERROR {e}", file=sys.stderr)
         return 1
-    mapped, problems = map_all(corpus, corpus_hash)
+    mapped, problems = map_all(corpus, corpus_hash, versions, pages)
     print(f"{len(mapped)} findings mapped, {len(problems)} problem(s).")
     status = 1 if problems else 0
     if a.spotcheck:
-        status = spotcheck(mapped) or status
+        status = spotcheck(mapped, scope) or status
     return status
 
 

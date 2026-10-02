@@ -7,3 +7,12 @@ node_modules/
 .aws/
 data/cache/
 .env
+
+# Scan output: regenerated every run, too big and noisy for git.
+# data/findings/ IS committed so tracks B, C and D can read it.
+data/captures/
+data/scans/*
+!data/scans/.gitkeep
+
+# Half-written screenshots from an interrupted merge run
+data/findings/shots/.tmp_*/

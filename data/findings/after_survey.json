@@ -1,0 +1,3622 @@
+[
+  {
+    "finding_id": "F-after-survey-el0000-1.3.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+        "type": "notice",
+        "message": "Check that the content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-1.3.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+    "wcag": [
+      "1.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+        "type": "notice",
+        "message": "Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-1.4.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+    "wcag": [
+      "1.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+        "type": "notice",
+        "message": "Check that any information conveyed using colour alone is also available in text, or through other visual cues."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-1.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+    "wcag": [
+      "1.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+        "type": "notice",
+        "message": "Check that text can be resized without assistive technology up to 200 percent without loss of content or functionality."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-1.4.5",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+        "type": "notice",
+        "message": "If the technologies being used can achieve the visual presentation, check that text is used to convey information rather than images of text, except when the image of text is essential to the information being conveyed, or can be visually customised to the user's requirements."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-2.2.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+    "wcag": [
+      "2.2.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+        "type": "notice",
+        "message": "If any part of the content moves, scrolls or blinks for more than 5 seconds, or auto-updates, check that there is a mechanism available to pause, stop, or hide the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-2.3.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+    "wcag": [
+      "2.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+        "type": "notice",
+        "message": "Check that no component of the content flashes more than three times in any 1-second period, or that the size of any flashing area is sufficiently small."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-2.4.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+    "wcag": [
+      "2.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+        "type": "notice",
+        "message": "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-2.4.5",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+    "wcag": [
+      "2.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+        "type": "notice",
+        "message": "If this Web page is not part of a linear process, check that there is more than one way of locating this Web page within a set of Web pages."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-2.4.6",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+    "wcag": [
+      "2.4.6"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+        "type": "notice",
+        "message": "Check that headings and labels describe topic or purpose."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-2.4.7",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+    "wcag": [
+      "2.4.7"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+        "type": "notice",
+        "message": "Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-3.1.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+    "wcag": [
+      "3.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+        "type": "notice",
+        "message": "Ensure that any change in language is marked using the lang and/or xml:lang attribute on an element, as appropriate."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-3.2.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+    "wcag": [
+      "3.2.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+        "type": "notice",
+        "message": "Check that navigational mechanisms that are repeated on multiple Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0000-3.2.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+        "type": "notice",
+        "message": "Check that components that have the same functionality within this Web page are identified consistently in the set of Web pages to which it belongs."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0002-2.4.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+    "wcag": [
+      "2.4.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html > head > title",
+      "html_snippet": "<title>Citylights Survey [Accessible Survey Page]</title>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 2
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+        "type": "notice",
+        "message": "Check that the title element describes the document."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0058-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"#content\">Skip to content (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 58
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0060-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"#navtarget\">Skip to navigation (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 60
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0062-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a",
+      "html_snippet": "<a href=\"home.html\"><img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\"></a>",
+      "screenshot": "data/findings/shots/after_survey_el0062.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 62
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0063-1.1.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a > img",
+      "html_snippet": "<img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\">",
+      "screenshot": "data/findings/shots/after_survey_el0063.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 63
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0064-1.1.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > img",
+      "html_snippet": "<img src=\"./img/weather.png\" alt=\"Sunny Spells\">",
+      "screenshot": "data/findings/shots/after_survey_el0064.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 64
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0065-3.3.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+    "wcag": [
+      "3.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_survey_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+        "type": "notice",
+        "message": "If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0065-3.3.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+    "wcag": [
+      "3.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_survey_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+        "type": "notice",
+        "message": "Check that descriptive labels or instructions (including for required fields) are provided for user input in this form."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0065-3.3.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+    "wcag": [
+      "3.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_survey_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+        "type": "notice",
+        "message": "Check that this form provides suggested corrections to errors in user input, unless it would jeopardize the security or purpose of the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0065-3.3.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+    "wcag": [
+      "3.3.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_survey_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+        "type": "notice",
+        "message": "If this form would bind a user to a financial or legal commitment, modify/delete user-controllable data, or submit test responses, ensure that submissions are either reversible, checked for input errors, and/or confirmed by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0068-1.3.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_survey_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+        "type": "warning",
+        "message": "If this selection list contains groups of related options, they should be grouped with optgroup."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0068-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_survey_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0068-4.1.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_survey_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+        "type": "warning",
+        "message": "This select element does not have a value available to an accessibility API."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0085-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form > div > input",
+      "html_snippet": "<input type=\"submit\" value=\"Go\">",
+      "screenshot": "data/findings/shots/after_survey_el0085.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 85
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0097-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".home > a[href$=\"home.html\"]",
+      "html_snippet": "<a href=\"home.html\">Home</a>",
+      "screenshot": "data/findings/shots/after_survey_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0097-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"home.html\">Home</a>",
+      "screenshot": "data/findings/shots/after_survey_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0099-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".news > a[href$=\"news.html\"]",
+      "html_snippet": "<a href=\"news.html\">News</a>",
+      "screenshot": "data/findings/shots/after_survey_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0099-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"news.html\">News</a>",
+      "screenshot": "data/findings/shots/after_survey_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0101-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".facts > a[href$=\"tickets.html\"]",
+      "html_snippet": "<a href=\"tickets.html\">Tickets</a>",
+      "screenshot": "data/findings/shots/after_survey_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0101-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(3) > a",
+      "html_snippet": "<a href=\"tickets.html\">Tickets</a>",
+      "screenshot": "data/findings/shots/after_survey_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0103-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".survey_set > a",
+      "html_snippet": "<a>Survey</a>",
+      "screenshot": "data/findings/shots/after_survey_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0103-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(4) > a",
+      "html_snippet": "<a>Survey</a>",
+      "screenshot": "data/findings/shots/after_survey_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0103-4.1.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(4) > a",
+      "html_snippet": "<a>Survey</a>",
+      "screenshot": "data/findings/shots/after_survey_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+        "type": "warning",
+        "message": "Anchor element found with link content, but no href, ID or name attribute has been supplied."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0106-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > h1",
+      "html_snippet": "<h1>Citylights Survey</h1>",
+      "screenshot": "data/findings/shots/after_survey_el0106.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 106
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0107-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".header",
+      "html_snippet": "<h2 class=\"header\">This Week's Survey: More city parks - a pain or a gain?</h2>",
+      "screenshot": "data/findings/shots/after_survey_el0107.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 107
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0108-3.3.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+    "wcag": [
+      "3.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > form",
+      "html_snippet": "<form action=\"survey.php\" method=\"post\">\n                <p>Fields are required if not otherwise noted.</p>\n                <fieldset id=\"park\">\n                  <legend>Favorite Park</legend>\n                  <p>Which is your favorite city park?</p>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"nn\" value=\"1\"> <label for=\"nn\">None</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"cp\" value=\"2\"> <label for=\"cp\">Central Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"gp\" value=\"3\"> <label for=\"gp\">Grand Park</label></p>\n                  </div>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"jp\" value=\"4\"> <label for=\"jp\">Jurassic Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"sp\" value=\"5\"> <label for=\"sp\">South Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"ot\" value=\"6\"> <label for=\"ot\">Other</label></p>\n                  </div>\n                </fieldset>\n                <fieldset id=\"city\">\n                  <legend>Greenest City</legend>\n                  <p>Which city do you find is the greenest?</p>\n                  <p class=\"input\"><select name=\"cc\" id=\"cc\" title=\"cities of the world\">\n                    <option value=\"0\">select a city from this list</option>\n                    <optgroup label=\"A\">\n                      <option value=\"1\">Abu Dhabi, United Arab Emirates</option>\n                      <option value=\"2\">Abuja, Nigeria</option>\n                      <option value=\"3\">Accra, Ghana</option>\n                      <option value=\"4\">Addis Ababa, Ethiopia</option>\n                      <option value=\"5\">Algiers, Algeria</option>\n                      <option value=\"6\">Amman, Jordan</option>\n                      <option value=\"7\">Amsterdam, The Netherlands</option>\n                      <option value=\"8\">Andorra la Vella, Andorra</option>\n                      <option value=\"9\">Ankara, Turkey</option>\n                      <option value=\"10\">Antananarivo, Madagascar</option>\n                      <option value=\"11\">Apia, Samoa</option>\n                      <option value=\"12\">Ashgabat, Turkmenistan</option>\n                      <option value=\"13\">Asmara, Eritrea</option>\n                      <option value=\"14\">Astana, Kazakhstan</option>\n                      <option value=\"15\">Asuncion, Paraguay</option>\n                      <option value=\"16\">Athens, Greece</option>\n                    </optgroup>\n                    <optgroup label=\"B\">\n                      <option value=\"17\">Baghdad, Iraq</option>\n                      <option value=\"18\">Baku, Azerbaijan</option>\n                      <option value=\"19\">Bamako, Mali</option>\n                      <option value=\"20\">Bandar Seri Begawan, Brunei</option>\n                      <option value=\"21\">Bangkok, Thailand</option>\n                      <option value=\"22\">Bangu, Central African Republic</option>\n                      <option value=\"23\">Banjul, Gambia</option>\n                      <option value=\"24\">Basseterre, St. Kitts and Nevis</option>\n                      <option value=\"25\">Beijing, China</option>\n                      <option value=\"26\">Beirut, Lebanon</option>\n                      <option value=\"27\">Belmopan, Belize</option>\n                      <option value=\"28\">Berlin, Germany</option>\n                      <option value=\"29\">Bern, Switzerland</option>\n                      <option value=\"30\">Bishkek, Kyrgyzstan</option>\n                      <option value=\"31\">Bissau, Guinea-Bissau</option>\n                      <option value=\"32\">Bogota, Colombia</option>\n                      <option value=\"33\">Brasilia, Brazil</option>\n                      <option value=\"34\">Bratislava, Slovakia</option>\n                      <option value=\"35\">Brazzaville, Congo, Republic of</option>\n                      <option value=\"36\">Bridgetown, Barbados</option>\n                      <option value=\"37\">Brussels, Belgium</option>\n                      <option value=\"38\">Bucharest, Romania</option>\n                      <option value=\"39\">Budapest, Hungary</option>\n                      <option value=\"40\">Buenos Aires, Argentina</option>\n                      <option value=\"41\">Bujumbura, Burundi</option>\n                    </optgroup>\n                    <optgroup label=\"C\">\n                      <option value=\"42\">Cairo, Egypt</option>\n                      <option value=\"43\">Canberra, Australia</option>\n                      <option value=\"44\">Caracas, Venezuela</option>\n                      <option value=\"45\">Castries, St. Lucia</option>\n                      <option value=\"46\">Chisinau, Moldova</option>\n                      <option value=\"47\">Colombo, Sri Lanka</option>\n                      <option value=\"48\">Conak",
+      "screenshot": "data/findings/shots/after_survey_el0108.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 108
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+        "type": "notice",
+        "message": "If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0108-3.3.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+    "wcag": [
+      "3.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > form",
+      "html_snippet": "<form action=\"survey.php\" method=\"post\">\n                <p>Fields are required if not otherwise noted.</p>\n                <fieldset id=\"park\">\n                  <legend>Favorite Park</legend>\n                  <p>Which is your favorite city park?</p>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"nn\" value=\"1\"> <label for=\"nn\">None</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"cp\" value=\"2\"> <label for=\"cp\">Central Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"gp\" value=\"3\"> <label for=\"gp\">Grand Park</label></p>\n                  </div>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"jp\" value=\"4\"> <label for=\"jp\">Jurassic Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"sp\" value=\"5\"> <label for=\"sp\">South Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"ot\" value=\"6\"> <label for=\"ot\">Other</label></p>\n                  </div>\n                </fieldset>\n                <fieldset id=\"city\">\n                  <legend>Greenest City</legend>\n                  <p>Which city do you find is the greenest?</p>\n                  <p class=\"input\"><select name=\"cc\" id=\"cc\" title=\"cities of the world\">\n                    <option value=\"0\">select a city from this list</option>\n                    <optgroup label=\"A\">\n                      <option value=\"1\">Abu Dhabi, United Arab Emirates</option>\n                      <option value=\"2\">Abuja, Nigeria</option>\n                      <option value=\"3\">Accra, Ghana</option>\n                      <option value=\"4\">Addis Ababa, Ethiopia</option>\n                      <option value=\"5\">Algiers, Algeria</option>\n                      <option value=\"6\">Amman, Jordan</option>\n                      <option value=\"7\">Amsterdam, The Netherlands</option>\n                      <option value=\"8\">Andorra la Vella, Andorra</option>\n                      <option value=\"9\">Ankara, Turkey</option>\n                      <option value=\"10\">Antananarivo, Madagascar</option>\n                      <option value=\"11\">Apia, Samoa</option>\n                      <option value=\"12\">Ashgabat, Turkmenistan</option>\n                      <option value=\"13\">Asmara, Eritrea</option>\n                      <option value=\"14\">Astana, Kazakhstan</option>\n                      <option value=\"15\">Asuncion, Paraguay</option>\n                      <option value=\"16\">Athens, Greece</option>\n                    </optgroup>\n                    <optgroup label=\"B\">\n                      <option value=\"17\">Baghdad, Iraq</option>\n                      <option value=\"18\">Baku, Azerbaijan</option>\n                      <option value=\"19\">Bamako, Mali</option>\n                      <option value=\"20\">Bandar Seri Begawan, Brunei</option>\n                      <option value=\"21\">Bangkok, Thailand</option>\n                      <option value=\"22\">Bangu, Central African Republic</option>\n                      <option value=\"23\">Banjul, Gambia</option>\n                      <option value=\"24\">Basseterre, St. Kitts and Nevis</option>\n                      <option value=\"25\">Beijing, China</option>\n                      <option value=\"26\">Beirut, Lebanon</option>\n                      <option value=\"27\">Belmopan, Belize</option>\n                      <option value=\"28\">Berlin, Germany</option>\n                      <option value=\"29\">Bern, Switzerland</option>\n                      <option value=\"30\">Bishkek, Kyrgyzstan</option>\n                      <option value=\"31\">Bissau, Guinea-Bissau</option>\n                      <option value=\"32\">Bogota, Colombia</option>\n                      <option value=\"33\">Brasilia, Brazil</option>\n                      <option value=\"34\">Bratislava, Slovakia</option>\n                      <option value=\"35\">Brazzaville, Congo, Republic of</option>\n                      <option value=\"36\">Bridgetown, Barbados</option>\n                      <option value=\"37\">Brussels, Belgium</option>\n                      <option value=\"38\">Bucharest, Romania</option>\n                      <option value=\"39\">Budapest, Hungary</option>\n                      <option value=\"40\">Buenos Aires, Argentina</option>\n                      <option value=\"41\">Bujumbura, Burundi</option>\n                    </optgroup>\n                    <optgroup label=\"C\">\n                      <option value=\"42\">Cairo, Egypt</option>\n                      <option value=\"43\">Canberra, Australia</option>\n                      <option value=\"44\">Caracas, Venezuela</option>\n                      <option value=\"45\">Castries, St. Lucia</option>\n                      <option value=\"46\">Chisinau, Moldova</option>\n                      <option value=\"47\">Colombo, Sri Lanka</option>\n                      <option value=\"48\">Conak",
+      "screenshot": "data/findings/shots/after_survey_el0108.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 108
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+        "type": "notice",
+        "message": "Check that descriptive labels or instructions (including for required fields) are provided for user input in this form."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0108-3.3.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+    "wcag": [
+      "3.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > form",
+      "html_snippet": "<form action=\"survey.php\" method=\"post\">\n                <p>Fields are required if not otherwise noted.</p>\n                <fieldset id=\"park\">\n                  <legend>Favorite Park</legend>\n                  <p>Which is your favorite city park?</p>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"nn\" value=\"1\"> <label for=\"nn\">None</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"cp\" value=\"2\"> <label for=\"cp\">Central Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"gp\" value=\"3\"> <label for=\"gp\">Grand Park</label></p>\n                  </div>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"jp\" value=\"4\"> <label for=\"jp\">Jurassic Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"sp\" value=\"5\"> <label for=\"sp\">South Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"ot\" value=\"6\"> <label for=\"ot\">Other</label></p>\n                  </div>\n                </fieldset>\n                <fieldset id=\"city\">\n                  <legend>Greenest City</legend>\n                  <p>Which city do you find is the greenest?</p>\n                  <p class=\"input\"><select name=\"cc\" id=\"cc\" title=\"cities of the world\">\n                    <option value=\"0\">select a city from this list</option>\n                    <optgroup label=\"A\">\n                      <option value=\"1\">Abu Dhabi, United Arab Emirates</option>\n                      <option value=\"2\">Abuja, Nigeria</option>\n                      <option value=\"3\">Accra, Ghana</option>\n                      <option value=\"4\">Addis Ababa, Ethiopia</option>\n                      <option value=\"5\">Algiers, Algeria</option>\n                      <option value=\"6\">Amman, Jordan</option>\n                      <option value=\"7\">Amsterdam, The Netherlands</option>\n                      <option value=\"8\">Andorra la Vella, Andorra</option>\n                      <option value=\"9\">Ankara, Turkey</option>\n                      <option value=\"10\">Antananarivo, Madagascar</option>\n                      <option value=\"11\">Apia, Samoa</option>\n                      <option value=\"12\">Ashgabat, Turkmenistan</option>\n                      <option value=\"13\">Asmara, Eritrea</option>\n                      <option value=\"14\">Astana, Kazakhstan</option>\n                      <option value=\"15\">Asuncion, Paraguay</option>\n                      <option value=\"16\">Athens, Greece</option>\n                    </optgroup>\n                    <optgroup label=\"B\">\n                      <option value=\"17\">Baghdad, Iraq</option>\n                      <option value=\"18\">Baku, Azerbaijan</option>\n                      <option value=\"19\">Bamako, Mali</option>\n                      <option value=\"20\">Bandar Seri Begawan, Brunei</option>\n                      <option value=\"21\">Bangkok, Thailand</option>\n                      <option value=\"22\">Bangu, Central African Republic</option>\n                      <option value=\"23\">Banjul, Gambia</option>\n                      <option value=\"24\">Basseterre, St. Kitts and Nevis</option>\n                      <option value=\"25\">Beijing, China</option>\n                      <option value=\"26\">Beirut, Lebanon</option>\n                      <option value=\"27\">Belmopan, Belize</option>\n                      <option value=\"28\">Berlin, Germany</option>\n                      <option value=\"29\">Bern, Switzerland</option>\n                      <option value=\"30\">Bishkek, Kyrgyzstan</option>\n                      <option value=\"31\">Bissau, Guinea-Bissau</option>\n                      <option value=\"32\">Bogota, Colombia</option>\n                      <option value=\"33\">Brasilia, Brazil</option>\n                      <option value=\"34\">Bratislava, Slovakia</option>\n                      <option value=\"35\">Brazzaville, Congo, Republic of</option>\n                      <option value=\"36\">Bridgetown, Barbados</option>\n                      <option value=\"37\">Brussels, Belgium</option>\n                      <option value=\"38\">Bucharest, Romania</option>\n                      <option value=\"39\">Budapest, Hungary</option>\n                      <option value=\"40\">Buenos Aires, Argentina</option>\n                      <option value=\"41\">Bujumbura, Burundi</option>\n                    </optgroup>\n                    <optgroup label=\"C\">\n                      <option value=\"42\">Cairo, Egypt</option>\n                      <option value=\"43\">Canberra, Australia</option>\n                      <option value=\"44\">Caracas, Venezuela</option>\n                      <option value=\"45\">Castries, St. Lucia</option>\n                      <option value=\"46\">Chisinau, Moldova</option>\n                      <option value=\"47\">Colombo, Sri Lanka</option>\n                      <option value=\"48\">Conak",
+      "screenshot": "data/findings/shots/after_survey_el0108.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 108
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+        "type": "notice",
+        "message": "Check that this form provides suggested corrections to errors in user input, unless it would jeopardize the security or purpose of the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0108-3.3.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+    "wcag": [
+      "3.3.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > form",
+      "html_snippet": "<form action=\"survey.php\" method=\"post\">\n                <p>Fields are required if not otherwise noted.</p>\n                <fieldset id=\"park\">\n                  <legend>Favorite Park</legend>\n                  <p>Which is your favorite city park?</p>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"nn\" value=\"1\"> <label for=\"nn\">None</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"cp\" value=\"2\"> <label for=\"cp\">Central Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"gp\" value=\"3\"> <label for=\"gp\">Grand Park</label></p>\n                  </div>\n                  <div style=\"float:left; width:40%;\">\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"jp\" value=\"4\"> <label for=\"jp\">Jurassic Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"sp\" value=\"5\"> <label for=\"sp\">South Park</label></p>\n                    <p class=\"input\"><input type=\"radio\" name=\"res\" id=\"ot\" value=\"6\"> <label for=\"ot\">Other</label></p>\n                  </div>\n                </fieldset>\n                <fieldset id=\"city\">\n                  <legend>Greenest City</legend>\n                  <p>Which city do you find is the greenest?</p>\n                  <p class=\"input\"><select name=\"cc\" id=\"cc\" title=\"cities of the world\">\n                    <option value=\"0\">select a city from this list</option>\n                    <optgroup label=\"A\">\n                      <option value=\"1\">Abu Dhabi, United Arab Emirates</option>\n                      <option value=\"2\">Abuja, Nigeria</option>\n                      <option value=\"3\">Accra, Ghana</option>\n                      <option value=\"4\">Addis Ababa, Ethiopia</option>\n                      <option value=\"5\">Algiers, Algeria</option>\n                      <option value=\"6\">Amman, Jordan</option>\n                      <option value=\"7\">Amsterdam, The Netherlands</option>\n                      <option value=\"8\">Andorra la Vella, Andorra</option>\n                      <option value=\"9\">Ankara, Turkey</option>\n                      <option value=\"10\">Antananarivo, Madagascar</option>\n                      <option value=\"11\">Apia, Samoa</option>\n                      <option value=\"12\">Ashgabat, Turkmenistan</option>\n                      <option value=\"13\">Asmara, Eritrea</option>\n                      <option value=\"14\">Astana, Kazakhstan</option>\n                      <option value=\"15\">Asuncion, Paraguay</option>\n                      <option value=\"16\">Athens, Greece</option>\n                    </optgroup>\n                    <optgroup label=\"B\">\n                      <option value=\"17\">Baghdad, Iraq</option>\n                      <option value=\"18\">Baku, Azerbaijan</option>\n                      <option value=\"19\">Bamako, Mali</option>\n                      <option value=\"20\">Bandar Seri Begawan, Brunei</option>\n                      <option value=\"21\">Bangkok, Thailand</option>\n                      <option value=\"22\">Bangu, Central African Republic</option>\n                      <option value=\"23\">Banjul, Gambia</option>\n                      <option value=\"24\">Basseterre, St. Kitts and Nevis</option>\n                      <option value=\"25\">Beijing, China</option>\n                      <option value=\"26\">Beirut, Lebanon</option>\n                      <option value=\"27\">Belmopan, Belize</option>\n                      <option value=\"28\">Berlin, Germany</option>\n                      <option value=\"29\">Bern, Switzerland</option>\n                      <option value=\"30\">Bishkek, Kyrgyzstan</option>\n                      <option value=\"31\">Bissau, Guinea-Bissau</option>\n                      <option value=\"32\">Bogota, Colombia</option>\n                      <option value=\"33\">Brasilia, Brazil</option>\n                      <option value=\"34\">Bratislava, Slovakia</option>\n                      <option value=\"35\">Brazzaville, Congo, Republic of</option>\n                      <option value=\"36\">Bridgetown, Barbados</option>\n                      <option value=\"37\">Brussels, Belgium</option>\n                      <option value=\"38\">Bucharest, Romania</option>\n                      <option value=\"39\">Budapest, Hungary</option>\n                      <option value=\"40\">Buenos Aires, Argentina</option>\n                      <option value=\"41\">Bujumbura, Burundi</option>\n                    </optgroup>\n                    <optgroup label=\"C\">\n                      <option value=\"42\">Cairo, Egypt</option>\n                      <option value=\"43\">Canberra, Australia</option>\n                      <option value=\"44\">Caracas, Venezuela</option>\n                      <option value=\"45\">Castries, St. Lucia</option>\n                      <option value=\"46\">Chisinau, Moldova</option>\n                      <option value=\"47\">Colombo, Sri Lanka</option>\n                      <option value=\"48\">Conak",
+      "screenshot": "data/findings/shots/after_survey_el0108.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 108
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+        "type": "notice",
+        "message": "If this form would bind a user to a financial or legal commitment, modify/delete user-controllable data, or submit test responses, ensure that submissions are either reversible, checked for input errors, and/or confirmed by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0109-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "form[action=\"survey.php\"] > p:nth-child(1)",
+      "html_snippet": "<p>Fields are required if not otherwise noted.</p>",
+      "screenshot": "data/findings/shots/after_survey_el0109.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 109
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0115-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nn",
+      "html_snippet": "<input type=\"radio\" name=\"res\" id=\"nn\" value=\"1\">",
+      "screenshot": "data/findings/shots/after_survey_el0115.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 115
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0118-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#cp",
+      "html_snippet": "<input type=\"radio\" name=\"res\" id=\"cp\" value=\"2\">",
+      "screenshot": "data/findings/shots/after_survey_el0118.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 118
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0121-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#gp",
+      "html_snippet": "<input type=\"radio\" name=\"res\" id=\"gp\" value=\"3\">",
+      "screenshot": "data/findings/shots/after_survey_el0121.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 121
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0125-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#jp",
+      "html_snippet": "<input type=\"radio\" name=\"res\" id=\"jp\" value=\"4\">",
+      "screenshot": "data/findings/shots/after_survey_el0125.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 125
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0128-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#sp",
+      "html_snippet": "<input type=\"radio\" name=\"res\" id=\"sp\" value=\"5\">",
+      "screenshot": "data/findings/shots/after_survey_el0128.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 128
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0131-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#ot",
+      "html_snippet": "<input type=\"radio\" name=\"res\" id=\"ot\" value=\"6\">",
+      "screenshot": "data/findings/shots/after_survey_el0131.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 131
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0137-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#cc",
+      "html_snippet": "<select name=\"cc\" id=\"cc\" title=\"cities of the world\">\n                    <option value=\"0\">select a city from this list</option>\n                    <optgroup label=\"A\">\n                      <option value=\"1\">Abu Dhabi, United Arab Emirates</option>\n                      <option value=\"2\">Abuja, Nigeria</option>\n                      <option value=\"3\">Accra, Ghana</option>\n                      <option value=\"4\">Addis Ababa, Ethiopia</option>\n                      <option value=\"5\">Algiers, Algeria</option>\n                      <option value=\"6\">Amman, Jordan</option>\n                      <option value=\"7\">Amsterdam, The Netherlands</option>\n                      <option value=\"8\">Andorra la Vella, Andorra</option>\n                      <option value=\"9\">Ankara, Turkey</option>\n                      <option value=\"10\">Antananarivo, Madagascar</option>\n                      <option value=\"11\">Apia, Samoa</option>\n                      <option value=\"12\">Ashgabat, Turkmenistan</option>\n                      <option value=\"13\">Asmara, Eritrea</option>\n                      <option value=\"14\">Astana, Kazakhstan</option>\n                      <option value=\"15\">Asuncion, Paraguay</option>\n                      <option value=\"16\">Athens, Greece</option>\n                    </optgroup>\n                    <optgroup label=\"B\">\n                      <option value=\"17\">Baghdad, Iraq</option>\n                      <option value=\"18\">Baku, Azerbaijan</option>\n                      <option value=\"19\">Bamako, Mali</option>\n                      <option value=\"20\">Bandar Seri Begawan, Brunei</option>\n                      <option value=\"21\">Bangkok, Thailand</option>\n                      <option value=\"22\">Bangu, Central African Republic</option>\n                      <option value=\"23\">Banjul, Gambia</option>\n                      <option value=\"24\">Basseterre, St. Kitts and Nevis</option>\n                      <option value=\"25\">Beijing, China</option>\n                      <option value=\"26\">Beirut, Lebanon</option>\n                      <option value=\"27\">Belmopan, Belize</option>\n                      <option value=\"28\">Berlin, Germany</option>\n                      <option value=\"29\">Bern, Switzerland</option>\n                      <option value=\"30\">Bishkek, Kyrgyzstan</option>\n                      <option value=\"31\">Bissau, Guinea-Bissau</option>\n                      <option value=\"32\">Bogota, Colombia</option>\n                      <option value=\"33\">Brasilia, Brazil</option>\n                      <option value=\"34\">Bratislava, Slovakia</option>\n                      <option value=\"35\">Brazzaville, Congo, Republic of</option>\n                      <option value=\"36\">Bridgetown, Barbados</option>\n                      <option value=\"37\">Brussels, Belgium</option>\n                      <option value=\"38\">Bucharest, Romania</option>\n                      <option value=\"39\">Budapest, Hungary</option>\n                      <option value=\"40\">Buenos Aires, Argentina</option>\n                      <option value=\"41\">Bujumbura, Burundi</option>\n                    </optgroup>\n                    <optgroup label=\"C\">\n                      <option value=\"42\">Cairo, Egypt</option>\n                      <option value=\"43\">Canberra, Australia</option>\n                      <option value=\"44\">Caracas, Venezuela</option>\n                      <option value=\"45\">Castries, St. Lucia</option>\n                      <option value=\"46\">Chisinau, Moldova</option>\n                      <option value=\"47\">Colombo, Sri Lanka</option>\n                      <option value=\"48\">Conakry, Guinea</option>\n                      <option value=\"49\">Copenhagen, Denmark</option>\n                    </optgroup>\n                    <optgroup label=\"D\">\n                      <option value=\"50\">Dakar, Senegal</option>\n                      <option value=\"51\">Damascus, Syria</option>\n                      <option value=\"52\">Dar es Salaam, Tanzania</option>\n                      <option value=\"53\">Dhaka, Bangladesh</option>\n                      <option value=\"54\">Dili, East Timor</option>\n                      <option value=\"55\">Djibouti, Djibouti</option>\n                      <option value=\"56\">Doha, Qatar</option>\n                      <option value=\"57\">Dublin, Ireland</option>\n                      <option value=\"58\">Dushanbe, Tajikistan</option>\n                    </optgroup>\n                    <optgroup label=\"E\">\n                      <option value=\"59\">El Aaiun, Western Sahara</option>\n                    </optgroup>\n                    <optgroup label=\"F\">\n                      <option value=\"60\">Freetown, Sierra Leone</option>\n                      <option value=\"61\">Funafuti, Tuvalu</option>\n                    </optgroup>\n                    <optgroup label=\"G\">\n                      <option value=\"62\">Gaborone, Botswana</option>\n                      <option value=\"63\">Georgetown, Guyana</option>\n                      <option valu",
+      "screenshot": "data/findings/shots/after_survey_el0137.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 137
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0137-4.1.2",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#cc",
+      "html_snippet": "<select name=\"cc\" id=\"cc\" title=\"cities of the world\">\n                    <option value=\"0\">select a city from this list</option>\n                    <optgroup label=\"A\">\n                      <option value=\"1\">Abu Dhabi, United Arab Emirates</option>\n                      <option value=\"2\">Abuja, Nigeria</option>\n                      <option value=\"3\">Accra, Ghana</option>\n                      <option value=\"4\">Addis Ababa, Ethiopia</option>\n                      <option value=\"5\">Algiers, Algeria</option>\n                      <option value=\"6\">Amman, Jordan</option>\n                      <option value=\"7\">Amsterdam, The Netherlands</option>\n                      <option value=\"8\">Andorra la Vella, Andorra</option>\n                      <option value=\"9\">Ankara, Turkey</option>\n                      <option value=\"10\">Antananarivo, Madagascar</option>\n                      <option value=\"11\">Apia, Samoa</option>\n                      <option value=\"12\">Ashgabat, Turkmenistan</option>\n                      <option value=\"13\">Asmara, Eritrea</option>\n                      <option value=\"14\">Astana, Kazakhstan</option>\n                      <option value=\"15\">Asuncion, Paraguay</option>\n                      <option value=\"16\">Athens, Greece</option>\n                    </optgroup>\n                    <optgroup label=\"B\">\n                      <option value=\"17\">Baghdad, Iraq</option>\n                      <option value=\"18\">Baku, Azerbaijan</option>\n                      <option value=\"19\">Bamako, Mali</option>\n                      <option value=\"20\">Bandar Seri Begawan, Brunei</option>\n                      <option value=\"21\">Bangkok, Thailand</option>\n                      <option value=\"22\">Bangu, Central African Republic</option>\n                      <option value=\"23\">Banjul, Gambia</option>\n                      <option value=\"24\">Basseterre, St. Kitts and Nevis</option>\n                      <option value=\"25\">Beijing, China</option>\n                      <option value=\"26\">Beirut, Lebanon</option>\n                      <option value=\"27\">Belmopan, Belize</option>\n                      <option value=\"28\">Berlin, Germany</option>\n                      <option value=\"29\">Bern, Switzerland</option>\n                      <option value=\"30\">Bishkek, Kyrgyzstan</option>\n                      <option value=\"31\">Bissau, Guinea-Bissau</option>\n                      <option value=\"32\">Bogota, Colombia</option>\n                      <option value=\"33\">Brasilia, Brazil</option>\n                      <option value=\"34\">Bratislava, Slovakia</option>\n                      <option value=\"35\">Brazzaville, Congo, Republic of</option>\n                      <option value=\"36\">Bridgetown, Barbados</option>\n                      <option value=\"37\">Brussels, Belgium</option>\n                      <option value=\"38\">Bucharest, Romania</option>\n                      <option value=\"39\">Budapest, Hungary</option>\n                      <option value=\"40\">Buenos Aires, Argentina</option>\n                      <option value=\"41\">Bujumbura, Burundi</option>\n                    </optgroup>\n                    <optgroup label=\"C\">\n                      <option value=\"42\">Cairo, Egypt</option>\n                      <option value=\"43\">Canberra, Australia</option>\n                      <option value=\"44\">Caracas, Venezuela</option>\n                      <option value=\"45\">Castries, St. Lucia</option>\n                      <option value=\"46\">Chisinau, Moldova</option>\n                      <option value=\"47\">Colombo, Sri Lanka</option>\n                      <option value=\"48\">Conakry, Guinea</option>\n                      <option value=\"49\">Copenhagen, Denmark</option>\n                    </optgroup>\n                    <optgroup label=\"D\">\n                      <option value=\"50\">Dakar, Senegal</option>\n                      <option value=\"51\">Damascus, Syria</option>\n                      <option value=\"52\">Dar es Salaam, Tanzania</option>\n                      <option value=\"53\">Dhaka, Bangladesh</option>\n                      <option value=\"54\">Dili, East Timor</option>\n                      <option value=\"55\">Djibouti, Djibouti</option>\n                      <option value=\"56\">Doha, Qatar</option>\n                      <option value=\"57\">Dublin, Ireland</option>\n                      <option value=\"58\">Dushanbe, Tajikistan</option>\n                    </optgroup>\n                    <optgroup label=\"E\">\n                      <option value=\"59\">El Aaiun, Western Sahara</option>\n                    </optgroup>\n                    <optgroup label=\"F\">\n                      <option value=\"60\">Freetown, Sierra Leone</option>\n                      <option value=\"61\">Funafuti, Tuvalu</option>\n                    </optgroup>\n                    <optgroup label=\"G\">\n                      <option value=\"62\">Gaborone, Botswana</option>\n                      <option value=\"63\">Georgetown, Guyana</option>\n                      <option valu",
+      "screenshot": "data/findings/shots/after_survey_el0137.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 137
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+        "type": "warning",
+        "message": "This select element does not have a value available to an accessibility API."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0366-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#mr",
+      "html_snippet": "<input type=\"radio\" name=\"t\" id=\"mr\" value=\"mr\" title=\"title\">",
+      "screenshot": "data/findings/shots/after_survey_el0366.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 366
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0368-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#mrs",
+      "html_snippet": "<input type=\"radio\" name=\"t\" id=\"mrs\" value=\"mrs\" title=\"title\">",
+      "screenshot": "data/findings/shots/after_survey_el0368.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 368
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0370-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#n",
+      "html_snippet": "<input type=\"text\" name=\"n\" id=\"n\" size=\"30\" style=\"margin-left: 0.5em;\">",
+      "screenshot": "data/findings/shots/after_survey_el0370.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 370
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0374-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#em",
+      "html_snippet": "<input type=\"text\" name=\"em\" id=\"em\" size=\"20\">",
+      "screenshot": "data/findings/shots/after_survey_el0374.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 374
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0378-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#ev",
+      "html_snippet": "<input type=\"text\" name=\"ev\" id=\"ev\" size=\"20\">",
+      "screenshot": "data/findings/shots/after_survey_el0378.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 378
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0380-3.2.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#submit",
+      "html_snippet": "<input type=\"submit\" id=\"submit\" value=\"submit\" alt=\"submit\" name=\"submit\">",
+      "screenshot": "data/findings/shots/after_survey_el0380.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 380
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0382-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#surveyresults",
+      "html_snippet": "<h2 id=\"surveyresults\">Last Weeks's Survey Results</h2>",
+      "screenshot": "data/findings/shots/after_survey_el0382.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 382
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0383-1.3.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H63.1",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > table",
+      "html_snippet": "<table class=\"qtable\">\n                  <caption>What is your favorite and least favorite organ?</caption>\n                  <thead>\n                    <tr>\n                      <th></th>\n                      <th scope=\"col\">Lung</th>\n                      <th scope=\"col\">Pancreas</th>\n                      <th scope=\"col\">Spleen</th>\n                      <th scope=\"col\">Liver</th>\n                      <th scope=\"col\">Skin</th>\n                      <th scope=\"col\">Brain</th>\n                    </tr>\n                  </thead>\n                  <tbody>\n                    <tr>\n                      <th scope=\"row\">hate it</th>\n                      <td>4</td>\n                      <td>10</td>\n                      <td>4</td>\n                      <td>0</td>\n                      <td>1</td>\n                      <td>0</td>\n                    </tr>\n                    <tr class=\"alt\">\n                      <th scope=\"row\">love it</th>\n                      <td>5</td>\n                      <td>6</td>\n                      <td>0</td>\n                      <td>14</td>\n                      <td>1</td>\n                      <td>0</td>\n                    </tr>\n                  </tbody>\n                </table>",
+      "screenshot": "data/findings/shots/after_survey_el0383.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 383
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H63.1",
+        "type": "error",
+        "message": "Not all th elements in this table have a scope attribute. These cells should contain a scope attribute to identify their association with td elements."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H73.3.NoSummary",
+        "type": "warning",
+        "message": "If this table is a data table, consider using the summary attribute of the table element to give an overview of this table."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.DataTable",
+        "type": "notice",
+        "message": "This table appears to be a data table. If it is meant to instead be a layout table, ensure there are no th elements, and no summary or caption."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H39.3.Check",
+        "type": "notice",
+        "message": "If this table is a data table, check that the caption element accurately describes this table."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0384-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "caption",
+      "html_snippet": "<caption>What is your favorite and least favorite organ?</caption>",
+      "screenshot": "data/findings/shots/after_survey_el0384.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 384
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0396-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(1) > th[scope=\"row\"]",
+      "html_snippet": "<th scope=\"row\">hate it</th>",
+      "screenshot": "data/findings/shots/after_survey_el0396.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 396
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0397-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(1) > td:nth-child(2)",
+      "html_snippet": "<td>4</td>",
+      "screenshot": "data/findings/shots/after_survey_el0397.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 397
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element content is too short to determine if it is actual text content"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0398-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(1) > td:nth-child(3)",
+      "html_snippet": "<td>10</td>",
+      "screenshot": "data/findings/shots/after_survey_el0398.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 398
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0399-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(1) > td:nth-child(4)",
+      "html_snippet": "<td>4</td>",
+      "screenshot": "data/findings/shots/after_survey_el0399.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 399
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element content is too short to determine if it is actual text content"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0400-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(1) > td:nth-child(5)",
+      "html_snippet": "<td>0</td>",
+      "screenshot": "data/findings/shots/after_survey_el0400.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 400
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element content is too short to determine if it is actual text content"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0401-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(1) > td:nth-child(6)",
+      "html_snippet": "<td>1</td>",
+      "screenshot": "data/findings/shots/after_survey_el0401.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 401
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element content is too short to determine if it is actual text content"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0402-1.4.3",
+    "page": "survey",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "tr:nth-child(1) > td:nth-child(7)",
+      "html_snippet": "<td>0</td>",
+      "screenshot": "data/findings/shots/after_survey_el0402.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 402
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element content is too short to determine if it is actual text content"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0412-1.3.1",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p",
+      "html_snippet": "<p><a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a> \u00a9 2012 <a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a><sup>\u00ae</sup> (<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>, <a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>, <a href=\"http://www.keio.ac.jp/\">Keio</a>)</p>",
+      "screenshot": "data/findings/shots/after_survey_el0412.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 412
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+        "type": "warning",
+        "message": "If this element contains a navigation section, it is recommended that it be marked up as a list."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0413-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(1)",
+      "html_snippet": "<a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a>",
+      "screenshot": "data/findings/shots/after_survey_el0413.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 413
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0414-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(2)",
+      "html_snippet": "<a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a>",
+      "screenshot": "data/findings/shots/after_survey_el0414.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 414
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0417-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(4)",
+      "html_snippet": "<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>",
+      "screenshot": "data/findings/shots/after_survey_el0417.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 417
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0419-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(5)",
+      "html_snippet": "<a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>",
+      "screenshot": "data/findings/shots/after_survey_el0419.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 419
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-survey-el0421-2.4.4",
+    "page": "survey",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(6)",
+      "html_snippet": "<a href=\"http://www.keio.ac.jp/\">Keio</a>",
+      "screenshot": "data/findings/shots/after_survey_el0421.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/survey.html",
+      "captured_at": "2026-10-02T16:24:46.894Z",
+      "dom_index": 421
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  }
+]

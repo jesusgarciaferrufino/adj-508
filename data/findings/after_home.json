@@ -1,0 +1,3864 @@
+[
+  {
+    "finding_id": "F-after-home-el0000-1.3.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+        "type": "notice",
+        "message": "Check that the content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-1.3.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+    "wcag": [
+      "1.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+        "type": "notice",
+        "message": "Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-1.4.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+    "wcag": [
+      "1.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+        "type": "notice",
+        "message": "Check that any information conveyed using colour alone is also available in text, or through other visual cues."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-1.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+    "wcag": [
+      "1.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+        "type": "notice",
+        "message": "Check that text can be resized without assistive technology up to 200 percent without loss of content or functionality."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-1.4.5",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+        "type": "notice",
+        "message": "If the technologies being used can achieve the visual presentation, check that text is used to convey information rather than images of text, except when the image of text is essential to the information being conveyed, or can be visually customised to the user's requirements."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-2.2.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+    "wcag": [
+      "2.2.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+        "type": "notice",
+        "message": "If any part of the content moves, scrolls or blinks for more than 5 seconds, or auto-updates, check that there is a mechanism available to pause, stop, or hide the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-2.3.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+    "wcag": [
+      "2.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+        "type": "notice",
+        "message": "Check that no component of the content flashes more than three times in any 1-second period, or that the size of any flashing area is sufficiently small."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-2.4.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+    "wcag": [
+      "2.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+        "type": "notice",
+        "message": "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-2.4.5",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+    "wcag": [
+      "2.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+        "type": "notice",
+        "message": "If this Web page is not part of a linear process, check that there is more than one way of locating this Web page within a set of Web pages."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-2.4.6",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+    "wcag": [
+      "2.4.6"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+        "type": "notice",
+        "message": "Check that headings and labels describe topic or purpose."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-2.4.7",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+    "wcag": [
+      "2.4.7"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+        "type": "notice",
+        "message": "Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-3.1.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+    "wcag": [
+      "3.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+        "type": "notice",
+        "message": "Ensure that any change in language is marked using the lang and/or xml:lang attribute on an element, as appropriate."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-3.2.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+    "wcag": [
+      "3.2.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+        "type": "notice",
+        "message": "Check that navigational mechanisms that are repeated on multiple Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0000-3.2.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_home_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+        "type": "notice",
+        "message": "Check that components that have the same functionality within this Web page are identified consistently in the set of Web pages to which it belongs."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0002-2.4.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+    "wcag": [
+      "2.4.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html > head > title",
+      "html_snippet": "<title>Welcome to CityLights! [Accessible Home Page]</title>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 2
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+        "type": "notice",
+        "message": "Check that the title element describes the document."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0058-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"#content\">Skip to content (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 58
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0060-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"#navtarget\">Skip to navigation (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 60
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0062-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a",
+      "html_snippet": "<a><img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\"></a>",
+      "screenshot": "data/findings/shots/after_home_el0062.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 62
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0062-4.1.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a",
+      "html_snippet": "<a><img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\"></a>",
+      "screenshot": "data/findings/shots/after_home_el0062.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 62
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+        "type": "warning",
+        "message": "Anchor element found with link content, but no href, ID or name attribute has been supplied."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0063-1.1.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a > img",
+      "html_snippet": "<img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\">",
+      "screenshot": "data/findings/shots/after_home_el0063.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 63
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0064-1.1.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > img",
+      "html_snippet": "<img src=\"./img/weather.png\" alt=\"Sunny Spells\">",
+      "screenshot": "data/findings/shots/after_home_el0064.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 64
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0065-3.3.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+    "wcag": [
+      "3.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_home_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+        "type": "notice",
+        "message": "If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0065-3.3.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+    "wcag": [
+      "3.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_home_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+        "type": "notice",
+        "message": "Check that descriptive labels or instructions (including for required fields) are provided for user input in this form."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0065-3.3.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+    "wcag": [
+      "3.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_home_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+        "type": "notice",
+        "message": "Check that this form provides suggested corrections to errors in user input, unless it would jeopardize the security or purpose of the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0065-3.3.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+    "wcag": [
+      "3.3.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_home_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+        "type": "notice",
+        "message": "If this form would bind a user to a financial or legal commitment, modify/delete user-controllable data, or submit test responses, ensure that submissions are either reversible, checked for input errors, and/or confirmed by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0068-1.3.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_home_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+        "type": "warning",
+        "message": "If this selection list contains groups of related options, they should be grouped with optgroup."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0068-3.2.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_home_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0068-4.1.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_home_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+        "type": "warning",
+        "message": "This select element does not have a value available to an accessibility API."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0085-3.2.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form > div > input",
+      "html_snippet": "<input type=\"submit\" value=\"Go\">",
+      "screenshot": "data/findings/shots/after_home_el0085.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 85
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0097-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".home_set > a",
+      "html_snippet": "<a>Home</a>",
+      "screenshot": "data/findings/shots/after_home_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0097-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(1) > a",
+      "html_snippet": "<a>Home</a>",
+      "screenshot": "data/findings/shots/after_home_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0097-4.1.2",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(1) > a",
+      "html_snippet": "<a>Home</a>",
+      "screenshot": "data/findings/shots/after_home_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+        "type": "warning",
+        "message": "Anchor element found with link content, but no href, ID or name attribute has been supplied."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0099-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".news > a[href$=\"news.html\"]",
+      "html_snippet": "<a href=\"news.html\">News</a>",
+      "screenshot": "data/findings/shots/after_home_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0099-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"news.html\">News</a>",
+      "screenshot": "data/findings/shots/after_home_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0101-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".facts > a[href$=\"tickets.html\"]",
+      "html_snippet": "<a href=\"tickets.html\">Tickets</a>",
+      "screenshot": "data/findings/shots/after_home_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0101-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(3) > a",
+      "html_snippet": "<a href=\"tickets.html\">Tickets</a>",
+      "screenshot": "data/findings/shots/after_home_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0103-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".survey > a[href$=\"survey.html\"]",
+      "html_snippet": "<a href=\"survey.html\">Survey</a>",
+      "screenshot": "data/findings/shots/after_home_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0103-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(4) > a",
+      "html_snippet": "<a href=\"survey.html\">Survey</a>",
+      "screenshot": "data/findings/shots/after_home_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0106-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > h1",
+      "html_snippet": "<h1>Welcome to CityLights</h1>",
+      "screenshot": "data/findings/shots/after_home_el0106.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 106
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0107-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > p:nth-child(2)",
+      "html_snippet": "<p>Citylights is the new portal for visitors and residents. Find out what's on, book tickets, and get the latest news.</p>",
+      "screenshot": "data/findings/shots/after_home_el0107.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 107
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0110-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "h2 > a[href$=\"news.html#story1\"]",
+      "html_snippet": "<a href=\"news.html#story1\">Heat wave linked to temperatures</a>",
+      "screenshot": "data/findings/shots/after_home_el0110.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 110
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0110-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(3) > h2 > a",
+      "html_snippet": "<a href=\"news.html#story1\">Heat wave linked to temperatures</a>",
+      "screenshot": "data/findings/shots/after_home_el0110.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 110
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0112-1.1.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(3) > p:nth-child(2) > img",
+      "html_snippet": "<img src=\"./img/panda-sm.jpg\" alt=\"\">",
+      "screenshot": "data/findings/shots/after_home_el0112.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 112
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2",
+        "type": "warning",
+        "message": "Img element is marked so that it is ignored by Assistive Technology."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0115-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".more[href$=\"news.html#story1\"]",
+      "html_snippet": "<a href=\"news.html#story1\" class=\"more\">Heat wave -<br>full story</a>",
+      "screenshot": "data/findings/shots/after_home_el0115.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 115
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0115-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(3) > p:nth-child(3) > a",
+      "html_snippet": "<a href=\"news.html#story1\" class=\"more\">Heat wave -<br>full story</a>",
+      "screenshot": "data/findings/shots/after_home_el0115.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 115
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0119-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "h2 > a[href$=\"news.html#story2\"]",
+      "html_snippet": "<a href=\"news.html#story2\">Man Gets Nine Months in Violin Case</a>",
+      "screenshot": "data/findings/shots/after_home_el0119.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 119
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0119-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(4) > h2 > a",
+      "html_snippet": "<a href=\"news.html#story2\">Man Gets Nine Months in Violin Case</a>",
+      "screenshot": "data/findings/shots/after_home_el0119.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 119
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0121-1.1.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(4) > p:nth-child(2) > img",
+      "html_snippet": "<img src=\"./img/oldenburgstudentviolin34.jpg\" alt=\"\">",
+      "screenshot": "data/findings/shots/after_home_el0121.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 121
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2",
+        "type": "warning",
+        "message": "Img element is marked so that it is ignored by Assistive Technology."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0124-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".more[href$=\"news.html#story2\"]",
+      "html_snippet": "<a href=\"news.html#story2\" class=\"more\">Violin case -<br>full story</a>",
+      "screenshot": "data/findings/shots/after_home_el0124.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 124
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0124-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(4) > p:nth-child(3) > a",
+      "html_snippet": "<a href=\"news.html#story2\" class=\"more\">Violin case -<br>full story</a>",
+      "screenshot": "data/findings/shots/after_home_el0124.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 124
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0128-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "h2 > a[href$=\"news.html#story3\"]",
+      "html_snippet": "<a href=\"news.html#story3\">Lack of brains hinders research</a>",
+      "screenshot": "data/findings/shots/after_home_el0128.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 128
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0128-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(5) > h2 > a",
+      "html_snippet": "<a href=\"news.html#story3\">Lack of brains hinders research</a>",
+      "screenshot": "data/findings/shots/after_home_el0128.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 128
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0130-1.1.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(5) > p:nth-child(2) > img",
+      "html_snippet": "<img src=\"./img/BrainInJar.jpg\" alt=\"\">",
+      "screenshot": "data/findings/shots/after_home_el0130.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 130
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2",
+        "type": "warning",
+        "message": "Img element is marked so that it is ignored by Assistive Technology."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0133-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".more[href$=\"news.html#story3\"]",
+      "html_snippet": "<a href=\"news.html#story3\" class=\"more\">Brain donations -<br>full story</a>",
+      "screenshot": "data/findings/shots/after_home_el0133.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 133
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0133-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(5) > p:nth-child(3) > a",
+      "html_snippet": "<a href=\"news.html#story3\" class=\"more\">Brain donations -<br>full story</a>",
+      "screenshot": "data/findings/shots/after_home_el0133.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 133
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0135-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".header",
+      "html_snippet": "<h2 class=\"header\">Elsewhere on the Web</h2>",
+      "screenshot": "data/findings/shots/after_home_el0135.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 135
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0136-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "p:nth-child(7)",
+      "html_snippet": "<p>Please see the following websites for important information. Citylights take no responsibility for their content. For artichoke advice, call the number below.</p>",
+      "screenshot": "data/findings/shots/after_home_el0136.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 136
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0139-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "li:nth-child(1) > a[href$=\"offsite.html\"]",
+      "html_snippet": "<a href=\"../offsite.html\">Killer Bees</a>",
+      "screenshot": "data/findings/shots/after_home_el0139.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 139
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0139-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"../offsite.html\">Killer Bees</a>",
+      "screenshot": "data/findings/shots/after_home_el0139.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 139
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0141-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "li:nth-child(2) > a[href$=\"offsite.html\"]",
+      "html_snippet": "<a href=\"../offsite.html\">Onions</a>",
+      "screenshot": "data/findings/shots/after_home_el0141.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 141
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0141-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"../offsite.html\">Onions</a>",
+      "screenshot": "data/findings/shots/after_home_el0141.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 141
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0142-1.3.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > p:nth-child(9)",
+      "html_snippet": "<p><strong>Artichoke advice telephone hotline:<br>(1) 269 24653 / (1) 269 C-H-O-K-E</strong></p>",
+      "screenshot": "data/findings/shots/after_home_el0142.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 142
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42",
+        "type": "warning",
+        "message": "Heading markup should be used if this content is intended as a heading."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0143-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "p:nth-child(9) > strong",
+      "html_snippet": "<strong>Artichoke advice telephone hotline:<br>(1) 269 24653 / (1) 269 C-H-O-K-E</strong>",
+      "screenshot": "data/findings/shots/after_home_el0143.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 143
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0147-1.1.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentright > img:nth-child(2)",
+      "html_snippet": "<img src=\"./img/teaser_right1.jpg\" alt=\"Free Penguins playing on stage\">",
+      "screenshot": "data/findings/shots/after_home_el0147.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 147
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0148-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".spacebelow:nth-child(3)",
+      "html_snippet": "<p class=\"spacebelow\"><q>Free penguins</q> slogan at zoo benefit concert causes confusion among city rockers. Adjective or verb?<br><a href=\"tickets.html\" class=\"more\">Buy Tickets</a></p>",
+      "screenshot": "data/findings/shots/after_home_el0148.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 148
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined because it partially overlaps other elements"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0149-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "q",
+      "html_snippet": "<q>Free penguins</q>",
+      "screenshot": "data/findings/shots/after_home_el0149.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 149
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0151-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".more[href$=\"tickets.html\"]",
+      "html_snippet": "<a href=\"tickets.html\" class=\"more\">Buy Tickets</a>",
+      "screenshot": "data/findings/shots/after_home_el0151.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 151
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0151-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentright > p:nth-child(3) > a",
+      "html_snippet": "<a href=\"tickets.html\" class=\"more\">Buy Tickets</a>",
+      "screenshot": "data/findings/shots/after_home_el0151.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 151
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0153-1.1.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentright > img:nth-child(5)",
+      "html_snippet": "<img src=\"./img/teaser_right2.jpg\" alt=\"Anemone-Snowdrop flower blooming\">",
+      "screenshot": "data/findings/shots/after_home_el0153.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 153
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0154-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".spacebelow:nth-child(6)",
+      "html_snippet": "<p class=\"spacebelow\">More parks and more green space throughout the city at the price of already rare car parking spaces; how will this affect you?<br><a href=\"survey.html\" class=\"more\">Take Survey</a></p>",
+      "screenshot": "data/findings/shots/after_home_el0154.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 154
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0156-1.4.3",
+    "page": "home",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".more[href$=\"survey.html\"]",
+      "html_snippet": "<a href=\"survey.html\" class=\"more\">Take Survey</a>",
+      "screenshot": "data/findings/shots/after_home_el0156.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 156
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0156-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentright > p:nth-child(6) > a",
+      "html_snippet": "<a href=\"survey.html\" class=\"more\">Take Survey</a>",
+      "screenshot": "data/findings/shots/after_home_el0156.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 156
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0158-1.3.1",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p",
+      "html_snippet": "<p><a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a> \u00a9 2012 <a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a><sup>\u00ae</sup> (<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>, <a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>, <a href=\"http://www.keio.ac.jp/\">Keio</a>)</p>",
+      "screenshot": "data/findings/shots/after_home_el0158.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 158
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+        "type": "warning",
+        "message": "If this element contains a navigation section, it is recommended that it be marked up as a list."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0159-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(1)",
+      "html_snippet": "<a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a>",
+      "screenshot": "data/findings/shots/after_home_el0159.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 159
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0160-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(2)",
+      "html_snippet": "<a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a>",
+      "screenshot": "data/findings/shots/after_home_el0160.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 160
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0163-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(4)",
+      "html_snippet": "<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>",
+      "screenshot": "data/findings/shots/after_home_el0163.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 163
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0165-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(5)",
+      "html_snippet": "<a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>",
+      "screenshot": "data/findings/shots/after_home_el0165.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 165
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-home-el0167-2.4.4",
+    "page": "home",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(6)",
+      "html_snippet": "<a href=\"http://www.keio.ac.jp/\">Keio</a>",
+      "screenshot": "data/findings/shots/after_home_el0167.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/home.html",
+      "captured_at": "2026-10-02T16:24:44.002Z",
+      "dom_index": 167
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  }
+]

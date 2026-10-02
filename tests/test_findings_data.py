@@ -1,44 +1,66 @@
-"""Checks on Track A's committed output in data/findings/, the files Tracks B, C and D read."""
+"""Checks on Track A's committed output in data/findings/, the files Tracks B, C and D read.
+
+The format rules themselves live in scanners/findings.py; these tests run every
+committed file through that loader and check the things a file alone can't show.
+"""
 
 import json
-import re
-from pathlib import Path
 
 import pytest
 
-ROOT = Path(__file__).resolve().parent.parent
-FILES = sorted((ROOT / "data" / "findings").glob("*.json"))
-ID_RE = re.compile(r"^F-(before|after)-(home|news|tickets|survey)-el(\d{4})-(\d\.\d\.\d+)$")
-STATUSES = {"violation", "needs_review", "notice"}
-DETAIL_TYPES = {"axe-core": {"violations", "incomplete"}, "pa11y": {"error", "warning", "notice"}}
+from scanners.findings import (
+    FINDINGS_DIR,
+    PAGES,
+    REPO,
+    VERSIONS,
+    FindingsFileError,
+    load_findings,
+    validate_findings,
+)
+
+ALL_PAGES = [(v, p) for v in VERSIONS for p in PAGES]
 
 
-def _load(path):
-    return json.loads(path.read_text())
-
-
-@pytest.mark.parametrize("path", FILES, ids=[p.stem for p in FILES])
-def test_findings_file(path):
-    findings = _load(path)
-    version, page = path.stem.split("_")
-    ids = [f["finding_id"] for f in findings]
-    assert len(ids) == len(set(ids)), "duplicate finding IDs"
+@pytest.mark.parametrize(("version", "page"), ALL_PAGES, ids=[f"{v}_{p}" for v, p in ALL_PAGES])
+def test_committed_file_loads(version, page):
+    findings = load_findings(version, page)
+    assert findings, "every page has findings"
     for f in findings:
-        m = ID_RE.match(f["finding_id"])
-        assert m, f"bad ID format: {f['finding_id']}"
-        # The ID must describe the finding it is on, so it can't drift from the data.
-        assert m.groups() == (version, page, f"{f['evidence']['dom_index']:04d}", f["wcag"][0]), f["finding_id"]
-        assert f["site_version"] == version and f["page"] == page
-        assert f["scanner_status"] in STATUSES
-        assert f["source"] == f["sources"][0]
-        for d in f["scanner_details"]:
-            assert d["type"] in DETAIL_TYPES[d["scanner"]], d
-        shot = f["evidence"]["screenshot"]
-        assert shot is None or (ROOT / shot).is_file(), f"missing screenshot {shot}"
-        assert f["bucket"] is None and f["review"]["final_status"] is None
+        shot = f.evidence.screenshot
+        assert shot is None or (REPO / shot).is_file(), f"{f.finding_id}: missing screenshot {shot}"
+        assert f.bucket is None and f.review.final_status is None, "Track A output must be undecided"
+
+
+def test_only_page_files_in_findings_dir():
+    """Other tracks write their own results elsewhere (docs/TRACKS.md), never next to Track A's."""
+    expected = {f"{v}_{p}.json" for v, p in ALL_PAGES}
+    extra = sorted(p.name for p in FINDINGS_DIR.glob("*.json") if p.name not in expected)
+    assert not extra, f"unexpected files in data/findings/: {extra}"
 
 
 def test_example_is_a_real_finding():
-    example = _load(ROOT / "docs" / "finding.example.json")
-    by_id = {f["finding_id"]: f for p in FILES for f in _load(p)}
-    assert example["finding_id"] in by_id, "docs/finding.example.json must use a real current ID"
+    example = json.loads((REPO / "docs" / "finding.example.json").read_text())
+    validate_findings([example], "docs/finding.example.json")
+    real = {f.finding_id: f for f in load_findings(example["site_version"], example["page"])}
+    assert example["finding_id"] in real
+
+
+def test_loader_rejects_broken_findings():
+    good = json.loads((REPO / "docs" / "finding.example.json").read_text())
+    for breakage in (
+        lambda f: f.pop("evidence"),
+        lambda f: f.update(wcag=["2.5.3"]),  # WCAG 2.1, not allowed
+        lambda f: f.update(finding_id="F-before-home-0032"),  # old positional ID
+        lambda f: f["scanner_details"][0].update(type="violation"),  # axe says "violations"
+        lambda f: f.update(scanner_status="fail"),
+    ):
+        bad = json.loads(json.dumps(good))
+        breakage(bad)
+        with pytest.raises(FindingsFileError):
+            validate_findings([bad])
+
+
+def test_loader_keeps_extra_fields():
+    f = json.loads((REPO / "docs" / "finding.example.json").read_text())
+    f["mapping"] = {"method": "tag"}
+    assert validate_findings([f])[0].model_dump()["mapping"] == {"method": "tag"}

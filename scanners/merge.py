@@ -43,6 +43,7 @@ sys.path.insert(0, str(REPO))
 from playwright.sync_api import sync_playwright  # noqa: E402
 
 from capture.capture import PAGES, VERSIONS, VIEWPORT, page_url  # noqa: E402
+from scanners.findings import validate_findings  # noqa: E402
 from scanners.wcag import SECTION508_WEB, WCAG20_A_AA, axe_tags_to_sc  # noqa: E402
 
 SCANS = REPO / "data" / "scans"
@@ -239,12 +240,12 @@ def merge_page(page, version, name):
     groups = group(hits)
     findings = [build_finding(version, name, hs, url, captured_at) for hs in groups.values()]
     findings.sort(key=lambda f: (f["_dom_index"], [int(x) for x in f["wcag"][0].split(".")], f["rule_id"]))
-    ids = [f["finding_id"] for f in findings]
-    assert len(ids) == len(set(ids)), "duplicate finding IDs: grouping by (dom_index, sc) is broken"
     shot_stats = take_shots(page, version, name, findings, url)
     for f in findings:
         f["evidence"]["dom_index"] = f.pop("_dom_index")
 
+    # Never write a file the other tracks can't load: check it against the format first.
+    validate_findings(findings, f"{version}_{name} (before writing)")
     OUT.mkdir(parents=True, exist_ok=True)
     out = OUT / f"{version}_{name}.json"
     out.write_text(json.dumps(findings, indent=2), encoding="utf-8")

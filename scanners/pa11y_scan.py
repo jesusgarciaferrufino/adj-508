@@ -52,12 +52,22 @@ def run_pa11y(url):
     cmd = [str(PA11Y), "--standard", "WCAG2AA", "--runner", "htmlcs",
            "--include-warnings", "--include-notices",
            "--reporter", "json", "--timeout", "60000", url]
-    proc = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO)
+    try:
+        # Pa11y's own --timeout covers page load; this stops a hung browser from blocking forever.
+        proc = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO, timeout=180)
+    except subprocess.TimeoutExpired:
+        raise RuntimeError(f"pa11y did not finish within 180s for {url}") from None
     if proc.returncode not in (0, 2):
         raise RuntimeError(
             f"pa11y exited {proc.returncode} for {url}\n"
             f"stderr:\n{proc.stderr.strip()}\nstdout (first 500):\n{proc.stdout[:500]}")
-    return json.loads(proc.stdout), cmd
+    try:
+        issues = json.loads(proc.stdout)
+    except json.JSONDecodeError:
+        raise RuntimeError(f"pa11y returned non-JSON output for {url}:\n{proc.stdout[:500]}") from None
+    if not isinstance(issues, list):
+        raise RuntimeError(f"pa11y returned {type(issues).__name__}, expected a list of issues, for {url}")
+    return issues, cmd
 
 
 def sc_from_code(code):

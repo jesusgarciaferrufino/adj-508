@@ -61,7 +61,7 @@ def capture_page(page: Page, version: str, name: str) -> Path:
         "url": url,
         "version": version,
         "page": name,
-        "captured_at": datetime.datetime.now(datetime.timezone.utc)
+        "captured_at": datetime.datetime.now(datetime.UTC)
         .isoformat(timespec="seconds")
         .replace("+00:00", "Z"),
         "viewport": VIEWPORT,

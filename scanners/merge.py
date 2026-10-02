@@ -166,7 +166,7 @@ def take_shots(page, version, name, findings, url):
     doc_w = page.evaluate("document.documentElement.scrollWidth")
     doc_h = page.evaluate("document.documentElement.scrollHeight")
     indices = sorted({f["_dom_index"] for f in findings if f["_dom_index"] != PAGE_LEVEL})
-    boxes = dict(zip(indices, page.evaluate(BOXES_JS, indices)))
+    boxes = dict(zip(indices, page.evaluate(BOXES_JS, indices), strict=True))
     stats = collections.Counter()
 
     for old in SHOTS.glob(f"{version}_{name}_*"):

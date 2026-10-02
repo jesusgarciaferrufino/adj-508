@@ -72,7 +72,7 @@ def scan_page(page, version, name):
     page.goto(url, wait_until="networkidle")
     selectors = [i.get("selector") or "" for i in issues]
     extra = page.evaluate(ENRICH_JS, [selectors, WRAPPER, HTML_CAP])
-    for issue, sel, e in zip(issues, selectors, extra):
+    for issue, sel, e in zip(issues, selectors, extra, strict=True):
         adj = dict(e) if sel else {"error": "pa11y gave no selector (page-level issue)"}
         adj["wcag_sc"] = sc_from_code(issue.get("code"))
         issue["_adj"] = adj

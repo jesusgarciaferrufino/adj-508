@@ -89,7 +89,7 @@ def scan_page(page, version, name):
     nodes = [n for kind in ("violations", "incomplete") for r in results[kind] for n in r["nodes"]]
     selectors = [node_selector(n) or "" for n in nodes]
     extra = page.evaluate(ENRICH_JS, [selectors, WRAPPER, HTML_CAP])
-    for n, sel, e in zip(nodes, selectors, extra):
+    for n, sel, e in zip(nodes, selectors, extra, strict=True):
         n["_adj"] = e if sel else {"error": f"unsupported target {n.get('target')!r}"}
 
     OUT.mkdir(parents=True, exist_ok=True)

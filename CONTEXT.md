@@ -24,6 +24,9 @@ with AWS support. Switch to it once granted. Bedrock Claude models must be calle
 
 ## Current phase
 Week 2: one grey-area finding end to end (capture, scanners, mapper, router, FOR/AGAINST).
+- Track A output is ready: data/findings/{before,after}_{home,news,tickets,survey}.json
+  (format: docs/finding.example.json). Tracks B, C and D read these files and do not
+  need to run the scanners. Findings on the same element share evidence.dom_index.
 
 ## Phase history
 Kept so anyone catching up can see what earlier weeks built and what is still open.

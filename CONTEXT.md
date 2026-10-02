@@ -44,5 +44,6 @@ and "before AI" baseline numbers. Full steps: Week 1 Setup Guide.
 
 ## Team conventions
 - Who owns which file, branch rules, and the agreed finding format decisions: docs/TRACKS.md
-- Finding format everyone codes against: docs/finding.example.json
+- Finding format everyone codes against: docs/finding.example.json. Read findings with
+  `from scanners.findings import load_findings`, not by parsing the JSON by hand.
 - Playwright 1.63 has no page.accessibility.snapshot(). Use page.aria_snapshot() or a CDP session.

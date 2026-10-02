@@ -48,6 +48,29 @@ Decided 2026-10-02 (Track A, A4). The example file is a real finding from
 Other merge rules: W3C's wrapper (`#meta-header`, `#meta-footer`) is filtered out;
 all Pa11y notices are kept.
 
+### Reading findings in code
+
+Don't parse the JSON by hand. Use the loader, which checks every finding against this
+format and fails with a clear message naming the file, finding and field:
+
+```python
+from scanners.findings import load_findings
+
+for f in load_findings("before", "home"):
+    f.finding_id                          # "F-before-home-el0081-1.1.1"
+    f.wcag[0]                             # "1.1.1"
+    f.evidence.selector, f.evidence.html_snippet, f.evidence.screenshot
+    [d.message for d in f.scanner_details]   # what the scanners said (for SCANNER SAID)
+```
+
+`f.model_dump()` gives a plain dict. Run scripts from the repo root as modules
+(`python -m agents.mapper`). Element details live under `evidence`, and scanner messages
+under `scanner_details`; there is no top-level `selector`, `html_snippet` or `message`.
+
+**Where your output goes:** `data/findings/` holds only Track A's eight page files, and
+CI fails if anything else appears there. Write derived results to your own track's folder
+(for example `data/mapped/` for Track B), keyed by `finding_id`.
+
 ### Finding IDs (changed 2026-10-02, before any track depended on them)
 
 `F-{version}-{page}-el{dom_index:04d}-{criterion}`, e.g. `F-before-home-el0081-1.1.1`.

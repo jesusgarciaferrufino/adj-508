@@ -9,8 +9,8 @@ For every flagged element we add an "_adj" block with:
   outer_html       the element's full outerHTML read from the live page
                    (axe's own "html" field can be shortened)
   outer_html_len   length before our cap, so truncation is visible
-  in_wrapper       True if the element is inside W3C's #meta-header wrapper,
-                   which is not part of the demo. The merge step filters on this;
+  in_wrapper       True if the element is inside W3C's wrapper (#meta-header at
+                   the top or #meta-footer at the bottom), which is not part of the demo. The merge step filters on this;
                    the scan keeps everything so nothing is lost here.
 
 The whole document is scanned on purpose: page-level failures such as a missing
@@ -36,7 +36,7 @@ from capture.capture import PAGES, VERSIONS, VIEWPORT, page_url  # noqa: E402
 
 AXE = REPO / "node_modules" / "axe-core" / "axe.min.js"
 OUT = REPO / "data" / "scans"
-WRAPPER = "#meta-header"
+WRAPPER = "#meta-header, #meta-footer"  # W3C demo chrome, not part of CityLights
 HTML_CAP = 5000  # characters; enough for any element on the BAD pages
 
 AXE_OPTIONS = {

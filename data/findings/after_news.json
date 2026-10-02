@@ -1,6 +1,6 @@
 [
   {
-    "finding_id": "F-after-news-0001",
+    "finding_id": "F-after-news-el0000-1.3.2",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -47,7 +47,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0002",
+    "finding_id": "F-after-news-el0000-1.3.3",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -94,7 +94,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0003",
+    "finding_id": "F-after-news-el0000-1.4.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -141,7 +141,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0004",
+    "finding_id": "F-after-news-el0000-1.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -188,7 +188,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0005",
+    "finding_id": "F-after-news-el0000-1.4.5",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -235,7 +235,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0006",
+    "finding_id": "F-after-news-el0000-2.2.2",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -282,7 +282,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0007",
+    "finding_id": "F-after-news-el0000-2.3.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -329,7 +329,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0008",
+    "finding_id": "F-after-news-el0000-2.4.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -376,7 +376,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0009",
+    "finding_id": "F-after-news-el0000-2.4.5",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -423,7 +423,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0010",
+    "finding_id": "F-after-news-el0000-2.4.6",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -470,7 +470,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0011",
+    "finding_id": "F-after-news-el0000-2.4.7",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -517,7 +517,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0012",
+    "finding_id": "F-after-news-el0000-3.1.2",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -564,7 +564,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0013",
+    "finding_id": "F-after-news-el0000-3.2.3",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -611,7 +611,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0014",
+    "finding_id": "F-after-news-el0000-3.2.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -658,7 +658,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0015",
+    "finding_id": "F-after-news-el0002-2.4.2",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -705,7 +705,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0016",
+    "finding_id": "F-after-news-el0058-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -752,7 +752,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0017",
+    "finding_id": "F-after-news-el0060-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -799,7 +799,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0018",
+    "finding_id": "F-after-news-el0062-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -846,7 +846,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0019",
+    "finding_id": "F-after-news-el0063-1.1.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -899,7 +899,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0020",
+    "finding_id": "F-after-news-el0064-1.1.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -952,7 +952,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0021",
+    "finding_id": "F-after-news-el0065-3.3.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -999,7 +999,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0022",
+    "finding_id": "F-after-news-el0065-3.3.2",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1046,7 +1046,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0023",
+    "finding_id": "F-after-news-el0065-3.3.3",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1093,7 +1093,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0024",
+    "finding_id": "F-after-news-el0065-3.3.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1140,7 +1140,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0025",
+    "finding_id": "F-after-news-el0068-1.3.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1187,7 +1187,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0026",
+    "finding_id": "F-after-news-el0068-3.2.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1234,7 +1234,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0027",
+    "finding_id": "F-after-news-el0068-4.1.2",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1281,7 +1281,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0028",
+    "finding_id": "F-after-news-el0085-3.2.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1328,7 +1328,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0029",
+    "finding_id": "F-after-news-el0097-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1382,7 +1382,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0030",
+    "finding_id": "F-after-news-el0097-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1429,7 +1429,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0031",
+    "finding_id": "F-after-news-el0099-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1483,7 +1483,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0032",
+    "finding_id": "F-after-news-el0099-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1530,7 +1530,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0033",
+    "finding_id": "F-after-news-el0099-4.1.2",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1577,7 +1577,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0034",
+    "finding_id": "F-after-news-el0101-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1631,7 +1631,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0035",
+    "finding_id": "F-after-news-el0101-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1678,7 +1678,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0036",
+    "finding_id": "F-after-news-el0103-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1732,7 +1732,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0037",
+    "finding_id": "F-after-news-el0103-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -1779,7 +1779,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0038",
+    "finding_id": "F-after-news-el0106-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1833,7 +1833,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0039",
+    "finding_id": "F-after-news-el0109-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1887,7 +1887,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0040",
+    "finding_id": "F-after-news-el0110-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1941,7 +1941,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0041",
+    "finding_id": "F-after-news-el0111-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -1995,7 +1995,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0042",
+    "finding_id": "F-after-news-el0112-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2049,7 +2049,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0043",
+    "finding_id": "F-after-news-el0114-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2103,7 +2103,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0044",
+    "finding_id": "F-after-news-el0115-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2157,7 +2157,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0045",
+    "finding_id": "F-after-news-el0116-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2211,7 +2211,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0046",
+    "finding_id": "F-after-news-el0117-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2265,7 +2265,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0047",
+    "finding_id": "F-after-news-el0118-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2319,7 +2319,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0048",
+    "finding_id": "F-after-news-el0118-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -2366,7 +2366,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0049",
+    "finding_id": "F-after-news-el0119-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2420,7 +2420,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0050",
+    "finding_id": "F-after-news-el0121-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2474,7 +2474,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0051",
+    "finding_id": "F-after-news-el0122-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2528,7 +2528,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0052",
+    "finding_id": "F-after-news-el0123-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2582,7 +2582,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0053",
+    "finding_id": "F-after-news-el0125-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2636,7 +2636,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0054",
+    "finding_id": "F-after-news-el0126-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2690,7 +2690,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0055",
+    "finding_id": "F-after-news-el0127-1.1.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -2743,7 +2743,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0056",
+    "finding_id": "F-after-news-el0131-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2797,7 +2797,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0057",
+    "finding_id": "F-after-news-el0132-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2851,7 +2851,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0058",
+    "finding_id": "F-after-news-el0133-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -2905,7 +2905,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0059",
+    "finding_id": "F-after-news-el0133-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -2952,7 +2952,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0060",
+    "finding_id": "F-after-news-el0135-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3006,7 +3006,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0061",
+    "finding_id": "F-after-news-el0136-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3053,7 +3053,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0062",
+    "finding_id": "F-after-news-el0137-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3100,7 +3100,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0063",
+    "finding_id": "F-after-news-el0138-1.1.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3153,7 +3153,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0064",
+    "finding_id": "F-after-news-el0139-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3207,7 +3207,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0065",
+    "finding_id": "F-after-news-el0140-1.3.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3254,7 +3254,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0066",
+    "finding_id": "F-after-news-el0141-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3308,7 +3308,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0067",
+    "finding_id": "F-after-news-el0142-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3362,7 +3362,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0068",
+    "finding_id": "F-after-news-el0142-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3409,7 +3409,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0069",
+    "finding_id": "F-after-news-el0144-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3463,7 +3463,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0070",
+    "finding_id": "F-after-news-el0147-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3517,7 +3517,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0071",
+    "finding_id": "F-after-news-el0148-1.1.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3570,7 +3570,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0072",
+    "finding_id": "F-after-news-el0149-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3624,7 +3624,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0073",
+    "finding_id": "F-after-news-el0150-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3678,7 +3678,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0074",
+    "finding_id": "F-after-news-el0151-1.4.3",
     "page": "news",
     "site_version": "after",
     "source": "axe-core",
@@ -3732,7 +3732,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0075",
+    "finding_id": "F-after-news-el0153-1.3.1",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3779,7 +3779,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0076",
+    "finding_id": "F-after-news-el0154-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3826,7 +3826,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0077",
+    "finding_id": "F-after-news-el0155-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3873,7 +3873,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0078",
+    "finding_id": "F-after-news-el0158-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3920,7 +3920,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0079",
+    "finding_id": "F-after-news-el0160-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",
@@ -3967,7 +3967,7 @@
     }
   },
   {
-    "finding_id": "F-after-news-0080",
+    "finding_id": "F-after-news-el0162-2.4.4",
     "page": "news",
     "site_version": "after",
     "source": "pa11y",

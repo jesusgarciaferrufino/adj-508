@@ -17,8 +17,13 @@ Rules (decided 2026-10-02, see docs/TRACKS.md):
 - "source" stays the format's single string (axe-core when axe is involved).
   "sources", "scanner_status" and "scanner_details" are additive fields.
 - "bucket" stays null: Track C's router decides it.
-- IDs F-{version}-{page}-{NNNN} are numbered after sorting by
-  (dom_index, criterion, rule_id), so they are stable across runs of the same page.
+- IDs are F-{version}-{page}-el{dom_index:04d}-{criterion}, e.g. F-before-home-el0081-1.1.1.
+  They name what the finding is (element + criterion), not where it sits in the list,
+  so adding or dropping other findings never changes an existing ID. Unique because
+  there is exactly one finding per (element, criterion). Findings are still written
+  sorted by (dom_index, criterion, rule_id).
+- Screenshots are written to a temporary folder and only swapped in once the whole
+  page succeeds, so a crash never leaves findings pointing at deleted images.
 
 Run from the repo root:
   python scanners/merge.py                    # all 4 Before pages
@@ -28,6 +33,7 @@ Run from the repo root:
 import argparse
 import collections
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -47,10 +53,22 @@ STATUS_RANK = {"violation": 3, "needs_review": 2, "notice": 1}
 PAGE_LEVEL = 0     # dom_index of <html>
 
 
+def finding_id(version, name, dom_index, sc):
+    """Stable ID from what the finding is: page, element and criterion."""
+    return f"F-{version}-{name}-el{dom_index:04d}-{sc}"
+
+
+def read_scan(path, script):
+    if not path.exists():
+        sys.exit(f"Missing {path.relative_to(REPO)}. Run: python scanners/{script} "
+                 f"--version {path.stem.split('_')[1]} --page {path.stem.split('_')[2]}")
+    return json.loads(path.read_text())
+
+
 def load_hits(version, name):
     """Flatten both scanners into one list of hits; return hits and drop counts."""
     hits, dropped = [], collections.Counter()
-    axe = json.loads((SCANS / f"axe_{version}_{name}.json").read_text())
+    axe = read_scan(SCANS / f"axe_{version}_{name}.json", "axe_scan.py")
     captured_at = axe.get("timestamp")
     for kind, status in (("violations", "violation"), ("incomplete", "needs_review")):
         for rule in axe[kind]:
@@ -73,7 +91,7 @@ def load_hits(version, name):
                         "dom_index": adj["dom_index"], "selector": node["target"][0],
                         "html": adj["outer_html"]})
 
-    pa = json.loads((SCANS / f"pa11y_{version}_{name}.json").read_text())["issues"]
+    pa = read_scan(SCANS / f"pa11y_{version}_{name}.json", "pa11y_scan.py")["issues"]
     for i in pa:
         adj = i["_adj"]
         if adj.get("in_wrapper"):
@@ -119,7 +137,7 @@ def build_finding(version, name, hs, url, captured_at):
                         "message": h["message"]})
     html = next((h["html"] for h in hs if h["html"]), "")
     return {
-        "finding_id": None,  # assigned after sorting
+        "finding_id": finding_id(version, name, primary["dom_index"], primary["sc"]),
         "page": name,
         "site_version": version,
         "source": primary["scanner"],
@@ -160,8 +178,14 @@ BOXES_JS = """
 
 
 def take_shots(page, version, name, findings, url):
-    """Padded crop per element; whole-page JPEG for page-level findings."""
-    SHOTS.mkdir(parents=True, exist_ok=True)
+    """Padded crop per element; whole-page JPEG for page-level findings.
+
+    New images go to a temporary folder first. Only after every image for this page
+    is written are the old ones deleted and the new ones moved into place.
+    """
+    tmp = SHOTS / f".tmp_{version}_{name}"
+    shutil.rmtree(tmp, ignore_errors=True)  # leftovers from a crashed run
+    tmp.mkdir(parents=True)
     page.goto(url, wait_until="networkidle")
     doc_w = page.evaluate("document.documentElement.scrollWidth")
     doc_h = page.evaluate("document.documentElement.scrollHeight")
@@ -169,9 +193,7 @@ def take_shots(page, version, name, findings, url):
     boxes = dict(zip(indices, page.evaluate(BOXES_JS, indices), strict=True))
     stats = collections.Counter()
 
-    for old in SHOTS.glob(f"{version}_{name}_*"):
-        old.unlink()  # this page's previous run; other pages are untouched
-    page_shot = SHOTS / f"{version}_{name}_page.jpg"
+    page_shot = tmp / f"{version}_{name}_page.jpg"
     page.screenshot(path=page_shot, full_page=True, type="jpeg", quality=60)
     paths = {PAGE_LEVEL: page_shot}
     for i, b in boxes.items():
@@ -183,11 +205,19 @@ def take_shots(page, version, name, findings, url):
         if x1 - x0 < 1 or y1 - y0 < 1:
             stats["offscreen"] += 1  # e.g. text moved off-page for screen readers
             continue
-        path = SHOTS / f"{version}_{name}_el{i:04d}.jpg"
+        path = tmp / f"{version}_{name}_el{i:04d}.jpg"
         page.screenshot(path=path, full_page=True, type="jpeg", quality=70,
                         clip={"x": x0, "y": y0, "width": x1 - x0, "height": y1 - y0})
         paths[i] = path
         stats["shot"] += 1
+
+    # All images written: swap them in. Other pages' images are untouched.
+    for old in SHOTS.glob(f"{version}_{name}_*"):
+        old.unlink()
+    for new in tmp.iterdir():
+        new.replace(SHOTS / new.name)
+    tmp.rmdir()
+    paths = {k: SHOTS / v.name for k, v in paths.items()}
 
     # Page-level Pa11y notices have no element; their evidence is the real <html> start tag.
     root_tag = page.evaluate(
@@ -209,8 +239,8 @@ def merge_page(page, version, name):
     groups = group(hits)
     findings = [build_finding(version, name, hs, url, captured_at) for hs in groups.values()]
     findings.sort(key=lambda f: (f["_dom_index"], [int(x) for x in f["wcag"][0].split(".")], f["rule_id"]))
-    for n, f in enumerate(findings, 1):
-        f["finding_id"] = f"F-{version}-{name}-{n:04d}"
+    ids = [f["finding_id"] for f in findings]
+    assert len(ids) == len(set(ids)), "duplicate finding IDs: grouping by (dom_index, sc) is broken"
     shot_stats = take_shots(page, version, name, findings, url)
     for f in findings:
         f["evidence"]["dom_index"] = f.pop("_dom_index")

@@ -1,6 +1,6 @@
 [
   {
-    "finding_id": "F-before-home-0001",
+    "finding_id": "F-before-home-el0000-1.3.2",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -47,7 +47,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0002",
+    "finding_id": "F-before-home-el0000-1.3.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -94,7 +94,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0003",
+    "finding_id": "F-before-home-el0000-1.4.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -141,7 +141,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0004",
+    "finding_id": "F-before-home-el0000-1.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -188,7 +188,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0005",
+    "finding_id": "F-before-home-el0000-1.4.5",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -235,7 +235,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0006",
+    "finding_id": "F-before-home-el0000-2.2.2",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -282,7 +282,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0007",
+    "finding_id": "F-before-home-el0000-2.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -329,7 +329,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0008",
+    "finding_id": "F-before-home-el0000-2.4.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -376,7 +376,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0009",
+    "finding_id": "F-before-home-el0000-2.4.5",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -423,7 +423,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0010",
+    "finding_id": "F-before-home-el0000-2.4.6",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -470,7 +470,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0011",
+    "finding_id": "F-before-home-el0000-2.4.7",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -517,7 +517,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0012",
+    "finding_id": "F-before-home-el0000-3.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -571,7 +571,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0013",
+    "finding_id": "F-before-home-el0000-3.1.2",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -618,7 +618,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0014",
+    "finding_id": "F-before-home-el0000-3.2.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -665,7 +665,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0015",
+    "finding_id": "F-before-home-el0000-3.2.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -712,7 +712,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0016",
+    "finding_id": "F-before-home-el0002-2.4.2",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -759,7 +759,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0017",
+    "finding_id": "F-before-home-el0054-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -806,7 +806,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0018",
+    "finding_id": "F-before-home-el0054-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -853,7 +853,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0019",
+    "finding_id": "F-before-home-el0057-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -900,7 +900,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0020",
+    "finding_id": "F-before-home-el0058-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -947,7 +947,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0021",
+    "finding_id": "F-before-home-el0058-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -994,7 +994,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0022",
+    "finding_id": "F-before-home-el0062-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1054,7 +1054,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0023",
+    "finding_id": "F-before-home-el0064-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1114,7 +1114,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0024",
+    "finding_id": "F-before-home-el0066-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1174,7 +1174,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0025",
+    "finding_id": "F-before-home-el0069-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1234,7 +1234,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0026",
+    "finding_id": "F-before-home-el0070-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1281,7 +1281,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0027",
+    "finding_id": "F-before-home-el0071-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1328,7 +1328,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0028",
+    "finding_id": "F-before-home-el0071-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1375,7 +1375,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0029",
+    "finding_id": "F-before-home-el0076-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1422,7 +1422,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0030",
+    "finding_id": "F-before-home-el0077-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1475,7 +1475,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0031",
+    "finding_id": "F-before-home-el0079-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1535,7 +1535,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0032",
+    "finding_id": "F-before-home-el0081-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1595,7 +1595,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0033",
+    "finding_id": "F-before-home-el0083-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1655,7 +1655,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0034",
+    "finding_id": "F-before-home-el0084-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1702,7 +1702,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0035",
+    "finding_id": "F-before-home-el0085-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1755,7 +1755,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0036",
+    "finding_id": "F-before-home-el0085-3.2.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1802,7 +1802,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0037",
+    "finding_id": "F-before-home-el0085-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1856,7 +1856,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0038",
+    "finding_id": "F-before-home-el0104-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -1916,7 +1916,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0039",
+    "finding_id": "F-before-home-el0107-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -1963,7 +1963,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0040",
+    "finding_id": "F-before-home-el0110-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2010,7 +2010,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0041",
+    "finding_id": "F-before-home-el0111-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2057,7 +2057,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0042",
+    "finding_id": "F-before-home-el0111-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2104,7 +2104,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0043",
+    "finding_id": "F-before-home-el0112-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2151,7 +2151,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0044",
+    "finding_id": "F-before-home-el0113-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2198,7 +2198,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0045",
+    "finding_id": "F-before-home-el0113-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2245,7 +2245,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0046",
+    "finding_id": "F-before-home-el0114-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2292,7 +2292,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0047",
+    "finding_id": "F-before-home-el0114-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2339,7 +2339,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0048",
+    "finding_id": "F-before-home-el0115-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2386,7 +2386,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0049",
+    "finding_id": "F-before-home-el0119-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -2446,7 +2446,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0050",
+    "finding_id": "F-before-home-el0122-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2493,7 +2493,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0051",
+    "finding_id": "F-before-home-el0122-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2540,7 +2540,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0052",
+    "finding_id": "F-before-home-el0125-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2587,7 +2587,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0053",
+    "finding_id": "F-before-home-el0126-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2634,7 +2634,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0054",
+    "finding_id": "F-before-home-el0130-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -2694,7 +2694,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0055",
+    "finding_id": "F-before-home-el0132-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -2754,7 +2754,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0056",
+    "finding_id": "F-before-home-el0134-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2801,7 +2801,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0057",
+    "finding_id": "F-before-home-el0134-2.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2854,7 +2854,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0058",
+    "finding_id": "F-before-home-el0135-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -2901,7 +2901,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0059",
+    "finding_id": "F-before-home-el0135-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -2955,7 +2955,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0060",
+    "finding_id": "F-before-home-el0135-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3002,7 +3002,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0061",
+    "finding_id": "F-before-home-el0136-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3056,7 +3056,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0062",
+    "finding_id": "F-before-home-el0139-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3116,7 +3116,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0063",
+    "finding_id": "F-before-home-el0141-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3163,7 +3163,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0064",
+    "finding_id": "F-before-home-el0141-2.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3216,7 +3216,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0065",
+    "finding_id": "F-before-home-el0142-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3263,7 +3263,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0066",
+    "finding_id": "F-before-home-el0142-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3317,7 +3317,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0067",
+    "finding_id": "F-before-home-el0142-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3364,7 +3364,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0068",
+    "finding_id": "F-before-home-el0143-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3418,7 +3418,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0069",
+    "finding_id": "F-before-home-el0146-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3478,7 +3478,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0070",
+    "finding_id": "F-before-home-el0148-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3525,7 +3525,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0071",
+    "finding_id": "F-before-home-el0148-2.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3578,7 +3578,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0072",
+    "finding_id": "F-before-home-el0149-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3625,7 +3625,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0073",
+    "finding_id": "F-before-home-el0149-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3679,7 +3679,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0074",
+    "finding_id": "F-before-home-el0149-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3726,7 +3726,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0075",
+    "finding_id": "F-before-home-el0150-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3780,7 +3780,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0076",
+    "finding_id": "F-before-home-el0153-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -3840,7 +3840,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0077",
+    "finding_id": "F-before-home-el0155-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3887,7 +3887,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0078",
+    "finding_id": "F-before-home-el0155-2.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3940,7 +3940,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0079",
+    "finding_id": "F-before-home-el0156-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -3987,7 +3987,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0080",
+    "finding_id": "F-before-home-el0156-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4041,7 +4041,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0081",
+    "finding_id": "F-before-home-el0156-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4088,7 +4088,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0082",
+    "finding_id": "F-before-home-el0157-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4142,7 +4142,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0083",
+    "finding_id": "F-before-home-el0160-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4202,7 +4202,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0084",
+    "finding_id": "F-before-home-el0162-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4262,7 +4262,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0085",
+    "finding_id": "F-before-home-el0171-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4322,7 +4322,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0086",
+    "finding_id": "F-before-home-el0171-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4369,7 +4369,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0087",
+    "finding_id": "F-before-home-el0172-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4416,7 +4416,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0088",
+    "finding_id": "F-before-home-el0174-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4476,7 +4476,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0089",
+    "finding_id": "F-before-home-el0174-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4523,7 +4523,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0090",
+    "finding_id": "F-before-home-el0175-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4570,7 +4570,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0091",
+    "finding_id": "F-before-home-el0177-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4630,7 +4630,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0092",
+    "finding_id": "F-before-home-el0177-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4677,7 +4677,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0093",
+    "finding_id": "F-before-home-el0178-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4724,7 +4724,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0094",
+    "finding_id": "F-before-home-el0182-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4771,7 +4771,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0095",
+    "finding_id": "F-before-home-el0184-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4818,7 +4818,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0096",
+    "finding_id": "F-before-home-el0186-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4865,7 +4865,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0097",
+    "finding_id": "F-before-home-el0193-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -4912,7 +4912,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0098",
+    "finding_id": "F-before-home-el0193-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -4966,7 +4966,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0099",
+    "finding_id": "F-before-home-el0193-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -5013,7 +5013,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0100",
+    "finding_id": "F-before-home-el0194-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5060,7 +5060,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0101",
+    "finding_id": "F-before-home-el0194-2.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5113,7 +5113,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0102",
+    "finding_id": "F-before-home-el0197-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5160,7 +5160,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0103",
+    "finding_id": "F-before-home-el0197-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -5214,7 +5214,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0104",
+    "finding_id": "F-before-home-el0197-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -5261,7 +5261,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0105",
+    "finding_id": "F-before-home-el0198-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5308,7 +5308,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0106",
+    "finding_id": "F-before-home-el0198-2.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5361,7 +5361,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0107",
+    "finding_id": "F-before-home-el0201-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5408,7 +5408,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0108",
+    "finding_id": "F-before-home-el0201-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -5462,7 +5462,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0109",
+    "finding_id": "F-before-home-el0201-4.1.2",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -5509,7 +5509,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0110",
+    "finding_id": "F-before-home-el0202-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5556,7 +5556,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0111",
+    "finding_id": "F-before-home-el0202-2.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5609,7 +5609,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0112",
+    "finding_id": "F-before-home-el0209-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5662,7 +5662,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0113",
+    "finding_id": "F-before-home-el0209-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5709,7 +5709,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0114",
+    "finding_id": "F-before-home-el0210-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5756,7 +5756,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0115",
+    "finding_id": "F-before-home-el0212-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5809,7 +5809,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0116",
+    "finding_id": "F-before-home-el0212-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5856,7 +5856,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0117",
+    "finding_id": "F-before-home-el0213-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5903,7 +5903,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0118",
+    "finding_id": "F-before-home-el0216-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -5950,7 +5950,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0119",
+    "finding_id": "F-before-home-el0217-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6003,7 +6003,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0120",
+    "finding_id": "F-before-home-el0217-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6050,7 +6050,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0121",
+    "finding_id": "F-before-home-el0219-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -6110,7 +6110,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0122",
+    "finding_id": "F-before-home-el0221-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6157,7 +6157,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0123",
+    "finding_id": "F-before-home-el0225-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -6217,7 +6217,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0124",
+    "finding_id": "F-before-home-el0227-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -6277,7 +6277,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0125",
+    "finding_id": "F-before-home-el0229-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6324,7 +6324,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0126",
+    "finding_id": "F-before-home-el0230-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6371,7 +6371,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0127",
+    "finding_id": "F-before-home-el0230-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6418,7 +6418,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0128",
+    "finding_id": "F-before-home-el0231-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6465,7 +6465,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0129",
+    "finding_id": "F-before-home-el0231-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -6519,7 +6519,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0130",
+    "finding_id": "F-before-home-el0235-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -6579,7 +6579,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0131",
+    "finding_id": "F-before-home-el0238-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6626,7 +6626,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0132",
+    "finding_id": "F-before-home-el0244-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6673,7 +6673,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0133",
+    "finding_id": "F-before-home-el0249-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -6733,7 +6733,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0134",
+    "finding_id": "F-before-home-el0251-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6780,7 +6780,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0135",
+    "finding_id": "F-before-home-el0252-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6827,7 +6827,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0136",
+    "finding_id": "F-before-home-el0252-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6874,7 +6874,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0137",
+    "finding_id": "F-before-home-el0253-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -6921,7 +6921,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0138",
+    "finding_id": "F-before-home-el0253-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -6975,7 +6975,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0139",
+    "finding_id": "F-before-home-el0256-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -7035,7 +7035,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0140",
+    "finding_id": "F-before-home-el0259-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7082,7 +7082,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0141",
+    "finding_id": "F-before-home-el0264-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7129,7 +7129,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0142",
+    "finding_id": "F-before-home-el0265-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7176,7 +7176,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0143",
+    "finding_id": "F-before-home-el0265-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7223,7 +7223,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0144",
+    "finding_id": "F-before-home-el0268-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7270,7 +7270,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0145",
+    "finding_id": "F-before-home-el0269-1.3.1",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7317,7 +7317,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0146",
+    "finding_id": "F-before-home-el0269-1.4.3",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7364,7 +7364,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0147",
+    "finding_id": "F-before-home-el0270-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7411,7 +7411,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0148",
+    "finding_id": "F-before-home-el0271-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7458,7 +7458,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0149",
+    "finding_id": "F-before-home-el0274-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7505,7 +7505,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0150",
+    "finding_id": "F-before-home-el0276-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7552,7 +7552,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0151",
+    "finding_id": "F-before-home-el0278-2.4.4",
     "page": "home",
     "site_version": "before",
     "source": "pa11y",
@@ -7599,7 +7599,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0152",
+    "finding_id": "F-before-home-el0280-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -7659,7 +7659,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0153",
+    "finding_id": "F-before-home-el0283-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -7719,7 +7719,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0154",
+    "finding_id": "F-before-home-el0285-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",
@@ -7779,7 +7779,7 @@
     }
   },
   {
-    "finding_id": "F-before-home-0155",
+    "finding_id": "F-before-home-el0287-1.1.1",
     "page": "home",
     "site_version": "before",
     "source": "axe-core",

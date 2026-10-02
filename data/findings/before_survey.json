@@ -1,6 +1,6 @@
 [
   {
-    "finding_id": "F-before-survey-0001",
+    "finding_id": "F-before-survey-el0000-1.3.2",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -47,7 +47,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0002",
+    "finding_id": "F-before-survey-el0000-1.3.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -94,7 +94,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0003",
+    "finding_id": "F-before-survey-el0000-1.4.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -141,7 +141,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0004",
+    "finding_id": "F-before-survey-el0000-1.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -188,7 +188,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0005",
+    "finding_id": "F-before-survey-el0000-1.4.5",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -235,7 +235,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0006",
+    "finding_id": "F-before-survey-el0000-2.2.2",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -282,7 +282,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0007",
+    "finding_id": "F-before-survey-el0000-2.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -329,7 +329,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0008",
+    "finding_id": "F-before-survey-el0000-2.4.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -376,7 +376,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0009",
+    "finding_id": "F-before-survey-el0000-2.4.5",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -423,7 +423,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0010",
+    "finding_id": "F-before-survey-el0000-2.4.6",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -470,7 +470,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0011",
+    "finding_id": "F-before-survey-el0000-2.4.7",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -517,7 +517,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0012",
+    "finding_id": "F-before-survey-el0000-3.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -571,7 +571,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0013",
+    "finding_id": "F-before-survey-el0000-3.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -618,7 +618,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0014",
+    "finding_id": "F-before-survey-el0000-3.2.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -665,7 +665,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0015",
+    "finding_id": "F-before-survey-el0000-3.2.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -712,7 +712,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0016",
+    "finding_id": "F-before-survey-el0002-2.4.2",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -759,7 +759,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0017",
+    "finding_id": "F-before-survey-el0054-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -812,7 +812,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0018",
+    "finding_id": "F-before-survey-el0054-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -859,7 +859,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0019",
+    "finding_id": "F-before-survey-el0057-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -906,7 +906,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0020",
+    "finding_id": "F-before-survey-el0058-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -959,7 +959,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0021",
+    "finding_id": "F-before-survey-el0058-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1006,7 +1006,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0022",
+    "finding_id": "F-before-survey-el0062-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1066,7 +1066,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0023",
+    "finding_id": "F-before-survey-el0064-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1126,7 +1126,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0024",
+    "finding_id": "F-before-survey-el0066-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1186,7 +1186,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0025",
+    "finding_id": "F-before-survey-el0069-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1246,7 +1246,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0026",
+    "finding_id": "F-before-survey-el0070-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1293,7 +1293,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0027",
+    "finding_id": "F-before-survey-el0071-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1340,7 +1340,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0028",
+    "finding_id": "F-before-survey-el0071-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1387,7 +1387,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0029",
+    "finding_id": "F-before-survey-el0076-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1434,7 +1434,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0030",
+    "finding_id": "F-before-survey-el0077-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1487,7 +1487,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0031",
+    "finding_id": "F-before-survey-el0079-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1547,7 +1547,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0032",
+    "finding_id": "F-before-survey-el0081-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1607,7 +1607,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0033",
+    "finding_id": "F-before-survey-el0083-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1667,7 +1667,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0034",
+    "finding_id": "F-before-survey-el0084-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1714,7 +1714,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0035",
+    "finding_id": "F-before-survey-el0085-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1767,7 +1767,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0036",
+    "finding_id": "F-before-survey-el0085-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1814,7 +1814,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0037",
+    "finding_id": "F-before-survey-el0085-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1868,7 +1868,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0038",
+    "finding_id": "F-before-survey-el0104-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -1928,7 +1928,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0039",
+    "finding_id": "F-before-survey-el0107-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -1975,7 +1975,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0040",
+    "finding_id": "F-before-survey-el0110-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2022,7 +2022,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0041",
+    "finding_id": "F-before-survey-el0111-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2069,7 +2069,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0042",
+    "finding_id": "F-before-survey-el0111-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2116,7 +2116,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0043",
+    "finding_id": "F-before-survey-el0112-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2163,7 +2163,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0044",
+    "finding_id": "F-before-survey-el0113-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2210,7 +2210,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0045",
+    "finding_id": "F-before-survey-el0113-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2257,7 +2257,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0046",
+    "finding_id": "F-before-survey-el0114-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2304,7 +2304,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0047",
+    "finding_id": "F-before-survey-el0114-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2351,7 +2351,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0048",
+    "finding_id": "F-before-survey-el0115-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2398,7 +2398,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0049",
+    "finding_id": "F-before-survey-el0119-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -2458,7 +2458,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0050",
+    "finding_id": "F-before-survey-el0122-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2511,7 +2511,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0051",
+    "finding_id": "F-before-survey-el0122-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2558,7 +2558,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0052",
+    "finding_id": "F-before-survey-el0125-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2605,7 +2605,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0053",
+    "finding_id": "F-before-survey-el0126-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2652,7 +2652,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0054",
+    "finding_id": "F-before-survey-el0130-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -2712,7 +2712,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0055",
+    "finding_id": "F-before-survey-el0132-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -2772,7 +2772,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0056",
+    "finding_id": "F-before-survey-el0134-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2819,7 +2819,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0057",
+    "finding_id": "F-before-survey-el0134-2.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2872,7 +2872,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0058",
+    "finding_id": "F-before-survey-el0135-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -2919,7 +2919,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0059",
+    "finding_id": "F-before-survey-el0135-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -2973,7 +2973,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0060",
+    "finding_id": "F-before-survey-el0135-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3020,7 +3020,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0061",
+    "finding_id": "F-before-survey-el0136-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3074,7 +3074,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0062",
+    "finding_id": "F-before-survey-el0139-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3134,7 +3134,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0063",
+    "finding_id": "F-before-survey-el0141-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3181,7 +3181,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0064",
+    "finding_id": "F-before-survey-el0141-2.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3234,7 +3234,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0065",
+    "finding_id": "F-before-survey-el0142-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3281,7 +3281,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0066",
+    "finding_id": "F-before-survey-el0142-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3335,7 +3335,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0067",
+    "finding_id": "F-before-survey-el0142-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3382,7 +3382,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0068",
+    "finding_id": "F-before-survey-el0143-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3436,7 +3436,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0069",
+    "finding_id": "F-before-survey-el0146-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3496,7 +3496,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0070",
+    "finding_id": "F-before-survey-el0148-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3543,7 +3543,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0071",
+    "finding_id": "F-before-survey-el0148-2.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3596,7 +3596,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0072",
+    "finding_id": "F-before-survey-el0149-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3643,7 +3643,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0073",
+    "finding_id": "F-before-survey-el0149-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3697,7 +3697,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0074",
+    "finding_id": "F-before-survey-el0149-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3744,7 +3744,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0075",
+    "finding_id": "F-before-survey-el0150-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3798,7 +3798,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0076",
+    "finding_id": "F-before-survey-el0153-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -3858,7 +3858,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0077",
+    "finding_id": "F-before-survey-el0155-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3905,7 +3905,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0078",
+    "finding_id": "F-before-survey-el0155-2.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -3958,7 +3958,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0079",
+    "finding_id": "F-before-survey-el0156-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4005,7 +4005,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0080",
+    "finding_id": "F-before-survey-el0156-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -4059,7 +4059,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0081",
+    "finding_id": "F-before-survey-el0156-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -4106,7 +4106,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0082",
+    "finding_id": "F-before-survey-el0157-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -4160,7 +4160,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0083",
+    "finding_id": "F-before-survey-el0160-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -4220,7 +4220,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0084",
+    "finding_id": "F-before-survey-el0162-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -4280,7 +4280,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0085",
+    "finding_id": "F-before-survey-el0167-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4327,7 +4327,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0086",
+    "finding_id": "F-before-survey-el0168-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4374,7 +4374,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0087",
+    "finding_id": "F-before-survey-el0168-3.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4421,7 +4421,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0088",
+    "finding_id": "F-before-survey-el0168-3.3.2",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4468,7 +4468,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0089",
+    "finding_id": "F-before-survey-el0168-3.3.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4515,7 +4515,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0090",
+    "finding_id": "F-before-survey-el0168-3.3.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4562,7 +4562,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0091",
+    "finding_id": "F-before-survey-el0169-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4615,7 +4615,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0092",
+    "finding_id": "F-before-survey-el0173-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4668,7 +4668,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0093",
+    "finding_id": "F-before-survey-el0177-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4721,7 +4721,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0094",
+    "finding_id": "F-before-survey-el0179-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4774,7 +4774,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0095",
+    "finding_id": "F-before-survey-el0183-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4827,7 +4827,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0096",
+    "finding_id": "F-before-survey-el0185-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4874,7 +4874,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0097",
+    "finding_id": "F-before-survey-el0188-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4927,7 +4927,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0098",
+    "finding_id": "F-before-survey-el0191-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -4974,7 +4974,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0099",
+    "finding_id": "F-before-survey-el0195-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5021,7 +5021,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0100",
+    "finding_id": "F-before-survey-el0195-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5068,7 +5068,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0101",
+    "finding_id": "F-before-survey-el0195-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -5122,7 +5122,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0102",
+    "finding_id": "F-before-survey-el0197-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5175,7 +5175,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0103",
+    "finding_id": "F-before-survey-el0201-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5222,7 +5222,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0104",
+    "finding_id": "F-before-survey-el0201-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5269,7 +5269,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0105",
+    "finding_id": "F-before-survey-el0201-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -5323,7 +5323,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0106",
+    "finding_id": "F-before-survey-el0203-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5376,7 +5376,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0107",
+    "finding_id": "F-before-survey-el0206-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5423,7 +5423,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0108",
+    "finding_id": "F-before-survey-el0206-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5470,7 +5470,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0109",
+    "finding_id": "F-before-survey-el0206-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -5524,7 +5524,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0110",
+    "finding_id": "F-before-survey-el0208-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5577,7 +5577,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0111",
+    "finding_id": "F-before-survey-el0210-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5624,7 +5624,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0112",
+    "finding_id": "F-before-survey-el0215-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5677,7 +5677,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0113",
+    "finding_id": "F-before-survey-el0219-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5730,7 +5730,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0114",
+    "finding_id": "F-before-survey-el0223-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5783,7 +5783,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0115",
+    "finding_id": "F-before-survey-el0225-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5830,7 +5830,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0116",
+    "finding_id": "F-before-survey-el0229-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5877,7 +5877,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0117",
+    "finding_id": "F-before-survey-el0229-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -5924,7 +5924,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0118",
+    "finding_id": "F-before-survey-el0229-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -5978,7 +5978,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0119",
+    "finding_id": "F-before-survey-el0231-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6031,7 +6031,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0120",
+    "finding_id": "F-before-survey-el0234-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6078,7 +6078,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0121",
+    "finding_id": "F-before-survey-el0234-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6125,7 +6125,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0122",
+    "finding_id": "F-before-survey-el0234-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -6179,7 +6179,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0123",
+    "finding_id": "F-before-survey-el0236-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6232,7 +6232,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0124",
+    "finding_id": "F-before-survey-el0239-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6279,7 +6279,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0125",
+    "finding_id": "F-before-survey-el0239-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6326,7 +6326,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0126",
+    "finding_id": "F-before-survey-el0239-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -6380,7 +6380,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0127",
+    "finding_id": "F-before-survey-el0241-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6433,7 +6433,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0128",
+    "finding_id": "F-before-survey-el0243-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6480,7 +6480,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0129",
+    "finding_id": "F-before-survey-el0248-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6533,7 +6533,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0130",
+    "finding_id": "F-before-survey-el0252-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6586,7 +6586,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0131",
+    "finding_id": "F-before-survey-el0256-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6639,7 +6639,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0132",
+    "finding_id": "F-before-survey-el0258-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6692,7 +6692,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0133",
+    "finding_id": "F-before-survey-el0262-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6745,7 +6745,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0134",
+    "finding_id": "F-before-survey-el0266-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6798,7 +6798,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0135",
+    "finding_id": "F-before-survey-el0268-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6851,7 +6851,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0136",
+    "finding_id": "F-before-survey-el0272-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6904,7 +6904,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0137",
+    "finding_id": "F-before-survey-el0274-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -6951,7 +6951,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0138",
+    "finding_id": "F-before-survey-el0275-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7004,7 +7004,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0139",
+    "finding_id": "F-before-survey-el0279-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7057,7 +7057,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0140",
+    "finding_id": "F-before-survey-el0279-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7104,7 +7104,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0141",
+    "finding_id": "F-before-survey-el0279-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -7164,7 +7164,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0142",
+    "finding_id": "F-before-survey-el0476-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7217,7 +7217,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0143",
+    "finding_id": "F-before-survey-el0479-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7270,7 +7270,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0144",
+    "finding_id": "F-before-survey-el0483-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7323,7 +7323,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0145",
+    "finding_id": "F-before-survey-el0487-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7376,7 +7376,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0146",
+    "finding_id": "F-before-survey-el0489-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7429,7 +7429,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0147",
+    "finding_id": "F-before-survey-el0493-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7482,7 +7482,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0148",
+    "finding_id": "F-before-survey-el0495-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7529,7 +7529,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0149",
+    "finding_id": "F-before-survey-el0497-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7582,7 +7582,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0150",
+    "finding_id": "F-before-survey-el0500-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7629,7 +7629,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0151",
+    "finding_id": "F-before-survey-el0504-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7682,7 +7682,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0152",
+    "finding_id": "F-before-survey-el0506-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7729,7 +7729,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0153",
+    "finding_id": "F-before-survey-el0506-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7776,7 +7776,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0154",
+    "finding_id": "F-before-survey-el0506-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -7830,7 +7830,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0155",
+    "finding_id": "F-before-survey-el0507-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7877,7 +7877,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0156",
+    "finding_id": "F-before-survey-el0507-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -7924,7 +7924,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0157",
+    "finding_id": "F-before-survey-el0507-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -7978,7 +7978,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0158",
+    "finding_id": "F-before-survey-el0510-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8025,7 +8025,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0159",
+    "finding_id": "F-before-survey-el0510-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8072,7 +8072,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0160",
+    "finding_id": "F-before-survey-el0510-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -8126,7 +8126,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0161",
+    "finding_id": "F-before-survey-el0512-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8179,7 +8179,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0162",
+    "finding_id": "F-before-survey-el0514-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8226,7 +8226,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0163",
+    "finding_id": "F-before-survey-el0514-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8273,7 +8273,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0164",
+    "finding_id": "F-before-survey-el0514-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -8327,7 +8327,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0165",
+    "finding_id": "F-before-survey-el0517-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8374,7 +8374,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0166",
+    "finding_id": "F-before-survey-el0517-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8421,7 +8421,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0167",
+    "finding_id": "F-before-survey-el0517-4.1.2",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -8475,7 +8475,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0168",
+    "finding_id": "F-before-survey-el0521-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8528,7 +8528,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0169",
+    "finding_id": "F-before-survey-el0524-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8575,7 +8575,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0170",
+    "finding_id": "F-before-survey-el0528-3.2.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8622,7 +8622,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0171",
+    "finding_id": "F-before-survey-el0534-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8669,7 +8669,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0172",
+    "finding_id": "F-before-survey-el0535-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8716,7 +8716,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0173",
+    "finding_id": "F-before-survey-el0536-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8763,7 +8763,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0174",
+    "finding_id": "F-before-survey-el0538-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8810,7 +8810,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0175",
+    "finding_id": "F-before-survey-el0539-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8857,7 +8857,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0176",
+    "finding_id": "F-before-survey-el0540-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8904,7 +8904,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0177",
+    "finding_id": "F-before-survey-el0542-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -8957,7 +8957,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0178",
+    "finding_id": "F-before-survey-el0544-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9010,7 +9010,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0179",
+    "finding_id": "F-before-survey-el0544-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9057,7 +9057,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0180",
+    "finding_id": "F-before-survey-el0547-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9104,7 +9104,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0181",
+    "finding_id": "F-before-survey-el0549-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9151,7 +9151,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0182",
+    "finding_id": "F-before-survey-el0551-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9198,7 +9198,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0183",
+    "finding_id": "F-before-survey-el0553-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9245,7 +9245,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0184",
+    "finding_id": "F-before-survey-el0555-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9292,7 +9292,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0185",
+    "finding_id": "F-before-survey-el0557-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9339,7 +9339,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0186",
+    "finding_id": "F-before-survey-el0566-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9386,7 +9386,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0187",
+    "finding_id": "F-before-survey-el0574-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9433,7 +9433,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0188",
+    "finding_id": "F-before-survey-el0574-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9480,7 +9480,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0189",
+    "finding_id": "F-before-survey-el0577-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9527,7 +9527,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0190",
+    "finding_id": "F-before-survey-el0578-1.3.1",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9574,7 +9574,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0191",
+    "finding_id": "F-before-survey-el0578-1.4.3",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9621,7 +9621,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0192",
+    "finding_id": "F-before-survey-el0579-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9668,7 +9668,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0193",
+    "finding_id": "F-before-survey-el0580-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9715,7 +9715,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0194",
+    "finding_id": "F-before-survey-el0583-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9762,7 +9762,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0195",
+    "finding_id": "F-before-survey-el0585-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9809,7 +9809,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0196",
+    "finding_id": "F-before-survey-el0587-2.4.4",
     "page": "survey",
     "site_version": "before",
     "source": "pa11y",
@@ -9856,7 +9856,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0197",
+    "finding_id": "F-before-survey-el0589-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -9916,7 +9916,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0198",
+    "finding_id": "F-before-survey-el0592-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -9976,7 +9976,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0199",
+    "finding_id": "F-before-survey-el0594-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",
@@ -10036,7 +10036,7 @@
     }
   },
   {
-    "finding_id": "F-before-survey-0200",
+    "finding_id": "F-before-survey-el0596-1.1.1",
     "page": "survey",
     "site_version": "before",
     "source": "axe-core",

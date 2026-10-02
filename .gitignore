@@ -5,8 +5,6 @@ __pycache__/
 node_modules/
 .DS_Store
 .aws/
-data/cache/
-.env
 
 # Scan output: regenerated every run, too big and noisy for git.
 # data/findings/ IS committed so tracks B, C and D can read it.

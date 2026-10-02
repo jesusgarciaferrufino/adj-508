@@ -3,7 +3,7 @@
     "sc": "1.1.1",
     "name": "Non-text Content",
     "level": "A",
-    "text": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.\nControls, Input: If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Guideline 4.1 for additional requirements for controls and content that accepts user input.)\nTime-Based Media: If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.)\nTest: If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content.\nSensory: If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content.\nCAPTCHA: If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception\nare provided to accommodate different disabilities.\nDecoration, Formatting, Invisible: If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology.",
+    "text": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.\nControls, Input: If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Guideline 4.1 for additional requirements for controls and content that accepts user input.)\nTime-Based Media: If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.)\nTest: If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content.\nSensory: If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content.\nCAPTCHA: If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities.\nDecoration, Formatting, Invisible: If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology.",
     "intent": "Images and other non-text content need a text alternative that does the same job; purely decorative content should be hidden from assistive tech.",
     "common_failures": [
       "F3",
@@ -87,7 +87,7 @@
     "sc": "1.3.1",
     "name": "Info and Relationships",
     "level": "A",
-    "text": "Information, structure,\nand relationships conveyed through presentation can be programmatically determined or are available in text.",
+    "text": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
     "intent": "Structure shown visually (headings, lists, tables, labels, groupings) must also be in the markup so assistive tech can convey it.",
     "common_failures": [
       "F2",
@@ -127,7 +127,7 @@
     "sc": "1.3.3",
     "name": "Sensory Characteristics",
     "level": "A",
-    "text": "Instructions provided for understanding\nand operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.\nNote: For requirements related to color, refer to Guideline 1.4.",
+    "text": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.\nNote: For requirements related to color, refer to Guideline 1.4.",
     "intent": "Instructions must not rely only on shape, size, position or sound (e.g. 'click the round button on the right').",
     "common_failures": [
       "F14",
@@ -170,7 +170,7 @@
     "sc": "1.4.3",
     "name": "Contrast (Minimum)",
     "level": "AA",
-    "text": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following:\nLarge Text:\nLarge-scale text and images of large-scale text have a contrast ratio of at least 3:1;\nIncidental: Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.\nLogotypes:\nText that is part of a logo or brand name has no minimum contrast requirement.",
+    "text": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following:\nLarge Text: Large-scale text and images of large-scale text have a contrast ratio of at least 3:1;\nIncidental: Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.\nLogotypes: Text that is part of a logo or brand name has no minimum contrast requirement.",
     "intent": "Text needs at least 4.5:1 contrast with its background (3:1 for large text); logos and inactive or decorative text are exempt.",
     "common_failures": [
       "F24",
@@ -210,7 +210,7 @@
     "sc": "2.1.1",
     "name": "Keyboard",
     "level": "A",
-    "text": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.\nNote 1:\nThis exception relates to the underlying function, not the input technique. For example, if using handwriting to enter text, the input technique (handwriting) requires path-dependent input but the underlying function (text input) does not.\nNote 2:\nThis does not forbid and should not discourage providing mouse input or other input methods in addition to keyboard operation.",
+    "text": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.\nNote 1: This exception relates to the underlying function, not the input technique. For example, if using handwriting to enter text, the input technique (handwriting) requires path-dependent input but the underlying function (text input) does not.\nNote 2: This does not forbid and should not discourage providing mouse input or other input methods in addition to keyboard operation.",
     "intent": "Everything that works with a mouse must also work from the keyboard.",
     "common_failures": [
       "F42",
@@ -238,7 +238,7 @@
     "sc": "2.2.1",
     "name": "Timing Adjustable",
     "level": "A",
-    "text": "For each time limit that is\nset by the content, at least one of the following is true:\nTurn off: The user is allowed to turn off the time limit\nbefore encountering it; or\nAdjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or\nExtend: The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, \"press the space bar\"), and the user is allowed to extend the time limit at least ten times; or\nReal-time Exception: The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or\nEssential Exception: The time limit is essential and extending it would invalidate the activity; or\n20 Hour Exception: The time limit is longer than 20 hours.\nNote: This success criterion helps ensure that users can complete tasks without unexpected changes in content or context that are a result of a time limit. This success criterion should be considered in conjunction with\nSuccess Criterion 3.2.1, which puts limits on changes of content or context as a result of user action.",
+    "text": "For each time limit that is set by the content, at least one of the following is true:\nTurn off: The user is allowed to turn off the time limit before encountering it; or\nAdjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or\nExtend: The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, \"press the space bar\"), and the user is allowed to extend the time limit at least ten times; or\nReal-time Exception: The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or\nEssential Exception: The time limit is essential and extending it would invalidate the activity; or\n20 Hour Exception: The time limit is longer than 20 hours.\nNote: This success criterion helps ensure that users can complete tasks without unexpected changes in content or context that are a result of a time limit. This success criterion should be considered in conjunction with Success Criterion 3.2.1, which puts limits on changes of content or context as a result of user action.",
     "intent": "Time limits must be adjustable, extendable or removable unless real-time, essential, or over 20 hours.",
     "common_failures": [
       "F40",
@@ -253,7 +253,7 @@
     "sc": "2.2.2",
     "name": "Pause, Stop, Hide",
     "level": "A",
-    "text": "For moving, blinking, scrolling, or auto-updating information, all of the following are true:\nMoving, blinking, scrolling: For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and\nAuto-updating: For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.\nNote 1:\nFor requirements related to flickering or flashing content, refer to Guideline 2.3.\nNote 2:\nSince any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.\nNote 3:\nContent that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so.\nNote 4:\nAn animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken.",
+    "text": "For moving, blinking, scrolling, or auto-updating information, all of the following are true:\nMoving, blinking, scrolling: For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and\nAuto-updating: For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.\nNote 1: For requirements related to flickering or flashing content, refer to Guideline 2.3.\nNote 2: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.\nNote 3: Content that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so.\nNote 4: An animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken.",
     "intent": "Moving, blinking, scrolling or auto-updating content that starts automatically needs a pause/stop/hide control.",
     "common_failures": [
       "F4",
@@ -333,7 +333,7 @@
     "sc": "2.4.5",
     "name": "Multiple Ways",
     "level": "AA",
-    "text": "More than one way is available to locate a Web page\nwithin a set of Web pages\nexcept where the Web Page is the result of, or a step in, a process.",
+    "text": "More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process.",
     "intent": "There is more than one way to find a page within a site (nav, search, sitemap), except steps in a process.",
     "common_failures": [],
     "needs_human_when": "Reviewing the whole set of pages, not a single page",
@@ -369,7 +369,7 @@
     "sc": "3.1.1",
     "name": "Language of Page",
     "level": "A",
-    "text": "The default\nhuman language\nof each\nWeb page\ncan be programmatically determined.",
+    "text": "The default human language of each Web page can be programmatically determined.",
     "intent": "The page's default language is set in code (e.g. lang on html).",
     "common_failures": [],
     "needs_human_when": "Rarely needed; confirm the lang value matches the content",
@@ -380,7 +380,7 @@
     "sc": "3.1.2",
     "name": "Language of Parts",
     "level": "AA",
-    "text": "The human language of each passage or phrase in the\ncontent can be programmatically determined\nexcept for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
+    "text": "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
     "intent": "Passages in a different language are marked with their language.",
     "common_failures": [],
     "needs_human_when": "Spotting foreign-language passages and checking they are marked",
@@ -391,7 +391,7 @@
     "sc": "3.2.1",
     "name": "On Focus",
     "level": "A",
-    "text": "When any component receives focus, it does not\ninitiate a change of context.",
+    "text": "When any component receives focus, it does not initiate a change of context.",
     "intent": "Focusing a control must not trigger a change of context (new window, page change, focus jump).",
     "common_failures": [
       "F52",
@@ -405,7 +405,7 @@
     "sc": "3.2.2",
     "name": "On Input",
     "level": "A",
-    "text": "Changing the setting of any\nuser interface component\ndoes not automatically cause a change of context\nunless the user has been advised of the behavior before using the component.",
+    "text": "Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component.",
     "intent": "Changing a control's value must not automatically change context unless users are warned first.",
     "common_failures": [
       "F36",
@@ -419,7 +419,7 @@
     "sc": "3.2.3",
     "name": "Consistent Navigation",
     "level": "AA",
-    "text": "Navigational mechanisms that are repeated on multiple Web pages within a set of Web pages\noccur in the same relative order each time they are repeated, unless a change is initiated by the user.",
+    "text": "Navigational mechanisms that are repeated on multiple Web pages within a set of Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
     "intent": "Repeated navigation appears in the same relative order on every page.",
     "common_failures": [
       "F66"
@@ -445,7 +445,7 @@
     "sc": "3.3.1",
     "name": "Error Identification",
     "level": "A",
-    "text": "If an input error is automatically detected, the item that is in error is identified and the error is\ndescribed to the user in text.",
+    "text": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
     "intent": "Automatically detected input errors are identified and described in text.",
     "common_failures": [],
     "needs_human_when": "Submitting the form with errors and reading the feedback",

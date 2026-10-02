@@ -1,0 +1,1210 @@
+{
+  "mapper_version": "mapper-v2-corpus-lookup",
+  "site_version": "before",
+  "page": "survey",
+  "corpus": "rag/wcag20_aa.json",
+  "corpus_sha256": "15fd8ff42b09",
+  "findings": {
+    "F-before-survey-el0000-1.3.2": {
+      "sc": "1.3.2",
+      "name": "Meaningful Sequence",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"
+    },
+    "F-before-survey-el0000-1.3.3": {
+      "sc": "1.3.3",
+      "name": "Sensory Characteristics",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"
+    },
+    "F-before-survey-el0000-1.4.1": {
+      "sc": "1.4.1",
+      "name": "Use of Color",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"
+    },
+    "F-before-survey-el0000-1.4.4": {
+      "sc": "1.4.4",
+      "name": "Resize text",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"
+    },
+    "F-before-survey-el0000-1.4.5": {
+      "sc": "1.4.5",
+      "name": "Images of Text",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"
+    },
+    "F-before-survey-el0000-2.2.2": {
+      "sc": "2.2.2",
+      "name": "Pause, Stop, Hide",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#time-limits-pause"
+    },
+    "F-before-survey-el0000-2.3.1": {
+      "sc": "2.3.1",
+      "name": "Three Flashes or Below Threshold",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#seizure-does-not-violate"
+    },
+    "F-before-survey-el0000-2.4.1": {
+      "sc": "2.4.1",
+      "name": "Bypass Blocks",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"
+    },
+    "F-before-survey-el0000-2.4.5": {
+      "sc": "2.4.5",
+      "name": "Multiple Ways",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"
+    },
+    "F-before-survey-el0000-2.4.6": {
+      "sc": "2.4.6",
+      "name": "Headings and Labels",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"
+    },
+    "F-before-survey-el0000-2.4.7": {
+      "sc": "2.4.7",
+      "name": "Focus Visible",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"
+    },
+    "F-before-survey-el0000-3.1.1": {
+      "sc": "3.1.1",
+      "name": "Language of Page",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id"
+    },
+    "F-before-survey-el0000-3.1.2": {
+      "sc": "3.1.2",
+      "name": "Language of Parts",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#meaning-other-lang-id"
+    },
+    "F-before-survey-el0000-3.2.3": {
+      "sc": "3.2.3",
+      "name": "Consistent Navigation",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"
+    },
+    "F-before-survey-el0000-3.2.4": {
+      "sc": "3.2.4",
+      "name": "Consistent Identification",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"
+    },
+    "F-before-survey-el0002-2.4.2": {
+      "sc": "2.4.2",
+      "name": "Page Titled",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"
+    },
+    "F-before-survey-el0054-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0054-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0057-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0058-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0058-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0062-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0064-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0066-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0069-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0070-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0071-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0071-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0076-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0077-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0079-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0081-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0083-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0084-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0085-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0085-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0085-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0104-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0107-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0110-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0111-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0111-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0112-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0113-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0113-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0114-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0114-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0115-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0119-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0122-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0122-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0125-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0126-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0130-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0132-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0134-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0134-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-survey-el0135-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0135-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0135-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0136-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0139-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0141-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0141-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-survey-el0142-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0142-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0142-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0143-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0146-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0148-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0148-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-survey-el0149-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0149-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0149-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0150-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0153-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0155-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0155-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-survey-el0156-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0156-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0156-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0157-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0160-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0162-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0167-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0168-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0168-3.3.1": {
+      "sc": "3.3.1",
+      "name": "Error Identification",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#minimize-error-identified"
+    },
+    "F-before-survey-el0168-3.3.2": {
+      "sc": "3.3.2",
+      "name": "Labels or Instructions",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#minimize-error-cues"
+    },
+    "F-before-survey-el0168-3.3.3": {
+      "sc": "3.3.3",
+      "name": "Error Suggestion",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#minimize-error-suggestions"
+    },
+    "F-before-survey-el0168-3.3.4": {
+      "sc": "3.3.4",
+      "name": "Error Prevention (Legal, Financial, Data)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#minimize-error-reversible"
+    },
+    "F-before-survey-el0169-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0173-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0177-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0179-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0183-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0185-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0188-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0191-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0195-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0195-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0195-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0197-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0201-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0201-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0201-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0203-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0206-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0206-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0206-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0208-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0210-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0215-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0219-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0223-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0225-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0229-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0229-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0229-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0231-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0234-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0234-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0234-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0236-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0239-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0239-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0239-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0241-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0243-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0248-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0252-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0256-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0258-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0262-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0266-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0268-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0272-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0274-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0275-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0279-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0279-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0279-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0476-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0479-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0483-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0487-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0489-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0493-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0495-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0497-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0500-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0504-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0506-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0506-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0506-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0507-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0507-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0507-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0510-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0510-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0510-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0512-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0514-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0514-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0514-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0517-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0517-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0517-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-survey-el0521-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0524-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0528-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-survey-el0534-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0535-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0536-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0538-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0539-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0540-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0542-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0544-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0544-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0547-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0549-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0551-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0553-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0555-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0557-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0566-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0574-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0574-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0577-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0578-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-survey-el0578-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-survey-el0579-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0580-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0583-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0585-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0587-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-survey-el0589-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0592-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0594-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-survey-el0596-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    }
+  },
+  "rejected": {}
+}

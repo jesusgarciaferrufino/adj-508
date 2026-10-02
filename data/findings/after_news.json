@@ -1,0 +1,4016 @@
+[
+  {
+    "finding_id": "F-after-news-0001",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57",
+        "type": "notice",
+        "message": "Check that the content is ordered in a meaningful sequence when linearised, such as when style sheets are disabled."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0002",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+    "wcag": [
+      "1.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_3.G96",
+        "type": "notice",
+        "message": "Where instructions are provided for understanding the content, do not rely on sensory characteristics alone (such as shape, size or location) to describe objects."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0003",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+    "wcag": [
+      "1.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_1.G14,G182",
+        "type": "notice",
+        "message": "Check that any information conveyed using colour alone is also available in text, or through other visual cues."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0004",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+    "wcag": [
+      "1.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_4.G142",
+        "type": "notice",
+        "message": "Check that text can be resized without assistive technology up to 200 percent without loss of content or functionality."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0005",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_5.G140,C22,C30.AALevel",
+        "type": "notice",
+        "message": "If the technologies being used can achieve the visual presentation, check that text is used to convey information rather than images of text, except when the image of text is essential to the information being conveyed, or can be visually customised to the user's requirements."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0006",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+    "wcag": [
+      "2.2.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_2.2_2_2.SCR33,SCR22,G187,G152,G186,G191",
+        "type": "notice",
+        "message": "If any part of the content moves, scrolls or blinks for more than 5 seconds, or auto-updates, check that there is a mechanism available to pause, stop, or hide the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0007",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+    "wcag": [
+      "2.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_3.2_3_1.G19,G176",
+        "type": "notice",
+        "message": "Check that no component of the content flashes more than three times in any 1-second period, or that the size of any flashing area is sufficiently small."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0008",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+    "wcag": [
+      "2.4.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
+        "type": "notice",
+        "message": "Ensure that any common navigation elements can be bypassed; for instance, by use of skip links, header elements, or ARIA landmark roles."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0009",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+    "wcag": [
+      "2.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_5.G125,G64,G63,G161,G126,G185",
+        "type": "notice",
+        "message": "If this Web page is not part of a linear process, check that there is more than one way of locating this Web page within a set of Web pages."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0010",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+    "wcag": [
+      "2.4.6"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_6.G130,G131",
+        "type": "notice",
+        "message": "Check that headings and labels describe topic or purpose."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0011",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+    "wcag": [
+      "2.4.7"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_7.G149,G165,G195,C15,SCR31",
+        "type": "notice",
+        "message": "Check that there is at least one mode of operation where the keyboard focus indicator can be visually located on user interface controls."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0012",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+    "wcag": [
+      "3.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_1.3_1_2.H58",
+        "type": "notice",
+        "message": "Ensure that any change in language is marked using the lang and/or xml:lang attribute on an element, as appropriate."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0013",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+    "wcag": [
+      "3.2.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_3.G61",
+        "type": "notice",
+        "message": "Check that navigational mechanisms that are repeated on multiple Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0014",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<html lang=\"en\">",
+      "screenshot": "data/findings/shots/after_news_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_4.G197",
+        "type": "notice",
+        "message": "Check that components that have the same functionality within this Web page are identified consistently in the set of Web pages to which it belongs."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0015",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+    "wcag": [
+      "2.4.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html > head > title",
+      "html_snippet": "<title>Citylights News [Accessible News Page]</title>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 2
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_2.H25.2",
+        "type": "notice",
+        "message": "Check that the title element describes the document."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0016",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"#content\">Skip to content (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 58
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0017",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#border_r > ul > li:nth-child(2) > a",
+      "html_snippet": "<a href=\"#navtarget\">Skip to navigation (within demo page)</a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 60
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0018",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a",
+      "html_snippet": "<a href=\"home.html\"><img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\"></a>",
+      "screenshot": "data/findings/shots/after_news_el0062.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 62
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0019",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > a > img",
+      "html_snippet": "<img src=\"./img/toplogo.png\" alt=\"Citylights: your access to the city.\">",
+      "screenshot": "data/findings/shots/after_news_el0063.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 63
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0020",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > img",
+      "html_snippet": "<img src=\"./img/weather.png\" alt=\"Sunny Spells\">",
+      "screenshot": "data/findings/shots/after_news_el0064.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 64
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0021",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+    "wcag": [
+      "3.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_news_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_1.G83,G84,G85",
+        "type": "notice",
+        "message": "If an input error is automatically detected in this form, check that the item(s) in error are identified and the error(s) are described to the user in text."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0022",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+    "wcag": [
+      "3.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_news_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_2.G131,G89,G184,H90",
+        "type": "notice",
+        "message": "Check that descriptive labels or instructions (including for required fields) are provided for user input in this form."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0023",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+    "wcag": [
+      "3.3.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_news_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_3.G177",
+        "type": "notice",
+        "message": "Check that this form provides suggested corrections to errors in user input, unless it would jeopardize the security or purpose of the content."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0024",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+    "wcag": [
+      "3.3.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form",
+      "html_snippet": "<form action=\"../offsite.html\" method=\"post\" onsubmit=\"if(qkmenu.value=='0'){return false;}\">\n              <div>\n                <label for=\"qkmenu\" id=\"qklabel\">Explore Site by Topic:</label> <select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select> <input type=\"submit\" value=\"Go\">\n              </div>\n            </form>",
+      "screenshot": "data/findings/shots/after_news_el0065.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 65
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_3.3_3_4.G98,G99,G155,G164,G168.LegalForms",
+        "type": "notice",
+        "message": "If this form would bind a user to a financial or legal commitment, modify/delete user-controllable data, or submit test responses, ensure that submissions are either reversible, checked for input errors, and/or confirmed by the user."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0025",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_news_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H85.2",
+        "type": "warning",
+        "message": "If this selection list contains groups of related options, they should be grouped with optgroup."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0026",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_news_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0027",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#qkmenu",
+      "html_snippet": "<select name=\"qkemnu\" id=\"qkmenu\">\n                  <option value=\"0\">Quick Menu</option>\n                  <option>Broadcasting</option>\n                  <option>Education</option>\n                  <option>Electricity</option>\n                  <option>Fire service</option>\n                  <option>Gas service</option>\n                  <option>Health care</option>\n                  <option>Police service</option>\n                  <option>Public Libraries</option>\n                  <option>Social services</option>\n                  <option>Social housing</option>\n                  <option>Telecommunications</option>\n                  <option>Town planning</option>\n                  <option>Transportation</option>\n                  <option>Waste management</option>\n                  <option>Water services</option>\n                </select>",
+      "screenshot": "data/findings/shots/after_news_el0068.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 68
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Select.Value",
+        "type": "warning",
+        "message": "This select element does not have a value available to an accessibility API."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0028",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+    "wcag": [
+      "3.2.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#header > form > div > input",
+      "html_snippet": "<input type=\"submit\" value=\"Go\">",
+      "screenshot": "data/findings/shots/after_news_el0085.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 85
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle3.Guideline3_2.3_2_1.G107",
+        "type": "notice",
+        "message": "Check that a change of context does not occur when this input field receives focus."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0029",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".home > a[href$=\"home.html\"]",
+      "html_snippet": "<a href=\"home.html\">Home</a>",
+      "screenshot": "data/findings/shots/after_news_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0030",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(1) > a",
+      "html_snippet": "<a href=\"home.html\">Home</a>",
+      "screenshot": "data/findings/shots/after_news_el0097.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 97
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0031",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".news_set > a",
+      "html_snippet": "<a>News</a>",
+      "screenshot": "data/findings/shots/after_news_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0032",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(2) > a",
+      "html_snippet": "<a>News</a>",
+      "screenshot": "data/findings/shots/after_news_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0033",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+    "wcag": [
+      "4.1.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(2) > a",
+      "html_snippet": "<a>News</a>",
+      "screenshot": "data/findings/shots/after_news_el0099.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 99
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.A.Placeholder",
+        "type": "warning",
+        "message": "Anchor element found with link content, but no href, ID or name attribute has been supplied."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0034",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".facts > a[href$=\"tickets.html\"]",
+      "html_snippet": "<a href=\"tickets.html\">Tickets</a>",
+      "screenshot": "data/findings/shots/after_news_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0035",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(3) > a",
+      "html_snippet": "<a href=\"tickets.html\">Tickets</a>",
+      "screenshot": "data/findings/shots/after_news_el0101.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 101
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0036",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".survey > a[href$=\"survey.html\"]",
+      "html_snippet": "<a href=\"survey.html\">Survey</a>",
+      "screenshot": "data/findings/shots/after_news_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0037",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#nav > ul > li:nth-child(4) > a",
+      "html_snippet": "<a href=\"survey.html\">Survey</a>",
+      "screenshot": "data/findings/shots/after_news_el0103.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 103
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0038",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > h1",
+      "html_snippet": "<h1>Citylights News</h1>",
+      "screenshot": "data/findings/shots/after_news_el0106.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 106
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 3:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0039",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#story1",
+      "html_snippet": "<h2 id=\"story1\">Heat wave linked to temperatures</h2>",
+      "screenshot": "data/findings/shots/after_news_el0109.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 109
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0040",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-left > div:nth-child(1) > p",
+      "html_snippet": "<p>After three years of effort city scientists now agree that the primary cause of the 2003 heatwave was hot air from our air conditioning units. <q>The study cost the city taxpayer under 10 million dollars</q> said Prof. Steve 'Call me Stephen' Wahoonie, of City University Public Expenditure on Science dept. <q>We had five top statisticians working on it: one to write the grant proposal, one to do the mathematical modelling, two to collaborate on the research paper, and one to hire a student to do the job.</q></p>",
+      "screenshot": "data/findings/shots/after_news_el0110.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 110
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0041",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(1) > p > q:nth-child(1)",
+      "html_snippet": "<q>The study cost the city taxpayer under 10 million dollars</q>",
+      "screenshot": "data/findings/shots/after_news_el0111.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 111
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0042",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(1) > p > q:nth-child(2)",
+      "html_snippet": "<q>We had five top statisticians working on it: one to write the grant proposal, one to do the mathematical modelling, two to collaborate on the research paper, and one to hire a student to do the job.</q>",
+      "screenshot": "data/findings/shots/after_news_el0112.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 112
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0043",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(2) > h3",
+      "html_snippet": "<h3>Tough Wahoonie</h3>",
+      "screenshot": "data/findings/shots/after_news_el0114.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 114
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0044",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-left > div:nth-child(2) > p",
+      "html_snippet": "<p><q>We soon realized that we were seeing a rise in temperatures every time a heatwave occurred. Also, the more air conditioning used, the bigger the heatwave. We knew it couldn't just be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,</q> the Prof. explained. <q>It all comes from <a href=\"../offsite.html\">the way that air conditioning works</a>. Air conditioners produce cold air to go into the room <em>but also hot air that's ducted away to the outside</em>. We are recommending a new city ordinance restricting use of air conditioning to winter months, when the heat will come in useful.</q></p>",
+      "screenshot": "data/findings/shots/after_news_el0115.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 115
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0045",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-left > div:nth-child(2) > p > q:nth-child(1)",
+      "html_snippet": "<q>We soon realized that we were seeing a rise in temperatures every time a heatwave occurred. Also, the more air conditioning used, the bigger the heatwave. We knew it couldn't just be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,</q>",
+      "screenshot": "data/findings/shots/after_news_el0116.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 116
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0046",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-left > div:nth-child(2) > p > q:nth-child(2)",
+      "html_snippet": "<q>It all comes from <a href=\"../offsite.html\">the way that air conditioning works</a>. Air conditioners produce cold air to go into the room <em>but also hot air that's ducted away to the outside</em>. We are recommending a new city ordinance restricting use of air conditioning to winter months, when the heat will come in useful.</q>",
+      "screenshot": "data/findings/shots/after_news_el0117.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 117
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0047",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "q:nth-child(2) > a[href$=\"offsite.html\"]",
+      "html_snippet": "<a href=\"../offsite.html\">the way that air conditioning works</a>",
+      "screenshot": "data/findings/shots/after_news_el0118.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 118
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0048",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(2) > div:nth-child(2) > p > q:nth-child(2) > a",
+      "html_snippet": "<a href=\"../offsite.html\">the way that air conditioning works</a>",
+      "screenshot": "data/findings/shots/after_news_el0118.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 118
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0049",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "em",
+      "html_snippet": "<em>but also hot air that's ducted away to the outside</em>",
+      "screenshot": "data/findings/shots/after_news_el0119.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 119
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0050",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(3) > h3",
+      "html_snippet": "<h3>Return To Sender</h3>",
+      "screenshot": "data/findings/shots/after_news_el0121.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 121
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0051",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-left > div:nth-child(3) > p",
+      "html_snippet": "<p>When questioned whether their results would be affected if air conditioners were found to be used on cold days, Wahoonie responded: <q>we had one guy in the lab whining those kinds of questions. 'Why are you doing this? Why are there all those discrepencies in the department accounts?', but it was after we had written up the results. We later found that he took 40% of his sick days on Mondays or Fridays. How convenient. Some people have no shame.</q></p>",
+      "screenshot": "data/findings/shots/after_news_el0122.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 122
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0052",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(3) > p > q",
+      "html_snippet": "<q>we had one guy in the lab whining those kinds of questions. 'Why are you doing this? Why are there all those discrepencies in the department accounts?', but it was after we had written up the results. We later found that he took 40% of his sick days on Mondays or Fridays. How convenient. Some people have no shame.</q>",
+      "screenshot": "data/findings/shots/after_news_el0123.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 123
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0053",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-left > .fullimage.box > h3",
+      "html_snippet": "<h3>Air-Con Fact Finding Mission</h3>",
+      "screenshot": "data/findings/shots/after_news_el0125.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 125
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0054",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".fullimage.box > p",
+      "html_snippet": "<p><img src=\"./img/blanca.jpg\" alt=\"Mrs B. Wahoonie in front of a canyon\" width=\"240\" height=\"180\"><br>Mrs B. Wahoonie investigates shipping hot air to Australia</p>",
+      "screenshot": "data/findings/shots/after_news_el0126.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 126
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0055",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(2) > div:nth-child(4) > p > img",
+      "html_snippet": "<img src=\"./img/blanca.jpg\" alt=\"Mrs B. Wahoonie in front of a canyon\" width=\"240\" height=\"180\">",
+      "screenshot": "data/findings/shots/after_news_el0127.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 127
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0056",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#story2",
+      "html_snippet": "<h2 id=\"story2\">Man Gets Nine Months in Violin Case</h2>",
+      "screenshot": "data/findings/shots/after_news_el0131.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 131
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0057",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-right > div:nth-child(1) > p",
+      "html_snippet": "<p>As news of the conviction and sentencing of infamous violin thief Pasquale Ginkgo-Biloba reached city hall, Mayor Auberon 'Slim' Shadi stated that he was furious at the boring sentence handed down by the judge in the case, and is demanding a review of sentencing policy. This is not the first time that judges have come under fire for lenient sentencing in musical-instrument related cases. Last year's <a href=\"../offsite.html\">trombone forgery debacle</a> also resulted in a formal rebuke from the Mayor.</p>",
+      "screenshot": "data/findings/shots/after_news_el0132.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 132
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0058",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(1) > p > a[href$=\"offsite.html\"]",
+      "html_snippet": "<a href=\"../offsite.html\">trombone forgery debacle</a>",
+      "screenshot": "data/findings/shots/after_news_el0133.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 133
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0059",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(3) > div:nth-child(1) > p > a",
+      "html_snippet": "<a href=\"../offsite.html\">trombone forgery debacle</a>",
+      "screenshot": "data/findings/shots/after_news_el0133.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 133
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0060",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > h2",
+      "html_snippet": "<h2>Your Shout</h2>",
+      "screenshot": "data/findings/shots/after_news_el0135.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 135
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0061",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > p:nth-child(2)",
+      "html_snippet": "<p><a href=\"../offsite.html\"><img src=\"./img/smzappa2.jpg\" width=\"65\" height=\"80\" alt=\"Clara F.'s website\"></a><q>Well I think the Mayor's getting all heated up about nothing. Remember that 15 months is pretty much a lifetime to someone like me. But hey, I'm just a baby, and can't even vote, so you can ignore my opinion. And I can tell you that I'm standing for mayor on a ticket of infant suffrage</q>.</p>",
+      "screenshot": "data/findings/shots/after_news_el0136.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 136
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0062",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > p:nth-child(2) > a",
+      "html_snippet": "<a href=\"../offsite.html\"><img src=\"./img/smzappa2.jpg\" width=\"65\" height=\"80\" alt=\"Clara F.'s website\"></a>",
+      "screenshot": null,
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 137
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0063",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > p:nth-child(2) > a > img",
+      "html_snippet": "<img src=\"./img/smzappa2.jpg\" width=\"65\" height=\"80\" alt=\"Clara F.'s website\">",
+      "screenshot": "data/findings/shots/after_news_el0138.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 138
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0064",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > p:nth-child(2) > q",
+      "html_snippet": "<q>Well I think the Mayor's getting all heated up about nothing. Remember that 15 months is pretty much a lifetime to someone like me. But hey, I'm just a baby, and can't even vote, so you can ignore my opinion. And I can tell you that I'm standing for mayor on a ticket of infant suffrage</q>",
+      "screenshot": "data/findings/shots/after_news_el0139.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 139
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0065",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > p:nth-child(3)",
+      "html_snippet": "<p><strong><a href=\"../offsite.html\">Clara F., 15 months</a>, via email</strong></p>",
+      "screenshot": "data/findings/shots/after_news_el0140.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 140
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H42",
+        "type": "warning",
+        "message": "Heading markup should be used if this content is intended as a heading."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0066",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > p:nth-child(3) > strong",
+      "html_snippet": "<strong><a href=\"../offsite.html\">Clara F., 15 months</a>, via email</strong>",
+      "screenshot": "data/findings/shots/after_news_el0141.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 141
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0067",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "strong > a[href$=\"offsite.html\"]",
+      "html_snippet": "<a href=\"../offsite.html\">Clara F., 15 months</a>",
+      "screenshot": "data/findings/shots/after_news_el0142.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 142
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0068",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#yourshout > p:nth-child(3) > strong > a",
+      "html_snippet": "<a href=\"../offsite.html\">Clara F., 15 months</a>",
+      "screenshot": "data/findings/shots/after_news_el0142.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 142
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0069",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#story3",
+      "html_snippet": "<h2 id=\"story3\">Lack of Brains Hinders Research</h2>",
+      "screenshot": "data/findings/shots/after_news_el0144.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 144
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0070",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(3) > div > .fullimage.box > h3",
+      "html_snippet": "<h3>Brain donations at city hospital (by month)</h3>",
+      "screenshot": "data/findings/shots/after_news_el0147.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 147
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0071",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+    "wcag": [
+      "1.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#contentmain > div:nth-child(3) > div:nth-child(3) > div > div > img",
+      "html_snippet": "<img src=\"./img/chart1.png\" alt=\"Brain Donations for May: 13, June: 13, July: 12, August: 8, September: 7.\" width=\"285\" height=\"158\">",
+      "screenshot": "data/findings/shots/after_news_el0148.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 148
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G94.Image",
+        "type": "notice",
+        "message": "Ensure that the img element's alt text serves the same purpose and presents the same information as the image."
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
+        "type": "notice",
+        "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0072",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-right > div:nth-child(3) > div > p",
+      "html_snippet": "<p>There has been a significant drop in brain donations as a result of the successful 'Slow Traffic, Safe Streets' policy, say city doctors. <q>Brain donations are essential</q> said Dr. Liam Colluspid of Central Hospital, at a press conference yesterday. <q>I must ask that the Mayor either dispenses with these road safety measures, or else that every concerned citizen should consider right now whether there are any brains they aren't making much use of at the moment, that they might like to drop off.</q></p>",
+      "screenshot": "data/findings/shots/after_news_el0149.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 149
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0073",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "div:nth-child(3) > div > p > q:nth-child(1)",
+      "html_snippet": "<q>Brain donations are essential</q>",
+      "screenshot": "data/findings/shots/after_news_el0150.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 150
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0074",
+    "page": "news",
+    "site_version": "after",
+    "source": "axe-core",
+    "sources": [
+      "axe-core",
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "color-contrast",
+    "wcag": [
+      "1.4.3"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": ".col-right > div:nth-child(3) > div > p > q:nth-child(2)",
+      "html_snippet": "<q>I must ask that the Mayor either dispenses with these road safety measures, or else that every concerned citizen should consider right now whether there are any brains they aren't making much use of at the moment, that they might like to drop off.</q>",
+      "screenshot": "data/findings/shots/after_news_el0151.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 151
+    },
+    "scanner_details": [
+      {
+        "scanner": "axe-core",
+        "rule_id": "color-contrast",
+        "type": "incomplete",
+        "message": "Element's background color could not be determined due to a background image"
+      },
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.BgImage",
+        "type": "warning",
+        "message": "This element's text is placed on a background image. Ensure the contrast ratio between the text and all covered parts of the image are at least 4.5:1."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0075",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+    "wcag": [
+      "1.3.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p",
+      "html_snippet": "<p><a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a> \u00a9 2012 <a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a><sup>\u00ae</sup> (<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>, <a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>, <a href=\"http://www.keio.ac.jp/\">Keio</a>)</p>",
+      "screenshot": "data/findings/shots/after_news_el0153.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 153
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.H48",
+        "type": "warning",
+        "message": "If this element contains a navigation section, it is recommended that it be marked up as a list."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0076",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(1)",
+      "html_snippet": "<a rel=\"Copyright\" href=\"https://www.w3.org/Consortium/Legal/ipr-notice#Copyright\">Copyright</a>",
+      "screenshot": "data/findings/shots/after_news_el0154.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 154
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0077",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(2)",
+      "html_snippet": "<a href=\"https://www.w3.org/\"><acronym title=\"World Wide Web Consortium\">W3C</acronym></a>",
+      "screenshot": "data/findings/shots/after_news_el0155.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 155
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0078",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(4)",
+      "html_snippet": "<a href=\"http://www.csail.mit.edu/\"><acronym title=\"Massachusetts Institute of Technology\">MIT</acronym></a>",
+      "screenshot": "data/findings/shots/after_news_el0158.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 158
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0079",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(5)",
+      "html_snippet": "<a href=\"http://www.ercim.org/\"><acronym title=\"European Research Consortium for Informatics and Mathematics\">ERCIM</acronym></a>",
+      "screenshot": "data/findings/shots/after_news_el0160.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 160
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-after-news-0080",
+    "page": "news",
+    "site_version": "after",
+    "source": "pa11y",
+    "sources": [
+      "pa11y"
+    ],
+    "scanner_status": "notice",
+    "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+    "wcag": [
+      "2.4.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#footer > p > a:nth-child(6)",
+      "html_snippet": "<a href=\"http://www.keio.ac.jp/\">Keio</a>",
+      "screenshot": "data/findings/shots/after_news_el0162.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/after/news.html",
+      "captured_at": "2026-10-02T16:24:44.932Z",
+      "dom_index": 162
+    },
+    "scanner_details": [
+      {
+        "scanner": "pa11y",
+        "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
+        "type": "notice",
+        "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  }
+]

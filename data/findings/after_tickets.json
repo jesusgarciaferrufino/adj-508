@@ -1,6 +1,6 @@
 [
   {
-    "finding_id": "F-after-tickets-0001",
+    "finding_id": "F-after-tickets-el0000-1.3.2",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -47,7 +47,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0002",
+    "finding_id": "F-after-tickets-el0000-1.3.3",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -94,7 +94,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0003",
+    "finding_id": "F-after-tickets-el0000-1.4.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -141,7 +141,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0004",
+    "finding_id": "F-after-tickets-el0000-1.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -188,7 +188,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0005",
+    "finding_id": "F-after-tickets-el0000-1.4.5",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -235,7 +235,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0006",
+    "finding_id": "F-after-tickets-el0000-2.2.2",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -282,7 +282,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0007",
+    "finding_id": "F-after-tickets-el0000-2.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -329,7 +329,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0008",
+    "finding_id": "F-after-tickets-el0000-2.4.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -376,7 +376,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0009",
+    "finding_id": "F-after-tickets-el0000-2.4.5",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -423,7 +423,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0010",
+    "finding_id": "F-after-tickets-el0000-2.4.6",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -470,7 +470,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0011",
+    "finding_id": "F-after-tickets-el0000-2.4.7",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -517,7 +517,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0012",
+    "finding_id": "F-after-tickets-el0000-3.1.2",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -564,7 +564,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0013",
+    "finding_id": "F-after-tickets-el0000-3.2.3",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -611,7 +611,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0014",
+    "finding_id": "F-after-tickets-el0000-3.2.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -658,7 +658,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0015",
+    "finding_id": "F-after-tickets-el0002-2.4.2",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -705,7 +705,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0016",
+    "finding_id": "F-after-tickets-el0058-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -752,7 +752,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0017",
+    "finding_id": "F-after-tickets-el0060-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -799,7 +799,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0018",
+    "finding_id": "F-after-tickets-el0062-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -846,7 +846,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0019",
+    "finding_id": "F-after-tickets-el0063-1.1.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -899,7 +899,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0020",
+    "finding_id": "F-after-tickets-el0064-1.1.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -952,7 +952,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0021",
+    "finding_id": "F-after-tickets-el0065-3.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -999,7 +999,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0022",
+    "finding_id": "F-after-tickets-el0065-3.3.2",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1046,7 +1046,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0023",
+    "finding_id": "F-after-tickets-el0065-3.3.3",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1093,7 +1093,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0024",
+    "finding_id": "F-after-tickets-el0065-3.3.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1140,7 +1140,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0025",
+    "finding_id": "F-after-tickets-el0068-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1187,7 +1187,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0026",
+    "finding_id": "F-after-tickets-el0068-3.2.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1234,7 +1234,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0027",
+    "finding_id": "F-after-tickets-el0068-4.1.2",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1281,7 +1281,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0028",
+    "finding_id": "F-after-tickets-el0085-3.2.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1328,7 +1328,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0029",
+    "finding_id": "F-after-tickets-el0097-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1382,7 +1382,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0030",
+    "finding_id": "F-after-tickets-el0097-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1429,7 +1429,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0031",
+    "finding_id": "F-after-tickets-el0099-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1483,7 +1483,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0032",
+    "finding_id": "F-after-tickets-el0099-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1530,7 +1530,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0033",
+    "finding_id": "F-after-tickets-el0101-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1584,7 +1584,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0034",
+    "finding_id": "F-after-tickets-el0101-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1631,7 +1631,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0035",
+    "finding_id": "F-after-tickets-el0101-4.1.2",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1678,7 +1678,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0036",
+    "finding_id": "F-after-tickets-el0103-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1732,7 +1732,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0037",
+    "finding_id": "F-after-tickets-el0103-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -1779,7 +1779,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0038",
+    "finding_id": "F-after-tickets-el0105-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1833,7 +1833,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0039",
+    "finding_id": "F-after-tickets-el0108-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1887,7 +1887,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0040",
+    "finding_id": "F-after-tickets-el0110-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1941,7 +1941,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0041",
+    "finding_id": "F-after-tickets-el0111-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -1995,7 +1995,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0042",
+    "finding_id": "F-after-tickets-el0112-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2049,7 +2049,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0043",
+    "finding_id": "F-after-tickets-el0113-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2103,7 +2103,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0044",
+    "finding_id": "F-after-tickets-el0115-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -2162,7 +2162,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0045",
+    "finding_id": "F-after-tickets-el0116-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2216,7 +2216,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0046",
+    "finding_id": "F-after-tickets-el0122-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2270,7 +2270,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0047",
+    "finding_id": "F-after-tickets-el0123-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2324,7 +2324,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0048",
+    "finding_id": "F-after-tickets-el0125-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2378,7 +2378,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0049",
+    "finding_id": "F-after-tickets-el0126-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2432,7 +2432,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0050",
+    "finding_id": "F-after-tickets-el0129-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -2491,7 +2491,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0051",
+    "finding_id": "F-after-tickets-el0130-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2545,7 +2545,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0052",
+    "finding_id": "F-after-tickets-el0131-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2599,7 +2599,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0053",
+    "finding_id": "F-after-tickets-el0141-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2653,7 +2653,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0054",
+    "finding_id": "F-after-tickets-el0142-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -2700,7 +2700,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0055",
+    "finding_id": "F-after-tickets-el0142-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2754,7 +2754,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0056",
+    "finding_id": "F-after-tickets-el0143-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -2801,7 +2801,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0057",
+    "finding_id": "F-after-tickets-el0143-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2855,7 +2855,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0058",
+    "finding_id": "F-after-tickets-el0144-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -2902,7 +2902,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0059",
+    "finding_id": "F-after-tickets-el0144-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -2956,7 +2956,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0060",
+    "finding_id": "F-after-tickets-el0145-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3003,7 +3003,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0061",
+    "finding_id": "F-after-tickets-el0145-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3057,7 +3057,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0062",
+    "finding_id": "F-after-tickets-el0147-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3111,7 +3111,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0063",
+    "finding_id": "F-after-tickets-el0148-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3158,7 +3158,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0064",
+    "finding_id": "F-after-tickets-el0148-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3212,7 +3212,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0065",
+    "finding_id": "F-after-tickets-el0149-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3259,7 +3259,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0066",
+    "finding_id": "F-after-tickets-el0149-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3313,7 +3313,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0067",
+    "finding_id": "F-after-tickets-el0150-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3360,7 +3360,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0068",
+    "finding_id": "F-after-tickets-el0150-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3414,7 +3414,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0069",
+    "finding_id": "F-after-tickets-el0151-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3461,7 +3461,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0070",
+    "finding_id": "F-after-tickets-el0151-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3515,7 +3515,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0071",
+    "finding_id": "F-after-tickets-el0154-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3562,7 +3562,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0072",
+    "finding_id": "F-after-tickets-el0155-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3609,7 +3609,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0073",
+    "finding_id": "F-after-tickets-el0156-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3656,7 +3656,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0074",
+    "finding_id": "F-after-tickets-el0157-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3703,7 +3703,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0075",
+    "finding_id": "F-after-tickets-el0159-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3757,7 +3757,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0076",
+    "finding_id": "F-after-tickets-el0160-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3804,7 +3804,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0077",
+    "finding_id": "F-after-tickets-el0160-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3858,7 +3858,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0078",
+    "finding_id": "F-after-tickets-el0161-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -3905,7 +3905,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0079",
+    "finding_id": "F-after-tickets-el0161-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -3959,7 +3959,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0080",
+    "finding_id": "F-after-tickets-el0162-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4006,7 +4006,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0081",
+    "finding_id": "F-after-tickets-el0162-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4060,7 +4060,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0082",
+    "finding_id": "F-after-tickets-el0163-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4107,7 +4107,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0083",
+    "finding_id": "F-after-tickets-el0163-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4161,7 +4161,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0084",
+    "finding_id": "F-after-tickets-el0165-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4215,7 +4215,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0085",
+    "finding_id": "F-after-tickets-el0166-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4262,7 +4262,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0086",
+    "finding_id": "F-after-tickets-el0166-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4316,7 +4316,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0087",
+    "finding_id": "F-after-tickets-el0167-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4363,7 +4363,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0088",
+    "finding_id": "F-after-tickets-el0167-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4417,7 +4417,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0089",
+    "finding_id": "F-after-tickets-el0168-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4464,7 +4464,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0090",
+    "finding_id": "F-after-tickets-el0168-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4518,7 +4518,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0091",
+    "finding_id": "F-after-tickets-el0169-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4565,7 +4565,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0092",
+    "finding_id": "F-after-tickets-el0169-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4619,7 +4619,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0093",
+    "finding_id": "F-after-tickets-el0172-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4666,7 +4666,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0094",
+    "finding_id": "F-after-tickets-el0173-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4713,7 +4713,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0095",
+    "finding_id": "F-after-tickets-el0174-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4760,7 +4760,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0096",
+    "finding_id": "F-after-tickets-el0175-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4807,7 +4807,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0097",
+    "finding_id": "F-after-tickets-el0177-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4861,7 +4861,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0098",
+    "finding_id": "F-after-tickets-el0178-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -4908,7 +4908,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0099",
+    "finding_id": "F-after-tickets-el0178-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -4962,7 +4962,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0100",
+    "finding_id": "F-after-tickets-el0179-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5009,7 +5009,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0101",
+    "finding_id": "F-after-tickets-el0179-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5063,7 +5063,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0102",
+    "finding_id": "F-after-tickets-el0180-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5110,7 +5110,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0103",
+    "finding_id": "F-after-tickets-el0180-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5164,7 +5164,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0104",
+    "finding_id": "F-after-tickets-el0181-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5211,7 +5211,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0105",
+    "finding_id": "F-after-tickets-el0181-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5265,7 +5265,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0106",
+    "finding_id": "F-after-tickets-el0183-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5319,7 +5319,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0107",
+    "finding_id": "F-after-tickets-el0184-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5366,7 +5366,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0108",
+    "finding_id": "F-after-tickets-el0184-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5420,7 +5420,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0109",
+    "finding_id": "F-after-tickets-el0185-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5467,7 +5467,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0110",
+    "finding_id": "F-after-tickets-el0185-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5521,7 +5521,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0111",
+    "finding_id": "F-after-tickets-el0186-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5568,7 +5568,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0112",
+    "finding_id": "F-after-tickets-el0186-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5622,7 +5622,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0113",
+    "finding_id": "F-after-tickets-el0187-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5669,7 +5669,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0114",
+    "finding_id": "F-after-tickets-el0187-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5723,7 +5723,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0115",
+    "finding_id": "F-after-tickets-el0192-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5777,7 +5777,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0116",
+    "finding_id": "F-after-tickets-el0194-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5831,7 +5831,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0117",
+    "finding_id": "F-after-tickets-el0195-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5885,7 +5885,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0118",
+    "finding_id": "F-after-tickets-el0196-1.4.3",
     "page": "tickets",
     "site_version": "after",
     "source": "axe-core",
@@ -5939,7 +5939,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0119",
+    "finding_id": "F-after-tickets-el0198-1.3.1",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -5986,7 +5986,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0120",
+    "finding_id": "F-after-tickets-el0199-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -6033,7 +6033,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0121",
+    "finding_id": "F-after-tickets-el0200-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -6080,7 +6080,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0122",
+    "finding_id": "F-after-tickets-el0203-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -6127,7 +6127,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0123",
+    "finding_id": "F-after-tickets-el0205-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",
@@ -6174,7 +6174,7 @@
     }
   },
   {
-    "finding_id": "F-after-tickets-0124",
+    "finding_id": "F-after-tickets-el0207-2.4.4",
     "page": "tickets",
     "site_version": "after",
     "source": "pa11y",

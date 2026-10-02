@@ -46,8 +46,31 @@ Decided 2026-10-02 (Track A, A4). The example file is a real finding from
 | `evidence.selector` | `html` for page-level findings (e.g. missing `lang`, or Pa11y "check this manually" notices). |
 
 Other merge rules: W3C's wrapper (`#meta-header`, `#meta-footer`) is filtered out;
-all Pa11y notices are kept; finding IDs are numbered in page order so they are
-stable between runs of the same page.
+all Pa11y notices are kept.
+
+### Finding IDs (changed 2026-10-02, before any track depended on them)
+
+`F-{version}-{page}-el{dom_index:04d}-{criterion}`, e.g. `F-before-home-el0081-1.1.1`.
+The ID says *what* the finding is (which element, which criterion), not its position
+in the list, so re-running the scanners or changing a filter never renames an existing
+finding. Use `finding_id` as the key anywhere you store decisions, run logs or
+ground-truth matches. The old numbered IDs (`F-before-home-0032`) are gone.
+
+### Values Tracks B, C and D can rely on
+
+| Field | Exact values |
+| --- | --- |
+| `scanner_status` | `violation`, `needs_review`, `notice` |
+| `scanner_details[].type` | axe: `violations`, `incomplete` (axe's own names, plural). Pa11y: `error`, `warning`, `notice` |
+| `source`, `sources[]` | `axe-core`, `pa11y` |
+
+Check `scanner_status`, not `scanner_details[].type`, to know if a finding is a violation.
+
+### One element can have several findings
+
+There is one finding per (element, criterion). An element that fails two criteria
+(e.g. an empty link fails 2.4.4 and 4.1.2) is two findings with the same
+`evidence.dom_index`, the same screenshot, and IDs that differ only in the criterion.
 
 ## Data in git
 

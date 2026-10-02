@@ -11,3 +11,6 @@ node_modules/
 data/captures/
 data/scans/*
 !data/scans/.gitkeep
+
+# Half-written screenshots from an interrupted merge run
+data/findings/shots/.tmp_*/

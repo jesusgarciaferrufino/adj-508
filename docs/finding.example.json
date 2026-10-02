@@ -1,0 +1,30 @@
+{
+  "finding_id": "F-before-home-0007",
+  "page": "home",
+  "site_version": "before",
+  "source": "axe-core",
+  "rule_id": "image-alt",
+  "wcag": ["1.1.1"],
+  "section508": ["E205.4 (WCAG 2.0 A/AA)"],
+  "bucket": "grey",
+  "evidence": {
+    "selector": "#header > img:nth-child(1)",
+    "html_snippet": "<img src=\"logo.gif\">",
+    "screenshot": "s3://adj-evidence/before_home_0007.png",
+    "page_url": "https://www.w3.org/WAI/demos/bad/before/home.html",
+    "captured_at": "2026-09-20T14:02:00Z"
+  },
+  "ai": {
+    "case_for": "",
+    "case_against": "",
+    "citations_verified": false,
+    "confidence": null,
+    "prompt_version": ""
+  },
+  "review": {
+    "final_status": null,
+    "reviewer": null,
+    "decided_at": null,
+    "comment": null
+  }
+}

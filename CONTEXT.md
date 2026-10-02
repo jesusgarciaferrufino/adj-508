@@ -21,4 +21,9 @@ Python 3.13, Playwright, axe-core, Pa11y, LangGraph, Claude on Amazon Bedrock, F
 Bedrock region: us-east-1. Model ID: TODO
 
 ## Current phase
-Week 1: setup, ground truth, baseline scan.
+Week 2: one grey-area finding end to end (capture, scanners, mapper, router, FOR/AGAINST).
+
+## Team conventions
+- Who owns which file, branch rules, and open format questions: docs/TRACKS.md
+- Finding format everyone codes against: docs/finding.example.json
+- Playwright 1.63 has no page.accessibility.snapshot(). Use page.aria_snapshot() or a CDP session.

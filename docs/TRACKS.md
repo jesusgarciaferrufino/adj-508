@@ -30,15 +30,24 @@ Need a new Python package for your track? Tell the repo owner so it goes into
 `docs/finding.example.json` is the contract every track codes against.
 It changes only by team agreement, in its own small pull request.
 
-Open questions to settle as a team before Track A's merge step (A4):
+Decided 2026-10-02 (Track A, A4). The example file is a real finding from
+`data/findings/before_home.json`. All changes are additive to the week 1 format:
 
-1. The example has `"source": "axe-core"` (one string). The week 2 merge rule says
-   findings found by both scanners list both in `sources`. Which one?
-2. The merge rule tags axe "incomplete" results `scanner_status: "needs_review"`.
-   That field is not in the example. Add it?
-3. The router (Track C) decides `bucket`. Should merge leave it `null`?
-4. `evidence.screenshot` is an `s3://` path in the example. Week 2 has no S3,
-   so is a repo-relative path like `data/findings/shots/...` acceptable for now?
+| Field | Meaning |
+| --- | --- |
+| `source` | Unchanged single string. `axe-core` whenever axe found it, else `pa11y`. |
+| `sources` | NEW. Every scanner that found it, e.g. `["axe-core", "pa11y"]`. |
+| `scanner_status` | NEW. `violation` only when axe reports a violation. axe "incomplete", every Pa11y error and warning: `needs_review`. Pa11y notice: `notice`. This is a scanner signal, not the bucket. |
+| `scanner_details` | NEW. One entry per scanner rule that fired: `scanner`, `rule_id`, `type`, `message`. Use `message` for the prompts' `SCANNER SAID`. |
+| `bucket` | Always `null` from merge. Track C's router sets it. |
+| `wcag` | Exactly one WCAG 2.0 A/AA criterion per finding. WCAG 2.1/2.2 results are dropped. |
+| `evidence.screenshot` | Repo path, not S3: `data/findings/shots/{v}_{p}_el{NNNN}.jpg` (element plus 40px of page), or `{v}_{p}_page.jpg` for page-level findings. `null` when the element can't be photographed (e.g. `<title>`). |
+| `evidence.dom_index` | NEW. Element position in document order; how duplicates across scanners are matched. |
+| `evidence.selector` | `html` for page-level findings (e.g. missing `lang`, or Pa11y "check this manually" notices). |
+
+Other merge rules: W3C's wrapper (`#meta-header`, `#meta-footer`) is filtered out;
+all Pa11y notices are kept; finding IDs are numbered in page order so they are
+stable between runs of the same page.
 
 ## Data in git
 

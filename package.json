@@ -1,0 +1,7 @@
+{
+  "name": "adj-508",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Node tools for ADJ scanners (axe-core, Pa11y). Python code lives in capture/, scanners/, agents/.",
+  "license": "UNLICENSED"
+}

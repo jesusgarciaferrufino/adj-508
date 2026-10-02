@@ -39,6 +39,12 @@ AWS credentials are needed for Bedrock. Run `aws configure` with region `us-east
 | `reports/` | ACR, matrix and backlog templates |
 | `data/` | Ground truth, scans, captures, run logs |
 
+## Working on this repo
+
+Read `docs/TRACKS.md` before you start: it says which files each track owns,
+how to name branches, and what goes in git. The shared finding format is
+`docs/finding.example.json`.
+
 ## Team
 
 - Jesus Garcia-Ferrufino

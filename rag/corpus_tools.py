@@ -355,8 +355,8 @@ def write_atomic(path: Path, text: str) -> None:
     fd, name = tempfile.mkstemp(dir=path.parent, prefix=f".{path.name}.", suffix=".tmp")
     tmp = Path(name)
     try:
-        os.fchmod(fd, 0o644)  # mkstemp makes the file owner-only; keep normal permissions
-        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:  # closes fd even if a step below fails
+            os.fchmod(fh.fileno(), 0o644)  # mkstemp makes the file owner-only; keep normal permissions
             fh.write(text)
         os.replace(tmp, path)
     except BaseException:

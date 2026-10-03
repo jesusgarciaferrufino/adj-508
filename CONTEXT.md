@@ -18,7 +18,7 @@ Ground truth is built from the Before evaluation reports for home, news, tickets
 
 ## Stack
 Python 3.13, Playwright, axe-core, Pa11y, LangGraph, Claude on Amazon Bedrock, FastAPI.
-Bedrock region: us-east-1. Model ID: us.anthropic.claude-opus-4-6-v1 (Claude Opus 4.6).
+Bedrock region: us-east-1. Model ID: us.anthropic.claude-sonnet-4-6 (Claude Sonnet 4.6).
 Target model is Claude Fable 5.1 (us.anthropic.claude-fable-5-1). Access for our account is pending
 with AWS support. Switch to it once granted. Bedrock Claude models must be called via the us. inference profile ID.
 
@@ -36,7 +36,7 @@ Goal: accounts and tools for everyone, one shared repo and AWS account,
 and "before AI" baseline numbers. Full steps: Week 1 Setup Guide.
 - Repo, folder layout, .gitignore, CONTEXT.md: done
 - Finding format (Step 8a): done, committed in week 2 as docs/finding.example.json
-- Bedrock model ID (Step 4e): done in week 2 by Abel (PR #2): Claude Opus 4.6, see Stack above.
+- Bedrock model ID (Step 4e): done in week 2 by Abel (PR #2): Claude Sonnet 4.6, see Stack above.
   Smoke test: scripts/hello_bedrock.py
 - Ground truth (Step 6): data/ground-truth/ground_truth.csv not in the repo yet
 - axe baseline (Step 7): baseline_axe.py was never committed; replaced in week 2

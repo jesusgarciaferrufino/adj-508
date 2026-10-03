@@ -23,4 +23,27 @@ Target model is Claude Fable 5.1 (us.anthropic.claude-fable-5-1). Access for our
 with AWS support. Switch to it once granted. Bedrock Claude models must be called via the us. inference profile ID.
 
 ## Current phase
-Week 1: setup, ground truth, baseline scan.
+Week 2: one grey-area finding end to end (capture, scanners, mapper, router, FOR/AGAINST).
+- Track A output is ready: data/findings/{before,after}_{home,news,tickets,survey}.json
+  (format: docs/finding.example.json). Tracks B, C and D read these files and do not
+  need to run the scanners. Findings on the same element share evidence.dom_index.
+
+## Phase history
+Kept so anyone catching up can see what earlier weeks built and what is still open.
+
+### Week 1 (Sep 16 to 25): setup, ground truth, baseline scan
+Goal: accounts and tools for everyone, one shared repo and AWS account,
+and "before AI" baseline numbers. Full steps: Week 1 Setup Guide.
+- Repo, folder layout, .gitignore, CONTEXT.md: done
+- Finding format (Step 8a): done, committed in week 2 as docs/finding.example.json
+- Bedrock model ID (Step 4e): done in week 2 by Abel (PR #2): Claude Opus 4.6, see Stack above.
+  Smoke test: scripts/hello_bedrock.py
+- Ground truth (Step 6): data/ground-truth/ground_truth.csv not in the repo yet
+- axe baseline (Step 7): baseline_axe.py was never committed; replaced in week 2
+  by scanners/axe_scan.py. Baseline recall numbers not recorded yet
+
+## Team conventions
+- Who owns which file, branch rules, and the agreed finding format decisions: docs/TRACKS.md
+- Finding format everyone codes against: docs/finding.example.json. Read findings with
+  `from scanners.findings import load_findings`, not by parsing the JSON by hand.
+- Playwright 1.63 has no page.accessibility.snapshot(). Use page.aria_snapshot() or a CDP session.

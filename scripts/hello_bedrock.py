@@ -1,6 +1,6 @@
 import boto3
 
-MODEL_ID = "us.anthropic.claude-opus-4-6-v1"
+MODEL_ID = "us.anthropic.claude-sonnet-4-6"
 
 client = boto3.client("bedrock-runtime", region_name="us-east-1")
 

@@ -8,7 +8,14 @@ from datetime import date
 import pytest
 
 from agents import mapper
-from agents.mapper import NotInCorpusError, map_finding, map_page, read_ground_truth, score_spotcheck
+from agents.mapper import (
+    NotInCorpusError,
+    corpus_entry,
+    map_finding,
+    map_page,
+    read_ground_truth,
+    score_spotcheck,
+)
 from rag import corpus_tools
 from rag.corpus_tools import CANONICAL, CONTENT, CorpusError, canonical_errors, corpus_errors, load_corpus
 from scanners.findings import REPO, Finding, FindingsFileError, load_findings, validate_findings
@@ -45,8 +52,8 @@ def test_corpus_check_catches_changed_content():
 
 
 def test_maps_a_real_finding(example):
-    m = map_finding(example, load_corpus())
     sc = example.wcag[0]
+    m = corpus_entry(example.finding_id, sc, load_corpus())
     assert m == {"sc": sc, "name": CANONICAL[sc][0], "level": CANONICAL[sc][1],
                  "spec_url": f"https://www.w3.org/TR/WCAG20/#{CANONICAL[sc][2]}"}
 
@@ -56,7 +63,7 @@ def test_rejects_criterion_not_in_corpus(example):
     wcag21 = Finding.model_construct(**{**example.__dict__, "wcag": ["2.5.3"],
                                         "finding_id": "F-before-home-el0001-2.5.3"})
     with pytest.raises(NotInCorpusError, match="2.5.3"):
-        map_finding(wcag21, load_corpus())
+        corpus_entry(wcag21.finding_id, "2.5.3", load_corpus())
     mapped, rejected = map_page([example, wcag21], load_corpus())
     assert list(mapped) == [example.finding_id]
     assert list(rejected) == ["F-before-home-el0001-2.5.3"]
@@ -266,3 +273,27 @@ def test_corpus_commands_report_locked_folders(monkeypatch, locked_dir, capsys):
     assert corpus_tools.build(force=False) == 1  # stops at the existence check, before any network call
     out = capsys.readouterr().out
     assert "cannot read" in out and "cannot check" in out
+
+
+def test_map_finding_takes_one_dict_and_returns_only_what_it_adds(example):
+    """The contract Track D's graph relies on: map_finding(finding_dict) -> fields to merge in."""
+    finding = example.model_dump()
+    added = map_finding(finding)
+    sc = example.wcag[0]
+    assert list(added) == ["mapping"]  # wcag, bucket, ai and review are not touched
+    assert added["mapping"] == {
+        "sc": sc, "name": CANONICAL[sc][0], "level": CANONICAL[sc][1],
+        "spec_url": f"https://www.w3.org/TR/WCAG20/#{CANONICAL[sc][2]}",
+        "mapper_version": mapper.MAPPER_VERSION,
+        "corpus_sha256": corpus_tools.load_corpus_with_hash()[1],
+    }
+    assert finding == example.model_dump(), "the input finding must not be changed"
+    validate_findings([{**finding, **added}])  # still a valid finding after the graph merges it in
+
+
+def test_map_finding_rejects_without_raising(example):
+    finding = example.model_dump()
+    for wcag, sc in ((["2.5.3"], "2.5.3"), ([], None), (["1.1.1", "1.3.1"], None), (None, None)):
+        added = map_finding({**finding, "wcag": wcag})
+        assert added["mapping"]["sc"] == sc and "rejected" in added["mapping"]
+        assert "name" not in added["mapping"]

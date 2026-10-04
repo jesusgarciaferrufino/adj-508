@@ -21,10 +21,19 @@ Output, one file per page, keyed by finding_id:
 
 A page that can't be read or written is reported and skipped, and its old output file is
 removed so no later step reads a stale mapping. Any problem makes the exit status 1.
+
+For the pipeline graph (Track D), which calls each track with ONE finding dict and merges the
+fields it returns:
+    from agents.mapper import map_finding
+    map_finding(finding) -> {"mapping": {"sc", "name", "level", "spec_url",
+                                         "mapper_version", "corpus_sha256"}}
+`wcag` is left exactly as Track A set it. A criterion that is not in the corpus comes back as
+{"mapping": {"sc", "rejected": reason, ...}} instead of raising, so one bad finding can't stop a run.
 """
 
 import argparse
 import csv
+import functools
 import json
 import random
 import re
@@ -49,13 +58,37 @@ class NotInCorpusError(ValueError):
     """A finding cites a criterion that is not in the WCAG 2.0 A/AA corpus."""
 
 
-def map_finding(finding: Finding, corpus: dict[str, dict]) -> dict:
-    """The corpus entry for the finding's one criterion. Raises NotInCorpusError if it has none."""
-    sc = finding.wcag[0]
-    entry = corpus.get(sc)
+def corpus_entry(finding_id: str, sc: str, corpus: dict[str, dict]) -> dict:
+    """The corpus entry for one criterion. Raises NotInCorpusError if the corpus doesn't have it."""
+    entry = corpus.get(sc) if isinstance(sc, str) else None
     if entry is None:
-        raise NotInCorpusError(f"{finding.finding_id}: {sc} is not in {rel(CORPUS)}")
+        raise NotInCorpusError(f"{finding_id}: {sc!r} is not in {rel(CORPUS)}")
     return {"sc": sc, "name": entry["name"], "level": entry["level"], "spec_url": entry["source"]}
+
+
+@functools.cache
+def _corpus() -> tuple[dict[str, dict], str]:
+    """The corpus and its hash, read once per process for map_finding."""
+    return load_corpus_with_hash()
+
+
+def map_finding(finding: dict) -> dict:
+    """The fields the mapper adds to ONE finding dict (docs/finding.example.json format).
+
+    This is the function the pipeline graph calls. Raises CorpusError only if the corpus itself
+    is missing or broken; a finding it can't map is returned as rejected, not raised.
+    """
+    corpus, corpus_hash = _corpus()
+    stamp = {"mapper_version": MAPPER_VERSION, "corpus_sha256": corpus_hash}
+    finding_id = finding.get("finding_id", "?")
+    wcag = finding.get("wcag")
+    if not isinstance(wcag, list) or len(wcag) != 1:
+        reason = f"{finding_id}: expected exactly one WCAG criterion, got {wcag!r}"
+        return {"mapping": {"sc": None, "rejected": reason, **stamp}}
+    try:
+        return {"mapping": {**corpus_entry(finding_id, wcag[0], corpus), **stamp}}
+    except NotInCorpusError as e:
+        return {"mapping": {"sc": wcag[0], "rejected": str(e), **stamp}}
 
 
 def map_page(findings: list[Finding], corpus: dict[str, dict]) -> tuple[dict, dict]:
@@ -63,7 +96,7 @@ def map_page(findings: list[Finding], corpus: dict[str, dict]) -> tuple[dict, di
     mapped, rejected = {}, {}
     for f in findings:
         try:
-            mapped[f.finding_id] = map_finding(f, corpus)
+            mapped[f.finding_id] = corpus_entry(f.finding_id, f.wcag[0], corpus)
         except NotInCorpusError as e:
             rejected[f.finding_id] = str(e)
     return mapped, rejected

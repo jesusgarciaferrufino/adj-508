@@ -28,6 +28,23 @@ Week 2: one grey-area finding end to end (capture, scanners, mapper, router, FOR
   (format: docs/finding.example.json). Tracks B, C and D read these files and do not
   need to run the scanners. Findings on the same element share evidence.dom_index.
 
+## Pipeline (Track D)
+Run from the repo root: `python -m agents.graph --version before --page home`
+(versions: before, after; pages: home, news, tickets, survey).
+Graph: load findings -> mapper -> router -> FOR/AGAINST (grey only) -> write output.
+Prints a bucket summary and writes data/runs/{run_id}/: input_findings.json,
+events.jsonl (what each node added to each finding), output_findings.json, summary.json
+(counts, timings, model IDs, prompt versions, tokens).
+Run folders are not committed (data/runs/.gitignore).
+
+Agent function contract: each function takes ONE finding dict (docs/finding.example.json
+format) and returns ONLY the fields it adds. The graph merges them in; nested dicts like
+`ai` are merged one level deep, so never return a rewritten copy of the finding.
+- `agents/mapper.py`: `map_finding(finding) -> {"wcag": [...], ...}` (Track B)
+- `agents/router.py`: `route_finding(finding) -> {"bucket": "machine"|"grey"|"human-only", "route_reason": str}` (Track C)
+- `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only)
+Until a track's file is merged, agents/graph.py uses a stub in its place.
+
 ## Phase history
 Kept so anyone catching up can see what earlier weeks built and what is still open.
 

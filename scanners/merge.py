@@ -59,10 +59,15 @@ def finding_id(version, name, dom_index, sc):
     return f"F-{version}-{name}-el{dom_index:04d}-{sc}"
 
 
+class MissingScanError(FileNotFoundError):
+    """A scanner's output file is missing, so this page can't be merged yet."""
+
+
 def read_scan(path, script):
     if not path.exists():
-        sys.exit(f"Missing {path.relative_to(REPO)}. Run: python scanners/{script} "
-                 f"--version {path.stem.split('_')[1]} --page {path.stem.split('_')[2]}")
+        _, version, page = path.stem.split("_")
+        raise MissingScanError(f"Missing data/scans/{path.name}. Run: python scanners/{script} "
+                               f"--version {version} --page {page}")
     return json.loads(path.read_text())
 
 
@@ -275,11 +280,15 @@ def main():
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page(viewport=VIEWPORT)
-        for v in versions:
-            for n in names:
-                findings, hits, dropped, shots, out = merge_page(page, v, n)
-                print(f"{v:6} {n:8} {summarize(findings, hits, dropped, shots)}  -> {out.relative_to(REPO)}")
-        browser.close()
+        try:
+            for v in versions:
+                for n in names:
+                    findings, hits, dropped, shots, out = merge_page(page, v, n)
+                    print(f"{v:6} {n:8} {summarize(findings, hits, dropped, shots)}  -> {out.relative_to(REPO)}")
+        except MissingScanError as e:
+            sys.exit(str(e))
+        finally:
+            browser.close()
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1378 @@
+{
+  "mapper_version": "mapper-v2-corpus-lookup",
+  "site_version": "before",
+  "page": "tickets",
+  "corpus": "rag/wcag20_aa.json",
+  "corpus_sha256": "15fd8ff42b09",
+  "findings": {
+    "F-before-tickets-el0000-1.3.2": {
+      "sc": "1.3.2",
+      "name": "Meaningful Sequence",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"
+    },
+    "F-before-tickets-el0000-1.3.3": {
+      "sc": "1.3.3",
+      "name": "Sensory Characteristics",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"
+    },
+    "F-before-tickets-el0000-1.4.1": {
+      "sc": "1.4.1",
+      "name": "Use of Color",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"
+    },
+    "F-before-tickets-el0000-1.4.4": {
+      "sc": "1.4.4",
+      "name": "Resize text",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"
+    },
+    "F-before-tickets-el0000-1.4.5": {
+      "sc": "1.4.5",
+      "name": "Images of Text",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"
+    },
+    "F-before-tickets-el0000-2.2.2": {
+      "sc": "2.2.2",
+      "name": "Pause, Stop, Hide",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#time-limits-pause"
+    },
+    "F-before-tickets-el0000-2.3.1": {
+      "sc": "2.3.1",
+      "name": "Three Flashes or Below Threshold",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#seizure-does-not-violate"
+    },
+    "F-before-tickets-el0000-2.4.1": {
+      "sc": "2.4.1",
+      "name": "Bypass Blocks",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"
+    },
+    "F-before-tickets-el0000-2.4.5": {
+      "sc": "2.4.5",
+      "name": "Multiple Ways",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"
+    },
+    "F-before-tickets-el0000-2.4.6": {
+      "sc": "2.4.6",
+      "name": "Headings and Labels",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"
+    },
+    "F-before-tickets-el0000-2.4.7": {
+      "sc": "2.4.7",
+      "name": "Focus Visible",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"
+    },
+    "F-before-tickets-el0000-3.1.1": {
+      "sc": "3.1.1",
+      "name": "Language of Page",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id"
+    },
+    "F-before-tickets-el0000-3.1.2": {
+      "sc": "3.1.2",
+      "name": "Language of Parts",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#meaning-other-lang-id"
+    },
+    "F-before-tickets-el0000-3.2.3": {
+      "sc": "3.2.3",
+      "name": "Consistent Navigation",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"
+    },
+    "F-before-tickets-el0000-3.2.4": {
+      "sc": "3.2.4",
+      "name": "Consistent Identification",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"
+    },
+    "F-before-tickets-el0002-2.4.2": {
+      "sc": "2.4.2",
+      "name": "Page Titled",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"
+    },
+    "F-before-tickets-el0054-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0054-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0057-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0058-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0058-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0062-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0064-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0066-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0069-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0070-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0071-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0071-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0076-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0077-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0079-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0081-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0083-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0084-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0085-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0085-3.2.1": {
+      "sc": "3.2.1",
+      "name": "On Focus",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+    },
+    "F-before-tickets-el0085-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-tickets-el0104-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0107-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0110-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0111-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0111-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0112-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0113-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0113-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0114-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0114-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0115-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0119-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0122-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0122-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0125-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0126-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0130-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0132-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0134-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0134-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-tickets-el0135-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0135-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0135-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-tickets-el0136-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0139-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0141-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0141-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-tickets-el0142-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0142-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0142-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-tickets-el0143-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0146-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0148-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0148-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-tickets-el0149-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0149-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0149-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-tickets-el0150-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0153-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0155-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0155-2.1.1": {
+      "sc": "2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+    },
+    "F-before-tickets-el0156-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0156-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0156-4.1.2": {
+      "sc": "4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+    },
+    "F-before-tickets-el0157-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0160-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0162-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0165-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0166-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0171-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0172-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0174-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0175-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0177-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0178-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0180-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0182-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0183-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0183-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0185-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0186-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0186-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0190-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0191-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0192-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0195-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0196-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0198-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0200-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0202-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0204-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0206-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0208-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0210-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0211-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0211-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0213-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0214-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0214-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0216-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0217-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0217-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0219-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0220-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0220-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0222-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0223-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0223-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0226-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0227-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0227-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0229-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0229-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0231-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0231-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0233-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0233-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0235-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0235-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0238-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0239-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0239-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0241-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0241-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0243-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0243-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0245-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0245-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0247-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0247-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0249-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0250-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0251-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0251-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0252-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0252-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0255-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0256-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0256-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0258-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0258-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0260-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0260-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0262-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0262-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0264-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0264-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0267-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0268-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0268-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0270-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0270-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0272-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0272-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0274-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0274-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0276-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0276-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0277-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0279-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0280-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0280-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0283-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0284-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0284-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0286-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0286-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0288-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0288-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0290-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0290-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0292-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0292-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0295-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0296-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0296-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0298-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0298-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0300-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0300-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0302-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0302-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0304-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0304-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0305-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0305-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0308-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0309-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0312-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0314-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0315-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0316-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0319-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0320-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0321-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0322-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0329-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0331-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0331-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0334-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0335-1.3.1": {
+      "sc": "1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+    },
+    "F-before-tickets-el0335-1.4.3": {
+      "sc": "1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+    },
+    "F-before-tickets-el0336-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0337-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0340-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0342-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0344-2.4.4": {
+      "sc": "2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+    },
+    "F-before-tickets-el0346-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0349-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0351-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    },
+    "F-before-tickets-el0353-1.1.1": {
+      "sc": "1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "spec_url": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+    }
+  },
+  "rejected": {}
+}

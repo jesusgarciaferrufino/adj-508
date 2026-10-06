@@ -40,7 +40,7 @@ Run folders are not committed (data/runs/.gitignore).
 Agent function contract: each function takes ONE finding dict (docs/finding.example.json
 format) and returns ONLY the fields it adds. The graph merges them in; nested dicts like
 `ai` are merged one level deep, so never return a rewritten copy of the finding.
-- `agents/mapper.py`: `map_finding(finding) -> {"wcag": [...], ...}` (Track B)
+- `agents/mapper.py`: `map_finding(finding) -> {"mapping": {"sc", "name", "level", "spec_url", ...}}`; a finding it can't map returns `{"mapping": {"sc", "rejected": reason}}` instead of raising (Track B)
 - `agents/router.py`: `route_finding(finding) -> {"bucket": "machine"|"grey"|"human-only", "route_reason": str}` (Track C)
 - `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only)
 Until a track's file is merged, agents/graph.py uses a stub in its place.

@@ -7,7 +7,7 @@ Run from the repo's top folder:
 
 Contract with the other tracks: each function takes ONE finding (a dict in the
 docs/finding.example.json format) and returns ONLY the fields it adds.
-    agents/mapper.py    map_finding(finding)   -> {"wcag": [...], ...}          (Track B)
+    agents/mapper.py    map_finding(finding)   -> {"mapping": {"sc", "name", "level", "spec_url", ...}}  (Track B)
     agents/router.py    route_finding(finding) -> {"bucket": ..., "route_reason": ...}  (Track C)
     agents/evidence.py  build_cases(finding)   -> {"ai": {"case_for": ..., "case_against": ...,
                                                    "model_id": ..., "prompt_version": ...,

@@ -1,0 +1,524 @@
+[
+  {
+    "sc": "1.1.1",
+    "name": "Non-text Content",
+    "level": "A",
+    "text": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.\nControls, Input: If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Guideline 4.1 for additional requirements for controls and content that accepts user input.)\nTime-Based Media: If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.)\nTest: If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content.\nSensory: If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content.\nCAPTCHA: If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities.\nDecoration, Formatting, Invisible: If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology.",
+    "intent": "Images and other non-text content need a text alternative that does the same job; purely decorative content should be hidden from assistive tech.",
+    "common_failures": [
+      "F3",
+      "F13",
+      "F20",
+      "F30",
+      "F38",
+      "F39",
+      "F65",
+      "F67",
+      "F71",
+      "F72"
+    ],
+    "needs_human_when": "Deciding whether an image is decorative or meaningful, and whether existing alt text actually conveys its purpose",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#text-equiv-all"
+  },
+  {
+    "sc": "1.2.1",
+    "name": "Audio-only and Video-only (Prerecorded)",
+    "level": "A",
+    "text": "For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such:\nPrerecorded Audio-only: An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content.\nPrerecorded Video-only: Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content.",
+    "intent": "Prerecorded audio-only needs a transcript; prerecorded video-only needs a transcript or an audio track.",
+    "common_failures": [
+      "F30",
+      "F67"
+    ],
+    "needs_human_when": "Judging whether the alternative is actually equivalent to the media",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#media-equiv-av-only-alt"
+  },
+  {
+    "sc": "1.2.2",
+    "name": "Captions (Prerecorded)",
+    "level": "A",
+    "text": "Captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
+    "intent": "Prerecorded video with sound needs captions.",
+    "common_failures": [
+      "F8",
+      "F74",
+      "F75"
+    ],
+    "needs_human_when": "Checking captions are present, accurate and complete",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#media-equiv-captions"
+  },
+  {
+    "sc": "1.2.3",
+    "name": "Audio Description or Media Alternative (Prerecorded)",
+    "level": "A",
+    "text": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
+    "intent": "Prerecorded video needs audio description or a full text alternative so visual-only information is not lost.",
+    "common_failures": [],
+    "needs_human_when": "Judging whether visual information is covered by the soundtrack or description",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc"
+  },
+  {
+    "sc": "1.2.4",
+    "name": "Captions (Live)",
+    "level": "AA",
+    "text": "Captions are provided for all live audio content in synchronized media.",
+    "intent": "Live video with sound needs real-time captions.",
+    "common_failures": [],
+    "needs_human_when": "Confirming live captions exist during a live event",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#media-equiv-real-time-captions"
+  },
+  {
+    "sc": "1.2.5",
+    "name": "Audio Description (Prerecorded)",
+    "level": "AA",
+    "text": "Audio description is provided for all prerecorded video content in synchronized media.",
+    "intent": "Prerecorded video needs audio description of important visual details (a transcript alone is not enough at AA).",
+    "common_failures": [],
+    "needs_human_when": "Judging whether important visual details are described",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#media-equiv-audio-desc-only"
+  },
+  {
+    "sc": "1.3.1",
+    "name": "Info and Relationships",
+    "level": "A",
+    "text": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
+    "intent": "Structure shown visually (headings, lists, tables, labels, groupings) must also be in the markup so assistive tech can convey it.",
+    "common_failures": [
+      "F2",
+      "F33",
+      "F34",
+      "F42",
+      "F43",
+      "F46",
+      "F48",
+      "F68",
+      "F87",
+      "F90",
+      "F91"
+    ],
+    "needs_human_when": "Deciding whether visually styled text is functioning as a heading, or whether a table is for data or layout",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#content-structure-separation-programmatic"
+  },
+  {
+    "sc": "1.3.2",
+    "name": "Meaningful Sequence",
+    "level": "A",
+    "text": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.",
+    "intent": "When order matters for meaning, the DOM/reading order must match it.",
+    "common_failures": [
+      "F1",
+      "F32",
+      "F33",
+      "F34",
+      "F49"
+    ],
+    "needs_human_when": "Judging whether the reading order changes the meaning",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#content-structure-separation-sequence"
+  },
+  {
+    "sc": "1.3.3",
+    "name": "Sensory Characteristics",
+    "level": "A",
+    "text": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.\nNote: For requirements related to color, refer to Guideline 1.4.",
+    "intent": "Instructions must not rely only on shape, size, position or sound (e.g. 'click the round button on the right').",
+    "common_failures": [
+      "F14",
+      "F26"
+    ],
+    "needs_human_when": "Reading instructions in context to see if they depend only on sensory cues",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#content-structure-separation-understanding"
+  },
+  {
+    "sc": "1.4.1",
+    "name": "Use of Color",
+    "level": "A",
+    "text": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.\nNote: This success criterion addresses color perception specifically. Other forms of perception are covered in Guideline 1.3 including programmatic access to color and other visual presentation coding.",
+    "intent": "Color cannot be the only way information, actions or distinctions are conveyed.",
+    "common_failures": [
+      "F13",
+      "F73",
+      "F81"
+    ],
+    "needs_human_when": "Checking whether a non-color cue (underline, icon, text) also conveys the meaning",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-without-color"
+  },
+  {
+    "sc": "1.4.2",
+    "name": "Audio Control",
+    "level": "A",
+    "text": "If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.\nNote: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether or not it is used to meet other success criteria) must meet this success criterion. See Conformance Requirement 5: Non-Interference.",
+    "intent": "Audio that autoplays for more than 3 seconds needs a way to pause/stop it or control its volume.",
+    "common_failures": [
+      "F23",
+      "F93"
+    ],
+    "needs_human_when": "Confirming autoplay duration and whether a usable control exists",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-dis-audio"
+  },
+  {
+    "sc": "1.4.3",
+    "name": "Contrast (Minimum)",
+    "level": "AA",
+    "text": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following:\nLarge Text: Large-scale text and images of large-scale text have a contrast ratio of at least 3:1;\nIncidental: Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement.\nLogotypes: Text that is part of a logo or brand name has no minimum contrast requirement.",
+    "intent": "Text needs at least 4.5:1 contrast with its background (3:1 for large text); logos and inactive or decorative text are exempt.",
+    "common_failures": [
+      "F24",
+      "F83"
+    ],
+    "needs_human_when": "Text over images or gradients, and whether text counts as large, decorative or a logo",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast"
+  },
+  {
+    "sc": "1.4.4",
+    "name": "Resize text",
+    "level": "AA",
+    "text": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
+    "intent": "Text must be resizable to 200% without assistive tech and without losing content or functionality.",
+    "common_failures": [
+      "F69",
+      "F80",
+      "F94"
+    ],
+    "needs_human_when": "Zooming to 200% and checking for clipped or overlapping content",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-scale"
+  },
+  {
+    "sc": "1.4.5",
+    "name": "Images of Text",
+    "level": "AA",
+    "text": "If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following:\nCustomizable: The image of text can be visually customized to the user's requirements;\nEssential: A particular presentation of text is essential to the information being conveyed.\nNote: Logotypes (text that is part of a logo or brand name) are considered essential.",
+    "intent": "Use real text instead of images of text unless the image is customizable or the presentation is essential (logos are essential).",
+    "common_failures": [],
+    "needs_human_when": "Deciding whether an image of text is a logo or essential presentation",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#visual-audio-contrast-text-presentation"
+  },
+  {
+    "sc": "2.1.1",
+    "name": "Keyboard",
+    "level": "A",
+    "text": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.\nNote 1: This exception relates to the underlying function, not the input technique. For example, if using handwriting to enter text, the input technique (handwriting) requires path-dependent input but the underlying function (text input) does not.\nNote 2: This does not forbid and should not discourage providing mouse input or other input methods in addition to keyboard operation.",
+    "intent": "Everything that works with a mouse must also work from the keyboard.",
+    "common_failures": [
+      "F42",
+      "F54",
+      "F55"
+    ],
+    "needs_human_when": "Actually tabbing through and operating the control",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#keyboard-operation-keyboard-operable"
+  },
+  {
+    "sc": "2.1.2",
+    "name": "No Keyboard Trap",
+    "level": "A",
+    "text": "If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.\nNote: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.",
+    "intent": "Keyboard focus must never get stuck; if leaving needs a special key, users are told.",
+    "common_failures": [
+      "F10"
+    ],
+    "needs_human_when": "Tabbing into and out of embedded or scripted widgets",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#keyboard-operation-trapping"
+  },
+  {
+    "sc": "2.2.1",
+    "name": "Timing Adjustable",
+    "level": "A",
+    "text": "For each time limit that is set by the content, at least one of the following is true:\nTurn off: The user is allowed to turn off the time limit before encountering it; or\nAdjust: The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or\nExtend: The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, \"press the space bar\"), and the user is allowed to extend the time limit at least ten times; or\nReal-time Exception: The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or\nEssential Exception: The time limit is essential and extending it would invalidate the activity; or\n20 Hour Exception: The time limit is longer than 20 hours.\nNote: This success criterion helps ensure that users can complete tasks without unexpected changes in content or context that are a result of a time limit. This success criterion should be considered in conjunction with Success Criterion 3.2.1, which puts limits on changes of content or context as a result of user action.",
+    "intent": "Time limits must be adjustable, extendable or removable unless real-time, essential, or over 20 hours.",
+    "common_failures": [
+      "F40",
+      "F41",
+      "F58"
+    ],
+    "needs_human_when": "Determining whether a time limit exists and whether an exception applies",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#time-limits-required-behaviors"
+  },
+  {
+    "sc": "2.2.2",
+    "name": "Pause, Stop, Hide",
+    "level": "A",
+    "text": "For moving, blinking, scrolling, or auto-updating information, all of the following are true:\nMoving, blinking, scrolling: For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and\nAuto-updating: For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential.\nNote 1: For requirements related to flickering or flashing content, refer to Guideline 2.3.\nNote 2: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.\nNote 3: Content that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so.\nNote 4: An animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken.",
+    "intent": "Moving, blinking, scrolling or auto-updating content that starts automatically needs a pause/stop/hide control.",
+    "common_failures": [
+      "F4",
+      "F7",
+      "F16",
+      "F47",
+      "F50"
+    ],
+    "needs_human_when": "Watching the page to see what moves and for how long",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#time-limits-pause"
+  },
+  {
+    "sc": "2.3.1",
+    "name": "Three Flashes or Below Threshold",
+    "level": "A",
+    "text": "Web pages do not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.\nNote: Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference.",
+    "intent": "Nothing may flash more than three times per second unless below the flash thresholds.",
+    "common_failures": [],
+    "needs_human_when": "Measuring flash rate and area",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#seizure-does-not-violate"
+  },
+  {
+    "sc": "2.4.1",
+    "name": "Bypass Blocks",
+    "level": "A",
+    "text": "A mechanism is available to bypass blocks of content that are repeated on multiple Web pages.",
+    "intent": "A way to skip repeated blocks (skip link, headings, landmarks) must exist.",
+    "common_failures": [],
+    "needs_human_when": "Checking whether a bypass mechanism exists and works across the page set",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-skip"
+  },
+  {
+    "sc": "2.4.2",
+    "name": "Page Titled",
+    "level": "A",
+    "text": "Web pages have titles that describe topic or purpose.",
+    "intent": "Each page has a title that describes its topic or purpose.",
+    "common_failures": [
+      "F25"
+    ],
+    "needs_human_when": "Judging whether a present title actually describes the page",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-title"
+  },
+  {
+    "sc": "2.4.3",
+    "name": "Focus Order",
+    "level": "A",
+    "text": "If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
+    "intent": "Tab order must preserve meaning and operability.",
+    "common_failures": [
+      "F44",
+      "F85"
+    ],
+    "needs_human_when": "Tabbing through the page and judging whether the order makes sense",
+    "human_only": true,
+    "source": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-order"
+  },
+  {
+    "sc": "2.4.4",
+    "name": "Link Purpose (In Context)",
+    "level": "A",
+    "text": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.",
+    "intent": "Link purpose must be clear from the link text, or the link text plus its programmatic context (same sentence, paragraph, list item or table cell).",
+    "common_failures": [
+      "F63",
+      "F89"
+    ],
+    "needs_human_when": "Whether surrounding text makes a vague link like 'more' or 'click here' clear",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-refs"
+  },
+  {
+    "sc": "2.4.5",
+    "name": "Multiple Ways",
+    "level": "AA",
+    "text": "More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process.",
+    "intent": "There is more than one way to find a page within a site (nav, search, sitemap), except steps in a process.",
+    "common_failures": [],
+    "needs_human_when": "Reviewing the whole set of pages, not a single page",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-mult-loc"
+  },
+  {
+    "sc": "2.4.6",
+    "name": "Headings and Labels",
+    "level": "AA",
+    "text": "Headings and labels describe topic or purpose.",
+    "intent": "Headings and labels that exist must describe their topic or purpose.",
+    "common_failures": [],
+    "needs_human_when": "Judging whether heading and label wording is descriptive",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-descriptive"
+  },
+  {
+    "sc": "2.4.7",
+    "name": "Focus Visible",
+    "level": "AA",
+    "text": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
+    "intent": "Keyboard focus must be visible.",
+    "common_failures": [
+      "F55",
+      "F78"
+    ],
+    "needs_human_when": "Tabbing through and seeing whether focus is visible on each control",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#navigation-mechanisms-focus-visible"
+  },
+  {
+    "sc": "3.1.1",
+    "name": "Language of Page",
+    "level": "A",
+    "text": "The default human language of each Web page can be programmatically determined.",
+    "intent": "The page's default language is set in code (e.g. lang on html).",
+    "common_failures": [],
+    "needs_human_when": "Rarely needed; confirm the lang value matches the content",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#meaning-doc-lang-id"
+  },
+  {
+    "sc": "3.1.2",
+    "name": "Language of Parts",
+    "level": "AA",
+    "text": "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
+    "intent": "Passages in a different language are marked with their language.",
+    "common_failures": [],
+    "needs_human_when": "Spotting foreign-language passages and checking they are marked",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#meaning-other-lang-id"
+  },
+  {
+    "sc": "3.2.1",
+    "name": "On Focus",
+    "level": "A",
+    "text": "When any component receives focus, it does not initiate a change of context.",
+    "intent": "Focusing a control must not trigger a change of context (new window, page change, focus jump).",
+    "common_failures": [
+      "F52",
+      "F55"
+    ],
+    "needs_human_when": "Tabbing onto controls and watching for context changes",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#consistent-behavior-receive-focus"
+  },
+  {
+    "sc": "3.2.2",
+    "name": "On Input",
+    "level": "A",
+    "text": "Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component.",
+    "intent": "Changing a control's value must not automatically change context unless users are warned first.",
+    "common_failures": [
+      "F36",
+      "F37"
+    ],
+    "needs_human_when": "Operating selects, radios and checkboxes to see what happens",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#consistent-behavior-unpredictable-change"
+  },
+  {
+    "sc": "3.2.3",
+    "name": "Consistent Navigation",
+    "level": "AA",
+    "text": "Navigational mechanisms that are repeated on multiple Web pages within a set of Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
+    "intent": "Repeated navigation appears in the same relative order on every page.",
+    "common_failures": [
+      "F66"
+    ],
+    "needs_human_when": "Comparing navigation across multiple pages",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-locations"
+  },
+  {
+    "sc": "3.2.4",
+    "name": "Consistent Identification",
+    "level": "AA",
+    "text": "Components that have the same functionality within a set of Web pages are identified consistently.",
+    "intent": "Components with the same function are identified the same way across pages.",
+    "common_failures": [
+      "F31"
+    ],
+    "needs_human_when": "Comparing labels and alt text of same-function components across pages",
+    "human_only": true,
+    "source": "https://www.w3.org/TR/WCAG20/#consistent-behavior-consistent-functionality"
+  },
+  {
+    "sc": "3.3.1",
+    "name": "Error Identification",
+    "level": "A",
+    "text": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
+    "intent": "Automatically detected input errors are identified and described in text.",
+    "common_failures": [],
+    "needs_human_when": "Submitting the form with errors and reading the feedback",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#minimize-error-identified"
+  },
+  {
+    "sc": "3.3.2",
+    "name": "Labels or Instructions",
+    "level": "A",
+    "text": "Labels or instructions are provided when content requires user input.",
+    "intent": "Inputs have labels or instructions.",
+    "common_failures": [
+      "F82"
+    ],
+    "needs_human_when": "Judging whether visible labels or instructions are adequate",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#minimize-error-cues"
+  },
+  {
+    "sc": "3.3.3",
+    "name": "Error Suggestion",
+    "level": "AA",
+    "text": "If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.",
+    "intent": "When an error is detected and a fix is known, suggest it (unless that would compromise security or purpose).",
+    "common_failures": [],
+    "needs_human_when": "Submitting invalid input and judging the suggestions",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#minimize-error-suggestions"
+  },
+  {
+    "sc": "3.3.4",
+    "name": "Error Prevention (Legal, Financial, Data)",
+    "level": "AA",
+    "text": "For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true:\nReversible: Submissions are reversible.\nChecked: Data entered by the user is checked for input errors and the user is provided an opportunity to correct them.\nConfirmed: A mechanism is available for reviewing, confirming, and correcting information before finalizing the submission.",
+    "intent": "Legal, financial or data-changing submissions are reversible, checked, or confirmable before finalizing.",
+    "common_failures": [],
+    "needs_human_when": "Determining whether the form causes a legal or financial commitment and walking the flow",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#minimize-error-reversible"
+  },
+  {
+    "sc": "4.1.1",
+    "name": "Parsing",
+    "level": "A",
+    "text": "In content implemented using markup languages, elements have complete start and end tags, elements are nested according to their specifications, elements do not contain duplicate attributes, and any IDs are unique, except where the specifications allow these features.\nNote: Start and end tags that are missing a critical character in their formation, such as a closing angle bracket or a mismatched attribute value quotation mark are not complete.",
+    "intent": "Markup is well-formed: complete tags, correct nesting, no duplicate attributes, unique IDs.",
+    "common_failures": [
+      "F70",
+      "F77"
+    ],
+    "needs_human_when": "Rarely; deciding whether a parsing error actually affects assistive tech",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#ensure-compat-parses"
+  },
+  {
+    "sc": "4.1.2",
+    "name": "Name, Role, Value",
+    "level": "A",
+    "text": "For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.\nNote: This success criterion is primarily for Web authors who develop or script their own user interface components. For example, standard HTML controls already meet this success criterion when used according to specification.",
+    "intent": "UI components expose name, role, and state/value to assistive tech; changes are announced.",
+    "common_failures": [
+      "F15",
+      "F20",
+      "F42",
+      "F59",
+      "F68",
+      "F79",
+      "F86",
+      "F89"
+    ],
+    "needs_human_when": "Custom widgets where the accessible name may come from elsewhere (aria-labelledby, title, context)",
+    "human_only": false,
+    "source": "https://www.w3.org/TR/WCAG20/#ensure-compat-rsv"
+  }
+]

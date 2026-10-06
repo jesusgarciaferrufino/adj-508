@@ -15,6 +15,7 @@ docs/finding.example.json format) and returns ONLY the fields it adds.
 Until those files exist, the stubs below stand in so the graph runs today.
 """
 import argparse
+import importlib
 import sys
 import time
 from collections import Counter
@@ -26,24 +27,37 @@ from agents.runlog import RunLog, new_run_id
 from scanners.findings import REPO, findings_path, load_findings
 
 # ---------- Other tracks' functions, with stubs until their PRs land ----------
-try:
-    from agents.mapper import map_finding  # Track B
-except ImportError:
-    def map_finding(f):
-        return {}  # stub: keep the scanner's WCAG tags as they are
+STUBS = []  # nodes running on a stub in this process; written to summary.json
 
-try:
-    from agents.router import route_finding  # Track C
-except ImportError:
-    def route_finding(f):
-        return {"bucket": f.get("bucket") or "grey", "route_reason": "STUB: router not merged yet"}
 
-try:
-    from agents.evidence import build_cases  # Track C
-except ImportError:
-    def build_cases(f):
-        return {"ai": {"case_for": "STUB", "case_against": "STUB",
-                       "model_id": None, "prompt_version": "STUB", "usage": {}}}
+def load_agent(node, module, name, stub):
+    """Import a track's function, or use the stub ONLY if that track's file doesn't exist yet.
+    If the file exists but its own imports are broken, fail loudly instead of hiding it."""
+    try:
+        return getattr(importlib.import_module(module), name)
+    except ModuleNotFoundError as e:
+        if e.name != module:
+            raise  # e.g. a typo'd import inside agents/mapper.py
+        STUBS.append(node)
+        return stub
+
+
+def _stub_map_finding(f):
+    return {}  # keep the scanner's WCAG tags as they are
+
+
+def _stub_route_finding(f):
+    return {"bucket": f.get("bucket") or "grey", "route_reason": "STUB: router not merged yet"}
+
+
+def _stub_build_cases(f):
+    return {"ai": {"case_for": "STUB", "case_against": "STUB",
+                   "model_id": None, "prompt_version": "STUB", "usage": {}}}
+
+
+map_finding = load_agent("mapper", "agents.mapper", "map_finding", _stub_map_finding)  # Track B
+route_finding = load_agent("router", "agents.router", "route_finding", _stub_route_finding)  # Track C
+build_cases = load_agent("evidence", "agents.evidence", "build_cases", _stub_build_cases)  # Track C
 
 
 # ---------- State passed between nodes ----------
@@ -116,6 +130,7 @@ def build_graph(log):
             },
             "timings_sec": log.timings,
             "errors": log.errors,
+            "stubs": STUBS,  # nodes that were stand-ins, not the real track code
         }
         log.save("output_findings.json", findings)
         log.save("summary.json", summary)
@@ -161,7 +176,9 @@ def main():
         print(f"{len(log.errors)} errors (those findings were kept unchanged; details in events.jsonl):")
         for e in log.errors[:5]:
             print(f"  {e['node']} {e['finding_id']}: {e['error']}")
-    print(f"Run log: {log.dir}")
+    if STUBS:
+        print(f"Stubs (not real yet): {', '.join(STUBS)}")
+    print(f"Run log: {log.dir.relative_to(REPO)}")
     if log.errors:
         sys.exit(1)  # non-zero exit so scripts and CI notice a partial run
 

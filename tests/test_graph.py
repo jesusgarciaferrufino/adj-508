@@ -1,9 +1,11 @@
 """Track D: the pipeline survives one finding failing (e.g. a Bedrock call that errors)."""
 import json
 
+import pytest
+
 import agents.graph as graph
 import agents.runlog as runlog
-from scanners.findings import load_findings
+from scanners.findings import REPO, load_findings
 
 BAD_ID = "F-before-home-el0081-1.1.1"
 
@@ -49,3 +51,36 @@ def test_one_failing_finding_does_not_stop_the_run(tmp_path, monkeypatch):
     summary = json.loads((log.dir / "summary.json").read_text())
     assert summary["errors"] == log.errors
     assert summary["case_files"] == len(by_id) - 1
+
+
+def test_stub_used_only_when_the_agent_file_is_missing(tmp_path, monkeypatch):
+    # A fake package: one agent file with a typo'd import inside it, and no "missing" file at all
+    (tmp_path / "fakeagents").mkdir()
+    (tmp_path / "fakeagents" / "__init__.py").write_text("")
+    (tmp_path / "fakeagents" / "broken.py").write_text("import a_module_with_a_typo\n")
+    monkeypatch.syspath_prepend(str(tmp_path))
+    monkeypatch.setattr(graph, "STUBS", [])
+
+    def stub(f):
+        return {}
+
+    # File doesn't exist yet: use the stub and record it
+    assert graph.load_agent("router", "fakeagents.missing", "route_finding", stub) is stub
+    assert graph.STUBS == ["router"]
+
+    # File exists but its own import is broken: crash loudly, don't hide it behind the stub
+    with pytest.raises(ModuleNotFoundError, match="a_module_with_a_typo"):
+        graph.load_agent("mapper", "fakeagents.broken", "map_finding", stub)
+    assert graph.STUBS == ["router"]
+
+
+def test_summary_lists_stub_nodes(tmp_path, monkeypatch):
+    monkeypatch.setattr(graph, "STUBS", ["router", "evidence"])
+    _, log = run_pipeline(tmp_path, monkeypatch)
+    summary = json.loads((log.dir / "summary.json").read_text())
+    assert summary["stubs"] == ["router", "evidence"]
+
+
+def test_run_logs_live_in_the_repo_whatever_the_current_folder():
+    assert runlog.RUNS_DIR == REPO / "data" / "runs"
+    assert runlog.RUNS_DIR.is_absolute()

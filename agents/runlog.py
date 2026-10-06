@@ -9,9 +9,10 @@ Files written per run:
 import datetime
 import json
 import uuid
-from pathlib import Path
 
-RUNS_DIR = Path("data/runs")
+from scanners.findings import REPO
+
+RUNS_DIR = REPO / "data" / "runs"  # absolute, so runs land here whatever folder you run from
 
 
 def new_run_id():

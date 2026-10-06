@@ -2,7 +2,7 @@
 
 Files written per run:
   input_findings.json   what the run started with
-  events.jsonl          one line per node per finding: what that node added
+  events.jsonl          one line per node per finding: what that node added, or the error it hit
   output_findings.json  final findings after every node
   summary.json          counts, timings, model IDs, prompt versions, tokens
 """
@@ -31,6 +31,7 @@ class RunLog:
         self.dir.mkdir(parents=True, exist_ok=True)
         self._events = (self.dir / "events.jsonl").open("a")
         self.timings = {}
+        self.errors = []
 
     def save(self, filename, obj):
         (self.dir / filename).write_text(json.dumps(obj, indent=2, default=str))
@@ -40,6 +41,14 @@ class RunLog:
         line = {"t": _now(), "node": node, "finding_id": finding_id, "added": added}
         self._events.write(json.dumps(line, default=str) + "\n")
         self._events.flush()  # so a crash mid-run still leaves a usable log
+
+    def error(self, node, finding_id, exc):
+        """Record that one node failed on one finding. The run carries on without it."""
+        message = f"{type(exc).__name__}: {exc}"
+        self.errors.append({"node": node, "finding_id": finding_id, "error": message})
+        line = {"t": _now(), "node": node, "finding_id": finding_id, "error": message}
+        self._events.write(json.dumps(line, default=str) + "\n")
+        self._events.flush()
 
     def timing(self, node, seconds):
         self.timings[node] = round(seconds, 3)

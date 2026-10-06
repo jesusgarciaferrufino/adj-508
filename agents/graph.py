@@ -15,6 +15,7 @@ docs/finding.example.json format) and returns ONLY the fields it adds.
 Until those files exist, the stubs below stand in so the graph runs today.
 """
 import argparse
+import sys
 import time
 from collections import Counter
 from typing import TypedDict
@@ -75,7 +76,12 @@ def build_graph(log):
                 if only_bucket and f.get("bucket") != only_bucket:
                     out.append(f)
                     continue
-                added = fn(f)
+                try:
+                    added = fn(f)
+                except Exception as e:  # noqa: BLE001 - one bad finding (e.g. a failed Bedrock call) must not stop the run
+                    log.error(name, f.get("finding_id"), e)
+                    out.append(f)  # keep the finding as it was before this node
+                    continue
                 log.event(name, f.get("finding_id"), added)
                 out.append(add_fields(f, added))
             log.timing(name, time.time() - t0)
@@ -92,7 +98,9 @@ def build_graph(log):
     def write_output(state):
         findings = state["findings"]
         buckets = Counter(f.get("bucket") for f in findings)
-        ai = [f["ai"] for f in findings if f.get("bucket") == "grey" and f.get("ai")]
+        failed = {e["finding_id"] for e in log.errors if e["node"] == "evidence"}
+        ai = [f["ai"] for f in findings
+              if f.get("bucket") == "grey" and f.get("ai") and f.get("finding_id") not in failed]
         summary = {
             "run_id": state["run_id"],
             "version": state["version"],
@@ -107,6 +115,7 @@ def build_graph(log):
                 "output": sum((a.get("usage") or {}).get("output_tokens", 0) for a in ai),
             },
             "timings_sec": log.timings,
+            "errors": log.errors,
         }
         log.save("output_findings.json", findings)
         log.save("summary.json", summary)
@@ -144,10 +153,17 @@ def main():
         log.close()
 
     b = Counter(f.get("bucket") for f in final["findings"])
+    failed_cases = sum(1 for e in log.errors if e["node"] == "evidence")
     print(f"{len(final['findings'])} findings: {b.get('machine', 0)} machine, "
           f"{b.get('grey', 0)} grey, {b.get('human-only', 0)} human-only — "
-          f"{b.get('grey', 0)} case files written")
+          f"{b.get('grey', 0) - failed_cases} case files written")
+    if log.errors:
+        print(f"{len(log.errors)} errors (those findings were kept unchanged; details in events.jsonl):")
+        for e in log.errors[:5]:
+            print(f"  {e['node']} {e['finding_id']}: {e['error']}")
     print(f"Run log: {log.dir}")
+    if log.errors:
+        sys.exit(1)  # non-zero exit so scripts and CI notice a partial run
 
 
 if __name__ == "__main__":

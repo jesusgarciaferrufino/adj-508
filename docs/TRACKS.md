@@ -16,11 +16,15 @@ create placeholder copies of another track's files on your branch.
 | Track | Owner (role) | Files only this track creates or edits |
 | --- | --- | --- |
 | Shared setup | Repo owner (Jesus) | `package.json`, `.gitignore`, `requirements.txt`, `CONTEXT.md`, `README.md`, `docs/TRACKS.md`, `*/__init__.py` |
-| A. Capture + scanners | Scanning lead (Jesus) | `capture/`, `scanners/`, `data/findings/` |
-| B. Knowledge base + mapper | Knowledge lead | `rag/`, `agents/mapper.py`, `docs/mapper_spotcheck.md` |
+| A. Capture + scanners | Scanning lead (Jesus) | `capture/`, `scanners/`, `data/findings/`, `tests/test_merge.py` |
+| B. Knowledge base + mapper | Knowledge lead | `rag/`, `agents/mapper.py`, `docs/mapper_spotcheck.md`, `data/mapped/`, `tests/test_mapper.py` |
 | C. First agents | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/prompt_set.json` |
 | D. Graph + run log | Reviewer-experience lead | `agents/graph.py`, `data/runs/` |
 | Ground truth | Sheet owner | `data/ground-truth/ground_truth.csv` |
+
+Tests: each track owns `tests/test_<track or module>.py` for its own code (for example
+`tests/test_mapper.py`, `tests/test_graph.py`). `tests/test_contracts.py`,
+`tests/test_findings_data.py` and `tests/conftest.py` are shared setup.
 
 Need a new Python package for your track? Tell the repo owner so it goes into
 `requirements.txt` once, instead of three people editing the same line.
@@ -89,6 +93,17 @@ ground-truth matches. The old numbered IDs (`F-before-home-0032`) are gone.
 
 Check `scanner_status`, not `scanner_details[].type`, to know if a finding is a violation.
 
+### Fields later tracks add
+
+These are added by the pipeline (`python -m agents.graph`) and are never written into
+`data/findings/`. The loader keeps them, so they survive validation.
+
+| Field | Added by | Shape |
+| --- | --- | --- |
+| `mapping` | Track B, `map_finding(finding)` | `{"sc", "name", "level", "spec_url", "mapper_version", "corpus_sha256"}`. If the criterion is not in the corpus: `{"sc", "rejected": reason, "mapper_version", "corpus_sha256"}`. Never changes `wcag`. |
+| `bucket`, `route_reason` | Track C, `route_finding(finding)` | Bucket values to be fixed by Track C (currently `machine`, `grey`, `human-only` in the graph). |
+| `ai.case_for`, `ai.case_against`, `ai.model_id`, `ai.prompt_version`, `ai.usage` | Track C, `build_cases(finding)` | Grey findings only. `usage` is `{"input_tokens", "output_tokens"}`. |
+
 ### One element can have several findings
 
 There is one finding per (element, criterion). An element that fails two criteria
@@ -101,7 +116,8 @@ There is one finding per (element, criterion). An element that fails two criteri
 | --- | --- | --- |
 | `data/findings/` | Yes | Tracks B, C and D read it without running capture |
 | `data/ground-truth/` | Yes | The answer key |
-| `data/runs/` | Track D decides | Replayable run log |
+| `data/mapped/` | Yes | Track B's mapper output; regenerate with `python -m agents.mapper` |
+| `data/runs/` | No (gitignored by Track D) | Replayable run log, written by every pipeline run |
 | `data/captures/` | No (gitignored) | Full HTML and screenshots, regenerated every run |
 | `data/scans/` | No (gitignored) | Raw scanner JSON, regenerated every run |
 

@@ -1,8 +1,9 @@
 """WCAG 2.0 Level A and AA success criteria: the only ones ADJ may cite (CONTEXT.md).
 
-Track B's rag/wcag20_aa.json will be the full corpus. This is the plain allowlist
-the merge step needs now, so Pa11y's WCAG 2.1/2.2 checks (1.3.4, 1.4.10, 2.5.x,
-4.1.3, ...) never enter the findings.
+This is the plain allowlist the merge step uses, so Pa11y's WCAG 2.1/2.2 checks
+(1.3.4, 1.4.10, 2.5.x, 4.1.3, ...) never enter the findings. Track B's
+rag/wcag20_aa.json is the full corpus (names, levels, spec text) and is checked
+against this list.
 """
 
 import re

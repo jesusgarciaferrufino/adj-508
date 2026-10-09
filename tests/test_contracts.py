@@ -13,21 +13,8 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 FINDING_EXAMPLE = ROOT / "docs" / "finding.example.json"
 
-# Every WCAG 2.0 Level A and AA success criterion. Nothing else may be cited.
-WCAG20_A_AA = {
-    "1.1.1",
-    "1.2.1", "1.2.2", "1.2.3", "1.2.4", "1.2.5",
-    "1.3.1", "1.3.2", "1.3.3",
-    "1.4.1", "1.4.2", "1.4.3", "1.4.4", "1.4.5",
-    "2.1.1", "2.1.2",
-    "2.2.1", "2.2.2",
-    "2.3.1",
-    "2.4.1", "2.4.2", "2.4.3", "2.4.4", "2.4.5", "2.4.6", "2.4.7",
-    "3.1.1", "3.1.2",
-    "3.2.1", "3.2.2", "3.2.3", "3.2.4",
-    "3.3.1", "3.3.2", "3.3.3", "3.3.4",
-    "4.1.1", "4.1.2",
-}
+# The one allowlist lives in scanners/wcag.py; these tests check it rather than keep a copy.
+from scanners.wcag import WCAG20_A, WCAG20_A_AA, WCAG20_AA  # noqa: E402
 
 REQUIRED_TOP_LEVEL = {
     "finding_id", "page", "site_version", "rule_id", "wcag",
@@ -38,7 +25,9 @@ REQUIRED_REVIEW = {"final_status", "reviewer", "decided_at", "comment"}
 
 
 def test_wcag_list_is_complete():
-    assert len(WCAG20_A_AA) == 38
+    # WCAG 2.0 has 25 Level A and 13 Level AA success criteria.
+    assert (len(WCAG20_A), len(WCAG20_AA), len(WCAG20_A_AA)) == (25, 13, 38)
+    assert all(re.fullmatch(r"[1-4]\.\d\.\d", sc) for sc in WCAG20_A_AA)
 
 
 @pytest.fixture

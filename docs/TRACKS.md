@@ -15,7 +15,7 @@ create placeholder copies of another track's files on your branch.
 
 | Track | Owner (role) | Files only this track creates or edits |
 | --- | --- | --- |
-| Shared setup | Repo owner (Jesus) | `package.json`, `.gitignore`, `requirements.txt`, `CONTEXT.md`, `README.md`, `docs/TRACKS.md`, `*/__init__.py` |
+| Shared setup | Repo owner (Jesus) | `package.json`, `.gitignore`, `requirements.txt`, `CONTEXT.md`, `README.md`, `docs/TRACKS.md`, `*/__init__.py`, `settings.py`, `.env.example` |
 | A. Capture + scanners | Scanning lead (Jesus) | `capture/`, `scanners/`, `data/findings/`, `tests/test_merge.py` |
 | B. Knowledge base + mapper | Knowledge lead | `rag/`, `agents/mapper.py`, `docs/mapper_spotcheck.md`, `data/mapped/`, `tests/test_mapper.py` |
 | C. First agents | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/prompt_set.json` |

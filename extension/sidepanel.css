@@ -1,0 +1,109 @@
+:root {
+  color-scheme: light;
+  --ink: #1b1b1b;
+  --muted: #555;
+  --line: #c9c9c9;
+  --ground: #fff;
+  --panel: #f4f4f4;
+  --focus: #0b5fff;
+  --fail: #9b1c1c;
+  --pass: #14532d;
+  --na: #3f3f46;
+  --ai: #5b21b6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 12px;
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--ground);
+}
+
+h1 { font-size: 18px; margin: 0 0 4px; }
+h2 { font-size: 15px; margin: 18px 0 6px; padding-bottom: 4px; border-bottom: 2px solid var(--ink); }
+h3 { font-size: 13px; margin: 12px 0 4px; }
+p { margin: 4px 0; }
+.muted { color: var(--muted); }
+code, pre { font: 12px/1.4 ui-monospace, Menlo, Consolas, monospace; }
+
+pre {
+  margin: 4px 0;
+  padding: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+button, input, textarea { font: inherit; color: inherit; }
+
+button {
+  padding: 6px 10px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--ground);
+  cursor: pointer;
+}
+button:hover { background: var(--panel); }
+button:disabled { opacity: 0.55; cursor: default; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+input[type="password"], textarea {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--ground);
+}
+textarea { min-height: 56px; resize: vertical; }
+label { display: block; font-weight: 600; margin-top: 8px; }
+.row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+
+#settings { margin: 10px 0; padding: 8px; border: 1px solid var(--line); border-radius: 4px; }
+#settings > summary { font-weight: 600; cursor: pointer; }
+
+#status:empty { display: none; }
+#status { padding: 8px; border-left: 4px solid var(--ink); background: var(--panel); }
+#status.error { border-left-color: var(--fail); }
+
+.finding { border: 1px solid var(--line); border-radius: 4px; margin: 6px 0; }
+.finding > summary { padding: 8px; cursor: pointer; overflow-wrap: anywhere; }
+.finding[open] > summary { border-bottom: 1px solid var(--line); background: var(--panel); }
+.finding .body { padding: 8px; }
+.criterion { font-weight: 600; }
+
+.badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 6px;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.badge.fail { color: var(--fail); }
+.badge.pass { color: var(--pass); }
+.badge.not_applicable { color: var(--na); }
+.badge.none { color: var(--muted); font-weight: 400; }
+
+.shot { display: block; max-width: 100%; height: auto; border: 1px solid var(--line); }
+
+.ai { margin-top: 12px; padding: 8px; border: 1px dashed var(--ai); border-radius: 4px; }
+.ai-label { margin: 0 0 4px; color: var(--ai); font-weight: 700; }
+.cases { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cases h4 { margin: 0 0 2px; font-size: 12px; }
+.cases p { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.decide { margin-top: 12px; padding-top: 8px; border-top: 2px solid var(--ink); }
+.decide button[data-decision="fail"] { border-color: var(--fail); color: var(--fail); }
+.decide button[data-decision="pass"] { border-color: var(--pass); color: var(--pass); }
+.message:empty { display: none; }
+.message { margin-top: 6px; padding: 6px; background: var(--panel); border-left: 4px solid var(--ink); }
+.message.error { border-left-color: var(--fail); }
+.message.ok { border-left-color: var(--pass); }

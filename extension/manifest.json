@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PULSE: ADJ reviewer panel",
+  "version": "0.1.0",
+  "description": "Review ADJ accessibility findings for the W3C Before and After Demo and record a human decision.",
+  "minimum_chrome_version": "116",
+  "permissions": ["sidePanel", "storage"],
+  "host_permissions": [
+    "https://www.w3.org/WAI/demos/bad/*",
+    "http://localhost:8000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open the PULSE review panel"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}

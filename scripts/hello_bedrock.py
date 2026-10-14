@@ -11,7 +11,7 @@ one-line hint instead of a traceback when the call fails.
 import sys
 
 import boto3
-from botocore.exceptions import ClientError, NoCredentialsError
+from botocore.exceptions import BotoCoreError, ClientError, NoCredentialsError
 
 import settings
 
@@ -36,6 +36,11 @@ def main() -> int:
         print(f"FAILED: {err.get('Code', 'ClientError')}: {err.get('Message', str(e))}")
         print("Hint: check that model access is granted in the Bedrock console, that the region is right, "
               "and that the model ID has the 'us.' inference profile prefix.")
+        return 1
+    except BotoCoreError as e:  # no network, unknown region, proxy or timeout
+        print(f"FAILED: could not reach Bedrock: {type(e).__name__}: {e}")
+        print(f"Hint: check your internet connection and that ADJ_AWS_REGION ({settings.AWS_REGION}) "
+              "is a real AWS region with Bedrock.")
         return 1
 
     print(response["output"]["message"]["content"][0]["text"])

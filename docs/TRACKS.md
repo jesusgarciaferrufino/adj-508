@@ -102,8 +102,9 @@ These are added by the pipeline (`python -m agents.graph`) and are never written
 | Field | Added by | Shape |
 | --- | --- | --- |
 | `mapping` | Track B, `map_finding(finding)` | `{"sc", "name", "level", "spec_url", "mapper_version", "corpus_sha256"}`. If the criterion is not in the corpus: `{"sc", "rejected": reason, "mapper_version", "corpus_sha256"}`. Never changes `wcag`. |
-| `bucket`, `route_reason` | Track C, `route_finding(finding)` | Bucket values to be fixed by Track C (currently `machine`, `grey`, `human-only` in the graph). |
+| `bucket`, `route_reason` | Track C, `route_finding(finding)` | Fixed values: `machine`, `grey`, `human-only` (`agents/router.py` `BUCKETS`). `route_reason` names the router v1 rule that decided it. |
 | `ai.case_for`, `ai.case_against`, `ai.model_id`, `ai.prompt_version`, `ai.usage` | Track C, `build_cases(finding)` | Grey findings only. `usage` is `{"input_tokens", "output_tokens"}`. |
+| `ai.recommendation`, `ai.citations_verified` | Track C, `build_cases(finding)` | `likely_fail` / `likely_pass` / `unsure`, from FOR minus AGAINST strength (2 or more decides). `citations_verified` is checked in code: both sides cite the finding's criterion and every quote is in its HTML, context text, selector or a scanner message. Skipped findings read `SKIPPED: ...` and `unsure`. |
 
 ### One element can have several findings
 

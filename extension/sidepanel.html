@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PULSE review panel</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <header>
+    <h1>PULSE review</h1>
+    <p id="page-line" class="muted">Looking at the current tab…</p>
+    <button type="button" id="refresh">Refresh</button>
+  </header>
+
+  <details id="settings">
+    <summary>Settings</summary>
+    <form id="token-form">
+      <label for="token">Reviewer token</label>
+      <input type="password" id="token" autocomplete="off" spellcheck="false">
+      <p id="token-state" class="muted"></p>
+      <div class="row">
+        <button type="submit">Save token</button>
+        <button type="button" id="token-remove">Remove token</button>
+      </div>
+      <p class="muted">The token stays in this browser (chrome.storage.local) and is sent only to the review API on this computer.</p>
+    </form>
+    <p class="muted">Review API: <code id="api-base"></code></p>
+    <p class="muted">For the API's <code>.env</code> file:</p>
+    <pre><code id="origin-line"></code></pre>
+  </details>
+
+  <p id="status" role="status" aria-live="polite"></p>
+
+  <main id="findings" aria-label="Findings for this page"></main>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

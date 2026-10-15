@@ -14,3 +14,6 @@ data/scans/*
 
 # Half-written screenshots from an interrupted merge run
 data/findings/shots/.tmp_*/
+
+# Matrix, ACR and backlog (Track E): regenerated from a run plus data/reviews/
+data/reports/

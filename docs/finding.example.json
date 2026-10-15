@@ -22,7 +22,8 @@
     "screenshot": "data/findings/shots/before_home_el0081.jpg",
     "page_url": "https://www.w3.org/WAI/demos/bad/before/home.html",
     "captured_at": "2026-10-02T16:24:39.819Z",
-    "dom_index": 81
+    "dom_index": 81,
+    "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services"
   },
   "scanner_details": [
     {

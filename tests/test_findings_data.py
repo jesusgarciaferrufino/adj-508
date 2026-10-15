@@ -64,3 +64,16 @@ def test_loader_keeps_extra_fields():
     f = json.loads((REPO / "docs" / "finding.example.json").read_text())
     f["mapping"] = {"method": "tag"}
     assert validate_findings([f])[0].model_dump()["mapping"] == {"method": "tag"}
+
+
+def test_context_text_present_and_useful():
+    """evidence.context_text (Oct 15): always a string, empty for page-level findings,
+    and on the Week 3 thread finding it holds the sentence around the link."""
+    findings = {f.finding_id: f for f in load_findings("before", "home")}
+    for f in findings.values():
+        assert isinstance(f.evidence.context_text, str)
+        assert len(f.evidence.context_text) <= 302, f"{f.finding_id}: context over the cap"
+        if f.evidence.selector == "html":
+            assert f.evidence.context_text == "", f"{f.finding_id}: page-level finding has context"
+    click_here = findings["F-before-home-el0210-2.4.4"].evidence.context_text
+    assert "Killer bees" in click_here and "Click here" in click_here

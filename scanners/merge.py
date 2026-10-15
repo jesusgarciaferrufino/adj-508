@@ -22,6 +22,13 @@ Rules (decided 2026-10-02, see docs/TRACKS.md):
   so adding or dropping other findings never changes an existing ID. Unique because
   there is exactly one finding per (element, criterion). Findings are still written
   sorted by (dom_index, criterion, rule_id).
+- evidence.context_text (added 2026-10-15 for Track C): visible text of the element's
+  nearest enclosing block (p, li, td, heading, ...; if that block has no text, up to 4
+  levels further out, table rows included, but only if that text is short; long text
+  found that way is a layout container, so context stays empty), whitespace collapsed, at most
+  CONTEXT_CAP characters centred on the element's own text. Lets the FOR/AGAINST
+  agents judge things like link purpose ("Click here") from the surrounding sentence.
+  Empty for page-level findings.
 - Screenshots are written to a temporary folder and only swapped in once the whole
   page succeeds, so a crash never leaves findings pointing at deleted images.
 
@@ -159,6 +166,7 @@ def build_finding(version, name, hs, url, captured_at):
             "screenshot": None,  # filled in by take_shots
             "page_url": url,
             "captured_at": captured_at,
+            "context_text": "",  # filled in by take_shots
         },
         "scanner_details": details,
         "ai": {"case_for": "", "case_against": "", "citations_verified": False,
@@ -168,16 +176,41 @@ def build_finding(version, name, hs, url, captured_at):
     }
 
 
-# Runs in the page: bounding box (page coordinates) and outerHTML for each dom_index.
+CONTEXT_CAP = 300  # characters of surrounding text kept per finding
+
+# Runs in the page: bounding box (page coordinates), outerHTML and surrounding text
+# for each dom_index.
 BOXES_JS = """
-(indices) => {
+([indices, cap]) => {
   const all = Array.from(document.querySelectorAll("*"));
+  const BLOCK = "p, li, td, th, dd, dt, h1, h2, h3, h4, h5, h6, caption, label, legend, " +
+                "figcaption, blockquote, button, form, div";
+  const clean = s => (s || "").replace(/\\s+/g, " ").trim();
+  const context = el => {
+    // Nearest enclosing block; if it has no visible text (e.g. a form input alone in its
+    // cell), step out up to 4 more levels (table rows count) until some text appears.
+    const up = node => node && node.parentElement && node.parentElement.closest(BLOCK + ", tr");
+    let block = (el.parentElement || el).closest(BLOCK) || el.parentElement;
+    let steps = 0;
+    for (; block && !clean(block.innerText) && steps < 4; steps++) block = up(block);
+    const text = clean(block ? block.innerText : "");
+    if (text.length <= cap) return text;
+    // Long text reached only by climbing means a layout container (e.g. the page-wide
+    // table around a spacer image), not text that belongs with this element.
+    if (steps > 0) return "";
+    // Too long: keep a window centred on the element's own text (or its alt text).
+    const own = clean(el.innerText || el.getAttribute("alt") || "");
+    const at = own ? text.indexOf(own) : -1;
+    const mid = at >= 0 ? at + Math.floor(own.length / 2) : 0;
+    const start = Math.max(0, Math.min(mid - Math.floor(cap / 2), text.length - cap));
+    return (start > 0 ? "…" : "") + text.slice(start, start + cap) + (start + cap < text.length ? "…" : "");
+  };
   return indices.map(i => {
     const el = all[i];
     if (!el) return null;
     const r = el.getBoundingClientRect();
     return {x: r.left + window.scrollX, y: r.top + window.scrollY, w: r.width, h: r.height,
-            html: el.outerHTML};
+            html: el.outerHTML, context: context(el)};
   });
 }
 """
@@ -196,7 +229,7 @@ def take_shots(page, version, name, findings, url):
     doc_w = page.evaluate("document.documentElement.scrollWidth")
     doc_h = page.evaluate("document.documentElement.scrollHeight")
     indices = sorted({f["_dom_index"] for f in findings if f["_dom_index"] != PAGE_LEVEL})
-    boxes = dict(zip(indices, page.evaluate(BOXES_JS, indices), strict=True))
+    boxes = dict(zip(indices, page.evaluate(BOXES_JS, [indices, CONTEXT_CAP]), strict=True))
     stats = collections.Counter()
 
     page_shot = tmp / f"{version}_{name}_page.jpg"
@@ -234,6 +267,8 @@ def take_shots(page, version, name, findings, url):
         p = paths.get(f["_dom_index"])
         f["evidence"]["screenshot"] = str(p.relative_to(REPO)) if p else None
         b = boxes.get(f["_dom_index"])
+        if b:
+            f["evidence"]["context_text"] = b["context"]
         if b and f["evidence"]["html_snippet"] and not b["html"].startswith(f["evidence"]["html_snippet"][:200]):
             stats["dom_mismatch"] += 1  # page changed between scan and merge
     return stats

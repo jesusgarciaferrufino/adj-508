@@ -26,6 +26,14 @@ Definitions (router policy v1, CONTEXT.md). A judge may ask, so they are spelled
   flagged. The most generous figure: it does not check that it is the same element.
 - **After false alarms:** findings on the After pages reported as issues. W3C's After reports
   pass every A/AA criterion, so every one of them is a false alarm.
+- **Grey not evaluated:** grey findings where FOR/AGAINST did not produce a recommendation
+  (skipped by ADJ_EVIDENCE_ONLY or the call cap, or the call failed). They count as flagged,
+  not reported, so while any exist (a) and the After false alarms are LOWER BOUNDS. The report
+  shows the count per run and warns. Compare with --stub-grey-counts for the upper bound.
+- **Found under a different criterion:** a ground-truth row whose matched finding cites a
+  different criterion (e.g. W3C's 3.3.2 "no label" matched to our 4.1.2 finding on the same
+  field, because the scanners never assign 3.3.2). It counts as found in (a) and (b), since the
+  element was caught, but is listed separately so the headline number can be explained.
 
 A page with no run is shown as "not run", never as zero, and is left out of every ratio.
 Nothing here sets or reads a final conformance status; that comes only from data/reviews/.
@@ -156,6 +164,18 @@ def is_flagged(f: dict, stub_grey: bool = False) -> bool:
     return not is_reported(f, stub_grey) and f.get("bucket") in ("human-only", "grey")
 
 
+RECOMMENDATIONS = ("likely_fail", "likely_pass", "unsure")
+
+
+def is_unevaluated(f: dict) -> bool:
+    """A grey finding with no real FOR/AGAINST result: skipped, failed, or never run."""
+    if f.get("bucket") != "grey":
+        return False
+    ai = f.get("ai") or {}
+    skipped = str(ai.get("case_for") or "").startswith("SKIPPED")
+    return skipped or ai.get("recommendation") not in RECOMMENDATIONS
+
+
 def _wcag(f: dict) -> str | None:
     wcag = f.get("wcag") or []
     return wcag[0] if wcag else None
@@ -174,7 +194,7 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
     per_page = {}
     hits_a = hits_b = rows_scored = 0
     pairs_hit, pairs_all = set(), set()
-    not_in_run = []
+    not_in_run, other_criterion = [], []
 
     for page in PAGES:
         rows = [r for r in gt if r["page"] == page]
@@ -188,6 +208,8 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
             f = by_id.get(r["finding_id"])
             if r["finding_id"] != MISSED and f is None:
                 not_in_run.append(r)
+            if f is not None and _wcag(f) != r["wcag"]:
+                other_criterion.append({**r, "finding_wcag": _wcag(f)})
             if f is not None and is_reported(f, stub_grey):
                 a += 1
             if f is not None and (is_reported(f, stub_grey) or is_flagged(f, stub_grey)):
@@ -229,6 +251,8 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
         "gt_rows": len(gt),
         "not_in_run": not_in_run,
         "runs": sorted((f"{v}/{p}", r.run_id, r.stubs) for (v, p), r in runs.items()),
+        "unevaluated": {f"{v}/{p}": sum(is_unevaluated(f) for f in r.findings) for (v, p), r in runs.items()},
+        "other_criterion": other_criterion,
     }
 
 
@@ -245,8 +269,16 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
         out.append(f"Commit: `{commit}`")
     mode = ("**--stub-grey-counts: every grey finding counted as reported** (evidence skipped or stubbed)"
             if s["stub_grey"] else "Grey counts as reported only when `ai.recommendation == likely_fail`")
-    out += [f"Mode: {mode}", "", "## Runs", "", "| Page | Run | Stub nodes |", "| --- | --- | --- |"]
-    out += [f"| {k} | `{rid}` | {', '.join(st) or 'none'} |" for k, rid, st in s["runs"]] or ["| (none) | | |"]
+    out += [f"Mode: {mode}", "", "## Runs", "", "| Page | Run | Stub nodes | Grey not evaluated |",
+            "| --- | --- | --- | --- |"]
+    out += [f"| {k} | `{rid}` | {', '.join(st) or 'none'} | {s['unevaluated'].get(k, 0)} |"
+            for k, rid, st in s["runs"]] or ["| (none) | | | |"]
+    not_evaluated = sum(s["unevaluated"].values())
+    if not_evaluated and not s["stub_grey"]:
+        out += ["", f"**Warning: {not_evaluated} grey finding(s) were never evaluated by FOR/AGAINST** (skipped by "
+                    "ADJ_EVIDENCE_ONLY or the call cap, or the call failed). They count as flagged, not reported, "
+                    "so (a) and the After false alarms below are LOWER BOUNDS, not final numbers. Rerun with "
+                    "evidence on every grey finding, or compare with --stub-grey-counts for the upper bound."]
     stubbed = sorted({n for _, _, st in s["runs"] for n in st})
     if stubbed and not s["stub_grey"]:
         out += ["", f"Warning: {', '.join(stubbed)} ran as a stub in some runs. Grey findings there have no "
@@ -260,6 +292,7 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
             f"| (a) Issue level, reported as an issue | {_pct(r['a'])} |",
             f"| (b) Issue level, reported or flagged for a human | {_pct(r['b'])} |",
             f"| (c) Criterion level, reported or flagged (page and criterion pairs) | {_pct(r['c'])} |",
+            f"| Rows in (a)/(b) found under a different criterion | {len(s['other_criterion'])} |",
             "", "| Page | Run | GT rows | missed | (a) | (b) | (c) |", "| --- | --- | --- | --- | --- | --- | --- |"]
     for page, p in s["per_page"].items():
         if p["status"] == NOT_RUN:
@@ -287,6 +320,14 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
         out.append("None.")
     for wcag, rows in s["missed"].items():
         out.append(f"- **{wcag}** ({len(rows)}): " + "; ".join(f"{r['page']}: {r['description']}" for r in rows))
+
+    if s["other_criterion"]:
+        out += ["", "## Found under a different criterion", "",
+                "The element was caught, so these count in (a) and (b), but our finding cites a different "
+                "criterion than W3C. Explain these if asked; the mapper's secondary criteria (Week 4) should "
+                "close them."]
+        out += [f"- line {r['line']}: {r['page']} W3C {r['wcag']}, our `{r['finding_id']}` cites "
+                f"{r['finding_wcag']}" for r in s["other_criterion"]]
 
     if s["not_in_run"]:
         out += ["", "## Ground-truth finding_ids not in the run", "",

@@ -23,10 +23,10 @@ GT_ROWS = [
 ]
 
 
-def finding(fid, bucket, recommendation=None):
+def finding(fid, bucket, recommendation=None, case_for="Specific argument."):
     f = {"finding_id": fid, "wcag": [fid.rsplit("-", 1)[1]], "bucket": bucket}
     if recommendation:
-        f["ai"] = {"recommendation": recommendation}
+        f["ai"] = {"recommendation": recommendation, "case_for": case_for}
     return f
 
 
@@ -178,3 +178,38 @@ def test_gt_candidates_lists_the_click_here_link():
 
 def test_gt_candidates_rejects_aaa_criteria(capsys):
     assert gt_candidates.main(["--page", "home", "--wcag", "2.4.9"]) == 2
+
+
+def test_unevaluated_grey_is_counted_and_warned(setup, tmp_path):
+    """Skipped FOR/AGAINST must not read as a clean After site (it said 0 false alarms before)."""
+    gt, runs, ids = setup
+    skipped = [finding("F-after-home-el0007-4.1.2", "grey", "unsure", case_for="SKIPPED: call cap reached"),
+               finding("F-after-home-el0008-1.3.1", "grey")]  # evidence call failed: no ai at all
+    after = write_run(runs, "20261016-040000-eeee", "after", "news", skipped)
+    s = score.score(score.load_ground_truth(gt), score.runs_by_page(ids + [after], runs))
+    assert s["unevaluated"] == {"before/home": 0, "after/home": 0, "after/news": 2}
+    assert s["false_alarms"]["news"]["by_wcag"] == {}  # neither counts as reported...
+    md = score.format_markdown(s)
+    assert "2 grey finding(s) were never evaluated" in md and "LOWER BOUNDS" in md  # ...and the report says why
+
+
+def test_real_recommendations_are_not_unevaluated():
+    for rec in ("likely_fail", "likely_pass", "unsure"):
+        assert not score.is_unevaluated(finding("F-after-home-el0001-4.1.2", "grey", rec))
+    assert not score.is_unevaluated(finding("F-after-home-el0002-1.1.1", "machine"))
+
+
+def test_no_warning_when_everything_was_evaluated(setup):
+    assert "never evaluated" not in score.format_markdown(run_score(setup))
+
+
+def test_match_under_a_different_criterion_is_listed(tmp_path):
+    runs = tmp_path / "runs"
+    rid = write_run(runs, "20261016-050000-ffff", "before", "home",
+                    [finding("F-before-home-el0085-4.1.2", "machine")])
+    gt = write_gt(tmp_path / "gt.csv", [("home", "3.3.2", "F-before-home-el0085-4.1.2")])
+    s = score.score(score.load_ground_truth(gt), score.runs_by_page([rid], runs))
+    assert s["recall"]["a"]["n"] == 1  # the element was caught
+    assert [(r["wcag"], r["finding_wcag"]) for r in s["other_criterion"]] == [("3.3.2", "4.1.2")]
+    md = score.format_markdown(s)
+    assert "Found under a different criterion" in md and "W3C 3.3.2" in md

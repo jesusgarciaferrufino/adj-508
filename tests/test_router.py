@@ -74,3 +74,11 @@ def test_week3_threads_route_grey():
         findings = {f["finding_id"]: f for f in (data["findings"] if isinstance(data, dict) else data)}
         for fid in wanted:
             assert route_finding(findings[fid])["bucket"] == GREY, fid
+
+
+def test_router_buckets_match_the_finding_format():
+    """The loader (scanners/findings.py) rejects any bucket not in this set, so they must agree."""
+    from typing import get_args
+
+    from scanners.findings import Bucket
+    assert set(BUCKETS) == set(get_args(Bucket))

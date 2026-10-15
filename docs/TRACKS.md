@@ -102,9 +102,9 @@ These are added by the pipeline (`python -m agents.graph`) and are never written
 | Field | Added by | Shape |
 | --- | --- | --- |
 | `mapping` | Track B, `map_finding(finding)` | `{"sc", "name", "level", "spec_url", "mapper_version", "corpus_sha256"}`. If the criterion is not in the corpus: `{"sc", "rejected": reason, "mapper_version", "corpus_sha256"}`. Never changes `wcag`. |
-| `bucket`, `route_reason` | Track C, `route_finding(finding)` | Fixed values: `machine`, `grey`, `human-only` (`agents/router.py` `BUCKETS`). `route_reason` names the router v1 rule that decided it. |
+| `bucket`, `route_reason` | Track C, `route_finding(finding)` | Fixed values: `machine`, `grey`, `human-only` (`agents/router.py` `BUCKETS`; `scanners/findings.py` `Bucket` rejects anything else). `route_reason` names the router v1 rule that decided it. |
 | `ai.case_for`, `ai.case_against`, `ai.model_id`, `ai.prompt_version`, `ai.usage` | Track C, `build_cases(finding)` | Grey findings only. `usage` is `{"input_tokens", "output_tokens"}`. |
-| `ai.recommendation`, `ai.citations_verified` | Track C, `build_cases(finding)` | `likely_fail` / `likely_pass` / `unsure`, from FOR minus AGAINST strength (2 or more decides). `citations_verified` is checked in code: both sides cite the finding's criterion; every quote is at least 6 characters and appears in its HTML, context text or a scanner message (not the selector); and at least one quote per side comes from the HTML or context text. Skipped findings read `SKIPPED: ...` and `unsure`. |
+| `ai.recommendation`, `ai.citations_verified` | Track C, `build_cases(finding)` | `likely_fail` / `likely_pass` / `unsure` (the loader rejects anything else), from FOR minus AGAINST strength (2 or more decides). `citations_verified` is checked in code: both sides cite the finding's criterion; every quote is at least 6 characters and appears in its HTML, context text or a scanner message (not the selector); and at least one quote per side comes from the HTML or context text. Skipped findings read `SKIPPED: ...` and `unsure`. |
 
 ### One element can have several findings
 

@@ -86,20 +86,39 @@ def fill_prompt(template: str, finding: dict) -> str:
     return template
 
 
+def _strength(value) -> int | None:
+    """A whole number 1-5, also accepting 4.0 or "4" (models sometimes quote numbers)."""
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, str) and value.strip().isdigit():
+        value = int(value.strip())
+    if isinstance(value, float) and value.is_integer():
+        value = int(value)
+    return value if isinstance(value, int) and 1 <= value <= 5 else None
+
+
 def parse_side(text: str) -> dict:
-    """The first {...} object in the reply, checked for the four fields."""
-    m = re.search(r"\{.*\}", text, re.S)
-    if not m:
+    """The first JSON object in the reply (text before or after it is ignored), checked for the
+    four fields."""
+    decoder = json.JSONDecoder()
+    side = None
+    for start in (i for i, ch in enumerate(text) if ch == "{"):
+        try:
+            candidate, _ = decoder.raw_decode(text, start)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(candidate, dict):
+            side = candidate
+            break
+    if side is None:
         raise EvidenceError(f"no JSON object in reply: {text[:200]!r}")
-    try:
-        side = json.loads(m.group(0))
-    except json.JSONDecodeError as e:
-        raise EvidenceError(f"reply is not valid JSON ({e}): {m.group(0)[:200]!r}") from None
     missing = {"argument", "cited_sc", "quoted_evidence", "strength"} - side.keys()
     if missing:
         raise EvidenceError(f"reply missing {sorted(missing)}")
-    if not isinstance(side["strength"], int) or not 1 <= side["strength"] <= 5:
+    strength = _strength(side["strength"])
+    if strength is None:
         raise EvidenceError(f"strength must be a whole number 1-5, got {side['strength']!r}")
+    side["strength"] = strength
     if isinstance(side["quoted_evidence"], str):
         side["quoted_evidence"] = [side["quoted_evidence"]]
     return side

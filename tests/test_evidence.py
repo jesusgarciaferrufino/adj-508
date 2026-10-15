@@ -178,3 +178,24 @@ def test_evidence_only_runs_selected(finding, monkeypatch):
 def test_real_client_is_blocked_in_tests(finding):
     with pytest.raises(RuntimeError, match="must not call Bedrock"):
         evidence.build_cases(finding)
+
+
+@pytest.mark.parametrize("raw", [4, 4.0, "4", " 4 "])
+def test_strength_accepts_whole_numbers_in_any_form(raw):
+    side = evidence.parse_side(json.dumps({"argument": "a", "cited_sc": "2.4.4",
+                                           "quoted_evidence": ["Click here"], "strength": raw}))
+    assert side["strength"] == 4
+
+
+@pytest.mark.parametrize("raw", [0, 6, 4.5, "four", True, None])
+def test_strength_rejects_anything_else(raw):
+    with pytest.raises(evidence.EvidenceError, match="strength"):
+        evidence.parse_side(json.dumps({"argument": "a", "cited_sc": "2.4.4",
+                                        "quoted_evidence": ["Click here"], "strength": raw}))
+
+
+def test_reply_with_text_and_braces_around_the_json():
+    text = ('Sure! {not json} Here it is: {"argument": "uses {braces}", "cited_sc": "2.4.4", '
+            '"quoted_evidence": ["Click here"], "strength": 2} Hope that helps {:)}')
+    side = evidence.parse_side(text)
+    assert side["argument"] == "uses {braces}" and side["strength"] == 2

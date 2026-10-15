@@ -45,7 +45,7 @@ format) and returns ONLY the fields it adds. The graph merges them in; nested di
 `ai` are merged one level deep, so never return a rewritten copy of the finding.
 - `agents/mapper.py`: `map_finding(finding) -> {"mapping": {"sc", "name", "level", "spec_url", ...}}`; a finding it can't map returns `{"mapping": {"sc", "rejected": reason}}` instead of raising (Track B)
 - `agents/router.py`: `route_finding(finding) -> {"bucket": "machine"|"grey"|"human-only", "route_reason": str}` (Track C)
-- `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only)
+- `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "recommendation": "likely_fail"|"likely_pass"|"unsure", "confidence": None, "citations_verified": bool, "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only). A skipped finding has `case_for` starting `SKIPPED:` and `recommendation: "unsure"`; count it as not evaluated, not as a result.
 Until a track's file is merged, agents/graph.py uses a stub in its place.
 
 ## Router policy v1 (decided Oct 9)

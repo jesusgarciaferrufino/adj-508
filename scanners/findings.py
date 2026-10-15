@@ -55,6 +55,7 @@ class Evidence(_Model):
     page_url: str
     captured_at: str | None
     dom_index: int = Field(ge=0)
+    context_text: str = ""  # surrounding visible text (Track A, Oct 15); empty for page-level
 
 
 class ScannerDetail(_Model):

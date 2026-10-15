@@ -117,4 +117,7 @@ such criteria, 2.4.3 and 3.2.4, appear only as page-level notices, which rule 2 
   issue, so this is not a false alarm, but AGAINST did not win as the handoff expected. Candidate fix for
   Week 4: a `_v2` prompt pair that also sends the corpus `intent` text, checked on more than one finding.
 - The first run of the arrow finding failed verification because AGAINST quoted part of the selector.
-  The selector is evidence the model was shown, so it now counts as a valid quote source.
+  After the Oct 15 audit the selector does NOT count as a quote source (fragments of it, like "a" or
+  "href", match almost anything). Quotes must be at least 6 characters, and each side needs at least
+  one quote from the HTML or surrounding text. All four cases above still verify under the stricter
+  check (`tests/test_evidence.py::test_recorded_week3_cases_still_verify`).

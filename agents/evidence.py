@@ -2,9 +2,12 @@
 
 Two separate Bedrock calls per finding, same evidence, opposite briefs. Neither call
 sees the other's output; that independence is the point. Code (not the model) then:
-  - checks citations: both sides cite the finding's own criterion, and every quote
-    appears in evidence the model was shown: the HTML snippet, the surrounding text
-    (evidence.context_text), the selector, or a scanner message (whitespace-insensitive);
+  - checks citations: both sides cite the finding's own criterion; every quote is at
+    least MIN_QUOTE_CHARS long and appears in evidence the model was shown (the HTML
+    snippet, the surrounding text evidence.context_text, or a scanner message;
+    whitespace-insensitive); and at least one quote comes from the page itself (HTML or
+    surrounding text), not only from the scanner. The CSS selector does not count: it is
+    our own locator, not evidence, and short fragments of it match almost anything;
   - sets the recommendation from the two strengths:
         FOR - AGAINST >= 2  -> likely_fail
         AGAINST - FOR >= 2  -> likely_pass
@@ -33,6 +36,7 @@ PROMPT_FOR = "evidence_for_v1"
 PROMPT_AGAINST = "evidence_against_v1"
 PROMPT_VERSION = f"{PROMPT_FOR}+{PROMPT_AGAINST}"
 MAX_TOKENS = 700
+MIN_QUOTE_CHARS = 6  # 'alt=""' is the shortest meaningful quote; "a", "href", "Click" are not evidence
 PLACEHOLDERS = ("sc", "sc_name", "level", "criterion_text", "needs_human_when",
                 "selector", "html_snippet", "context_text", "scanner_messages")
 
@@ -106,15 +110,20 @@ def _squash(s: str) -> str:
 
 
 def citations_ok(side: dict, finding: dict) -> bool:
-    """Cites the finding's own criterion, and every quote is really in the evidence."""
+    """Cites the finding's own criterion, every quote is a real, non-trivial piece of the
+    evidence, and at least one quote comes from the page (HTML or surrounding text)."""
     ev = finding.get("evidence") or {}
-    sources = [ev.get("html_snippet", ""), ev.get("context_text", ""), ev.get("selector", "")]
-    sources += [d.get("message", "") for d in finding.get("scanner_details") or []]
-    haystack = [_squash(s) for s in sources if s]
-    quotes = [_squash(q) for q in side.get("quoted_evidence") or [] if isinstance(q, str)]
-    return (str(side.get("cited_sc", "")).strip() == finding["wcag"][0]
-            and bool(quotes)
-            and all(any(q in h for h in haystack) for q in quotes))
+    page = [_squash(s) for s in (ev.get("html_snippet", ""), ev.get("context_text", "")) if s]
+    scanner = [_squash(d.get("message", "")) for d in finding.get("scanner_details") or [] if d.get("message")]
+    raw = side.get("quoted_evidence") or []
+    quotes = [_squash(q) for q in raw if isinstance(q, str)]
+    if str(side.get("cited_sc", "")).strip() != finding["wcag"][0]:
+        return False
+    if not quotes or len(quotes) != len(raw) or any(len(q) < MIN_QUOTE_CHARS for q in quotes):
+        return False
+    if not all(any(q in h for h in page + scanner) for q in quotes):
+        return False
+    return any(any(q in h for h in page) for q in quotes)
 
 
 def recommend(for_strength: int, against_strength: int) -> str:

@@ -82,10 +82,60 @@ def test_citation_check_rejects_no_quotes(finding):
     assert not evidence.citations_ok({"cited_sc": "2.4.4", "quoted_evidence": []}, finding)
 
 
-def test_citation_check_accepts_html_context_selector_and_scanner_message(finding):
-    quotes = ['href="../offsite.html"', "Killer   bees.  Click here.", "identifies the purpose of the link",
-              finding["evidence"]["selector"].split(" > ")[-1]]
+def test_citation_check_accepts_html_context_and_scanner_message(finding):
+    quotes = ['href="../offsite.html"', "Killer   bees.  Click here.", "identifies the purpose of the link"]
     assert evidence.citations_ok({"cited_sc": "2.4.4", "quoted_evidence": quotes}, finding)
+
+
+@pytest.mark.parametrize("trivial", ["a", "href", "Click", "  bees "])
+def test_citation_check_rejects_trivial_quotes(finding, trivial):
+    """Fragments this short appear in almost any evidence, so they prove nothing."""
+    assert not evidence.citations_ok({"cited_sc": "2.4.4", "quoted_evidence": ["Click here", trivial]}, finding)
+
+
+def test_citation_check_ignores_the_selector(finding):
+    selector_part = finding["evidence"]["selector"].split(" > ")[0]  # "#content", not in the HTML
+    assert selector_part not in finding["evidence"]["html_snippet"]
+    assert not evidence.citations_ok({"cited_sc": "2.4.4", "quoted_evidence": ["Click here", selector_part]},
+                                     finding)
+
+
+def test_citation_check_needs_one_quote_from_the_page(finding):
+    scanner_only = ["identifies the purpose of the link"]
+    assert not evidence.citations_ok({"cited_sc": "2.4.4", "quoted_evidence": scanner_only}, finding)
+
+
+def test_citation_check_rejects_non_text_quotes(finding):
+    assert not evidence.citations_ok({"cited_sc": "2.4.4", "quoted_evidence": ["Click here", 42]}, finding)
+
+
+# The real Week 3 Bedrock replies (docs/evidence_samples.md) must still verify under the stricter check.
+RECORDED = [
+    ("before_home", "F-before-home-el0210-2.4.4",
+     ["Click here", "Killer bees. Click here. Onions. Click here.",
+      "Check that the link text combined with programmatically determined link context identifies the "
+      "purpose of the link"],
+     ["Click here", "Killer bees. Click here. Onions. Click here."]),
+    ("before_home", "F-before-home-el0194-2.1.1",
+     ["onmouseover=\"this.src='./img/morearrow_a.gif'\"", "onmouseout=\"this.src='./img/morearrow.gif'\""],
+     ["onmouseover=\"this.src='./img/morearrow_a.gif'\"", "onmouseout=\"this.src='./img/morearrow.gif'\"",
+      'alt=""']),
+    ("before_home", "F-before-home-el0231-1.3.1",
+     ["<b>Free Penguins</b>"], ["<b>Free Penguins</b>", "Free Penguins"]),
+    ("after_home", "F-after-home-el0062-4.1.2",
+     ['<a><img src="./img/toplogo.png" alt="Citylights: your access to the city."></a>',
+      "Anchor element found with link content, but no href, ID or name attribute has been supplied."],
+     ["no href, ID or name attribute has been supplied", 'alt="Citylights: your access to the city."']),
+]
+
+
+@pytest.mark.parametrize(("page", "fid", "for_quotes", "against_quotes"), RECORDED, ids=[r[1] for r in RECORDED])
+def test_recorded_week3_cases_still_verify(page, fid, for_quotes, against_quotes):
+    data = json.loads((REPO / "data" / "findings" / f"{page}.json").read_text())
+    f = next(x for x in data if x["finding_id"] == fid)
+    sc = f["wcag"][0]
+    assert evidence.citations_ok({"cited_sc": sc, "quoted_evidence": for_quotes}, f)
+    assert evidence.citations_ok({"cited_sc": sc, "quoted_evidence": against_quotes}, f)
 
 
 def test_one_bad_quote_fails_verification(finding):

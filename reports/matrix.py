@@ -16,12 +16,17 @@ Hard rule (CONTEXT.md): AI never sets a conformance status. `status` comes ONLY 
 never from bucket, scanner_status or ai.recommendation. AI leaning is shown in its own column, labelled as AI.
 """
 
+import argparse
+import csv
+import io
 import json
 import sys
 from collections import Counter
 
 from agents import runlog
-from scanners.findings import REPO, validate_findings
+from rag import corpus_tools
+from rag.corpus_tools import CorpusError, load_corpus, write_atomic
+from scanners.findings import REPO, FindingsFileError, validate_findings
 
 RUNS_DIR = runlog.RUNS_DIR  # where pipeline runs live; tests point this at a temp folder
 REVIEWS_DIR = REPO / "data" / "reviews"
@@ -43,6 +48,10 @@ AI_LEANINGS = ("likely_fail", "likely_pass", "unsure", "none")
 # Track C's router buckets -> the matrix column that counts them
 BUCKET_COLUMNS = {"machine": "machine", "grey": "grey", "human-only": "human_checks"}
 
+# The matrix's columns, in order (the handoff's list). The Week 5 ACR reads the CSV by these names.
+COLUMNS = ("section508", "sc", "name", "level", "status", "machine", "grey", "human_checks",
+           "finding_ids", "evidence", "ai_leaning", "reviewed_by")
+
 
 class MatrixInputError(ValueError):
     """A run or reviews file is missing or broken. main() prints it and exits 1."""
@@ -54,8 +63,8 @@ def _read_json(path):
         raise MatrixInputError(f"{path} not found")
     try:
         return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as e:
-        raise MatrixInputError(f"{path} is not valid JSON: {e}") from None
+    except (OSError, ValueError) as e:  # unreadable, not UTF-8, or not JSON
+        raise MatrixInputError(f"cannot read {path}: {e}") from None
 
 
 def load_run(run_id):
@@ -201,3 +210,100 @@ def build_matrix(findings, decisions, corpus, map508):
             "reviewed_by": ", ".join(sorted({decisions[i]["reviewer"] for i in ids if i in decisions})),
         })
     return rows
+
+
+def write_csv(rows, path):
+    """Write the rows as CSV, header first. The csv module quotes cells holding commas or quotes
+    (selectors often do); a row with a missing or extra column raises instead of shifting cells."""
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=COLUMNS, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(rows)
+    write_atomic(path, buf.getvalue())
+
+
+def _md_cell(value):
+    """One Markdown table cell. "|" would end the cell early (selectors like [lang|=en] have it),
+    and a line break would end the row."""
+    return str(value).replace("|", "\\|").replace("\n", " ")
+
+
+def write_markdown(rows, path, title, notes=()):
+    """Write the rows as a Markdown table for people to read.
+
+    notes: warnings to show above the table, e.g. that the run used stand-ins, or that reviews
+    lines were skipped. A matrix with something wrong under it must say so on its face.
+    """
+    lines = [f"# {title}", ""]
+    for note in notes:
+        lines += [f"> **Warning:** {note}", ""]  # blank line between, or Markdown joins them into one paragraph
+    lines += ["Status comes only from human reviewers' decisions. The `ai_leaning` column is the AI's advice "
+              "on grey-area findings, not a status.", ""]
+    lines.append("| " + " | ".join(COLUMNS) + " |")
+    lines.append("|" + " --- |" * len(COLUMNS))
+    lines += ["| " + " | ".join(_md_cell(row[c]) for c in COLUMNS) + " |" for row in rows]
+    write_atomic(path, "\n".join(lines) + "\n")
+
+
+def _load_map508(corpus):
+    """rag/section508_map.json, checked to have a "web" reference for every criterion."""
+    map508 = _read_json(corpus_tools.MAP508)
+    missing = [sc for sc in sorted(corpus, key=_sc_order)
+               if not isinstance(map508, dict) or not isinstance(map508.get(sc), dict) or "web" not in map508[sc]]
+    if missing:
+        raise MatrixInputError(f"{corpus_tools.MAP508} has no web reference for {missing[:5]}; "
+                               "run python -m rag.corpus_tools map508")
+    return map508
+
+
+def _stub_note(summary):
+    """Warning for a run whose router or evidence step was a stand-in, or None for a real run."""
+    if "stubs" not in summary:  # runs before stub tracking: can't tell, so don't claim they were real
+        return "This run predates stub tracking; bucket counts and AI leaning may be placeholders."
+    if summary["stubs"]:
+        return (f"Run used stand-ins for: {', '.join(summary['stubs'])}. "
+                "Bucket counts and AI leaning are placeholders.")
+    return None
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(description="Build the Track E compliance matrix for one pipeline run")
+    p.add_argument("--run", required=True, metavar="RUN_ID", help="a folder name in data/runs/")
+    args = p.parse_args(argv)
+
+    try:
+        summary, findings = load_run(args.run)
+        decisions, skipped = load_decisions(summary["version"], summary["page"])
+        corpus = load_corpus()
+        map508 = _load_map508(corpus)
+    except (MatrixInputError, FindingsFileError, CorpusError) as e:
+        print(f"ERROR {e}", file=sys.stderr)
+        return 1
+
+    stub_note = _stub_note(summary)
+    notes = [stub_note] if stub_note else []
+    for s in skipped:
+        print(f"WARNING skipped reviews {s}", file=sys.stderr)
+        notes.append(f"Skipped reviews {s}. Its decision is not counted; the criterion may show Pending.")
+
+    rows = build_matrix(findings, decisions, corpus, map508)
+    version, page = summary["version"], summary["page"]
+    out = REPORTS_DIR / args.run
+    csv_path, md_path = out / f"matrix_{version}_{page}.csv", out / f"matrix_{version}_{page}.md"
+    try:
+        write_csv(rows, csv_path)
+        write_markdown(rows, md_path, f"Compliance matrix: {version} / {page} (run {args.run})", notes)
+    except OSError as e:
+        print(f"ERROR could not write the matrix: {e}", file=sys.stderr)
+        return 1
+
+    counts = Counter(row["status"] for row in rows)
+    print(", ".join(f"{n} {status}" for status, n in counts.most_common()))
+    if stub_note:
+        print(f"Note: {stub_note}")
+    print(f"Wrote {csv_path}\n      {md_path}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

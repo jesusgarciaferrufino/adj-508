@@ -3,6 +3,7 @@
 Tests never touch the real data/ folder: fixtures build a tiny fake run and reviews file in a temp folder.
 """
 import copy
+import csv
 import json
 
 import pytest
@@ -309,3 +310,83 @@ def test_unknown_bucket_warns_but_keeps_the_finding(fake_run, capsys):
     assert row["finding_ids"] == f["finding_id"] and row["status"] == matrix.STATUS_PENDING
     assert (row["machine"], row["grey"], row["human_checks"]) == (0, 0, 0)
     assert f"WARNING {f['finding_id']}: unknown bucket None" in capsys.readouterr().err
+
+
+# ---------------------------------------------------------------- main: files and command line
+
+@pytest.fixture
+def reports_dir(tmp_path, monkeypatch):
+    """Where main() writes, in a temp folder. Returns this run's output folder."""
+    monkeypatch.setattr(matrix, "REPORTS_DIR", tmp_path / "reports")
+    return tmp_path / "reports" / RUN_ID
+
+
+def set_summary(**changes):
+    """Edit the fake run's summary.json; a value of None removes that key."""
+    path = matrix.RUNS_DIR / RUN_ID / "summary.json"
+    summary = json.loads(path.read_text()) | changes
+    path.write_text(json.dumps({k: v for k, v in summary.items() if v is not None}))
+
+
+def md(reports_dir):
+    return (reports_dir / f"matrix_{VERSION}_{PAGE}.md").read_text()
+
+
+def test_main_writes_csv_and_markdown(fake_run, reviews, reports_dir, capsys):
+    assert matrix.main(["--run", RUN_ID]) == 0
+    with (reports_dir / f"matrix_{VERSION}_{PAGE}.csv").open(newline="") as fh:
+        reader = csv.DictReader(fh)
+        assert tuple(reader.fieldnames) == matrix.COLUMNS
+        out = {row["sc"]: row for row in reader}
+    assert len(out) == 38
+    assert out["2.4.4"]["status"] == matrix.STATUS_FAIL and out["2.4.4"]["reviewed_by"] == "bob"
+    assert "| 2.4.4 |" in md(reports_dir)
+    printed = capsys.readouterr().out
+    assert "1 Does Not Support (human-confirmed)" in printed and str(reports_dir) in printed
+
+
+def test_markdown_escapes_pipes(fake_run, reports_dir):
+    findings = copy.deepcopy(fake_run)
+    findings[3]["evidence"]["selector"] = "html[lang|=en]"  # the 3.1.1 finding
+    (matrix.RUNS_DIR / RUN_ID / "output_findings.json").write_text(json.dumps(findings))
+    assert matrix.main(["--run", RUN_ID]) == 0
+    line = next(x for x in md(reports_dir).splitlines() if x.startswith("| E205.4 | 3.1.1 |"))
+    assert "html[lang\\|=en]" in line
+    assert line.count(" | ") == len(matrix.COLUMNS) - 1  # every unescaped | is a cell border
+
+
+@pytest.mark.parametrize("stubs, expected", [
+    (["router", "evidence"], "Run used stand-ins for: router, evidence."),
+    (None, "This run predates stub tracking"),  # summary.json has no "stubs" key at all
+    ([], None),
+], ids=["stubbed run", "no stubs key", "real run"])
+def test_stub_note(fake_run, reports_dir, stubs, expected):
+    set_summary(stubs=stubs)
+    assert matrix.main(["--run", RUN_ID]) == 0
+    warnings = [x for x in md(reports_dir).splitlines() if x.startswith("> **Warning:**")]
+    if expected is None:
+        assert warnings == []
+    else:
+        assert len(warnings) == 1 and expected in warnings[0]
+
+
+def test_skipped_reviews_line_warns_but_still_writes(fake_run, reviews, reports_dir, capsys):
+    append_lines(b'{"finding_id": "F-before-home-el0081-1.1.1", "run_id": "2026')  # half-written line 4
+    assert matrix.main(["--run", RUN_ID]) == 0
+    assert "WARNING skipped reviews" in capsys.readouterr().err
+    assert "line 4: not readable JSON" in md(reports_dir)
+
+
+def test_unknown_run_exits_1(fake_run, reports_dir, capsys):
+    assert matrix.main(["--run", "no-such-run"]) == 1
+    assert capsys.readouterr().err.startswith("ERROR run 'no-such-run' not found")
+    assert not reports_dir.exists()
+
+
+def test_broken_508_map_exits_1(fake_run, reports_dir, tmp_path, monkeypatch, capsys):
+    partial = {sc: entry for sc, entry in MAP508.items() if sc != "2.4.4"}
+    (tmp_path / "map.json").write_text(json.dumps(partial))
+    monkeypatch.setattr(corpus_tools, "MAP508", tmp_path / "map.json")
+    assert matrix.main(["--run", RUN_ID]) == 1
+    assert "no web reference for ['2.4.4']" in capsys.readouterr().err
+    assert not reports_dir.exists()

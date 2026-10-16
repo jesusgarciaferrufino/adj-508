@@ -41,8 +41,9 @@ STATUS_SUPPORTS = "Supports (human-confirmed)"
 STATUS_PENDING = "Pending human review"
 STATUS_NO_FINDINGS = "No automated findings; human check required"
 
-# The AI's leaning on a grey finding (Track C's ai.recommendation). "none" = no recommendation on the
-# finding (a stub run, or a finding the AI didn't look at); it is counted on its own, never as "unsure".
+# The AI's leaning on a grey finding (Track C's ai.recommendation). "none" = a grey finding the AI
+# never evaluated: no recommendation (stub run, failed call), or skipped (Track C writes "unsure" with
+# case_for "SKIPPED: ..."). Counted on its own, never as "unsure".
 AI_LEANINGS = ("likely_fail", "likely_pass", "unsure", "none")
 
 # Track C's router buckets -> the matrix column that counts them
@@ -157,15 +158,25 @@ def _evidence(finding):
     return f"{where} (screenshot: {ev['screenshot']})"
 
 
+def _leaning(finding):
+    """One grey finding's AI leaning; "none" when the AI never evaluated it."""
+    ai = finding["ai"]
+    if str(ai.get("case_for") or "").startswith("SKIPPED"):  # contract in CONTEXT.md (Track C, #18)
+        return "none"
+    return ai.get("recommendation") or "none"
+
+
 def _ai_leaning(findings):
     """What the AI leans towards for a criterion's findings, as counts. Advice only, never a status.
 
     Starts with "AI:" so nobody mistakes it for a human decision. A value Track C adds later that
     isn't in AI_LEANINGS is still shown under its own name, not hidden in another count.
+    Only grey findings count: the AI builds FOR/AGAINST cases for nothing else.
     """
-    if not findings:
+    grey = [f for f in findings if f["bucket"] == "grey"]
+    if not grey:
         return ""
-    counts = Counter(f["ai"].get("recommendation") or "none" for f in findings)
+    counts = Counter(_leaning(f) for f in grey)
     names = list(AI_LEANINGS) + sorted(set(counts) - set(AI_LEANINGS))
     return "AI: " + ", ".join(f"{name} {counts[name]}" for name in names)
 

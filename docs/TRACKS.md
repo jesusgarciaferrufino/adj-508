@@ -50,6 +50,7 @@ Decided 2026-10-02 (Track A, A4). The example file is a real finding from
 | `wcag` | Exactly one WCAG 2.0 A/AA criterion per finding. WCAG 2.1/2.2 results are dropped. |
 | `evidence.screenshot` | Repo path, not S3: `data/findings/shots/{v}_{p}_el{NNNN}.jpg` (element plus 40px of page), or `{v}_{p}_page.jpg` for page-level findings. `null` when the element can't be photographed (e.g. `<title>`). |
 | `evidence.dom_index` | NEW. Element position in document order; how duplicates across scanners are matched. |
+| `evidence.context_text` | NEW (Oct 15). Visible text around the element: its nearest block (paragraph, list item, cell, heading), or the nearest short block above it if that is empty, at most 300 characters centred on the element. Empty for page-level findings and for elements with no nearby text (e.g. spacer images). For FOR/AGAINST and reviewers. |
 | `evidence.selector` | `html` for page-level findings (e.g. missing `lang`, or Pa11y "check this manually" notices). |
 
 Other merge rules: W3C's wrapper (`#meta-header`, `#meta-footer`) is filtered out;

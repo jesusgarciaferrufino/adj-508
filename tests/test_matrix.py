@@ -179,10 +179,11 @@ def decided(**by_id):
     (decided(a="fail", b="pass"), matrix.STATUS_FAIL),
     (decided(a="pass"), matrix.STATUS_PENDING),                      # b has no decision yet
     (decided(a="pass", b="pass"), matrix.STATUS_SUPPORTS),
-    (decided(a="pass", b="not_applicable"), matrix.STATUS_SUPPORTS),
-    # All N/A gives Supports under the agreed rules; open team question #8 may change this
-    (decided(a="not_applicable", b="not_applicable"), matrix.STATUS_SUPPORTS),
-], ids=["a fail", "one undecided", "all pass", "pass and N/A", "all N/A"])
+    (decided(a="pass", b="not_applicable"), matrix.STATUS_SUPPORTS),  # one pass: it applies and is met
+    (decided(a="not_applicable", b="not_applicable"), matrix.STATUS_NOT_APPLICABLE),
+    (decided(a="fail", b="not_applicable"), matrix.STATUS_FAIL),
+    (decided(a="not_applicable"), matrix.STATUS_PENDING),            # b still needs a reviewer
+], ids=["a fail", "one undecided", "all pass", "pass and N/A", "all N/A", "fail and N/A", "N/A and undecided"])
 def test_criterion_status(decisions, expected):
     assert matrix.criterion_status(["a", "b"], decisions) == expected
 

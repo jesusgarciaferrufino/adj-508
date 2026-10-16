@@ -38,6 +38,7 @@ DECISIONS = {"fail", "pass", "not_applicable"}
 # A criterion's status, worded exactly as in the Track E handoff. The Week 5 ACR reads these.
 STATUS_FAIL = "Does Not Support (human-confirmed)"
 STATUS_SUPPORTS = "Supports (human-confirmed)"
+STATUS_NOT_APPLICABLE = "Not Applicable (human-confirmed)"  # agreed with Jesus Oct 16 (VPAT term)
 STATUS_PENDING = "Pending human review"
 STATUS_NO_FINDINGS = "No automated findings; human check required"
 
@@ -140,8 +141,10 @@ def criterion_status(finding_ids, decisions):
         return STATUS_FAIL
     if len(decided) < len(finding_ids):
         return STATUS_PENDING
-    # Every finding is pass or not_applicable. All not_applicable (e.g. "page has no video") may need
-    # its own "Not Applicable" status for the ACR: open team question #8, ask Jesus before changing.
+    # Every finding is decided pass or not_applicable. All not_applicable (e.g. "page has no video")
+    # is its own status; any pass among them means the criterion applies and is met.
+    if all(d == "not_applicable" for d in decided):
+        return STATUS_NOT_APPLICABLE
     return STATUS_SUPPORTS
 
 

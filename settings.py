@@ -42,11 +42,16 @@ def load_dotenv(path: Path = ENV_FILE) -> None:
 
 
 def _int_env(name: str, default: int) -> int:
+    """A whole number of 0 or more from the environment. 0 is allowed: for ADJ_MAX_BEDROCK_CALLS
+    it means a dry run with no Bedrock calls at all."""
     raw = os.environ.get(name, str(default))
     try:
-        return int(raw)
+        value = int(raw)
     except ValueError:
         raise ValueError(f"{name} must be a whole number, got {raw!r} (check your shell or .env)") from None
+    if value < 0:
+        raise ValueError(f"{name} must be 0 or more, got {value} (check your shell or .env)")
+    return value
 
 
 load_dotenv()

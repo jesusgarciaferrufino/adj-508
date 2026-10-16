@@ -1,6 +1,7 @@
 """settings.py is the single source of truth for the Bedrock model and region."""
 
 import importlib
+import re
 from pathlib import Path
 
 import pytest
@@ -10,6 +11,8 @@ import settings
 REPO = Path(__file__).resolve().parent.parent
 # Built in pieces so this file doesn't contain the literal the last test searches for.
 PREFIX = "us." + "anthropic."
+# Any Claude model ID, with or without the inference-profile prefix (e.g. a bare "anthropic.claude-...").
+MODEL_ID_RE = re.compile(r"anthropic" + r"\.claude")
 DEFAULT_MODEL = PREFIX + "claude-sonnet-4-6"
 CODE_DIRS = ["capture", "scanners", "agents", "rag", "scripts", "reports", "pulse"]
 ENV_VARS = ["ADJ_MODEL_ID", "ADJ_AWS_REGION", "ADJ_MAX_BEDROCK_CALLS"]
@@ -63,6 +66,21 @@ def test_bad_call_cap_names_the_variable(fresh_settings):
         importlib.reload(settings)
 
 
+def test_call_cap_zero_allowed_negative_refused(fresh_settings):
+    fresh_settings.setenv("ADJ_MAX_BEDROCK_CALLS", "0")  # dry run: no calls
+    importlib.reload(settings)
+    assert settings.MAX_BEDROCK_CALLS == 0
+    fresh_settings.setenv("ADJ_MAX_BEDROCK_CALLS", "-5")
+    with pytest.raises(ValueError, match="ADJ_MAX_BEDROCK_CALLS must be 0 or more"):
+        importlib.reload(settings)
+
+
+def test_model_id_pattern_catches_bare_ids():
+    assert MODEL_ID_RE.search("anthropic" + ".claude-sonnet-4-6")
+    assert MODEL_ID_RE.search(PREFIX + "claude-sonnet-4-6")
+    assert not MODEL_ID_RE.search("from settings import MODEL_ID")
+
+
 def test_no_model_id_outside_settings():
     offenders = []
     for d in CODE_DIRS:
@@ -70,6 +88,6 @@ def test_no_model_id_outside_settings():
         if not folder.is_dir():
             continue
         for py in folder.rglob("*.py"):
-            if PREFIX in py.read_text(encoding="utf-8", errors="ignore"):
+            if MODEL_ID_RE.search(py.read_text(encoding="utf-8", errors="ignore")):
                 offenders.append(str(py.relative_to(REPO)))
     assert offenders == [], f"Model ID hard-coded outside settings.py: {offenders}. Use settings.MODEL_ID."

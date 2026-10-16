@@ -75,10 +75,15 @@ def test_stub_used_only_when_the_agent_file_is_missing(tmp_path, monkeypatch):
 
 
 def test_summary_lists_stub_nodes(tmp_path, monkeypatch):
+    # Fakes for the router and evidence agent: this test is about summary.json, and once
+    # Track C is merged the real build_cases would try to call Bedrock
+    monkeypatch.setattr(graph, "route_finding", lambda f: {"bucket": "grey", "route_reason": "test"})
+    monkeypatch.setattr(graph, "build_cases", lambda f: {"ai": {"case_for": "for", "case_against": "against"}})
     monkeypatch.setattr(graph, "STUBS", ["router", "evidence"])
     _, log = run_pipeline(tmp_path, monkeypatch)
     summary = json.loads((log.dir / "summary.json").read_text())
     assert summary["stubs"] == ["router", "evidence"]
+    assert summary["errors"] == []  # an error here would mean a real agent ran instead of the fakes
 
 
 def test_run_logs_live_in_the_repo_whatever_the_current_folder():

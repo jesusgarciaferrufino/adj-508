@@ -23,10 +23,17 @@ GT_ROWS = [
 ]
 
 
-def finding(fid, bucket, recommendation=None, case_for="Specific argument."):
-    f = {"finding_id": fid, "wcag": [fid.rsplit("-", 1)[1]], "bucket": bucket}
+EXAMPLE = json.loads((score.REPO / "docs" / "finding.example.json").read_text())
+
+
+def finding(fid, bucket, recommendation=None, case_for="Specific argument.", verified=True):
+    """A full finding in the shared format (the loader checks runs), built from the example."""
+    _, version, page, el, sc = fid.split("-")
+    f = json.loads(json.dumps(EXAMPLE))
+    f.update(finding_id=fid, site_version=version, page=page, wcag=[sc], bucket=bucket)
+    f["evidence"]["dom_index"] = int(el[2:])
     if recommendation:
-        f["ai"] = {"recommendation": recommendation, "case_for": case_for}
+        f["ai"].update(recommendation=recommendation, case_for=case_for, citations_verified=verified)
     return f
 
 
@@ -56,11 +63,13 @@ def write_gt(path, rows=GT_ROWS):
     return path
 
 
-def write_run(runs_dir, run_id, version, page, findings, stubs=()):
+def write_run(runs_dir, run_id, version, page, findings, stubs=()):  # stubs=None: no "stubs" key
     folder = runs_dir / run_id
     folder.mkdir(parents=True)
-    (folder / "summary.json").write_text(json.dumps({"run_id": run_id, "version": version, "page": page,
-                                                     "stubs": list(stubs)}))
+    summary = {"run_id": run_id, "version": version, "page": page}
+    if stubs is not None:
+        summary["stubs"] = list(stubs)
+    (folder / "summary.json").write_text(json.dumps(summary))
     (folder / "output_findings.json").write_text(json.dumps(findings))
     return run_id
 
@@ -177,7 +186,7 @@ def test_gt_candidates_lists_the_click_here_link():
 
 
 def test_gt_candidates_rejects_aaa_criteria(capsys):
-    assert gt_candidates.main(["--page", "home", "--wcag", "2.4.9"]) == 2
+    assert gt_candidates.main(["--page", "home", "--wcag", "2.4.9"]) == 1
 
 
 def test_unevaluated_grey_is_counted_and_warned(setup, tmp_path):
@@ -213,3 +222,37 @@ def test_match_under_a_different_criterion_is_listed(tmp_path):
     assert [(r["wcag"], r["finding_wcag"]) for r in s["other_criterion"]] == [("3.3.2", "4.1.2")]
     md = score.format_markdown(s)
     assert "Found under a different criterion" in md and "W3C 3.3.2" in md
+
+
+def test_run_without_stub_tracking_is_marked_unknown(setup):
+    gt, runs, ids = setup
+    old = write_run(runs, "20261005-010000-0000", "after", "news", [], stubs=None)
+    s = score.score(score.load_ground_truth(gt), score.runs_by_page(ids + [old], runs))
+    md = score.format_markdown(s)
+    assert "unknown (no stub tracking)" in md and "after/news predate stub tracking" in md
+
+
+def test_unverified_likely_fail_is_listed_and_optional(setup, tmp_path):
+    runs = tmp_path / "runs2"
+    rid = write_run(runs, "20261016-060000-abcd", "before", "home",
+                    [finding("F-before-home-el0002-2.4.4", "grey", "likely_fail", verified=False)])
+    gt = write_gt(tmp_path / "gt2.csv", [("home", "2.4.4", "F-before-home-el0002-2.4.4")])
+    loaded = score.load_ground_truth(gt), score.runs_by_page([rid], runs)
+    s = score.score(*loaded)
+    assert s["recall"]["a"]["n"] == 1 and s["unverified_fails"] == {"before/home": 1}
+    assert "citations_verified false" in score.format_markdown(s)
+    strict = score.score(*loaded, require_verified=True)
+    assert strict["recall"]["a"]["n"] == 0 and strict["recall"]["b"]["n"] == 1  # flagged, not lost
+
+
+def test_runs_are_checked_with_the_shared_loader(setup):
+    gt, runs, ids = setup
+    bad = finding("F-after-home-el0005-1.1.1", "machine")
+    bad["bucket"] = "Machine"  # typo the loader rejects
+    rid = write_run(runs, "20261016-070000-bad1", "after", "survey", [bad])
+    with pytest.raises(score.ScoreError, match="does not match the format"):
+        score.runs_by_page([rid], runs)
+
+
+def test_cli_errors_exit_1(tmp_path):
+    assert score.main(["--gt", str(tmp_path / "missing.csv")]) == 1

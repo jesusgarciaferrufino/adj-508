@@ -65,7 +65,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.wcag and args.wcag not in WCAG20_A_AA:
         print(f"{args.wcag} is not a WCAG 2.0 Level A/AA criterion; ground truth skips AAA rows.",
               file=sys.stderr)
-        return 2
+        return 1
     try:
         rows = candidates(args.page, args.wcag, args.version)
     except FindingsFileError as e:

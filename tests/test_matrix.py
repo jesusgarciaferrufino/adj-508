@@ -7,6 +7,8 @@ import json
 
 import pytest
 
+from rag import corpus_tools
+from rag.corpus_tools import load_corpus
 from reports import matrix
 from scanners.findings import REPO
 
@@ -196,3 +198,114 @@ def test_fail_beats_pending():
 def test_decisions_on_other_findings_dont_count():
     # A fail on some other criterion's finding must not leak into this one
     assert matrix.criterion_status(["a"], decided(z="fail")) == matrix.STATUS_PENDING
+
+
+# ---------------------------------------------------------------- build_matrix
+
+CORPUS = load_corpus()
+MAP508 = json.loads(corpus_tools.MAP508.read_text(encoding="utf-8"))
+
+
+def build(findings, decisions):
+    """build_matrix on the real 38-criterion corpus, as {sc: row} for easy lookup."""
+    return {row["sc"]: row for row in matrix.build_matrix(findings, decisions, CORPUS, MAP508)}
+
+
+@pytest.fixture
+def rows(fake_run, reviews):
+    """The fake page's matrix, built the way main() will: load the run and decisions, then build."""
+    _, findings = matrix.load_run(RUN_ID)
+    decisions, _ = matrix.load_decisions(VERSION, PAGE)
+    return build(findings, decisions)
+
+
+def test_38_rows_in_criterion_order(fake_run):
+    out = matrix.build_matrix(fake_run, {}, CORPUS, MAP508)
+    scs = [row["sc"] for row in out]
+    assert len(scs) == 38 and scs[0] == "1.1.1" and scs[-1] == "4.1.2"
+    assert scs == sorted(scs, key=lambda sc: [int(p) for p in sc.split(".")])
+
+
+def test_row_details_from_corpus_and_508_map(rows):
+    row = rows["1.1.1"]
+    assert (row["section508"], row["name"], row["level"]) == ("E205.4", "Non-text Content", "A")
+
+
+def test_criterion_without_findings(rows):
+    row = rows["1.2.1"]
+    assert row["status"] == matrix.STATUS_NO_FINDINGS
+    assert (row["machine"], row["grey"], row["human_checks"]) == (0, 0, 0)
+    assert row["finding_ids"] == row["evidence"] == row["ai_leaning"] == row["reviewed_by"] == ""
+
+
+def test_bucket_counts(rows):
+    assert (rows["1.1.1"]["machine"], rows["2.4.4"]["grey"], rows["3.1.1"]["human_checks"]) == (1, 1, 1)
+    assert rows["2.4.4"]["machine"] == rows["2.4.4"]["human_checks"] == 0
+
+
+def test_evidence_forms(rows):
+    assert rows["1.1.1"]["evidence"] == f'img[src$="top_weather.gif"] (screenshot: {SHOTS}_el0081.jpg)'
+    assert rows["2.4.2"]["evidence"] == "html > head > title"  # no screenshot: selector alone
+    assert rows["3.1.1"]["evidence"] == f"page-level (whole page) (screenshot: {SHOTS}_page.jpg)"
+
+
+def test_evidence_lines_up_with_finding_ids(fake_run):
+    two = [make_finding(210, "2.4.4", selector="a.one", screenshot=None, bucket="grey"),
+           make_finding(211, "2.4.4", selector="a.two", screenshot=None, bucket="grey")]
+    row = build(two, {})["2.4.4"]
+    assert row["finding_ids"] == "F-before-home-el0210-2.4.4; F-before-home-el0211-2.4.4"
+    assert row["evidence"] == "a.one; a.two"
+
+
+def test_ai_leaning_counts_none_on_its_own(rows):
+    assert rows["1.1.1"]["ai_leaning"] == "AI: likely_fail 1, likely_pass 0, unsure 0, none 0"
+    assert rows["2.4.2"]["ai_leaning"] == "AI: likely_fail 0, likely_pass 0, unsure 0, none 1"
+
+
+def test_reviewed_by_names_the_winning_reviewers(fake_run):
+    a, b = (make_finding(i, "2.4.4", selector="a", screenshot=None, bucket="grey") for i in (210, 211))
+    decisions = {a["finding_id"]: make_decision(a["finding_id"], "pass", reviewer="bob"),
+                 b["finding_id"]: make_decision(b["finding_id"], "pass", reviewer="alice")}
+    assert build([a, b], decisions)["2.4.4"]["reviewed_by"] == "alice, bob"
+
+
+def test_ai_never_sets_status(rows, fake_run):
+    """Hard rule, end to end: everything automated says "fail", no human has decided -> Pending."""
+    f = fake_run[0]
+    assert (f["bucket"], f["scanner_status"], f["ai"]["recommendation"]) == ("machine", "violation", "likely_fail")
+    assert rows["1.1.1"]["status"] == matrix.STATUS_PENDING
+
+
+def test_definition_of_done_row(rows):
+    """DoD #2: the 2.4.4 row shows the finding, its screenshot and who decided it."""
+    row = rows["2.4.4"]
+    assert row["finding_ids"] == "F-before-home-el0210-2.4.4"
+    assert f"{SHOTS}_el0210.jpg" in row["evidence"]
+    assert row["reviewed_by"] == "bob"  # bob's later fail beat alice's pass
+    assert row["status"] == matrix.STATUS_FAIL
+
+
+def test_decision_on_finding_not_in_run_is_ignored(fake_run, reviews):
+    _, findings = matrix.load_run(RUN_ID)
+    decisions, _ = matrix.load_decisions(VERSION, PAGE)
+    stray = "F-before-home-el0999-1.1.1"  # not in this run
+    with_stray = {**decisions, stray: make_decision(stray, "fail", reviewer="mallory")}
+    assert build(findings, with_stray) == build(findings, decisions)
+
+
+def test_grouped_by_wcag_not_mapping(fake_run):
+    f = copy.deepcopy(fake_run[1])  # the 2.4.4 finding
+    f["mapping"] = {"sc": "1.3.1", "name": "Info and Relationships"}  # a mapper disagreeing must not move it
+    out = build([f], {})
+    assert out["2.4.4"]["finding_ids"] == f["finding_id"] and out["1.3.1"]["finding_ids"] == ""
+
+
+def test_unknown_bucket_warns_but_keeps_the_finding(fake_run, capsys):
+    f = copy.deepcopy(fake_run[1])
+    f["bucket"] = None  # e.g. a run without the real router
+    out = build([f], {})
+    assert len(out) == 38
+    row = out["2.4.4"]
+    assert row["finding_ids"] == f["finding_id"] and row["status"] == matrix.STATUS_PENDING
+    assert (row["machine"], row["grey"], row["human_checks"]) == (0, 0, 0)
+    assert f"WARNING {f['finding_id']}: unknown bucket None" in capsys.readouterr().err

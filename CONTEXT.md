@@ -45,8 +45,20 @@ format) and returns ONLY the fields it adds. The graph merges them in; nested di
 `ai` are merged one level deep, so never return a rewritten copy of the finding.
 - `agents/mapper.py`: `map_finding(finding) -> {"mapping": {"sc", "name", "level", "spec_url", ...}}`; a finding it can't map returns `{"mapping": {"sc", "rejected": reason}}` instead of raising (Track B)
 - `agents/router.py`: `route_finding(finding) -> {"bucket": "machine"|"grey"|"human-only", "route_reason": str}` (Track C)
-- `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only)
+- `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "recommendation": "likely_fail"|"likely_pass"|"unsure", "confidence": None, "citations_verified": bool, "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only). A skipped finding has `case_for` starting `SKIPPED:` and `recommendation: "unsure"`; count it as not evaluated, not as a result.
 Until a track's file is merged, agents/graph.py uses a stub in its place.
+
+## Router policy v1 (decided Oct 9)
+`route_finding` applies these in order and names the rule in `route_reason`:
+1. `scanner_status == "violation"`: `machine`.
+2. Page-level notice (`scanner_status == "notice"` and `evidence.selector == "html"`): `human-only`.
+   These are human checks, not issues; reports collapse them to one check per page and criterion.
+3. Criterion marked `human_only: true` in `rag/wcag20_aa.json`: `human-only`.
+4. Everything else (`needs_review`, element-level notices): `grey`. FOR/AGAINST runs on these.
+
+A grey finding counts as an **issue** only when `ai.recommendation == "likely_fail"`. A grey
+finding that leans pass or is unsure is "flagged for a human", not an issue. Either way, AI
+never sets the final status: only a human decision in `data/reviews/` does.
 
 ## Phase history
 Kept so anyone catching up can see what earlier weeks built and what is still open.

@@ -18,9 +18,12 @@ create placeholder copies of another track's files on your branch.
 | Shared setup | Repo owner (Jesus) | `package.json`, `.gitignore`, `requirements.txt`, `CONTEXT.md`, `README.md`, `docs/TRACKS.md`, `*/__init__.py`, `settings.py`, `.env.example` |
 | A. Capture + scanners | Scanning lead (Jesus) | `capture/`, `scanners/`, `data/findings/`, `tests/test_merge.py` |
 | B. Knowledge base + mapper | Knowledge lead | `rag/`, `agents/mapper.py`, `docs/mapper_spotcheck.md`, `data/mapped/`, `tests/test_mapper.py` |
-| C. First agents | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/prompt_set.json` |
+| C. Router + FOR/AGAINST | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/test_router.py`, `tests/test_evidence.py`, `docs/evidence_samples.md` |
 | D. Graph + run log | Reviewer-experience lead | `agents/graph.py`, `data/runs/` |
-| Ground truth | Sheet owner | `data/ground-truth/ground_truth.csv` |
+| Ground truth | Sheet owner | `data/ground-truth/ground_truth.csv`, `tests/test_ground_truth.py` |
+| E. Outputs | Outputs lead | `reports/`, `tests/test_matrix.py` |
+| F. PULSE | Reviewer-UI lead | `pulse/`, `extension/`, `data/reviews/`, `tests/test_pulse_api.py` |
+| S. Scoring | Repo owner (Jesus) | `scripts/gt_candidates.py`, `scripts/score.py`, `docs/scores/`, `tests/test_score.py` |
 
 Tests: each track owns `tests/test_<track or module>.py` for its own code (for example
 `tests/test_mapper.py`, `tests/test_graph.py`). `tests/test_contracts.py`,
@@ -118,8 +121,33 @@ There is one finding per (element, criterion). An element that fails two criteri
 | `data/ground-truth/` | Yes | The answer key |
 | `data/mapped/` | Yes | Track B's mapper output; regenerate with `python -m agents.mapper` |
 | `data/runs/` | No (gitignored by Track D) | Replayable run log, written by every pipeline run |
+| `data/reviews/` | Yes | Human decisions from PULSE; they are the evidence behind every ACR status |
+| `data/reports/` | No (gitignored) | Matrix, ACR and backlog; regenerated from a run plus `data/reviews/` |
 | `data/captures/` | No (gitignored) | Full HTML and screenshots, regenerated every run |
 | `data/scans/` | No (gitignored) | Raw scanner JSON, regenerated every run |
+
+## Human decisions: `data/reviews/{version}_{page}.jsonl`
+
+Written only by the PULSE API (`pulse/api.py`, `record_decision`), one JSON object per line,
+append-only. Nothing else writes here; Track E reads it to set a status.
+
+```json
+{"finding_id": "F-before-home-el0210-2.4.4", "run_id": "20261013-010051-e473", "reviewer": "jesus", "decision": "fail", "comment": "", "decided_at": "2026-10-15T22:04:31Z"}
+```
+
+| Field | Value |
+| --- | --- |
+| `finding_id` | A finding in that run's `output_findings.json` (the API rejects others with 422) |
+| `run_id` | `YYYYMMDD-HHMMSS-xxxx`, the run folder under `data/runs/` |
+| `reviewer` | Name from the bearer token in `ADJ_REVIEWER_TOKENS`, never from the request body |
+| `decision` | `fail`, `pass` or `not_applicable` |
+| `comment` | Always a string; `""` when the reviewer left none |
+| `decided_at` | UTC, seconds precision, ending in `Z` |
+
+Keys are written in the order above, as ASCII-only JSON (non-ASCII is `\u`-escaped), so each
+decision is exactly one line. Existing lines are never changed. **The last line for a
+finding_id wins.** Re-saving a reviewer's latest decision unchanged (same run, decision and
+comment) writes nothing. Readers skip lines that are not valid JSON or lack these fields.
 
 ## Known gotcha
 

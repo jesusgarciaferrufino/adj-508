@@ -39,6 +39,8 @@ Version = Literal["before", "after"]
 PageName = Literal["home", "news", "tickets", "survey"]
 Scanner = Literal["axe-core", "pa11y"]
 ScannerStatus = Literal["violation", "needs_review", "notice"]
+Bucket = Literal["machine", "grey", "human-only"]  # set by Track C's router (agents/router.py)
+Recommendation = Literal["likely_fail", "likely_pass", "unsure"]  # set by Track C's evidence agent
 
 ID_RE = re.compile(r"^F-(before|after)-(home|news|tickets|survey)-el(\d{4})-(\d\.\d\.\d+)$")
 DETAIL_TYPES = {"axe-core": {"violations", "incomplete"}, "pa11y": {"error", "warning", "notice"}}
@@ -76,6 +78,7 @@ class AI(_Model):
     case_against: str
     citations_verified: bool
     confidence: float | None
+    recommendation: Recommendation | None = None  # AI leaning only; never a conformance decision
     prompt_version: str
 
 
@@ -96,7 +99,7 @@ class Finding(_Model):
     rule_id: str
     wcag: list[str] = Field(min_length=1, max_length=1)
     section508: list[str]
-    bucket: str | None  # set by Track C's router
+    bucket: Bucket | None  # None in data/findings/; set by Track C's router in a run
     evidence: Evidence
     scanner_details: list[ScannerDetail] = Field(min_length=1)
     ai: AI

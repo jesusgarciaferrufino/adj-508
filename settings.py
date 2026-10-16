@@ -59,3 +59,6 @@ load_dotenv()
 MODEL_ID = os.environ.get("ADJ_MODEL_ID", "us.anthropic.claude-sonnet-4-6")
 AWS_REGION = os.environ.get("ADJ_AWS_REGION", "us-east-1")
 MAX_BEDROCK_CALLS = _int_env("ADJ_MAX_BEDROCK_CALLS", 20)
+# Comma-separated finding IDs. When set, only these get FOR/AGAINST calls; other grey
+# findings are marked skipped. Empty means every grey finding (up to MAX_BEDROCK_CALLS).
+EVIDENCE_ONLY = frozenset(x.strip() for x in os.environ.get("ADJ_EVIDENCE_ONLY", "").split(",") if x.strip())

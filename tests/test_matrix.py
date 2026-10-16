@@ -85,3 +85,81 @@ def test_fixtures_build(fake_run, reviews):
     assert len(json.loads((run / "output_findings.json").read_text())) == 4
     lines = (matrix.REVIEWS_DIR / f"{VERSION}_{PAGE}.jsonl").read_text().splitlines()
     assert [json.loads(line) for line in lines] == reviews
+
+
+# ---------------------------------------------------------------- load_run
+
+def test_load_run_reads_summary_and_findings(fake_run):
+    summary, findings = matrix.load_run(RUN_ID)
+    assert (summary["version"], summary["page"]) == (VERSION, PAGE)
+    assert [f["finding_id"] for f in findings] == [f["finding_id"] for f in fake_run]
+    assert findings[0]["bucket"] == "machine"  # fields later tracks add are kept
+    assert findings[0]["ai"]["recommendation"] == "likely_fail"
+
+
+def test_load_run_unknown_run(fake_run):
+    with pytest.raises(matrix.MatrixInputError, match="no-such-run"):
+        matrix.load_run("no-such-run")
+
+
+def test_load_run_invalid_findings(fake_run):
+    bad = copy.deepcopy(fake_run)
+    bad[1]["wcag"] = ["9.9.9"]  # not a WCAG 2.0 criterion
+    (matrix.RUNS_DIR / RUN_ID / "output_findings.json").write_text(json.dumps(bad))
+    with pytest.raises(ValueError, match="F-before-home-el0210-2.4.4"):
+        matrix.load_run(RUN_ID)
+
+
+# ---------------------------------------------------------------- load_decisions
+
+def append_lines(*raw):
+    """Add raw lines (bytes) to the end of the fake page's reviews file."""
+    with (matrix.REVIEWS_DIR / f"{VERSION}_{PAGE}.jsonl").open("ab") as fh:
+        fh.write(b"".join(line + b"\n" for line in raw))
+
+
+def test_last_decision_wins(fake_run, reviews):
+    decisions, skipped = matrix.load_decisions(VERSION, PAGE)
+    last = decisions[fake_run[1]["finding_id"]]  # the 2.4.4 finding
+    assert (last["decision"], last["reviewer"]) == ("fail", "bob")
+    assert skipped == []
+
+
+def test_decision_from_another_run_counts(fake_run, reviews):
+    decisions, _ = matrix.load_decisions(VERSION, PAGE)
+    assert decisions[fake_run[2]["finding_id"]]["run_id"] == "older-run"
+
+
+def test_no_reviews_file_means_nothing_decided(fake_run, tmp_path, monkeypatch):
+    monkeypatch.setattr(matrix, "REVIEWS_DIR", tmp_path / "empty")
+    assert matrix.load_decisions(VERSION, PAGE) == ({}, [])
+
+
+def test_blank_lines_are_skipped_quietly(fake_run, reviews):
+    append_lines(b"", b"   ")
+    decisions, skipped = matrix.load_decisions(VERSION, PAGE)
+    assert len(decisions) == 2 and skipped == []
+
+
+def test_bad_lines_are_skipped_loudly(fake_run, reviews):
+    no_reviewer = make_decision(fake_run[0]["finding_id"], "fail")
+    del no_reviewer["reviewer"]
+    append_lines(
+        b'{"finding_id": "F-before-home-el0081-1.1.1", "run_id": "2026',  # line 4: half-written by a crash
+        json.dumps(no_reviewer).encode(),                                   # line 5: PULSE wouldn't count it
+        json.dumps(make_decision(fake_run[3]["finding_id"], "pass")).encode(),  # line 6: fine
+    )
+    decisions, skipped = matrix.load_decisions(VERSION, PAGE)
+    assert len(skipped) == 2
+    assert "line 4: not readable JSON" in skipped[0]
+    assert "line 5: not a decision PULSE would count" in skipped[1]
+    assert fake_run[0]["finding_id"] not in decisions  # the 1.1.1 "fail" without a reviewer doesn't count
+    assert decisions[fake_run[3]["finding_id"]]["decision"] == "pass"  # lines after a bad one still count
+    assert decisions[fake_run[1]["finding_id"]]["decision"] == "fail"  # and lines before it
+
+
+def test_unknown_decision_is_skipped(fake_run, reviews):
+    append_lines(json.dumps(make_decision(fake_run[0]["finding_id"], "maybe")).encode())
+    decisions, skipped = matrix.load_decisions(VERSION, PAGE)
+    assert fake_run[0]["finding_id"] not in decisions
+    assert len(skipped) == 1 and "line 4" in skipped[0]

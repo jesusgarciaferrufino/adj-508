@@ -106,3 +106,21 @@ def load_decisions(version, page):
             continue
         decisions[line["finding_id"]] = line
     return decisions, skipped
+
+
+def criterion_status(finding_ids, decisions):
+    """One criterion's status, from human decisions only.
+
+    Takes finding IDs, not findings, so it can't see bucket, scanner_status or ai: the hard rule
+    holds by construction. Order matters: one human "fail" beats any number of undecided findings.
+    """
+    if not finding_ids:
+        return STATUS_NO_FINDINGS
+    decided = [decisions[fid]["decision"] for fid in finding_ids if fid in decisions]
+    if "fail" in decided:
+        return STATUS_FAIL
+    if len(decided) < len(finding_ids):
+        return STATUS_PENDING
+    # Every finding is pass or not_applicable. All not_applicable (e.g. "page has no video") may need
+    # its own "Not Applicable" status for the ACR: open team question #8, ask Jesus before changing.
+    return STATUS_SUPPORTS

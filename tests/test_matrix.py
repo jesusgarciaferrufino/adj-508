@@ -163,3 +163,36 @@ def test_unknown_decision_is_skipped(fake_run, reviews):
     decisions, skipped = matrix.load_decisions(VERSION, PAGE)
     assert fake_run[0]["finding_id"] not in decisions
     assert len(skipped) == 1 and "line 4" in skipped[0]
+
+
+# ---------------------------------------------------------------- criterion_status
+
+def decided(**by_id):
+    """A decisions dict as load_decisions returns it, e.g. decided(a="fail", b="pass")."""
+    return {fid: make_decision(fid, decision) for fid, decision in by_id.items()}
+
+
+@pytest.mark.parametrize("decisions, expected", [
+    (decided(a="fail", b="pass"), matrix.STATUS_FAIL),
+    (decided(a="pass"), matrix.STATUS_PENDING),                      # b has no decision yet
+    (decided(a="pass", b="pass"), matrix.STATUS_SUPPORTS),
+    (decided(a="pass", b="not_applicable"), matrix.STATUS_SUPPORTS),
+    # All N/A gives Supports under the agreed rules; open team question #8 may change this
+    (decided(a="not_applicable", b="not_applicable"), matrix.STATUS_SUPPORTS),
+], ids=["a fail", "one undecided", "all pass", "pass and N/A", "all N/A"])
+def test_criterion_status(decisions, expected):
+    assert matrix.criterion_status(["a", "b"], decisions) == expected
+
+
+def test_no_findings_needs_a_human_check():
+    assert matrix.criterion_status([], decided(a="fail")) == matrix.STATUS_NO_FINDINGS
+
+
+def test_fail_beats_pending():
+    # b is undecided, but a's human "fail" already settles the criterion
+    assert matrix.criterion_status(["a", "b"], decided(a="fail")) == matrix.STATUS_FAIL
+
+
+def test_decisions_on_other_findings_dont_count():
+    # A fail on some other criterion's finding must not leak into this one
+    assert matrix.criterion_status(["a"], decided(z="fail")) == matrix.STATUS_PENDING

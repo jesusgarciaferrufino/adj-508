@@ -12,6 +12,12 @@ sees the other's output; that independence is the point. Code (not the model) th
         FOR - AGAINST >= 2  -> likely_fail
         AGAINST - FOR >= 2  -> likely_pass
         otherwise           -> unsure
+    A skipped finding (ADJ_EVIDENCE_ONLY or the call cap) gets recommendation None: it was not
+    evaluated, which is different from "unsure". Its case_for reads "SKIPPED: <reason>". A
+    failed call raises; the graph logs it and keeps the finding without a recommendation.
+  - is_issue(ai): the issue rule (decided Oct 17). A grey finding is an issue only when it is
+    likely_fail AND its citations were verified; anything else is flagged for a human. The
+    same rule is used by scripts/score.py and reports/matrix.py.
 The AI never decides conformance; a signed-in human reviewer does (CONTEXT.md).
 
 build_cases(finding) returns ONLY {"ai": {...}}; the graph merges it in and only calls
@@ -154,6 +160,16 @@ def recommend(for_strength: int, against_strength: int) -> str:
     return "unsure"
 
 
+def is_issue(ai: dict | None) -> bool:
+    """True when a grey finding's AI result counts as an issue: likely_fail with verified citations.
+
+    An unverified likely_fail, a lean to pass, unsure, or not evaluated (None) is flagged for a
+    human instead. This is the AI's leaning only, never a conformance status.
+    """
+    ai = ai or {}
+    return ai.get("recommendation") == "likely_fail" and ai.get("citations_verified") is True
+
+
 def _call(client, prompt: str) -> tuple[str, dict]:
     global _calls_made
     _calls_made += 1
@@ -168,7 +184,7 @@ def _call(client, prompt: str) -> tuple[str, dict]:
 
 def _skipped(reason: str) -> dict:
     note = f"SKIPPED: {reason}"
-    return {"ai": {"case_for": note, "case_against": note, "recommendation": "unsure",
+    return {"ai": {"case_for": note, "case_against": note, "recommendation": None,  # not evaluated
                    "confidence": None, "citations_verified": False, "model_id": None,
                    "prompt_version": PROMPT_VERSION, "usage": {"input_tokens": 0, "output_tokens": 0}}}
 

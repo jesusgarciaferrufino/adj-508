@@ -9,13 +9,18 @@ Inputs: data/ground-truth/ground_truth.csv (one row per W3C failure cause on a B
 `finding_id` is the matching finding or `missed`) and run folders data/runs/{run_id}/ with
 summary.json and output_findings.json, written by `python -m agents.graph`.
 
-Definitions (router policy v1, CONTEXT.md). A judge may ask, so they are spelled out here:
+Definitions (router policy v1, CONTEXT.md, with the issue rule decided Oct 17). A judge may
+ask, so they are spelled out here:
 
 - **Reported as an issue:** `bucket == "machine"`, or `bucket == "grey"` and
-  `ai.recommendation == "likely_fail"`. With --stub-grey-counts, every grey finding counts as
-  reported (for runs where the evidence agent was skipped or a stub); the output says so.
+  `ai.recommendation == "likely_fail"` and `ai.citations_verified` is true. Every ACR statement
+  must link to evidence, and an unverified citation is exactly the case where it doesn't, so a
+  likely_fail with unverified citations is flagged for a human, never an issue. The same rule
+  holds in agents/evidence.py and reports/matrix.py. With --stub-grey-counts, every grey finding
+  counts as reported (for runs where the evidence agent was skipped or a stub); the output says so.
 - **Flagged for a human:** not reported, and `bucket == "human-only"` or `bucket == "grey"`.
-  A grey finding that leans pass or is unsure is sent to a human, not called an issue.
+  A grey finding that leans pass, is unsure, was not evaluated, or is a likely_fail with
+  unverified citations is sent to a human, not called an issue.
 - **Before recall (a), issue level, reported only:** ground-truth rows whose finding_id is
   reported as an issue in that page's run, divided by all ground-truth rows on scored pages.
   `missed` rows count in the denominator and never in the numerator.
@@ -27,14 +32,17 @@ Definitions (router policy v1, CONTEXT.md). A judge may ask, so they are spelled
 - **After false alarms:** findings on the After pages reported as issues. W3C's After reports
   pass every A/AA criterion, so every one of them is a false alarm.
 - **Grey not evaluated:** grey findings where FOR/AGAINST did not produce a recommendation
-  (skipped by ADJ_EVIDENCE_ONLY or the call cap, or the call failed). They count as flagged,
+  (`ai.recommendation` is None: skipped by ADJ_EVIDENCE_ONLY or the call cap, or the call
+  failed; older runs wrote "unsure" with a `SKIPPED:` case_for, which also counts). They count as flagged,
   not reported, so while any exist (a) and the After false alarms are LOWER BOUNDS. The report
   shows the count per run and warns. Compare with --stub-grey-counts for the upper bound.
 - **Unverified likely_fail:** a grey likely_fail whose citations were NOT verified in code
-  (ai.citations_verified false). Router policy v1 still counts it as reported; the report lists
-  how many so they can be checked, and --require-verified counts them as flagged instead.
+  (ai.citations_verified false). Flagged for a human, not reported; the report says how many.
 - **Runs without stub tracking:** a summary.json with no "stubs" key predates stub tracking
-  (before Oct 13). The report marks such runs "unknown" and warns, rather than calling them real.
+  (runs before commit fffa6f2, e.g. Oct 4 to 6). The report marks such runs "predates stub
+  tracking" (the matrix's wording) and warns above the tables, rather than calling them real.
+  When picking runs automatically, a page's newest run WITH stub tracking wins; an old run is
+  used only when the page has nothing newer.
 - **Found under a different criterion:** a ground-truth row whose matched finding cites a
   different criterion (e.g. W3C's 3.3.2 "no label" matched to our 4.1.2 finding on the same
   field, because the scanners never assign 3.3.2). It counts as found in (a) and (b), since the
@@ -130,18 +138,22 @@ def load_run(run_id: str, runs_dir: Path | None = None) -> Run:
 
 
 def latest_runs(runs_dir: Path | None = None) -> list[str]:
-    """The newest finished run for each page (run ids sort by time)."""
+    """The newest finished run for each page (run ids sort by time).
+
+    A run with stub tracking (a "stubs" key in summary.json) beats any run without it, however
+    new, so an old Oct 4 to 6 run is used only when a page has nothing else.
+    """
     runs_dir = runs_dir or RUNS_DIR
     if not runs_dir.is_dir():
         return []
-    picked = {}
+    tracked, untracked = {}, {}
     for folder in sorted((p for p in runs_dir.iterdir() if p.is_dir()), key=lambda p: p.name, reverse=True):
         try:
             run = load_run(folder.name, runs_dir)
         except ScoreError:
             continue
-        picked.setdefault((run.version, run.page), run.run_id)
-    return sorted(picked.values())
+        (untracked if run.stubs is None else tracked).setdefault((run.version, run.page), run.run_id)
+    return sorted({**untracked, **tracked}.values())
 
 
 def runs_by_page(run_ids: list[str], runs_dir: Path | None = None) -> dict[tuple[str, str], Run]:
@@ -158,25 +170,26 @@ def runs_by_page(run_ids: list[str], runs_dir: Path | None = None) -> dict[tuple
 # ---------------------------------------------------------------- definitions
 
 
-def is_reported(f: dict, stub_grey: bool = False, require_verified: bool = False) -> bool:
+def is_reported(f: dict, stub_grey: bool = False) -> bool:
+    """Reported as an issue: machine, or grey likely_fail with verified citations (see the docstring)."""
     bucket = f.get("bucket")
     if bucket == "machine":
         return True
     if bucket == "grey":
-        ai = f.get("ai") or {}
         if stub_grey:
             return True
-        return ai.get("recommendation") == "likely_fail" and (ai.get("citations_verified") or not require_verified)
+        ai = f.get("ai") or {}
+        return ai.get("recommendation") == "likely_fail" and ai.get("citations_verified") is True
     return False
 
 
-def is_flagged(f: dict, stub_grey: bool = False, require_verified: bool = False) -> bool:
-    return not is_reported(f, stub_grey, require_verified) and f.get("bucket") in ("human-only", "grey")
+def is_flagged(f: dict, stub_grey: bool = False) -> bool:
+    return not is_reported(f, stub_grey) and f.get("bucket") in ("human-only", "grey")
 
 
-def _surfaced(f: dict, stub_grey: bool = False, require_verified: bool = False) -> bool:
+def _surfaced(f: dict, stub_grey: bool = False) -> bool:
     """Reported as an issue or flagged for a human: the tool put it in front of someone."""
-    return is_reported(f, stub_grey, require_verified) or is_flagged(f, stub_grey, require_verified)
+    return is_reported(f, stub_grey) or is_flagged(f, stub_grey)
 
 
 def is_unverified_fail(f: dict) -> bool:
@@ -208,8 +221,7 @@ def _ratio(n: int, d: int) -> dict:
     return {"n": n, "d": d, "pct": round(100 * n / d, 1) if d else None}
 
 
-def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = False,
-          require_verified: bool = False) -> dict:
+def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = False) -> dict:
     """All the numbers, as plain data. `format_markdown` turns it into the report."""
     before_scored = [p for p in PAGES if ("before", p) in runs]
     per_page = {}
@@ -231,11 +243,11 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
                 not_in_run.append(r)
             if f is not None and _wcag(f) != r["wcag"]:
                 other_criterion.append({**r, "finding_wcag": _wcag(f)})
-            if f is not None and is_reported(f, stub_grey, require_verified):
+            if f is not None and is_reported(f, stub_grey):
                 a += 1
-            if f is not None and _surfaced(f, stub_grey, require_verified):
+            if f is not None and _surfaced(f, stub_grey):
                 b += 1
-        surfaced = {_wcag(f) for f in run.findings if _surfaced(f, stub_grey, require_verified)}
+        surfaced = {_wcag(f) for f in run.findings if _surfaced(f, stub_grey)}
         page_pairs = {r["wcag"] for r in rows}
         pairs_all |= {(page, c) for c in page_pairs}
         pairs_hit |= {(page, c) for c in page_pairs & surfaced}
@@ -253,7 +265,7 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
             continue
         false_alarms[page] = {"run_id": run.run_id,
                               "by_wcag": dict(sorted(Counter(_wcag(f) for f in run.findings
-                                                             if is_reported(f, stub_grey, require_verified)).items()))}
+                                                             if is_reported(f, stub_grey)).items()))}
 
     missed = defaultdict(list)
     for r in gt:
@@ -262,7 +274,6 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
 
     return {
         "stub_grey": stub_grey,
-        "require_verified": require_verified,
         "before_pages_scored": before_scored,
         "recall": {"a": _ratio(hits_a, rows_scored), "b": _ratio(hits_b, rows_scored),
                    "c": _ratio(len(pairs_hit), len(pairs_all))},
@@ -291,11 +302,11 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
     if commit:
         out.append(f"Commit: `{commit}`")
     mode = ("**--stub-grey-counts: every grey finding counted as reported** (evidence skipped or stubbed)"
-            if s["stub_grey"] else "Grey counts as reported only when `ai.recommendation == likely_fail`"
-            + (" and its citations were verified (--require-verified)" if s.get("require_verified") else ""))
+            if s["stub_grey"] else "Grey counts as reported only when `ai.recommendation == likely_fail` "
+            "and `ai.citations_verified` is true")
     out += [f"Mode: {mode}", "", "## Runs", "", "| Page | Run | Stub nodes | Grey not evaluated |",
             "| --- | --- | --- | --- |"]
-    out += [f"| {k} | `{rid}` | {'unknown (no stub tracking)' if st is None else ', '.join(st) or 'none'} | "
+    out += [f"| {k} | `{rid}` | {'predates stub tracking' if st is None else ', '.join(st) or 'none'} | "
             f"{s['unevaluated'].get(k, 0)} |" for k, rid, st in s["runs"]] or ["| (none) | | | |"]
     untracked = [k for k, _, st in s["runs"] if st is None]
     if untracked:
@@ -303,10 +314,8 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
                     "router and evidence were real. Rerun those pages before quoting these numbers."]
     unverified = sum(s["unverified_fails"].values())
     if unverified:
-        handled = ("counted as flagged (--require-verified)" if s["require_verified"]
-                   else "counted as reported under router policy v1")
-        out += ["", f"Note: {unverified} grey likely_fail finding(s) have citations_verified false; they are "
-                    f"{handled}. Check them before quoting the numbers."]
+        out += ["", f"Note: {unverified} grey likely_fail finding(s) have citations_verified false. They are "
+                    "flagged for a human, not reported as issues (issue rule, Oct 17)."]
     not_evaluated = sum(s["unevaluated"].values())
     if not_evaluated and not s["stub_grey"]:
         out += ["", f"**Warning: {not_evaluated} grey finding(s) were never evaluated by FOR/AGAINST** (skipped by "
@@ -390,8 +399,6 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--gt", type=Path, default=GT_PATH, help="ground-truth CSV (default: %(default)s)")
     ap.add_argument("--stub-grey-counts", action="store_true",
                     help="count every grey finding as reported (for runs with evidence skipped or stubbed)")
-    ap.add_argument("--require-verified", action="store_true",
-                    help="count a grey likely_fail as reported only if its citations were verified")
     ap.add_argument("--write", action="store_true", help="also save docs/scores/YYYY-MM-DD.md")
     args = ap.parse_args(argv)
 
@@ -400,7 +407,7 @@ def main(argv: list[str] | None = None) -> int:
         run_ids = args.runs or latest_runs()
         if not run_ids:
             raise ScoreError("no finished runs in data/runs/. Run: python -m agents.graph --version before --page home")
-        result = score(gt, runs_by_page(run_ids), args.stub_grey_counts, args.require_verified)
+        result = score(gt, runs_by_page(run_ids), args.stub_grey_counts)
     except ScoreError as e:
         print(f"score: {e}", file=sys.stderr)
         return 1

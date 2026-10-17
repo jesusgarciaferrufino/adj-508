@@ -15,7 +15,7 @@ from scripts import gt_candidates, score
 GT_ROWS = [
     # page, wcag, finding_id                        bucket in the before/home run
     ("home", "1.1.1", "F-before-home-el0001-1.1.1"),  # machine            -> reported
-    ("home", "2.4.4", "F-before-home-el0002-2.4.4"),  # grey, likely_fail  -> reported
+    ("home", "2.4.4", "F-before-home-el0002-2.4.4"),  # grey, likely_fail, verified -> reported
     ("home", "1.3.1", "F-before-home-el0003-1.3.1"),  # grey, likely_pass  -> flagged only
     ("home", "3.1.1", "F-before-home-el0004-3.1.1"),  # human-only         -> flagged only
     ("home", "3.3.2", "missed"),                      # scanners never saw it
@@ -224,25 +224,56 @@ def test_match_under_a_different_criterion_is_listed(tmp_path):
     assert "Found under a different criterion" in md and "W3C 3.3.2" in md
 
 
-def test_run_without_stub_tracking_is_marked_unknown(setup):
+def test_run_without_stub_tracking_says_so_above_the_tables(setup):
     gt, runs, ids = setup
     old = write_run(runs, "20261005-010000-0000", "after", "news", [], stubs=None)
     s = score.score(score.load_ground_truth(gt), score.runs_by_page(ids + [old], runs))
     md = score.format_markdown(s)
-    assert "unknown (no stub tracking)" in md and "after/news predate stub tracking" in md
+    news_row = next(line for line in md.splitlines() if line.startswith("| after/news |"))
+    assert "predates stub tracking" in news_row and "none" not in news_row  # the matrix's wording
+    warning = md.index("after/news predate stub tracking")
+    assert warning < md.index("## Before recall") < md.index("## After false alarms")
 
 
-def test_unverified_likely_fail_is_listed_and_optional(setup, tmp_path):
+def test_latest_runs_prefers_a_run_with_stub_tracking(tmp_path):
+    runs = tmp_path / "runs"
+    tracked = write_run(runs, "20261013-010000-aaaa", "before", "home", BEFORE_HOME)
+    write_run(runs, "20261016-010000-bbbb", "before", "home", BEFORE_HOME, stubs=None)  # newer, but old format
+    only_old = write_run(runs, "20261005-010000-cccc", "before", "news", [], stubs=None)
+    assert score.latest_runs(runs) == sorted([tracked, only_old])
+    s = score.score(score.load_ground_truth(write_gt(tmp_path / "gt.csv")),
+                    score.runs_by_page(score.latest_runs(runs), runs))
+    assert "before/news predate stub tracking" in score.format_markdown(s)  # used, but warned
+
+
+def test_unverified_likely_fail_is_flagged_not_an_issue(tmp_path):
+    """Issue rule (Oct 17): likely_fail counts only with verified citations."""
     runs = tmp_path / "runs2"
-    rid = write_run(runs, "20261016-060000-abcd", "before", "home",
-                    [finding("F-before-home-el0002-2.4.4", "grey", "likely_fail", verified=False)])
+    before = write_run(runs, "20261016-060000-abcd", "before", "home",
+                       [finding("F-before-home-el0002-2.4.4", "grey", "likely_fail", verified=False)])
+    after = write_run(runs, "20261016-060100-abce", "after", "home",
+                      [finding("F-after-home-el0002-4.1.2", "grey", "likely_fail", verified=False),
+                       finding("F-after-home-el0003-4.1.2", "grey", "likely_fail", verified=True)])
     gt = write_gt(tmp_path / "gt2.csv", [("home", "2.4.4", "F-before-home-el0002-2.4.4")])
-    loaded = score.load_ground_truth(gt), score.runs_by_page([rid], runs)
-    s = score.score(*loaded)
-    assert s["recall"]["a"]["n"] == 1 and s["unverified_fails"] == {"before/home": 1}
-    assert "citations_verified false" in score.format_markdown(s)
-    strict = score.score(*loaded, require_verified=True)
-    assert strict["recall"]["a"]["n"] == 0 and strict["recall"]["b"]["n"] == 1  # flagged, not lost
+    s = score.score(score.load_ground_truth(gt), score.runs_by_page([before, after], runs))
+    assert s["recall"]["a"]["n"] == 0  # not reported...
+    assert s["recall"]["b"]["n"] == 1  # ...but flagged for a human, so not lost
+    assert s["false_alarms"]["home"]["by_wcag"] == {"4.1.2": 1}  # only the verified one
+    assert s["unverified_fails"] == {"before/home": 1, "after/home": 1}
+    assert "flagged for a human, not reported" in score.format_markdown(s)
+
+
+def test_verified_flag_must_be_true_not_just_present():
+    f = finding("F-before-home-el0002-2.4.4", "grey", "likely_fail")
+    f["ai"]["citations_verified"] = None
+    assert not score.is_reported(f) and score.is_flagged(f)
+
+
+def test_none_recommendation_is_not_evaluated(setup):
+    """agents/evidence.py writes recommendation None for skipped findings (after #16's follow-up)."""
+    f = finding("F-after-home-el0007-4.1.2", "grey", "likely_fail", case_for="SKIPPED: call cap reached")
+    f["ai"]["recommendation"] = None
+    assert score.is_unevaluated(f) and not score.is_reported(f) and score.is_flagged(f)
 
 
 def test_runs_are_checked_with_the_shared_loader(setup):

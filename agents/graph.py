@@ -80,6 +80,19 @@ def add_fields(finding, added):
     return out
 
 
+def case_file_counts(findings, errors):
+    """(AI results that are real case files, how many grey findings were skipped).
+
+    A skipped finding (ADJ_EVIDENCE_ONLY or the call cap) has ai.case_for "SKIPPED: ..." and is
+    not a case file. A finding whose evidence call failed is in neither list (it is in errors).
+    """
+    failed = {e["finding_id"] for e in errors if e["node"] == "evidence"}
+    grey = [f for f in findings
+            if f.get("bucket") == "grey" and f.get("ai") and f.get("finding_id") not in failed]
+    skipped = [f for f in grey if str(f["ai"].get("case_for") or "").startswith("SKIPPED:")]
+    return [f["ai"] for f in grey if f not in skipped], len(skipped)
+
+
 def build_graph(log):
     def per_finding_node(name, fn, only_bucket=None):
         """Wrap a one-finding function as a graph node that logs what it adds."""
@@ -112,16 +125,15 @@ def build_graph(log):
     def write_output(state):
         findings = state["findings"]
         buckets = Counter(f.get("bucket") for f in findings)
-        failed = {e["finding_id"] for e in log.errors if e["node"] == "evidence"}
-        ai = [f["ai"] for f in findings
-              if f.get("bucket") == "grey" and f.get("ai") and f.get("finding_id") not in failed]
+        ai, skipped = case_file_counts(findings, log.errors)
         summary = {
             "run_id": state["run_id"],
             "version": state["version"],
             "page": state["page"],
             "total": len(findings),
             "buckets": dict(buckets),
-            "case_files": len(ai),
+            "case_files": len(ai),  # FOR/AGAINST actually ran; skipped findings are counted below
+            "skipped": skipped,
             "model_ids": sorted({a.get("model_id") for a in ai if a.get("model_id")}),
             "prompt_versions": sorted({a.get("prompt_version") for a in ai if a.get("prompt_version")}),
             "tokens": {
@@ -169,9 +181,11 @@ def main():
 
     b = Counter(f.get("bucket") for f in final["findings"])
     failed_cases = sum(1 for e in log.errors if e["node"] == "evidence")
+    written, skipped = case_file_counts(final["findings"], log.errors)
     print(f"{len(final['findings'])} findings: {b.get('machine', 0)} machine, "
           f"{b.get('grey', 0)} grey, {b.get('human-only', 0)} human-only — "
-          f"{b.get('grey', 0) - failed_cases} case files written")
+          f"{len(written)} case files written, {skipped} skipped"
+          + (f", {failed_cases} failed" if failed_cases else ""))
     if log.errors:
         print(f"{len(log.errors)} errors (those findings were kept unchanged; details in events.jsonl):")
         for e in log.errors[:5]:

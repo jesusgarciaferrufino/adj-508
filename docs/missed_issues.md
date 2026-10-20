@@ -1,67 +1,134 @@
 # Missed issues: how we could catch them
 
-Source: `data/ground-truth/ground_truth.csv` (#23), the 71 rows with `finding_id = missed`.
-Evidence below comes from the source of the four W3C Before pages (`before/{home,news,tickets,survey}.html`, inside `#page`) and their inline `<style>` blocks.
+Covers the 71 rows in `data/ground-truth/ground_truth.csv` (#23) with `finding_id = missed`, out of 130 rows (59 matched today).
+
+Evidence was checked on Oct 20, 2026 against the four W3C Before pages (`before/{home,news,tickets,survey}.html`, inside `#page`), their inline `<style>` blocks and `meta.css`, W3C's annotated versions of the pages, the rendered pages in Chrome (computed colours and link styles), the Nu HTML Checker, and `data/findings/before_*.json` on main.
+
+Confidence: **H** = the element is named in W3C's annotations or is unambiguous in the source; **M** = clear in the source but W3C doesn't point at it; **L** = best guess.
 
 ## Summary
 
-| Group | Rows | Criteria |
+| Group | Rows |
+|---|---|
+| Already caught: GT correction | 2 |
+| (a) Code rule on HTML/CSS | 36 |
+| (b) HTML validator | 4 |
+| (c) Comparing pages | 4 |
+| (d) AI on the screenshot | 13 |
+| (e) No instance found on the served page | 12 |
+| **Total** | **71** |
+
+Two things change the ground truth itself, so they should go into #23 alongside Daniel's spot-check:
+
+1. **Two rows are already caught.** home 1.1.1 F20 is `F-before-home-el0217-1.1.1` and tickets 1.1.1 F71 is `F-before-tickets-el0165-1.1.1` (details in the table). That takes matched rows from 59 to 61.
+2. **12 rows have no instance on the served page** (group e). W3C's reports repeat some failures across pages; for these rows nothing in the page source or the rendered page matches. The team should decide whether to keep them, drop them, or keep them with a note. Dropping them shrinks the denominator.
+
+## (a) Code rules, ranked by rows covered
+
+| Rule | Rows | Criteria (pages) |
 |---|---|---|
-| (a) Code rule on HTML/CSS | 40 | 1.1.1 (F3, F20, F71), 1.3.1 (F46), 1.4.1 (F73 home/news), 2.1.1, 2.4.1, 2.4.6, 2.4.7, 3.2.1, 4.1.2 |
-| (b) HTML validator | 4 | 4.1.1 |
-| (c) Comparing pages | 4 | 3.2.4 |
-| (d) AI on the screenshot / page | 20 | 1.3.1 (F43), 1.3.2, 1.4.1 (F73 tickets/survey, F81), 1.4.3, 1.4.5, 2.4.3, 2.4.4 (F63) |
-| (e) Not found in page source | 3 | 1.1.1 (F39 on news, tickets, survey) |
-| **Total** | **71** | |
+| Link with `onfocus` calling `blur()` | 20 | 2.1.1 F55 (all 4); 2.4.7 F55 (all 4); 2.4.7 F78 (all 4); 3.2.1 F55 (all 4); 4.1.2 F79 (all 4) |
+| No in-page link before repeated blocks | 4 | 2.4.1 (all 4) |
+| Page has heading-like text but no `h1`-`h6` | 4 | 2.4.6 (all 4) |
+| ASCII look-alikes in text nodes (`-{2,}>`) | 3 | 1.1.1 F71 (home, news, survey) |
+| Inline link with no underline in any state | 2 | 1.4.1 F73 (home, news) |
+| Layout table containing `th` | 2 | 1.3.1 F46 (tickets, survey) |
+| Image conveyed via CSS background with no text | 1 | 1.1.1 F3 (home) |
 
-The biggest single win is one rule: **`onfocus="blur()"` on links**. It covers 16 rows (2.1.1, 2.4.7, 3.2.1 F55 and 4.1.2 F79 on all four pages).
+## (b) Validator note
 
-## (a) Code rule on HTML/CSS — 40 rows
+On every page `<NOSCRIPT><B><FONT>` sits in `<head>`, which ends the head early (stray `</noscript>`, `</head>`, second `<body>`). The validator stops at that point, so the per-page errors below come from re-running it with that `<NOSCRIPT>` removed. Only parse errors (tags, nesting, attributes) are listed; the many obsolete-element warnings are HTML5 conformance, not WCAG 2.0 4.1.1.
 
-| Rule | Rows | Criteria (pages) | Exact element / CSS on the page |
-|---|---|---|---|
-| Link with `onfocus` that calls `blur()` | 16 | 2.1.1 F55, 2.4.7 F55, 3.2.1 F55, 4.1.2 F79 (all 4) | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home.gif`, `nav_news.gif`, `nav_facts.gif`, `nav_survey.gif`). Home also has it on the 3 teaser headline links, the `morearrow.gif` links, "Click here" and "Read More..." (14 links on home). |
-| No visible focus style | 4 | 2.4.7 F78 (all 4) | No `outline` or `:focus` rule in the page CSS. The only focus-ish selector is `#main a:hover, a:active, a:focused, a:visited` (home, news); `:focused` is not a valid pseudo-class, so it matches nothing. Combined with `blur()`, focus is never visible. |
-| No skip link before repeated content | 4 | 2.4.1 (all 4) | Zero in-page links (`href="#..."`) inside `#page`; header + nav (QUICKMENU select, 4 nav images) repeat on every page. |
-| Visual headings with no heading elements | 4 | 2.4.6 (all 4) | Zero `h1`–`h6` inside `#page`. Headings are `<p class="headline">` (CSS `#main .headline { font: 24px verdana; font-family: impact; color: #41545d }`) or `<font size>`: home 1 `.headline` + 5 `font[size]`, news 8 + 10, tickets 0 + 4, survey 3 + 5. |
-| Rollover image swap with no alt | 3 | 1.1.1 F20 (home, news, tickets) | Nav cells: `onmouseover="switchImage('nav_home', './img/nav_home2.gif')"`, `onmouseout` swaps back; the `<img name="nav_home">` has no alt, so nothing is updated. Home also swaps `morearrow.gif` (alt="") on mouseover. |
-| Text look-alike characters | 4 | 1.1.1 F71 (all 4) | QUICKMENU `<option>QUICKMENU ----></option>`; survey also has `----->`. A regex for ASCII arrows (`-{2,}>`) in text nodes catches it. |
-| Links not distinguished except by color | 2 | 1.4.1 F73 (home, news) | CSS `#main a { color: #226C8E; text-decoration: none }` and the hover/active rule also sets `text-decoration: none`. Inline links in body text (e.g. news "the way that air conditioning works") have no underline in any state. |
-| Layout tables using `th` | 2 | 1.3.1 F46 (tickets, survey) | Tickets: an empty `<th>` in the 600px layout table. Survey: question text ("Which is your favorite ci...", "Which city do you find is...", "Do you want to receive a...") in `<th>` inside layout tables, one of them 500px wide. |
-| Information image added via CSS | 1 | 1.1.1 F3 (home) | `<div class="image" title="image" style="background: url(./img/panda-sm.jpg) ...">`, same for `oldenburgstudentviolin34.jpg` and `BrainInJar.jpg`. Rule: `div` with `background: url(...)` and a `title` but no text. |
+## Every missed row
 
-## (b) HTML validator — 4 rows
+| # | Page | WCAG | Cause | Group | How to catch | Exact element / CSS | Conf. |
+|---|---|---|---|---|---|---|---|
+| 1 | home | 1.1.1 | F20 | fix | Already found: pa11y G94 notice | `<img src="telefon_white_bg.gif" alt="1234 56789">`, outdated/placeholder alt (W3C note 10). Matches `F-before-home-el0217-1.1.1` | H |
+| 2 | home | 1.1.1 | F3 | a | Image conveyed via CSS background with no text | `<div class="image" title="image" style="background: url(./img/BrainInJar.jpg) ...">`, also `panda-sm.jpg`, `oldenburgstudentviolin34.jpg` (W3C note 04) | H |
+| 3 | home | 1.1.1 | F71 | a | ASCII look-alikes in text nodes (`-{2,}>`) | `<option>QUICKMENU ----></option>` in the header select. Not annotated by W3C; best candidate | M |
+| 4 | home | 1.3.2 | F1 | d | Compare visual order with DOM order | Three teaser columns built with CSS `float: left` on `.newsheadline`, `.image`, `.story`; read as one run of text (W3C note 06) | H |
+| 5 | home | 1.3.2 | F49 | d | Compare visual order with DOM order | Nested layout tables for the whole page (header, nav column, content); not annotated per element | M |
+| 6 | home | 1.4.1 | F73 | a | Inline link with no underline in any state | CSS `#main * { text-decoration: none }` + `#main a { color: #226C8E }`; inline links "Click here" (x2), "Read More..." (x2) differ from text only by colour (3.6:1), no hover/focus cue | H |
+| 7 | home | 1.4.5 | IMGTXT | d | Detect text inside images | `nav_*.gif` (4), `top_logo.gif`, `telefon_white_bg.gif` | H |
+| 8 | home | 2.1.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on 14 links: the 4 nav image links, 3 teaser headlines, 3 `morearrow.gif` links, 2 "Click here", 2 "Read More..." | H |
+| 9 | home | 2.4.1 | BYPASS | a | No in-page link before repeated blocks | Zero `href="#..."` links and zero `a[name]` targets inside `#page`; header, QUICKMENU and nav repeat on every page | H |
+| 10 | home | 2.4.6 | HEAD | a | Page has heading-like text but no `h1`-`h6` | Zero `h1`-`h6` in `#page`; `.headline` "Welcome to CityLights", `.subheadline` "Elsewhere on the Web" | H |
+| 11 | home | 2.4.7 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on 14 links: the 4 nav image links, 3 teaser headlines, 3 `morearrow.gif` links, 2 "Click here", 2 "Read More..." | H |
+| 12 | home | 2.4.7 | F78 | a | Link with `onfocus` calling `blur()` (same detector) | No `outline` or `:focus` rule in the page CSS or `meta.css`; the indicator is removed only by `blur()` | M |
+| 13 | home | 3.2.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on 14 links: the 4 nav image links, 3 teaser headlines, 3 `morearrow.gif` links, 2 "Click here", 2 "Read More..." | H |
+| 14 | home | 3.2.4 | CONSIST | c | Compare repeated components across pages | Nav markup is identical on all 4 pages (`td#home/news/tickets/survey` > `img name=nav_*`), and none of the images has an alt, so the shared nav "is not identified at all" (W3C wording) | H |
+| 15 | home | 4.1.1 | F70 | b | Nu HTML Checker, parse errors only | unclosed `<FONT>` in `td#WEATHER` (L215), `</TD>` with open elements (L227), stray `</TR>` (L362), cell spanning past its row group (L305) | H |
+| 16 | home | 4.1.2 | F79 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on 14 links: the 4 nav image links, 3 teaser headlines, 3 `morearrow.gif` links, 2 "Click here", 2 "Read More..." | H |
+| 17 | news | 1.1.1 | F20 | e | - | Not annotated by W3C. Not the nav rollovers: survey has the same `switchImage` rollovers and no F20 row. Only candidates: `blanca.jpg`, `smzappa2.jpg` alts | L |
+| 18 | news | 1.1.1 | F39 | e | - | No decorative image with a non-empty alt in `#page`; the only non-empty alts are content images (`top_logo.gif`, `smzappa2.jpg`, `blanca.jpg`). Home's real case (`list_bullets.gif` alt="bullet") is already matched | M |
+| 19 | news | 1.1.1 | F71 | a | ASCII look-alikes in text nodes (`-{2,}>`) | `<option>QUICKMENU ----></option>` in the header select. Not annotated by W3C; best candidate | M |
+| 20 | news | 1.3.1 | F43 | d | Judge whether markup matches the content structure | Not annotated as F43. Candidates: italic `<span style="font-style: italic">` used as emphasis (note 07), `<p align=center><font size=3>Return To Sender</font>` (note 08) | L |
+| 21 | news | 1.3.2 | F1 | d | Compare visual order with DOM order | 11 inline-styled `<div style="float:left/right; width:48%">` columns | M |
+| 22 | news | 1.3.2 | F49 | d | Compare visual order with DOM order | Nested layout tables for the whole page (header, nav column, content); not annotated per element | M |
+| 23 | news | 1.3.2 | SEQ | d | Compare visual order with DOM order | "Your Shout" shows under the violin-case story but comes after "Tough Wahoonie" in the code (W3C note 04) | H |
+| 24 | news | 1.4.1 | F73 | a | Inline link with no underline in any state | CSS `#main a { color: #226C8E; text-decoration: none }` and the hover/active rule also `text-decoration: none`; inline links "the way that air conditioning works" (W3C note 06), "trombone forgery debacle" | H |
+| 25 | news | 1.4.3 | CR | e | - | A computed check of every text node (colour vs resolved background, 4.5:1 or 3:1 for large text) found nothing failing, and no text sits on a background image. Possibly text inside images | L |
+| 26 | news | 1.4.5 | IMGTXT | d | Detect text inside images | `nav_*.gif` (4), `top_logo.gif` | H |
+| 27 | news | 2.1.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 28 | news | 2.4.1 | BYPASS | a | No in-page link before repeated blocks | Zero `href="#..."` links and zero `a[name]` targets inside `#page`; header, QUICKMENU and nav repeat on every page | H |
+| 29 | news | 2.4.6 | HEAD | a | Page has heading-like text but no `h1`-`h6` | Zero `h1`-`h6` in `#page`; 8 `p.headline` (e.g. "Heat wave linked to temperatures", "Your Shout") plus `<font size=5/7>` | H |
+| 30 | news | 2.4.7 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 31 | news | 2.4.7 | F78 | a | Link with `onfocus` calling `blur()` (same detector) | No `outline` or `:focus` rule in the page CSS or `meta.css`; the indicator is removed only by `blur()`. The CSS's only focus-like selector is `a:focused`, which is invalid and matches nothing | M |
+| 32 | news | 3.2.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 33 | news | 3.2.4 | CONSIST | c | Compare repeated components across pages | Nav markup is identical on all 4 pages (`td#home/news/tickets/survey` > `img name=nav_*`), and none of the images has an alt, so the shared nav "is not identified at all" (W3C wording) | H |
+| 34 | news | 4.1.1 | F70 | b | Nu HTML Checker, parse errors only | unclosed `<FONT>` in `td#WEATHER` (L117), `</TD>` with open elements (L129), `<TD>` start tag in table body (L202), `<p class=headline>` directly in `<table>` (L210; validator stops here, so the list is partial) | H |
+| 35 | news | 4.1.2 | F79 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 36 | tickets | 1.1.1 | F20 | e | - | Not annotated by W3C. Not the nav rollovers (same reason as news). Only candidate: `telefon_lightgrey_bg.gif` alt="music line phone number" (x2) | L |
+| 37 | tickets | 1.1.1 | F39 | e | - | No decorative image with a non-empty alt in `#page`; the only non-empty alts are content images (`top_logo.gif`, `telefon_lightgrey_bg.gif`) | M |
+| 38 | tickets | 1.1.1 | F71 | fix | Already found: axe image-alt violation | `<img src="headline_ticket_offers.gif">` with no alt, image of text used as a heading; W3C note 01 cites F71 for it. Matches `F-before-tickets-el0165-1.1.1` | M |
+| 39 | tickets | 1.3.1 | F46 | a | Layout table containing `th` | One-row 600px table whose only cell is `<th style="padding-bottom:10px"><img src="headline_ticket_prices.gif"></th>` | H |
+| 40 | tickets | 1.3.2 | F49 | d | Compare visual order with DOM order | Nested layout tables for the whole page (header, nav column, content); not annotated per element | M |
+| 41 | tickets | 1.4.1 | F73 | e | - | No links in body text. The only links are the nav images and the footer links, which render underlined | M |
+| 42 | tickets | 1.4.5 | IMGTXT | d | Detect text inside images | `headline_ticket_offers.gif`, `headline_ticket_prices.gif`, `telefon_lightgrey_bg.gif` (W3C notes 01, 04), `nav_*.gif` | H |
+| 43 | tickets | 2.1.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 44 | tickets | 2.4.1 | BYPASS | a | No in-page link before repeated blocks | Zero `href="#..."` links and zero `a[name]` targets inside `#page`; header, QUICKMENU and nav repeat on every page | H |
+| 45 | tickets | 2.4.4 | F63 | e | - | No links in body text; only nav image links and the footer (Copyright, W3C, MIT, ERCIM, Keio) | M |
+| 46 | tickets | 2.4.6 | HEAD | a | Page has heading-like text but no `h1`-`h6` | Zero `h1`-`h6` in `#page`; headings are images (`headline_ticket_offers.gif`, `headline_ticket_prices.gif`) plus `<font size=4>` "Citylights Terms and Conditions" | H |
+| 47 | tickets | 2.4.7 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 48 | tickets | 2.4.7 | F78 | a | Link with `onfocus` calling `blur()` (same detector) | No `outline` or `:focus` rule in the page CSS or `meta.css`; the indicator is removed only by `blur()` | M |
+| 49 | tickets | 3.2.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 50 | tickets | 3.2.4 | CONSIST | c | Compare repeated components across pages | Nav markup is identical on all 4 pages (`td#home/news/tickets/survey` > `img name=nav_*`), and none of the images has an alt, so the shared nav "is not identified at all" (W3C wording) | H |
+| 51 | tickets | 4.1.1 | F70 | b | Nu HTML Checker, parse errors only | unclosed `<FONT>` in `td#WEATHER` (L112), `</TD>` with open elements (L124), `<td>` start tag in table body (L192), stray `</TR>` (L290) | H |
+| 52 | tickets | 4.1.2 | F79 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 53 | survey | 1.1.1 | F39 | e | - | No decorative image with a non-empty alt in `#page`; the only non-empty alt is `top_logo.gif`, and the 25 `gif.gif` spacers correctly use alt="" | M |
+| 54 | survey | 1.1.1 | F71 | a | ASCII look-alikes in text nodes (`-{2,}>`) | `<option>QUICKMENU ----></option>` and `<option>select a city -----></option>` | M |
+| 55 | survey | 1.3.1 | F46 | a | Layout table containing `th` | Question text in `<th>` inside the form's layout tables: "Which is your favorite city park" (500px table with 4 nested tables), "Which city do you find is the greenest", "Do you want to receive a free newsletter" | H |
+| 56 | survey | 1.3.2 | F49 | d | Compare visual order with DOM order | Form labels and fields linearise in the wrong order: Name: [radio] Mr. [radio] Mrs. [text] [text] [text] eMail Address ... (W3C note 06) | H |
+| 57 | survey | 1.4.1 | F73 | e | - | No links in body text. The only links are the nav images and the footer links, which render underlined | M |
+| 58 | survey | 1.4.1 | F81 | e | - | No colour cue on the served form: all text computes `#000`, no asterisks, inputs styled alike. The form posts to `survey.php`; the cue may only appear on the error page after submitting, which we never scan | L |
+| 59 | survey | 1.4.3 | CR | e | - | A computed check of every text node (colour vs resolved background, 4.5:1 or 3:1 for large text) found nothing failing, and no text sits on a background image. Possibly text inside images | L |
+| 60 | survey | 1.4.5 | IMGTXT | d | Detect text inside images | `nav_*.gif` (4), `top_logo.gif` | H |
+| 61 | survey | 2.1.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 62 | survey | 2.4.1 | BYPASS | a | No in-page link before repeated blocks | Zero `href="#..."` links and zero `a[name]` targets inside `#page`; header, QUICKMENU and nav repeat on every page | H |
+| 63 | survey | 2.4.3 | F85 | d | Compare focus order with visual layout | No `tabindex` on the page; DOM order of the newsletter form differs from its visual layout (W3C note 06, cites 2.4.3) | M |
+| 64 | survey | 2.4.4 | F63 | e | - | No links in body text; only nav image links and the footer (Copyright, W3C, MIT, ERCIM, Keio) | M |
+| 65 | survey | 2.4.6 | HEAD | a | Page has heading-like text but no `h1`-`h6` | Zero `h1`-`h6` in `#page`; 3 `.headline` ("Citylights Survey", "This Week's Survey...", "Last Weeks's Survey Results") | H |
+| 66 | survey | 2.4.7 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 67 | survey | 2.4.7 | F78 | a | Link with `onfocus` calling `blur()` (same detector) | No `outline` or `:focus` rule in the page CSS or `meta.css`; the indicator is removed only by `blur()` | M |
+| 68 | survey | 3.2.1 | F55 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
+| 69 | survey | 3.2.4 | CONSIST | c | Compare repeated components across pages | Nav markup is identical on all 4 pages (`td#home/news/tickets/survey` > `img name=nav_*`), and none of the images has an alt, so the shared nav "is not identified at all" (W3C wording) | H |
+| 70 | survey | 4.1.1 | F70 | b | Nu HTML Checker, parse errors only | unclosed `<FONT>` in `td#WEATHER` (L118), `</TD>` with open elements (L130), no space between attributes `<div id="data"style=...>` (L541), stray `</TR>` (L591) | H |
+| 71 | survey | 4.1.2 | F79 | a | Link with `onfocus` calling `blur()` | `<a ... onfocus="blur()">` on the 4 nav image links (`nav_home/news/facts/survey.gif`) | H |
 
-| Criteria (pages) | What to look for |
-|---|---|
-| 4.1.1 F70 (all 4) | No duplicate IDs inside `#page`, so the errors are tag/attribute structure. Example from W3C's news annotation: block `<P class=headline>` nested inside inline `<font size="5" color="#FFFFFF">`. Running the Nu HTML Checker on each page is the reliable way to list them; I have not run it. |
+## What this means for 90%
 
-## (c) Comparing pages — 4 rows
+90% of 130 rows is 117. Cumulative best case, if every new finding is counted as an issue:
 
-| Criteria (pages) | Evidence |
-|---|---|
-| 3.2.4 (all 4) | The same 4 nav images appear on every page (`nav_home`, `nav_news`, `nav_facts`, `nav_survey`) and none has an alt, so the shared nav "is not identified at all" (W3C wording). A cross-page check would flag a repeated component with no accessible name on every page. Note the root cause is already flagged per page as 1.1.1 / 2.4.4 `image-alt` / `link-name`; mapping those to 3.2.4 when the same component repeats across pages may be cheaper than a true page diff. |
-
-## (d) AI on the screenshot / page — 20 rows
-
-| Criteria (pages) | Rows | What the AI has to judge |
+| Step | Caught | Recall |
 |---|---|---|
-| 1.3.2 F1, F49, reading order (home F1, F49; news SEQ, F1, F49; tickets F49; survey F49) | 7 | Visual order vs DOM order. Home: three teaser columns read as one run of text (W3C note 06). News: "Your Shout" shows under the violin-case story but comes after "Tough Wahoonie" in the code (note 04). Survey: labels and fields in the wrong order when linearised (note 06). The rest: nested layout tables. Needs screenshot + DOM order compared. |
-| 1.4.5 images of text (all 4) | 4 | Header and nav are images of text (`nav_*.gif`, `top_logo.gif`; tickets phone number `telefon_lightgrey_bg.gif`). Recognising text inside an image needs vision. |
-| 1.4.3 contrast (news, survey) | 2 | A computed-style check of text colour vs background colour found nothing below 4.5:1 on news, so the failure is likely text on images or in images. Needs the screenshot. |
-| 1.4.1 F73 (tickets, survey) | 2 | No inline body-text links on these pages; the only styled links are the 5 footer links (`Copyright`, `W3C`, `MIT`, `ERCIM`, `Keio`, coloured with `<font color>`). Needs a visual check for whether they look like links. |
-| 1.4.1 F81 (survey) | 1 | Required fields marked by colour only. All form text computes to `#000`, so the cue is not text colour; probably a coloured background or image. Needs the screenshot. |
-| 2.4.4 F63 (tickets, survey) | 2 | Link purpose depends on unrelated context; candidates are the footer links. Needs language judgement, not a scanner rule. |
-| 1.3.1 F43 (news) | 1 | Structural markup that doesn't match the content (e.g. styled `<p>` and `<font>` used as headings and list items in the news articles). Needs judgement of what the structure should be. |
-| 2.4.3 F85 (survey) | 1 | Focus order of the survey form vs its visual layout (W3C note 06). No `tabindex` on the page, so it's DOM order vs visual order. |
+| Today | 59 | 45% |
+| + GT corrections | 61 | 47% |
+| + (a) code rules | 97 | 75% |
+| + (b) validator | 101 | 78% |
+| + (c) page comparison | 105 | 81% |
+| + (d) AI on screenshot | 118 | 91% |
 
-## (e) Not found in page source — 3 rows
+Group (e) (12 rows) can't be caught by any detector until we know what W3C meant. If the team drops them, the denominator becomes 118 and the same steps reach 100% (every remaining row); without group (d) it would be 89%.
 
-| Criteria (pages) | Note |
-|---|---|
-| 1.1.1 F39 (news, tickets, survey) | W3C's report lists F39 (decorative image with a non-null alt), but no such image is in these pages' `#page`. The only non-empty alts are content images (`top_logo.gif`, `smzappa2.jpg`, `blanca.jpg`, `telefon_lightgrey_bg.gif`). Home's case (`list_bullets.gif` alt="bullet") is real and already matched. Suggest we check with the team whether these three rows should stay in the ground truth. |
+These are upper bounds: a finding only counts toward issue-level recall if the router reports it as an issue (machine, or grey with `likely_fail`).
 
-## Caveats
-
-- Group choices are judgement calls in a few places: contrast and color-only links can sometimes be computed in code, and fake headings could also be a vision check. The reasons are given per row above.
-- Evidence was read from the live W3C pages on Oct 20, 2026.

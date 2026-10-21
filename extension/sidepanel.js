@@ -116,18 +116,39 @@ function decisionSummary(decision, currentRunId) {
   return text;
 }
 
+// Track C's ai.recommendation (docs/TRACKS.md), in plain words.
+const LEANINGS = {
+  likely_fail: "likely fails this criterion",
+  likely_pass: "likely passes this criterion",
+  unsure: "unsure",
+};
+
+function aiLeaning(data, isStub, isSkipped) {
+  if (isStub) return "none (placeholder output)";
+  if (isSkipped) return "none (the AI skipped this finding, so it was not evaluated)";
+  const value = data.recommendation;
+  if (!value) return "none given";
+  let text = LEANINGS[value] || String(value);
+  if (typeof data.confidence === "number") text += ` (confidence ${data.confidence})`;
+  return text;
+}
+
 function aiSection(ai) {
-  const data = ai || {};
-  // Track C has not fixed the name of the "leaning" field yet; show it when one of these appears.
-  const leaning = data.leaning || data.suggestion || data.recommendation || "";
+  const data = ai && typeof ai === "object" ? ai : {};
   const isStub = data.case_for === "STUB" || data.prompt_version === "STUB";
-  let suggestion = leaning ? String(leaning) : "none given";
-  if (typeof data.confidence === "number") suggestion += ` (confidence ${data.confidence})`;
+  const isSkipped = typeof data.case_for === "string" && data.case_for.startsWith("SKIPPED:");
+  let citations = null;
+  if (!isStub && !isSkipped && typeof data.citations_verified === "boolean") {
+    citations = data.citations_verified
+      ? "Quotes checked: every quote was found in this finding's evidence."
+      : "Quotes checked: some quotes could not be found in this finding's evidence. Read the cases with care.";
+  }
 
   return el("section", { class: "ai", "aria-label": "AI suggestion" }, [
     el("p", { class: "ai-label", text: "AI suggestion: written by AI, not a decision" }),
-    isStub ? el("p", { class: "muted", text: "Placeholder text: the FOR and AGAINST agents are not built yet." }) : null,
-    el("p", { text: `AI leaning: ${suggestion}` }),
+    isStub ? el("p", { class: "muted", text: "Placeholder text: the FOR and AGAINST agents did not run for this finding." }) : null,
+    el("p", { text: `AI leaning: ${aiLeaning(data, isStub, isSkipped)}` }),
+    citations ? el("p", { class: "muted", text: citations }) : null,
     el("div", { class: "cases" }, [
       el("div", {}, [el("h4", { text: "Case FOR a failure" }), el("p", { text: data.case_for || "None" })]),
       el("div", {}, [el("h4", { text: "Case AGAINST a failure" }), el("p", { text: data.case_against || "None" })]),
@@ -252,7 +273,99 @@ function findingCard(finding, runId) {
   ]);
 
   const summary = el("summary", {}, [el("span", { class: "criterion", text: title + level }), badgeSlot]);
-  return el("details", { class: "finding" }, [summary, body]);
+  const where = el("p", { class: "muted", role: "status", "aria-live": "polite" });
+  body.prepend(where);
+  const card = el("details", { class: "finding" }, [summary, body]);
+  card.addEventListener("toggle", () => {
+    if (card.open) showOnPage(finding.finding_id, evidence.selector, where, card);
+    else clearOnPage(finding.finding_id, where);
+  });
+  return card;
+}
+
+// ---------------------------------------------------------------- showing a finding on the page
+
+const HIGHLIGHT_MESSAGES = {
+  highlighted: "Outlined on the page in red.",
+  "page-level": "This finding is about the whole page, so there is nothing to outline.",
+  "no-selector": "This finding has no location on the page to outline. Use the snippet and screenshot.",
+  "not-found": "This element could not be found on the page as it is now.",
+  hidden: "This element is on the page but hidden, so it can't be outlined. Use the snippet and screenshot.",
+  "bad-selector": "This element's location can't be used to find it on the page. Use the snippet and screenshot.",
+};
+
+// The finding whose element is outlined, its card's status line, and the tab it is outlined in.
+let outlined = null; // { findingId, where, tabId }
+
+// The active tab, but only while it is still the page this list was built for.
+async function listTabId() {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab || typeof tab.id !== "number" || stripUrl(tab.url) !== shownUrl) return null;
+  return tab.id;
+}
+
+// The outline belongs to at most one card; tell the card that just lost it.
+function releaseOutline(newOwner) {
+  if (outlined && outlined.where !== newOwner) outlined.where.textContent = "";
+  outlined = null;
+}
+
+// Tell a tab to drop its outline. With an owner, only that finding's outline is removed.
+async function clearInTab(tabId, owner) {
+  try {
+    await chrome.tabs.sendMessage(tabId, owner ? { type: "pulse-clear", owner } : { type: "pulse-clear" });
+  } catch (error) {
+    // the page has navigated away or has no content script, so nothing is outlined there
+  }
+}
+
+// Ask the page (content.js) to scroll to the element and outline it.
+async function showOnPage(findingId, selector, where, card) {
+  if (typeof findingId !== "string" || !findingId) {
+    where.textContent = "This finding has no ID, so it can't be outlined on the page.";
+    return;
+  }
+  try {
+    const tabId = await listTabId();
+    if (tabId === null) return; // the tab has moved on; the list is about to reload
+    // The same page can be open in two tabs: take an outline off the other tab before drawing one here.
+    if (outlined && outlined.tabId !== tabId) {
+      clearInTab(outlined.tabId);
+      releaseOutline(where); // that card's outline is gone even if this tab can't answer
+    }
+    const answer = await chrome.tabs.sendMessage(tabId, { type: "pulse-highlight", owner: findingId, selector });
+    releaseOutline(where); // content.js removed any earlier outline before answering
+    const result = answer && answer.result;
+    if (result === "highlighted" && (!card.open || !where.isConnected)) {
+      // The card was closed, or the list rebuilt, while the page was answering: take the outline back off.
+      clearInTab(tabId, findingId);
+      return;
+    }
+    if (result === "highlighted") outlined = { findingId, where, tabId };
+    where.textContent = HIGHLIGHT_MESSAGES[result] || "";
+  } catch (error) {
+    // Usually there is no content script in this tab yet: the page was open before PULSE was installed
+    // or reloaded. Log it, so any other kind of fault still shows up in the console.
+    console.error("PULSE: could not outline the finding on the page", error);
+    where.textContent = selector === "html" ? HIGHLIGHT_MESSAGES["page-level"]
+      : "Reload the demo page to see findings outlined on it.";
+  }
+}
+
+async function clearOnPage(findingId, where) {
+  where.textContent = "";
+  if (!outlined || outlined.findingId !== findingId) return; // another card owns the outline
+  const { tabId } = outlined;
+  outlined = null;
+  await clearInTab(tabId, findingId); // the tab it was drawn in, even if another tab is active now
+}
+
+// Remove any outline before the list is rebuilt, since the open cards are about to go.
+async function clearAllOnPage() {
+  if (!outlined) return;
+  const { tabId } = outlined;
+  outlined = null;
+  await clearInTab(tabId);
 }
 
 // ---------------------------------------------------------------- the list for the current tab
@@ -304,6 +417,7 @@ async function reloadIfPageChanged() {
 
 async function load() {
   const mine = ++loadCounter;
+  clearAllOnPage();
   const pageLine = document.getElementById("page-line");
   document.getElementById("findings").replaceChildren();
   setStatus("Loading…");

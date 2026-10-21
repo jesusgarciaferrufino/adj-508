@@ -1,6 +1,7 @@
 """Track F: the PULSE review API. Every test uses a temp data folder and made-up tokens."""
 
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -505,3 +506,27 @@ def test_a_422_says_what_is_wrong_without_echoing_the_request(client, data):
     r = client.post("/decisions", content=raw, headers={**auth(DANIEL), "Content-Type": "application/json"})
     assert r.status_code == 422 and not (data / "reviews").exists()
     assert client.get("/findings", params={"run_id": RUN}).status_code == 200
+
+
+# ---------------------------------------------------------------- the extension's manifest
+
+
+def test_extension_asks_for_no_more_than_it_needs():
+    """MV3 rules from the Track F handoff: two hosts only, the page script only on the demo, no remote code."""
+    folder = ROOT / "extension"
+    manifest = json.loads((folder / "manifest.json").read_text())
+    assert manifest["manifest_version"] == 3
+    assert manifest["permissions"] == ["sidePanel", "storage"]
+    assert manifest["host_permissions"] == ["https://www.w3.org/WAI/demos/bad/*", "http://localhost:8000/*"]
+    assert [(c["matches"], c["js"]) for c in manifest["content_scripts"]] == [
+        (["https://www.w3.org/WAI/demos/bad/*"], ["content.js"])]
+    scripts = [manifest["background"]["service_worker"], *manifest["content_scripts"][0]["js"], "sidepanel.js"]
+    for name in scripts:
+        assert (folder / name).is_file(), f"manifest names {name}, which is not in extension/"
+        code = (folder / name).read_text()
+        for banned in ("innerHTML", "outerHTML", "insertAdjacentHTML", "document.write", "eval(", "new Function"):
+            assert banned not in code, f"{name} uses {banned}"
+        assert all(url.startswith(("http://localhost:8000", "https://www.w3.org/WAI/demos/bad/"))
+                   for url in re.findall(r"https?://[^\s\"'`)]+", code)), f"{name} talks to another site"
+    html = (folder / "sidepanel.html").read_text()
+    assert re.findall(r"<script[^>]*src=\"([^\"]+)\"", html) == ["sidepanel.js"], "only the bundled panel script"

@@ -45,7 +45,7 @@ format) and returns ONLY the fields it adds. The graph merges them in; nested di
 `ai` are merged one level deep, so never return a rewritten copy of the finding.
 - `agents/mapper.py`: `map_finding(finding) -> {"mapping": {"sc", "name", "level", "spec_url", ...}}`; a finding it can't map returns `{"mapping": {"sc", "rejected": reason}}` instead of raising (Track B)
 - `agents/router.py`: `route_finding(finding) -> {"bucket": "machine"|"grey"|"human-only", "route_reason": str}` (Track C)
-- `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "recommendation": "likely_fail"|"likely_pass"|"unsure", "confidence": None, "citations_verified": bool, "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only). A skipped finding has `case_for` starting `SKIPPED:` and `recommendation: "unsure"`; count it as not evaluated, not as a result.
+- `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "recommendation": "likely_fail"|"likely_pass"|"unsure"|None, "confidence": None, "citations_verified": bool, "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only). A skipped finding has `case_for` starting `SKIPPED:` and `recommendation: None`; count it as not evaluated, not as a result (and not as `unsure`).
 Until a track's file is merged, agents/graph.py uses a stub in its place.
 
 ## Router policy v1 (decided Oct 9)
@@ -56,8 +56,11 @@ Until a track's file is merged, agents/graph.py uses a stub in its place.
 3. Criterion marked `human_only: true` in `rag/wcag20_aa.json`: `human-only`.
 4. Everything else (`needs_review`, element-level notices): `grey`. FOR/AGAINST runs on these.
 
-A grey finding counts as an **issue** only when `ai.recommendation == "likely_fail"`. A grey
-finding that leans pass or is unsure is "flagged for a human", not an issue. Either way, AI
+**Issue rule (decided Oct 17).** A finding is an **issue** if `bucket == "machine"`, or if
+`bucket == "grey"` and `ai.recommendation == "likely_fail"` and `ai.citations_verified` is true.
+Everything else that surfaced (an unverified likely_fail, likely_pass, unsure, not evaluated
+`None`, or human-only) is "flagged for a human", not an issue. The single implementation is
+`is_issue(finding)` in `agents/evidence.py`; import it, never copy the rule. Either way, AI
 never sets the final status: only a human decision in `data/reviews/` does.
 
 ## Phase history

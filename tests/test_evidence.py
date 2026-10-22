@@ -158,7 +158,7 @@ def test_call_cap_skips_without_calling(finding, monkeypatch):
     client = FakeClient()
     ai = evidence.build_cases(finding, client=client)["ai"]
     assert client.prompts == [] and ai["case_for"] == "SKIPPED: call cap reached"
-    assert ai["recommendation"] == "unsure" and ai["citations_verified"] is False
+    assert ai["recommendation"] is None and ai["citations_verified"] is False  # not evaluated, not "unsure"
 
 
 def test_evidence_only_skips_unselected(finding, monkeypatch):
@@ -166,6 +166,7 @@ def test_evidence_only_skips_unselected(finding, monkeypatch):
     client = FakeClient()
     ai = evidence.build_cases(finding, client=client)["ai"]
     assert client.prompts == [] and ai["case_for"].startswith("SKIPPED: not selected")
+    assert ai["recommendation"] is None and not evidence.grey_is_issue(ai)
 
 
 def test_evidence_only_runs_selected(finding, monkeypatch):
@@ -199,3 +200,41 @@ def test_reply_with_text_and_braces_around_the_json():
             '"quoted_evidence": ["Click here"], "strength": 2} Hope that helps {:)}')
     side = evidence.parse_side(text)
     assert side["argument"] == "uses {braces}" and side["strength"] == 2
+
+
+@pytest.mark.parametrize("recommendation,verified,issue", [
+    ("likely_fail", True, True),
+    ("likely_fail", False, False),   # unverified citations: flagged for a human, never an issue
+    ("likely_fail", None, False),
+    ("likely_pass", True, False),
+    ("unsure", True, False),
+    (None, False, False),            # skipped: not evaluated
+])
+def test_grey_issue_rule(recommendation, verified, issue):
+    assert evidence.grey_is_issue({"recommendation": recommendation, "citations_verified": verified}) is issue
+
+
+@pytest.mark.parametrize("bucket,recommendation,verified,issue", [
+    ("machine", None, False, True),           # machine findings are always issues
+    ("grey", "likely_fail", True, True),
+    ("grey", "likely_fail", False, False),    # unverified citations: flagged for a human
+    ("grey", "likely_pass", True, False),
+    ("grey", "unsure", True, False),
+    ("grey", None, False, False),             # skipped: not evaluated
+    ("human-only", "likely_fail", True, False),
+])
+def test_issue_rule_for_whole_findings(bucket, recommendation, verified, issue):
+    finding = {"bucket": bucket, "ai": {"recommendation": recommendation, "citations_verified": verified}}
+    assert evidence.is_issue(finding) is issue
+
+
+def test_machine_finding_with_no_ai_is_still_an_issue():
+    assert evidence.is_issue({"bucket": "machine"}) and not evidence.is_issue({"bucket": "grey"})
+
+
+def test_skipped_result_passes_the_shared_loader(finding, monkeypatch):
+    from scanners.findings import validate_findings
+    monkeypatch.setattr(settings, "MAX_BEDROCK_CALLS", 0)
+    ai = evidence.build_cases(finding)["ai"]  # no client needed: skipped before any call
+    merged = {**finding, "ai": {**finding["ai"], **ai}}
+    assert validate_findings([merged])[0].ai.recommendation is None

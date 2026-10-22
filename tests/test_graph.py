@@ -89,3 +89,34 @@ def test_summary_lists_stub_nodes(tmp_path, monkeypatch):
 def test_run_logs_live_in_the_repo_whatever_the_current_folder():
     assert runlog.RUNS_DIR == REPO / "data" / "runs"
     assert runlog.RUNS_DIR.is_absolute()
+
+
+def test_skipped_findings_are_not_counted_as_case_files(tmp_path, monkeypatch):
+    """With the call cap at 0 every grey finding is skipped: 0 case files, not "90 case files written"."""
+    import agents.evidence as evidence
+    import settings
+
+    monkeypatch.setattr(graph, "route_finding", lambda f: {"bucket": "grey", "route_reason": "test"})
+    monkeypatch.setattr(graph, "build_cases", evidence.build_cases)  # real agent, skipped before any call
+    monkeypatch.setattr(evidence, "_calls_made", 0)
+    monkeypatch.setattr(settings, "MAX_BEDROCK_CALLS", 0)
+    monkeypatch.setattr(settings, "EVIDENCE_ONLY", frozenset())
+
+    final, log = run_pipeline(tmp_path, monkeypatch)
+    summary = json.loads((log.dir / "summary.json").read_text())
+    n = len(final["findings"])
+    assert summary["case_files"] == 0 and summary["skipped"] == n
+    assert summary["tokens"] == {"input": 0, "output": 0} and summary["prompt_versions"] == []
+    assert all(f["ai"]["recommendation"] is None for f in final["findings"])
+
+
+def test_case_file_counts_split_written_skipped_and_failed():
+    findings = [
+        {"finding_id": "a", "bucket": "grey", "ai": {"case_for": "Specific argument."}},
+        {"finding_id": "b", "bucket": "grey", "ai": {"case_for": "SKIPPED: call cap reached"}},
+        {"finding_id": "c", "bucket": "grey", "ai": {"case_for": ""}},          # call failed
+        {"finding_id": "d", "bucket": "machine", "ai": {"case_for": ""}},
+    ]
+    errors = [{"node": "evidence", "finding_id": "c", "error": "RuntimeError: boom"}]
+    written, skipped = graph.case_file_counts(findings, errors)
+    assert [a["case_for"] for a in written] == ["Specific argument."] and skipped == 1

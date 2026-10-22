@@ -15,8 +15,9 @@ ask, so they are spelled out here:
 - **Reported as an issue:** `bucket == "machine"`, or `bucket == "grey"` and
   `ai.recommendation == "likely_fail"` and `ai.citations_verified` is true. Every ACR statement
   must link to evidence, and an unverified citation is exactly the case where it doesn't, so a
-  likely_fail with unverified citations is flagged for a human, never an issue. The same rule
-  holds in agents/evidence.py and reports/matrix.py. With --stub-grey-counts, every grey finding
+  likely_fail with unverified citations is flagged for a human, never an issue. The rule is
+  imported from agents/evidence.py is_issue(finding), the one implementation the matrix also
+  uses, so the two can't drift apart. With --stub-grey-counts, every grey finding
   counts as reported (for runs where the evidence agent was skipped or a stub); the output says so.
 - **Flagged for a human:** not reported, and `bucket == "human-only"` or `bucket == "grey"`.
   A grey finding that leans pass, is unsure, was not evaluated, or is a likely_fail with
@@ -62,6 +63,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from agents.evidence import grey_is_issue, is_issue
 from scanners.findings import PAGES, REPO, FindingsFileError, validate_findings
 from scanners.wcag import WCAG20_A_AA
 
@@ -171,16 +173,13 @@ def runs_by_page(run_ids: list[str], runs_dir: Path | None = None) -> dict[tuple
 
 
 def is_reported(f: dict, stub_grey: bool = False) -> bool:
-    """Reported as an issue: machine, or grey likely_fail with verified citations (see the docstring)."""
-    bucket = f.get("bucket")
-    if bucket == "machine":
+    """Reported as an issue: the shared rule, agents.evidence.is_issue (see the docstring).
+
+    --stub-grey-counts overrides it for grey findings only, for runs where evidence was skipped.
+    """
+    if stub_grey and f.get("bucket") == "grey":
         return True
-    if bucket == "grey":
-        if stub_grey:
-            return True
-        ai = f.get("ai") or {}
-        return ai.get("recommendation") == "likely_fail" and ai.get("citations_verified") is True
-    return False
+    return is_issue(f)
 
 
 def is_flagged(f: dict, stub_grey: bool = False) -> bool:
@@ -193,8 +192,9 @@ def _surfaced(f: dict, stub_grey: bool = False) -> bool:
 
 
 def is_unverified_fail(f: dict) -> bool:
+    """A grey likely_fail that the issue rule rejects because its citations were not verified."""
     ai = f.get("ai") or {}
-    return f.get("bucket") == "grey" and ai.get("recommendation") == "likely_fail" and not ai.get("citations_verified")
+    return f.get("bucket") == "grey" and ai.get("recommendation") == "likely_fail" and not grey_is_issue(ai)
 
 
 RECOMMENDATIONS = ("likely_fail", "likely_pass", "unsure")

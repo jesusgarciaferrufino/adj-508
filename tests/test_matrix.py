@@ -260,8 +260,8 @@ def test_evidence_lines_up_with_finding_ids(fake_run):
 
 
 def test_ai_leaning_counts_none_on_its_own(rows):
-    assert rows["2.4.2"]["ai_leaning"] == "AI: likely_fail 0, likely_pass 0, unsure 0, none 1"
-    assert rows["2.4.4"]["ai_leaning"] == "AI: likely_fail 0, likely_pass 0, unsure 1, none 0"
+    assert rows["2.4.2"]["ai_leaning"] == "AI: likely_fail 0, unverified_fail 0, likely_pass 0, unsure 0, none 1"
+    assert rows["2.4.4"]["ai_leaning"] == "AI: likely_fail 0, unverified_fail 0, likely_pass 0, unsure 1, none 0"
 
 
 def test_ai_leaning_counts_grey_findings_only(rows, fake_run):
@@ -269,14 +269,34 @@ def test_ai_leaning_counts_grey_findings_only(rows, fake_run):
     assert rows["3.1.1"]["ai_leaning"] == ""  # human-only
     mixed = [make_finding(210, "2.4.4", selector="a", screenshot=None, bucket="grey", recommendation="likely_pass"),
              make_finding(211, "2.4.4", selector="a", screenshot=None, bucket="machine", recommendation="likely_fail")]
-    assert build(mixed, {})["2.4.4"]["ai_leaning"] == "AI: likely_fail 0, likely_pass 1, unsure 0, none 0"
+    assert build(mixed, {})["2.4.4"]["ai_leaning"] == ("AI: likely_fail 0, unverified_fail 0, likely_pass 1, "
+                                                       "unsure 0, none 0")
 
 
 def test_skipped_grey_finding_counts_as_none_not_unsure(fake_run):
     # What Track C writes when ADJ_EVIDENCE_ONLY or the call cap skips a finding (CONTEXT.md)
     f = make_finding(210, "2.4.4", selector="a", screenshot=None, bucket="grey", recommendation="unsure")
     f["ai"]["case_for"] = f["ai"]["case_against"] = "SKIPPED: call cap reached"
-    assert build([f], {})["2.4.4"]["ai_leaning"] == "AI: likely_fail 0, likely_pass 0, unsure 0, none 1"
+    assert build([f], {})["2.4.4"]["ai_leaning"] == ("AI: likely_fail 0, unverified_fail 0, likely_pass 0, "
+                                                     "unsure 0, none 1")
+
+
+def test_unverified_likely_fail_is_not_counted_as_likely_fail(fake_run):
+    """Issue rule (CONTEXT.md, Oct 17): a likely_fail counts as one only when its citations were verified."""
+    verified, unverified, no_key = (make_finding(i, "2.4.4", selector="a", screenshot=None, bucket="grey",
+                                                 recommendation="likely_fail") for i in (210, 211, 212))
+    verified["ai"]["citations_verified"] = True
+    unverified["ai"]["citations_verified"] = False
+    del no_key["ai"]["citations_verified"]  # runs from before Track C wrote this field
+    row = build([verified, unverified, no_key], {})["2.4.4"]
+    assert row["ai_leaning"] == "AI: likely_fail 1, unverified_fail 2, likely_pass 0, unsure 0, none 0"
+    assert row["status"] == matrix.STATUS_PENDING  # AI leaning never sets the status
+
+
+def test_matrix_uses_the_shared_issue_rule():
+    """CONTEXT.md: import the rule from agents/evidence.py, never copy it."""
+    from agents import evidence
+    assert matrix.grey_is_issue is evidence.grey_is_issue
 
 
 def test_reviewed_by_names_the_winning_reviewers(fake_run):

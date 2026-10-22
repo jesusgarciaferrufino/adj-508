@@ -24,6 +24,7 @@ import sys
 from collections import Counter
 
 from agents import runlog
+from agents.evidence import grey_is_issue
 from rag import corpus_tools
 from rag.corpus_tools import CorpusError, load_corpus, write_atomic
 from scanners.findings import REPO, FindingsFileError, validate_findings
@@ -42,10 +43,12 @@ STATUS_NOT_APPLICABLE = "Not Applicable (human-confirmed)"  # agreed with Jesus 
 STATUS_PENDING = "Pending human review"
 STATUS_NO_FINDINGS = "No automated findings; human check required"
 
-# The AI's leaning on a grey finding (Track C's ai.recommendation). "none" = a grey finding the AI
-# never evaluated: no recommendation (stub run, failed call), or skipped (Track C writes "unsure" with
-# case_for "SKIPPED: ..."). Counted on its own, never as "unsure".
-AI_LEANINGS = ("likely_fail", "likely_pass", "unsure", "none")
+# The AI's leaning on a grey finding (Track C's ai.recommendation). "likely_fail" counts only when the
+# citations were verified (the issue rule, agents.evidence.grey_is_issue); a likely_fail with unverified
+# citations is "unverified_fail" and goes to a human. "none" = a grey finding the AI never evaluated:
+# skipped (recommendation None, case_for "SKIPPED: ..."; older runs wrote "unsure"), a stub, or a failed
+# call. Each is counted on its own, never folded into "unsure".
+AI_LEANINGS = ("likely_fail", "unverified_fail", "likely_pass", "unsure", "none")
 
 # Track C's router buckets -> the matrix column that counts them
 BUCKET_COLUMNS = {"machine": "machine", "grey": "grey", "human-only": "human_checks"}
@@ -166,6 +169,8 @@ def _leaning(finding):
     ai = finding["ai"]
     if str(ai.get("case_for") or "").startswith("SKIPPED"):  # contract in CONTEXT.md (Track C, #18)
         return "none"
+    if ai.get("recommendation") == "likely_fail" and not grey_is_issue(ai):
+        return "unverified_fail"
     return ai.get("recommendation") or "none"
 
 
@@ -252,7 +257,8 @@ def write_markdown(rows, path, title, notes=()):
     for note in notes:
         lines += [f"> **Warning:** {note}", ""]  # blank line between, or Markdown joins them into one paragraph
     lines += ["Status comes only from human reviewers' decisions. The `ai_leaning` column is the AI's advice "
-              "on grey-area findings, not a status.", ""]
+              "on grey-area findings, not a status. `unverified_fail` means the AI leaned fail but its quotes "
+              "couldn't be checked against the evidence, so a human decides.", ""]
     lines.append("| " + " | ".join(COLUMNS) + " |")
     lines.append("|" + " --- |" * len(COLUMNS))
     lines += ["| " + " | ".join(_md_cell(row[c]) for c in COLUMNS) + " |" for row in rows]

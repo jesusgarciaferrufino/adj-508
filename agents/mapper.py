@@ -161,18 +161,23 @@ def map_all(corpus: dict[str, dict], corpus_hash: str, versions: tuple[str, ...]
 
 
 def read_ground_truth(path: Path = GROUND_TRUTH) -> dict[str, set[str]]:
-    """{finding_id: {criteria}} from the ground-truth sheet's finding_id and wcag columns."""
+    """{finding_id: {criteria}} from the ground-truth sheet's finding_id and wcag columns.
+
+    Rows whose finding_id is not a finding ID (the sheet writes "missed" for an issue no scanner
+    found) can't be matched and are skipped. A finding listed on several rows gets every
+    criterion from all of them.
+    """
     with path.open(newline="", encoding="utf-8-sig") as fh:
         reader = csv.DictReader(fh)
         missing = {"finding_id", "wcag"} - set(reader.fieldnames or [])
         if missing:
             raise ValueError(f"{path.name} is missing column(s) {sorted(missing)}")
-        truth = {}
+        truth: dict[str, set[str]] = {}
         for row in reader:
             fid = (row["finding_id"] or "").strip()
             criteria = {c for c in TRUTH_SPLIT.split(row["wcag"] or "") if c}
-            if fid and criteria:
-                truth[fid] = criteria
+            if fid.startswith("F-") and criteria:
+                truth.setdefault(fid, set()).update(criteria)
     return truth
 
 

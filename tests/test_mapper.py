@@ -18,7 +18,7 @@ from agents.mapper import (
 )
 from rag import corpus_tools
 from rag.corpus_tools import CANONICAL, CONTENT, CorpusError, canonical_errors, corpus_errors, load_corpus
-from scanners.findings import REPO, Finding, FindingsFileError, load_findings, validate_findings
+from scanners.findings import REPO, Finding, FindingsFileError, load_all, load_findings, validate_findings
 from scanners.wcag import WCAG20_A, WCAG20_A_AA, WCAG20_AA
 
 
@@ -86,8 +86,9 @@ def test_spotcheck_with_fewer_overlaps_than_sample_size():
 
 def test_read_ground_truth(tmp_path):
     csv_file = tmp_path / "ground_truth.csv"
-    csv_file.write_text("finding_id,wcag,notes\nF-1,1.1.1,x\nF-2,\"1.3.1; 4.1.2\",\n,2.4.4,\nF-3,,\n")
-    assert read_ground_truth(csv_file) == {"F-1": {"1.1.1"}, "F-2": {"1.3.1", "4.1.2"}}
+    csv_file.write_text("finding_id,wcag,notes\nF-1,1.1.1,x\nF-2,\"1.3.1; 4.1.2\",\n,2.4.4,\nF-3,,\n"
+                        "missed,1.4.1,no scanner found this\nF-1,3.3.2,same finding on a second row\n")
+    assert read_ground_truth(csv_file) == {"F-1": {"1.1.1", "3.3.2"}, "F-2": {"1.3.1", "4.1.2"}}
     bad = tmp_path / "bad.csv"
     bad.write_text("id,criterion\nF-1,1.1.1\n")
     with pytest.raises(ValueError, match="missing column"):
@@ -297,3 +298,13 @@ def test_map_finding_rejects_without_raising(example):
         added = map_finding({**finding, "wcag": wcag})
         assert added["mapping"]["sc"] == sc and "rejected" in added["mapping"]
         assert "name" not in added["mapping"]
+
+
+def test_committed_ground_truth_lines_up_with_the_findings():
+    """The real sheet: every finding ID it names exists in Track A's output, and is read with all its rows."""
+    truth = read_ground_truth()
+    known = {f.finding_id for findings in load_all().values() for f in findings}
+    assert truth, "data/ground-truth/ground_truth.csv has finding IDs"
+    assert set(truth) <= known, f"not a finding: {sorted(set(truth) - known)[:5]}"
+    assert "missed" not in truth
+    assert truth["F-before-home-el0085-4.1.2"] == {"3.3.2", "4.1.2"}  # listed on two rows

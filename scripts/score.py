@@ -27,9 +27,16 @@ ask, so they are spelled out here:
   `missed` rows count in the denominator and never in the numerator.
 - **Before recall (b), issue level, reported or flagged:** the same, but a row also counts when
   its finding is flagged for a human. This is "the tool surfaced it to someone".
-- **Before recall (c), criterion level:** distinct (page, criterion) pairs in the ground truth
-  where the run has at least one finding on that page citing that criterion that is reported or
-  flagged. The most generous figure: it does not check that it is the same element.
+- **Before recall (c), criterion coverage, detected (the headline):** distinct (page,
+  criterion) pairs in the ground truth where the run has at least one finding on that page
+  citing that criterion that is reported or flagged AND is not a page-level notice. It does not
+  check that it is the same element.
+- **(c+), including manual-check reminders:** the same, but page-level notices count too.
+  A page-level notice (`scanner_status == "notice"` and `evidence.selector == "html"`, router
+  rule 2) is Pa11y's generic "check this manually" reminder, emitted for the same criteria on
+  every page whatever the page contains. Decision 3 (Oct 17): a reminder is not a detection.
+  A page-level VIOLATION (e.g. axe's missing `lang` for 3.1.1, routed machine) is a real
+  detection and counts in (c).
 - **After false alarms:** findings on the After pages reported as issues. W3C's After reports
   pass every A/AA criterion, so every one of them is a false alarm.
 - **Grey not evaluated:** grey findings where FOR/AGAINST did not produce a recommendation
@@ -186,6 +193,11 @@ def is_flagged(f: dict, stub_grey: bool = False) -> bool:
     return not is_reported(f, stub_grey) and f.get("bucket") in ("human-only", "grey")
 
 
+def is_page_level_notice(f: dict) -> bool:
+    """Pa11y's generic "check this manually" reminder: a notice with no element (router rule 2)."""
+    return f.get("scanner_status") == "notice" and (f.get("evidence") or {}).get("selector") == "html"
+
+
 def _surfaced(f: dict, stub_grey: bool = False) -> bool:
     """Reported as an issue or flagged for a human: the tool put it in front of someone."""
     return is_reported(f, stub_grey) or is_flagged(f, stub_grey)
@@ -226,7 +238,7 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
     before_scored = [p for p in PAGES if ("before", p) in runs]
     per_page = {}
     hits_a = hits_b = rows_scored = 0
-    pairs_hit, pairs_all = set(), set()
+    pairs_hit, pairs_hit_plus, pairs_all = set(), set(), set()
     not_in_run, other_criterion = [], []
 
     for page in PAGES:
@@ -247,14 +259,17 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
                 a += 1
             if f is not None and _surfaced(f, stub_grey):
                 b += 1
-        surfaced = {_wcag(f) for f in run.findings if _surfaced(f, stub_grey)}
+        surfaced_plus = {_wcag(f) for f in run.findings if _surfaced(f, stub_grey)}
+        surfaced = {_wcag(f) for f in run.findings if _surfaced(f, stub_grey) and not is_page_level_notice(f)}
         page_pairs = {r["wcag"] for r in rows}
         pairs_all |= {(page, c) for c in page_pairs}
         pairs_hit |= {(page, c) for c in page_pairs & surfaced}
+        pairs_hit_plus |= {(page, c) for c in page_pairs & surfaced_plus}
         per_page[page] = {"status": "scored", "run_id": run.run_id, "rows": len(rows),
                           "missed": sum(r["finding_id"] == MISSED for r in rows),
                           "a": _ratio(a, len(rows)), "b": _ratio(b, len(rows)),
-                          "c": _ratio(len(page_pairs & surfaced), len(page_pairs))}
+                          "c": _ratio(len(page_pairs & surfaced), len(page_pairs)),
+                          "c_plus": _ratio(len(page_pairs & surfaced_plus), len(page_pairs))}
         hits_a, hits_b, rows_scored = hits_a + a, hits_b + b, rows_scored + len(rows)
 
     false_alarms = {}
@@ -276,7 +291,9 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
         "stub_grey": stub_grey,
         "before_pages_scored": before_scored,
         "recall": {"a": _ratio(hits_a, rows_scored), "b": _ratio(hits_b, rows_scored),
-                   "c": _ratio(len(pairs_hit), len(pairs_all))},
+                   "c": _ratio(len(pairs_hit), len(pairs_all)),
+                   "c_plus": _ratio(len(pairs_hit_plus), len(pairs_all))},
+        "reminder_only_pairs": sorted(pairs_hit_plus - pairs_hit),
         "per_page": per_page,
         "false_alarms": false_alarms,
         "false_alarms_total": sum(sum(v["by_wcag"].values()) for v in false_alarms.values() if v != NOT_RUN),
@@ -334,15 +351,23 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
             "| Figure | Value |", "| --- | --- |",
             f"| (a) Issue level, reported as an issue | {_pct(r['a'])} |",
             f"| (b) Issue level, reported or flagged for a human | {_pct(r['b'])} |",
-            f"| (c) Criterion level, reported or flagged (page and criterion pairs) | {_pct(r['c'])} |",
+            f"| (c) Criterion coverage, detected (page and criterion pairs) | {_pct(r['c'])} |",
+            f"| (c+) Criterion coverage including page-level 'check manually' reminders (not detections) "
+            f"| {_pct(r['c_plus'])} |",
             f"| Rows in (a)/(b) found under a different criterion | {len(s['other_criterion'])} |",
-            "", "| Page | Run | GT rows | missed | (a) | (b) | (c) |", "| --- | --- | --- | --- | --- | --- | --- |"]
+            "", "(c) is the headline. (c+) also counts Pa11y's page-level \"check this manually\" notices, which "
+                "fire for the same criteria on every page whatever it contains; under decision 3 (Oct 17) a "
+                "reminder is not a detection, so it is shown only for comparison."
+            + (f" Pairs covered only by a reminder: {len(s['reminder_only_pairs'])}."
+               if s["reminder_only_pairs"] else ""),
+            "", "| Page | Run | GT rows | missed | (a) | (b) | (c) | (c+) |",
+            "| --- | --- | --- | --- | --- | --- | --- | --- |"]
     for page, p in s["per_page"].items():
         if p["status"] == NOT_RUN:
-            out.append(f"| {page} | {NOT_RUN} | {p['rows']} | | {NOT_RUN} | {NOT_RUN} | {NOT_RUN} |")
+            out.append(f"| {page} | {NOT_RUN} | {p['rows']} | | {NOT_RUN} | {NOT_RUN} | {NOT_RUN} | {NOT_RUN} |")
         else:
             out.append(f"| {page} | `{p['run_id']}` | {p['rows']} | {p['missed']} | "
-                       f"{_pct(p['a'])} | {_pct(p['b'])} | {_pct(p['c'])} |")
+                       f"{_pct(p['a'])} | {_pct(p['b'])} | {_pct(p['c'])} | {_pct(p['c_plus'])} |")
 
     out += ["", "## After false alarms", "",
             "Findings on the After site reported as issues. W3C passes every A/AA criterion there, "

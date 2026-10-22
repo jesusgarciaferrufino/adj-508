@@ -31,6 +31,8 @@ def candidates(page: str, wcag: str | None = None, version: str = "before") -> l
             continue
         rows.append({
             "finding_id": f.finding_id,
+            # Pa11y's generic "check this manually" reminder (router rule 2). Decision 3: never a match.
+            "page_level_notice": f.scanner_status == "notice" and f.evidence.selector == "html",
             "wcag": f.wcag[0],
             "scanner_status": f.scanner_status,
             "selector": f.evidence.selector,
@@ -46,7 +48,8 @@ def format_rows(rows: list[dict]) -> str:
     blocks = []
     for r in rows:
         blocks.append("\n".join([
-            f"{r['finding_id']}  [{r['scanner_status']}]",
+            f"{r['finding_id']}  [{r['scanner_status']}]"
+            + ("  [page-level notice: not a match, use missed]" if r["page_level_notice"] else ""),
             f"  selector:   {r['selector']}",
             f"  html:       {r['html']}",
             f"  screenshot: {r['screenshot'] or '(none: use the selector)'}",

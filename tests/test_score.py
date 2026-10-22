@@ -287,3 +287,50 @@ def test_runs_are_checked_with_the_shared_loader(setup):
 
 def test_cli_errors_exit_1(tmp_path):
     assert score.main(["--gt", str(tmp_path / "missing.csv")]) == 1
+
+
+def page_level(fid, bucket, status):
+    """A finding with no element: selector "html", like Pa11y's page notices or axe's missing lang."""
+    f = finding(fid, bucket)
+    f["scanner_status"] = status
+    f["evidence"]["selector"] = "html"
+    return f
+
+
+def test_page_level_notice_counts_in_c_plus_not_c(tmp_path):
+    """Decision 3 (Oct 17): a "check this manually" reminder is not a detection; a page-level violation is."""
+    runs = tmp_path / "runs"
+    element = finding("F-before-home-el0001-1.1.1", "machine")
+    notice = page_level("F-before-home-el0000-2.4.1", "human-only", "notice")    # generic reminder only
+    no_lang = page_level("F-before-home-el0000-3.1.1", "machine", "violation")   # real detection, page-level
+    gt = score.load_ground_truth(write_gt(tmp_path / "gt.csv", [
+        ("home", "1.1.1", "F-before-home-el0001-1.1.1"),
+        ("home", "2.4.1", "missed"),
+        ("home", "3.1.1", "F-before-home-el0000-3.1.1"),
+    ]))
+    with_notice = write_run(runs, "20261022-010000-aaaa", "before", "home", [element, notice, no_lang])
+    s = score.score(gt, score.runs_by_page([with_notice], runs))
+    assert s["recall"]["c"] == {"n": 2, "d": 3, "pct": 66.7}        # 1.1.1 and 3.1.1, not 2.4.1
+    assert s["recall"]["c_plus"] == {"n": 3, "d": 3, "pct": 100.0}
+    assert s["reminder_only_pairs"] == [("home", "2.4.1")]
+    assert s["per_page"]["home"]["c"]["n"] == 2 and s["per_page"]["home"]["c_plus"]["n"] == 3
+
+    # (a) and (b) are issue level and do not change whether the reminder is there or not
+    without = write_run(runs, "20261022-020000-bbbb", "before", "home", [element, no_lang])
+    s2 = score.score(gt, score.runs_by_page([without], runs))
+    assert (s["recall"]["a"], s["recall"]["b"]) == (s2["recall"]["a"], s2["recall"]["b"])
+    assert s["recall"]["a"] == {"n": 2, "d": 3, "pct": 66.7}
+
+    md = score.format_markdown(s)
+    assert "| (c) Criterion coverage, detected" in md and "(c+) Criterion coverage including" in md
+    assert "decision 3" in md and "Pairs covered only by a reminder: 1." in md
+    assert "| home | `20261022-010000-aaaa` | 3 | 1 |" in md and md.count("66.7% (2/3)") >= 2
+
+
+def test_gt_candidates_labels_page_level_notices_only():
+    notice = gt_candidates.candidates("home", "2.4.1")
+    assert notice and all(r["page_level_notice"] for r in notice if r["selector"] == "html")
+    assert "[page-level notice: not a match, use missed]" in gt_candidates.format_rows(notice)
+    no_lang = gt_candidates.candidates("home", "3.1.1")  # axe violation: a real match in ground_truth.csv
+    assert not any(r["page_level_notice"] for r in no_lang)
+    assert "not a match" not in gt_candidates.format_rows(no_lang)

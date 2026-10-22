@@ -16,6 +16,7 @@ Until those files exist, the stubs below stand in so the graph runs today.
 """
 import argparse
 import importlib
+import json
 import sys
 import time
 from collections import Counter
@@ -87,10 +88,15 @@ def case_file_counts(findings, errors):
     not a case file. A finding whose evidence call failed is in neither list (it is in errors).
     """
     failed = {e["finding_id"] for e in errors if e["node"] == "evidence"}
-    grey = [f for f in findings
-            if f.get("bucket") == "grey" and f.get("ai") and f.get("finding_id") not in failed]
-    skipped = [f for f in grey if str(f["ai"].get("case_for") or "").startswith("SKIPPED:")]
-    return [f["ai"] for f in grey if f not in skipped], len(skipped)
+    written, skipped = [], 0
+    for f in findings:
+        if f.get("bucket") != "grey" or not f.get("ai") or f.get("finding_id") in failed:
+            continue
+        if str(f["ai"].get("case_for") or "").startswith("SKIPPED:"):
+            skipped += 1
+        else:
+            written.append(f["ai"])
+    return written, skipped
 
 
 def build_graph(log):
@@ -181,10 +187,10 @@ def main():
 
     b = Counter(f.get("bucket") for f in final["findings"])
     failed_cases = sum(1 for e in log.errors if e["node"] == "evidence")
-    written, skipped = case_file_counts(final["findings"], log.errors)
+    summary = json.loads((log.dir / "summary.json").read_text())  # counts write_output already made
     print(f"{len(final['findings'])} findings: {b.get('machine', 0)} machine, "
           f"{b.get('grey', 0)} grey, {b.get('human-only', 0)} human-only — "
-          f"{len(written)} case files written, {skipped} skipped"
+          f"{summary['case_files']} case files written, {summary['skipped']} skipped"
           + (f", {failed_cases} failed" if failed_cases else ""))
     if log.errors:
         print(f"{len(log.errors)} errors (those findings were kept unchanged; details in events.jsonl):")

@@ -15,9 +15,10 @@ sees the other's output; that independence is the point. Code (not the model) th
     A skipped finding (ADJ_EVIDENCE_ONLY or the call cap) gets recommendation None: it was not
     evaluated, which is different from "unsure". Its case_for reads "SKIPPED: <reason>". A
     failed call raises; the graph logs it and keeps the finding without a recommendation.
-  - is_issue(ai): the issue rule (decided Oct 17). A grey finding is an issue only when it is
-    likely_fail AND its citations were verified; anything else is flagged for a human. The
-    same rule is used by scripts/score.py and reports/matrix.py.
+  - is_issue(finding): the one issue rule (decided Oct 17). A finding is an issue when its
+    bucket is "machine", or it is grey, likely_fail AND its citations were verified
+    (grey_is_issue). Anything else that surfaced is flagged for a human. scripts/score.py and
+    reports/matrix.py import it rather than keeping their own copy.
 The AI never decides conformance; a signed-in human reviewer does (CONTEXT.md).
 
 build_cases(finding) returns ONLY {"ai": {...}}; the graph merges it in and only calls
@@ -160,14 +161,26 @@ def recommend(for_strength: int, against_strength: int) -> str:
     return "unsure"
 
 
-def is_issue(ai: dict | None) -> bool:
+def grey_is_issue(ai: dict | None) -> bool:
     """True when a grey finding's AI result counts as an issue: likely_fail with verified citations.
 
-    An unverified likely_fail, a lean to pass, unsure, or not evaluated (None) is flagged for a
-    human instead. This is the AI's leaning only, never a conformance status.
+    Grey findings only: it looks at the ai dict alone, so on a machine finding it returns False.
+    To count issues, use is_issue(finding). An unverified likely_fail, a lean to pass, unsure,
+    or not evaluated (None) is flagged for a human instead. This is the AI's leaning only,
+    never a conformance status.
     """
     ai = ai or {}
     return ai.get("recommendation") == "likely_fail" and ai.get("citations_verified") is True
+
+
+def is_issue(finding: dict) -> bool:
+    """The one issue rule. Used by scripts/score.py and reports/matrix.py; never a conformance status.
+
+    True for a machine finding, or a grey finding whose AI result passes grey_is_issue.
+    human-only findings and everything else are not issues.
+    """
+    bucket = finding.get("bucket")
+    return bucket == "machine" or (bucket == "grey" and grey_is_issue(finding.get("ai")))
 
 
 def _call(client, prompt: str) -> tuple[str, dict]:

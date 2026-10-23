@@ -46,7 +46,7 @@ Decided 2026-10-02 (Track A, A4). The example file is a real finding from
 | --- | --- |
 | `source` | Unchanged single string: the first entry of `sources` (`axe-core` whenever axe found it). |
 | `sources` | NEW. Every scanner that found it, always in the order `axe-core`, `pa11y`, `adj-rules`, `adj-vision`, e.g. `["axe-core", "pa11y"]`. |
-| `scanner_status` | NEW. `violation` only when axe reports a violation. axe "incomplete", every Pa11y error and warning: `needs_review`. Pa11y notice: `notice`. This is a scanner signal, not the bucket. |
+| `scanner_status` | NEW. `violation` only when axe reports a violation or an ADJ check reports a deterministic one (`status: "violation"` in its hit). axe "incomplete", every Pa11y error and warning, and ADJ `needs_review` hits: `needs_review`. Pa11y notice: `notice`. The strongest status among a finding's hits wins. This is a scanner signal, not the bucket. |
 | `scanner_details` | NEW. One entry per scanner rule that fired: `scanner`, `rule_id`, `type`, `message`. Use `message` for the prompts' `SCANNER SAID`. |
 | `bucket` | Always `null` from merge. Track C's router sets it. |
 | `wcag` | Exactly one WCAG 2.0 A/AA criterion per finding. WCAG 2.1/2.2 results are dropped. |

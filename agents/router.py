@@ -5,7 +5,7 @@
     human-only  no tool can check it; goes straight to a reviewer checklist
 
 Router v1 rules (manager decision, Oct 9), checked in this order:
-  1. scanner_status == "violation" (axe was sure)                     -> machine
+  1. scanner_status == "violation" (axe or an ADJ code rule was sure) -> machine
   2. page-level notice (scanner_status == "notice", selector "html")  -> human-only
   3. criterion marked human_only in rag/wcag20_aa.json                -> human-only
   4. everything else (needs_review, element-level notices)            -> grey
@@ -40,8 +40,9 @@ def route_finding(finding: dict) -> dict:
     sc = wcag[0] if wcag else None
 
     if status == "violation":
+        sources = ", ".join(finding.get("sources") or [finding.get("source") or "a scanner"])
         return {"bucket": MACHINE,
-                "route_reason": "rule 1: axe reported a violation (scanner_status=violation)"}
+                "route_reason": f"rule 1: deterministic violation reported by {sources} (scanner_status=violation)"}
     if status == "notice" and selector == "html":
         return {"bucket": HUMAN_ONLY,
                 "route_reason": f"rule 2: page-level notice with no element to inspect (criterion {sc})"}

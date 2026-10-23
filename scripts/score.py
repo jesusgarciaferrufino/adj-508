@@ -56,6 +56,12 @@ ask, so they are spelled out here:
   field, because the scanners never assign 3.3.2). It counts as found in (a) and (b), since the
   element was caught, but is listed separately so the headline number can be explained.
 
+- **Served-page figures (secondary):** (a) and (b) again, leaving out ground-truth rows whose
+  `notes` start with "not found on served page" (W3C reports a failure that the page we fetch
+  doesn't contain). The headline stays out of all 130 rows (decision, Oct 21); this one is
+  labelled as secondary.
+- **Recall by criterion:** (a) and (b) per WCAG criterion, over the ground-truth rows for it.
+
 A page with no run is shown as "not run", never as zero, and is left out of every ratio.
 Nothing here sets or reads a final conformance status; that comes only from data/reviews/.
 """
@@ -79,6 +85,7 @@ RUNS_DIR = REPO / "data" / "runs"
 SCORES_DIR = REPO / "docs" / "scores"
 GT_COLUMNS = ["page", "wcag", "level", "description", "w3c_ref", "where", "finding_id", "verified_by", "notes"]
 MISSED = "missed"
+OFF_PAGE_NOTE = "not found on served page"  # ground-truth notes prefix (Ershad, Oct 22)
 NOT_RUN = "not run"
 
 
@@ -221,6 +228,11 @@ def is_unevaluated(f: dict) -> bool:
     return skipped or ai.get("recommendation") not in RECOMMENDATIONS
 
 
+def is_off_page(row: dict) -> bool:
+    """A ground-truth row W3C reports but the served page doesn't contain (its notes say so)."""
+    return row.get("notes", "").strip().lower().startswith(OFF_PAGE_NOTE)
+
+
 def _wcag(f: dict) -> str | None:
     wcag = f.get("wcag") or []
     return wcag[0] if wcag else None
@@ -240,6 +252,8 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
     hits_a = hits_b = rows_scored = 0
     pairs_hit, pairs_hit_plus, pairs_all = set(), set(), set()
     not_in_run, other_criterion = [], []
+    by_crit = defaultdict(lambda: {"rows": 0, "a": 0, "b": 0, "missed": 0})
+    served = {"rows": 0, "a": 0, "b": 0}
 
     for page in PAGES:
         rows = [r for r in gt if r["page"] == page]
@@ -255,10 +269,14 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
                 not_in_run.append(r)
             if f is not None and _wcag(f) != r["wcag"]:
                 other_criterion.append({**r, "finding_wcag": _wcag(f)})
-            if f is not None and is_reported(f, stub_grey):
-                a += 1
-            if f is not None and _surfaced(f, stub_grey):
-                b += 1
+            got_a = f is not None and is_reported(f, stub_grey)
+            got_b = f is not None and _surfaced(f, stub_grey)
+            a, b = a + got_a, b + got_b
+            crit = by_crit[r["wcag"]]
+            crit["rows"], crit["a"], crit["b"] = crit["rows"] + 1, crit["a"] + got_a, crit["b"] + got_b
+            crit["missed"] += r["finding_id"] == MISSED
+            if not is_off_page(r):
+                served["rows"], served["a"], served["b"] = served["rows"] + 1, served["a"] + got_a, served["b"] + got_b
         surfaced_plus = {_wcag(f) for f in run.findings if _surfaced(f, stub_grey)}
         surfaced = {_wcag(f) for f in run.findings if _surfaced(f, stub_grey) and not is_page_level_notice(f)}
         page_pairs = {r["wcag"] for r in rows}
@@ -294,6 +312,11 @@ def score(gt: list[dict], runs: dict[tuple[str, str], Run], stub_grey: bool = Fa
                    "c": _ratio(len(pairs_hit), len(pairs_all)),
                    "c_plus": _ratio(len(pairs_hit_plus), len(pairs_all))},
         "reminder_only_pairs": sorted(pairs_hit_plus - pairs_hit),
+        "served": {"a": _ratio(served["a"], served["rows"]), "b": _ratio(served["b"], served["rows"]),
+                   "off_page_rows": rows_scored - served["rows"]},
+        "by_criterion": {c: {"rows": v["rows"], "missed": v["missed"], "a": _ratio(v["a"], v["rows"]),
+                             "b": _ratio(v["b"], v["rows"])}
+                         for c, v in sorted(by_crit.items(), key=lambda kv: [int(x) for x in kv[0].split(".")])},
         "per_page": per_page,
         "false_alarms": false_alarms,
         "false_alarms_total": sum(sum(v["by_wcag"].values()) for v in false_alarms.values() if v != NOT_RUN),
@@ -369,6 +392,11 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
             out.append(f"| {page} | `{p['run_id']}` | {p['rows']} | {p['missed']} | "
                        f"{_pct(p['a'])} | {_pct(p['b'])} | {_pct(p['c'])} | {_pct(p['c_plus'])} |")
 
+    sv = s["served"]
+    if sv["off_page_rows"]:
+        out += ["", f"Secondary, served page only ({sv['off_page_rows']} rows W3C reports but the served page doesn't "
+                    f"contain are left out): (a) {_pct(sv['a'])}, (b) {_pct(sv['b'])}."]
+
     out += ["", "## After false alarms", "",
             "Findings on the After site reported as issues. W3C passes every A/AA criterion there, "
             "so all of them are false.", "",
@@ -381,6 +409,12 @@ def format_markdown(s: dict, commit: str = "", when: str = "") -> str:
             out.append(f"| {page} | `{fa['run_id']}` | {sum(fa['by_wcag'].values())} | {crit} |")
     after_run = sum(fa != NOT_RUN for fa in s["false_alarms"].values())
     out.append(f"\nTotal on {after_run} of 4 After pages: {s['false_alarms_total']}")
+
+    out += ["", "## Recall by criterion", "",
+            "Before pages scored above. Rows: ground-truth rows for the criterion; missed: no scanner finding.", "",
+            "| Criterion | Rows | missed | (a) reported | (b) reported or flagged |", "| --- | --- | --- | --- | --- |"]
+    out += [f"| {c} | {v['rows']} | {v['missed']} | {_pct(v['a'])} | {_pct(v['b'])} |"
+            for c, v in s["by_criterion"].items()] or ["| (no Before page run) | | | | |"]
 
     n_missed = sum(len(v) for v in s["missed"].values())
     out += ["", f"## Missed by the scanners ({n_missed} of {s['gt_rows']} ground-truth rows)", ""]

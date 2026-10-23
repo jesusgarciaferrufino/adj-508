@@ -18,7 +18,7 @@ create placeholder copies of another track's files on your branch.
 | Shared setup | Repo owner (Jesus) | `package.json`, `.gitignore`, `requirements.txt`, `CONTEXT.md`, `README.md`, `docs/TRACKS.md`, `*/__init__.py`, `settings.py`, `.env.example` |
 | A. Capture + scanners | Scanning lead (Jesus) | `capture/`, `scanners/`, `data/findings/`, `tests/test_merge.py` |
 | B. Knowledge base + mapper | Knowledge lead | `rag/`, `agents/mapper.py`, `docs/mapper_spotcheck.md`, `data/mapped/`, `tests/test_mapper.py` |
-| C. Router + FOR/AGAINST | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/test_router.py`, `tests/test_evidence.py`, `docs/evidence_samples.md` |
+| C. Router + FOR/AGAINST | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/test_router.py`, `tests/test_evidence.py`, `docs/evidence_samples.md`, `scripts/compare_against.py`, `tests/test_compare_against.py`, `docs/against_v2_comparison.md` |
 | D. Graph + run log | Reviewer-experience lead | `agents/graph.py`, `data/runs/` |
 | Ground truth | Sheet owner | `data/ground-truth/ground_truth.csv`, `tests/test_ground_truth.py` |
 | E. Outputs | Outputs lead | `reports/`, `tests/test_matrix.py` |

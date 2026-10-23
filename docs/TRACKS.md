@@ -16,14 +16,16 @@ create placeholder copies of another track's files on your branch.
 | Track | Owner (role) | Files only this track creates or edits |
 | --- | --- | --- |
 | Shared setup | Repo owner (Jesus) | `package.json`, `.gitignore`, `requirements.txt`, `CONTEXT.md`, `README.md`, `docs/TRACKS.md`, `*/__init__.py`, `settings.py`, `.env.example` |
-| A. Capture + scanners | Scanning lead (Jesus) | `capture/`, `scanners/`, `data/findings/`, `tests/test_merge.py` |
+| A. Capture + scanners | Scanning lead (Jesus) | `capture/`, `scanners/` (except the R and V check files below), `data/findings/`, `tests/test_merge.py` |
 | B. Knowledge base + mapper | Knowledge lead | `rag/`, `agents/mapper.py`, `docs/mapper_spotcheck.md`, `data/mapped/`, `tests/test_mapper.py` |
 | C. Router + FOR/AGAINST | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/test_router.py`, `tests/test_evidence.py`, `docs/evidence_samples.md` |
 | D. Graph + run log | Reviewer-experience lead | `agents/graph.py`, `data/runs/` |
 | Ground truth | Sheet owner | `data/ground-truth/ground_truth.csv`, `tests/test_ground_truth.py` |
-| E. Outputs | Outputs lead | `reports/`, `tests/test_matrix.py` |
+| E. Outputs | Outputs lead (Abel) | `reports/` (including `reports/acr.py`, `reports/backlog.py`, `reports/package.py`, `reports/fix_guidance.json`), `tests/test_matrix.py`, `tests/test_acr.py`, `tests/test_backlog.py` |
 | F. PULSE | Reviewer-UI lead | `pulse/`, `extension/`, `data/reviews/`, `tests/test_pulse_api.py` |
-| S. Scoring | Repo owner (Jesus) | `scripts/gt_candidates.py`, `scripts/score.py`, `docs/scores/`, `tests/test_score.py` |
+| S. Scoring | Repo owner (Jesus) | `scripts/gt_candidates.py`, `scripts/score.py`, `docs/scores/`, `tests/test_score.py`, `scanners/vision_scan.py`, `docs/benchmark.md`, `docs/deck_outline.md` |
+| R. Code-rule checks | Daniel | `scanners/rules_scan.py`, `tests/test_rules.py` |
+| V. Validator + page comparison | Ershad | `scanners/validator_scan.py`, `scanners/compare_scan.py`, `tests/test_validator.py`, `tests/test_compare.py`, `docs/triage_study.md` |
 
 Tests: each track owns `tests/test_<track or module>.py` for its own code (for example
 `tests/test_mapper.py`, `tests/test_graph.py`). `tests/test_contracts.py`,
@@ -42,8 +44,8 @@ Decided 2026-10-02 (Track A, A4). The example file is a real finding from
 
 | Field | Meaning |
 | --- | --- |
-| `source` | Unchanged single string. `axe-core` whenever axe found it, else `pa11y`. |
-| `sources` | NEW. Every scanner that found it, e.g. `["axe-core", "pa11y"]`. |
+| `source` | Unchanged single string: the first entry of `sources` (`axe-core` whenever axe found it). |
+| `sources` | NEW. Every scanner that found it, always in the order `axe-core`, `pa11y`, `adj-rules`, `adj-vision`, e.g. `["axe-core", "pa11y"]`. |
 | `scanner_status` | NEW. `violation` only when axe reports a violation. axe "incomplete", every Pa11y error and warning: `needs_review`. Pa11y notice: `notice`. This is a scanner signal, not the bucket. |
 | `scanner_details` | NEW. One entry per scanner rule that fired: `scanner`, `rule_id`, `type`, `message`. Use `message` for the prompts' `SCANNER SAID`. |
 | `bucket` | Always `null` from merge. Track C's router sets it. |
@@ -92,8 +94,8 @@ ground-truth matches. The old numbered IDs (`F-before-home-0032`) are gone.
 | Field | Exact values |
 | --- | --- |
 | `scanner_status` | `violation`, `needs_review`, `notice` |
-| `scanner_details[].type` | axe: `violations`, `incomplete` (axe's own names, plural). Pa11y: `error`, `warning`, `notice` |
-| `source`, `sources[]` | `axe-core`, `pa11y` |
+| `scanner_details[].type` | axe: `violations`, `incomplete` (axe's own names, plural). Pa11y: `error`, `warning`, `notice`. adj-rules: `rule`. adj-vision: `vision` |
+| `source`, `sources[]` | `axe-core`, `pa11y`, `adj-rules` (ADJ's code-rule checks), `adj-vision` (AI on screenshots) |
 
 Check `scanner_status`, not `scanner_details[].type`, to know if a finding is a violation.
 
@@ -115,6 +117,36 @@ There is one finding per (element, criterion). An element that fails two criteri
 (e.g. an empty link fails 2.4.4 and 4.1.2) is two findings with the same
 `evidence.dom_index`, the same screenshot, and IDs that differ only in the criterion.
 
+### ADJ's own checks: the shared hit format (decided Oct 23)
+
+New checks (Daniel's code rules, Ershad's validator and page comparison, the vision spike) are
+extra finding sources, not new formats. Each check writes one file per page,
+`data/scans/adj_{check}_{version}_{page}.json`, and `scanners/merge.py` turns the hits into
+findings in the format above. Write this file; never write `data/findings/` directly.
+
+```json
+{"check": "rules", "version": "before", "page": "home", "url": "...", "tool_version": "...",
+ "hits": [{"rule_id": "adj.rules.blur-on-focus", "sc": "2.1.1", "status": "violation",
+           "message": "Link removes focus with blur() when it receives focus (F55).",
+           "dom_index": 135, "selector": "#home > a", "html": "<a ...>...</a>", "in_wrapper": false}]}
+```
+
+| Field | Rule |
+| --- | --- |
+| `check` | Names the check and the file (`rules` in `adj_rules_...`). `vision` becomes source `adj-vision`; every other check becomes `adj-rules`. |
+| `version`, `page` | Must match the file name; merge refuses a file that names another page. |
+| `rule_id` | `adj.{check}.{rule}`, e.g. `adj.rules.blur-on-focus`. Becomes the finding's `rule_id` when this check is its first source. |
+| `sc` | One WCAG 2.0 A/AA criterion. Anything else (2.1, 2.2, AAA) is dropped at merge, as for axe and Pa11y. |
+| `status` | `violation` for a deterministic check (routes to `machine`), otherwise `needs_review` (routes to `grey`). Nothing else. Note the router's rule 3: a hit on a criterion the corpus marks `human_only` (2.4.3, 3.2.4) routes to `human-only` unless it is a `violation`. |
+| `message` | What a reviewer reads; name the W3C failure or technique where there is one (e.g. F55). |
+| `dom_index` | The element's position in `document.querySelectorAll("*")` on a clean page, the same as `axe_scan.py` `ENRICH_JS`. This is how a hit joins axe's or Pa11y's finding on the same element and criterion. Page-level hits use `0`, selector `html`, and the `<html>` start tag as `html`. |
+| `html` | The element's outerHTML, at most 5,000 characters (merge also cuts it there). |
+| `in_wrapper` | `true` inside W3C's `#meta-header` / `#meta-footer`; those hits are dropped. |
+
+A missing `adj_*` file is fine: that check just hasn't run. A file that doesn't match this format
+makes merge stop with `AdjScanError`, naming the file and the hit. Finding IDs keep the same scheme,
+`F-{version}-{page}-el{NNNN}-{criterion}`, so adding a check never renames an existing finding.
+
 ## Data in git
 
 | Folder | In git? | Why |
@@ -126,7 +158,7 @@ There is one finding per (element, criterion). An element that fails two criteri
 | `data/reviews/` | Yes | Human decisions from PULSE; they are the evidence behind every ACR status |
 | `data/reports/` | No (gitignored) | Matrix, ACR and backlog; regenerated from a run plus `data/reviews/` |
 | `data/captures/` | No (gitignored) | Full HTML and screenshots, regenerated every run |
-| `data/scans/` | No (gitignored) | Raw scanner JSON, regenerated every run |
+| `data/scans/` | No (gitignored) | Raw scanner JSON (axe, Pa11y and every `adj_*` check), regenerated every run |
 
 ## Human decisions: `data/reviews/{version}_{page}.jsonl`
 

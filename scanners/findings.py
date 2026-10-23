@@ -37,13 +37,15 @@ PAGES = ("home", "news", "tickets", "survey")
 
 Version = Literal["before", "after"]
 PageName = Literal["home", "news", "tickets", "survey"]
-Scanner = Literal["axe-core", "pa11y"]
+# adj-rules: ADJ's own code-rule checks (Daniel, Ershad); adj-vision: AI on screenshots (Week 4, decision 1)
+Scanner = Literal["axe-core", "pa11y", "adj-rules", "adj-vision"]
 ScannerStatus = Literal["violation", "needs_review", "notice"]
 Bucket = Literal["machine", "grey", "human-only"]  # set by Track C's router (agents/router.py)
 Recommendation = Literal["likely_fail", "likely_pass", "unsure"]  # set by Track C's evidence agent
 
 ID_RE = re.compile(r"^F-(before|after)-(home|news|tickets|survey)-el(\d{4})-(\d\.\d\.\d+)$")
-DETAIL_TYPES = {"axe-core": {"violations", "incomplete"}, "pa11y": {"error", "warning", "notice"}}
+DETAIL_TYPES = {"axe-core": {"violations", "incomplete"}, "pa11y": {"error", "warning", "notice"},
+                "adj-rules": {"rule"}, "adj-vision": {"vision"}}
 
 
 class _Model(BaseModel):

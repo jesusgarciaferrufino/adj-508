@@ -82,3 +82,13 @@ def test_router_buckets_match_the_finding_format():
 
     from scanners.findings import Bucket
     assert set(BUCKETS) == set(get_args(Bucket))
+
+
+def test_rule_1_names_the_real_source():
+    """An ADJ rule's violation must not read "axe reported" in PULSE or the ACR."""
+    out = route_finding({"scanner_status": "violation", "sources": ["adj-rules"], "wcag": ["2.1.1"],
+                         "evidence": {"selector": "#home > a"}})
+    assert out["bucket"] == MACHINE and "adj-rules" in out["route_reason"] and "axe" not in out["route_reason"]
+    both = route_finding({"scanner_status": "violation", "sources": ["axe-core", "adj-rules"], "wcag": ["1.1.1"],
+                          "evidence": {"selector": "img"}})
+    assert "axe-core, adj-rules" in both["route_reason"]

@@ -1,6 +1,9 @@
-"""A4. Merge axe and Pa11y results into one findings list per page.
+"""A4. Merge axe, Pa11y and ADJ's own checks into one findings list per page.
 
-Reads  data/scans/axe_{v}_{p}.json and data/scans/pa11y_{v}_{p}.json
+Reads  data/scans/axe_{v}_{p}.json and data/scans/pa11y_{v}_{p}.json (required)
+       data/scans/adj_{check}_{v}_{p}.json, one per ADJ check (optional; added Oct 23):
+         check "vision" -> scanner adj-vision, any other check -> adj-rules.
+         Shared hit format in docs/TRACKS.md. A missing file means that check hasn't run.
 Writes data/findings/{v}_{p}.json        (committed; tracks B, C, D read it)
        data/findings/shots/{v}_{p}_el{dom_index}.jpg   padded element crops
        data/findings/shots/{v}_{p}_page.jpg            whole page, for page-level items
@@ -10,9 +13,12 @@ Rules (decided 2026-10-02, see docs/TRACKS.md):
 - Keep only WCAG 2.0 A/AA criteria (scanners/wcag.py).
 - One finding per (page, element, criterion). Element = dom_index, because the two
   scanners write different selectors for the same element. Both scanners -> one
-  finding with both listed in "sources" and "scanner_details".
+  finding with both listed in "sources" and "scanner_details". The same goes for ADJ's
+  checks: an adj-rules hit on the element and criterion axe flagged joins axe's finding.
+  "sources" order: axe-core, pa11y, adj-rules, adj-vision; "source" is the first of them.
 - scanner_status: "violation" only when axe reports a violation. axe incomplete,
   every Pa11y error and every Pa11y warning -> "needs_review". Pa11y notice -> "notice".
+  ADJ checks write their own status: "violation" (deterministic) or "needs_review".
   All notices are kept. Page-level notices (no element) attach to <html>.
 - "source" stays the format's single string (axe-core when axe is involved).
   "sources", "scanner_status" and "scanner_details" are additive fields.
@@ -58,6 +64,10 @@ OUT = REPO / "data" / "findings"
 SHOTS = OUT / "shots"
 PAD = 40           # px of surrounding page around each element crop
 STATUS_RANK = {"violation": 3, "needs_review": 2, "notice": 1}
+SOURCE_ORDER = ("axe-core", "pa11y", "adj-rules", "adj-vision")  # "sources" order; "source" is the first
+ADJ_STATUSES = {"violation", "needs_review"}
+ADJ_HIT_KEYS = ("rule_id", "sc", "status", "message", "dom_index", "selector", "html", "in_wrapper")
+HTML_CAP = 5000    # characters of outerHTML kept per ADJ hit (the hit format's cap)
 PAGE_LEVEL = 0     # dom_index of <html>
 
 
@@ -70,6 +80,10 @@ class MissingScanError(FileNotFoundError):
     """A scanner's output file is missing, so this page can't be merged yet."""
 
 
+class AdjScanError(ValueError):
+    """An ADJ check wrote a file that doesn't match the shared hit format (docs/TRACKS.md)."""
+
+
 def read_scan(path, script):
     if not path.exists():
         _, version, page = path.stem.split("_")
@@ -78,8 +92,52 @@ def read_scan(path, script):
     return json.loads(path.read_text())
 
 
+def load_adj_hits(version, name, dropped):
+    """Hits from every data/scans/adj_*_{version}_{name}.json, in the shared hit format.
+
+    Wrapper hits and criteria outside WCAG 2.0 A/AA are dropped (counted in `dropped`), the
+    same as for axe and Pa11y. A file that doesn't match the format raises AdjScanError naming
+    the file and hit, so a broken check fails here instead of producing odd findings.
+    """
+    hits = []
+    for path in sorted(SCANS.glob(f"adj_*_{version}_{name}.json")):
+        where = f"data/scans/{path.name}"
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as e:
+            raise AdjScanError(f"{where}: not readable JSON: {e}") from None
+        if not isinstance(data, dict) or not isinstance(data.get("hits"), list):
+            raise AdjScanError(f'{where}: expected an object with a "hits" list')
+        if (data.get("version"), data.get("page")) != (version, name):
+            raise AdjScanError(f"{where}: says {data.get('version')}/{data.get('page')}, expected {version}/{name}")
+        check = data.get("check")
+        if not isinstance(check, str) or not check:
+            raise AdjScanError(f'{where}: "check" must name the check, e.g. "rules" or "vision"')
+        scanner, detail_type = ("adj-vision", "vision") if check == "vision" else ("adj-rules", "rule")
+        for n, h in enumerate(data["hits"]):
+            missing = [k for k in ADJ_HIT_KEYS if not isinstance(h, dict) or k not in h]
+            if missing:
+                raise AdjScanError(f"{where}: hit #{n} is missing {missing}")
+            if h["status"] not in ADJ_STATUSES:
+                raise AdjScanError(f"{where}: hit #{n} status {h['status']!r} is not one of {sorted(ADJ_STATUSES)}")
+            if not isinstance(h["dom_index"], int) or isinstance(h["dom_index"], bool) or h["dom_index"] < 0:
+                raise AdjScanError(f"{where}: hit #{n} dom_index must be a whole number, 0 or more")
+            if h["in_wrapper"]:
+                dropped["wrapper"] += 1
+                continue
+            if h["sc"] not in WCAG20_A_AA:
+                dropped["not_wcag20"] += 1
+                continue
+            hits.append({
+                "scanner": scanner, "status": h["status"], "adj_type": detail_type,
+                "rule_id": h["rule_id"], "message": h["message"], "sc": h["sc"],
+                "dom_index": h["dom_index"], "selector": h["selector"],
+                "html": (h["html"] or "")[:HTML_CAP], "page_level": h["dom_index"] == PAGE_LEVEL})
+    return hits
+
+
 def load_hits(version, name):
-    """Flatten both scanners into one list of hits; return hits and drop counts."""
+    """Flatten every scanner into one list of hits; return hits and drop counts."""
     hits, dropped = [], collections.Counter()
     axe = read_scan(SCANS / f"axe_{version}_{name}.json", "axe_scan.py")
     captured_at = axe.get("timestamp")
@@ -124,6 +182,8 @@ def load_hits(version, name):
             "dom_index": PAGE_LEVEL if page_level else adj["dom_index"],
             "selector": "html" if page_level else i["selector"],
             "html": "" if page_level else adj["outer_html"], "page_level": page_level})
+
+    hits += load_adj_hits(version, name, dropped)
     return hits, dropped, captured_at
 
 
@@ -135,9 +195,11 @@ def group(hits):
 
 
 def build_finding(version, name, hs, url, captured_at):
-    hs = sorted(hs, key=lambda h: (h["scanner"] != "axe-core", -STATUS_RANK[h["status"]]))
+    # Primary hit: the first scanner in SOURCE_ORDER, then its strongest status. For axe and
+    # Pa11y this is exactly the old order (axe first), so no existing finding changes.
+    hs = sorted(hs, key=lambda h: (SOURCE_ORDER.index(h["scanner"]), -STATUS_RANK[h["status"]]))
     primary = hs[0]
-    sources = sorted({h["scanner"] for h in hs}, key=lambda s: s != "axe-core")
+    sources = sorted({h["scanner"] for h in hs}, key=SOURCE_ORDER.index)
     status = max((h["status"] for h in hs), key=STATUS_RANK.get)
     details, seen = [], set()
     for h in hs:
@@ -146,7 +208,7 @@ def build_finding(version, name, hs, url, captured_at):
             continue
         seen.add(key)
         details.append({"scanner": h["scanner"], "rule_id": h["rule_id"],
-                        "type": h.get("axe_type") or h.get("pa11y_type"),
+                        "type": h.get("axe_type") or h.get("pa11y_type") or h.get("adj_type"),
                         "message": h["message"]})
     html = next((h["html"] for h in hs if h["html"]), "")
     return {
@@ -294,19 +356,21 @@ def merge_page(page, version, name):
 
 def summarize(findings, hits, dropped, shots):
     st = collections.Counter(f["scanner_status"] for f in findings)
-    both = sum(1 for f in findings if len(f["sources"]) == 2)
+    both = sum(1 for f in findings if len(f["sources"]) >= 2)
+    adj = collections.Counter(s for f in findings for s in f["sources"] if s.startswith("adj-"))
     axe_inc_hits = sum(1 for h in hits if h.get("axe_type") == "incomplete")
     axe_inc_kept = sum(1 for f in findings
                        if any(d["scanner"] == "axe-core" and d["type"] == "incomplete"
                               for d in f["scanner_details"]))
     return (f"{len(hits)} hits -> {len(findings)} findings "
             f"(violation {st['violation']}, needs_review {st['needs_review']}, notice {st['notice']}; "
-            f"both scanners {both}) | dropped {dict(dropped)} | "
+            f"several scanners {both}; {', '.join(f'{s} {n}' for s, n in sorted(adj.items())) or 'no adj checks'}) | "
+            f"dropped {dict(dropped)} | "
             f"axe incomplete in {axe_inc_hits} hits, kept in {axe_inc_kept} findings | shots {dict(shots)}")
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Merge axe + Pa11y into findings.")
+    ap = argparse.ArgumentParser(description="Merge axe, Pa11y and ADJ checks into findings.")
     ap.add_argument("--version", default="before", choices=VERSIONS + ["all"])
     ap.add_argument("--page", default="all", choices=PAGES + ["all"])
     a = ap.parse_args()
@@ -320,7 +384,7 @@ def main():
                 for n in names:
                     findings, hits, dropped, shots, out = merge_page(page, v, n)
                     print(f"{v:6} {n:8} {summarize(findings, hits, dropped, shots)}  -> {out.relative_to(REPO)}")
-        except MissingScanError as e:
+        except (MissingScanError, AdjScanError) as e:
             sys.exit(str(e))
         finally:
             browser.close()

@@ -442,8 +442,9 @@ def test_cors_never_uses_a_wildcard(data, monkeypatch, value):
     assert "access-control-allow-origin" not in r.headers
 
 
-def test_env_example_has_placeholders_only():
-    text = (ROOT / "pulse" / ".env.example").read_text()
+@pytest.mark.parametrize("example", [".env.example", "pulse/.env.example"])
+def test_env_example_has_placeholders_only(example):
+    text = (ROOT / example).read_text()
     tokens = [pair.partition(":")[2] for line in text.splitlines() if line.startswith("ADJ_REVIEWER_TOKENS=")
               for pair in line.partition("=")[2].split(",")]
     assert tokens and all(len(t) < api.MIN_TOKEN_LENGTH for t in tokens), "placeholders must not work as tokens"

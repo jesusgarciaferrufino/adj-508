@@ -308,3 +308,19 @@ def test_committed_ground_truth_lines_up_with_the_findings():
     assert set(truth) <= known, f"not a finding: {sorted(set(truth) - known)[:5]}"
     assert "missed" not in truth
     assert truth["F-before-home-el0085-4.1.2"] == {"3.3.2", "4.1.2"}  # listed on two rows
+
+
+# ---------------------------------------------------------------- Section 508 map (verified 2026-10-25)
+
+
+def test_committed_508_map_matches_the_sections_and_is_verified():
+    assert corpus_tools.check_map508() == []
+
+
+def test_508_map_check_catches_a_wrong_row(tmp_path):
+    rows = json.loads(corpus_tools.MAP508.read_text(encoding="utf-8"))
+    rows["2.4.1"]["software"] = "E207.2"   # 2.4.1 is a non-Web exception: must be null
+    rows["1.1.1"]["verified"] = False
+    path = tmp_path / "map.json"
+    path.write_text(json.dumps(rows), encoding="utf-8")
+    assert corpus_tools.check_map508(path) == ["1.1.1 not verified", "2.4.1 differs from the sections"]

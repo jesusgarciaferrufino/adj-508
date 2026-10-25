@@ -48,3 +48,16 @@ Each row of `rag/wcag20_aa.json` was compared with https://www.w3.org/TR/WCAG20/
 | 4.1.2 | Name, Role, Value | A | [#ensure-compat-rsv](https://www.w3.org/TR/WCAG20/#ensure-compat-rsv) | ok |
 
 `CANONICAL` vs `scanners/wcag.py`: identical (38 criteria).
+
+## Revised Section 508 mapping (`rag/section508_map.json`)
+
+Checked on 2026-10-25, row by row, against the Revised 508 Standards, 36 CFR 1194 Appendices A and C (https://www.access-board.gov/ict/). All 38 rows hold, so all 38 are `verified: true`. `verify` re-checks the map against the rules below each time it writes this file.
+
+| Column | Section | What it says | Map |
+| --- | --- | --- | --- |
+| `web` | E205.4 Accessibility Standard | Electronic content conforms to WCAG 2.0 Level A and AA (incorporated by reference, 702.10.1). No exception for Web content. | E205.4 for all 38 |
+| `non_web_documents` | E205.4, Exception | Non-Web documents need not conform to 2.4.1, 2.4.5, 3.2.3 and 3.2.4. | E205.4, null for those 4 |
+| `software` | E207.2 WCAG Conformance | Software UI and content conform to WCAG 2.0 A and AA; Exception 2: non-Web software need not conform to the same 4. (Exception 1, assistive technology, and 3, Complete Processes, are not per criterion.) | E207.2, null for those 4 |
+| `authoring_tools` | 504.2 Content Creation or Editing | Authoring tools provide a mode that creates WCAG 2.0 A and AA content. Its only exception (editing plain-text source) is not per criterion. | 504.2 for all 38 |
+
+Map check: ok (38 rows match the table above)

@@ -13,7 +13,7 @@ only to data/reviews/{version}_{page}.jsonl, one JSON line per decision, append-
 It never writes to data/findings/ or data/runs/ and never touches a finding's `review` field.
 
 Settings come from environment variables, or from the repo's .env file when a variable is
-not set (see pulse/.env.example):
+not set (placeholders in .env.example at the repo root; pulse/.env.example explains each one):
     ADJ_REVIEWER_TOKENS    "name:token,name:token"; who may record decisions (tokens of 16+ characters)
     ADJ_EXTENSION_ORIGIN   the extension's origin, e.g. chrome-extension://<id>, allowed by CORS
     ADJ_PULSE_DOCS         set to 1 to serve FastAPI's /docs page (off by default)

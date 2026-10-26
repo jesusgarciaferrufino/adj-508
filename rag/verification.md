@@ -51,7 +51,7 @@ Each row of `rag/wcag20_aa.json` was compared with https://www.w3.org/TR/WCAG20/
 
 ## Revised Section 508 mapping (`rag/section508_map.json`)
 
-Checked on 2026-10-25, row by row, against the Revised 508 Standards, 36 CFR 1194 Appendices A and C (https://www.access-board.gov/ict/). All 38 rows hold, so all 38 are `verified: true`. `verify` re-checks the map against the rules below each time it writes this file.
+Checked on 2026-10-25, row by row, against the Revised 508 Standards, 36 CFR 1194 Appendices A and C (https://www.access-board.gov/ict/). All 38 rows hold, so all 38 are `verified: true`. Verified by Daniel Etuk on 2026-10-25: checked against E205.4 on access-board.gov and spot-checked 1.1.1, 2.4.4 and 3.3.2 (all map Web content to E205.4). `verify` re-checks the map against the rules below each time it writes this file.
 
 | Column | Section | What it says | Map |
 | --- | --- | --- | --- |

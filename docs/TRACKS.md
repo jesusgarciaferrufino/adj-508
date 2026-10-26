@@ -22,7 +22,7 @@ create placeholder copies of another track's files on your branch.
 | D. Graph + run log | Reviewer-experience lead | `agents/graph.py`, `data/runs/` |
 | Ground truth | Sheet owner | `data/ground-truth/ground_truth.csv`, `tests/test_ground_truth.py` |
 | E. Outputs | Outputs lead (Abel) | `reports/` (including `reports/acr.py`, `reports/backlog.py`, `reports/package.py`, `reports/fix_guidance.json`), `tests/test_matrix.py`, `tests/test_acr.py`, `tests/test_backlog.py` |
-| F. PULSE | Reviewer-UI lead | `pulse/`, `extension/`, `data/reviews/`, `tests/test_pulse_api.py` |
+| F. PULSE | Reviewer-UI lead (Daniel) | `pulse/`, `extension/`, `data/reviews/`, `tests/test_pulse_api.py`, `docs/human_review.md` |
 | S. Scoring | Repo owner (Jesus) | `scripts/gt_candidates.py`, `scripts/score.py`, `docs/scores/`, `tests/test_score.py`, `scanners/vision_scan.py`, `docs/benchmark.md`, `docs/deck_outline.md` |
 | R. Code-rule checks | Daniel | `scanners/rules_scan.py`, `tests/test_rules.py` |
 | V. Validator + page comparison | Ershad | `scanners/validator_scan.py`, `scanners/compare_scan.py`, `tests/test_validator.py`, `tests/test_compare.py`, `docs/triage_study.md` |

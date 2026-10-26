@@ -26,6 +26,17 @@ jobs:
       - name: Install
         run: pip install -r requirements-dev.txt
 
+      # Chromium for the tests that drive a real page (tests/test_rules.py); without it they skip.
+      # The Playwright version is pinned in requirements.txt, so its browser cache is keyed on that.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Install Playwright Chromium
+        run: python -m playwright install --with-deps chromium
+
       - name: Dependencies are consistent
         run: pip check
 
@@ -38,7 +49,8 @@ jobs:
       - name: Tests
         # Exit code 5 means no tests were collected; treat that as a pass
         # until the tracks add their own tests.
-        run: pytest -q || [ $? -eq 5 ]
+        # -rs lists every skipped test and why, so a skip in CI is visible, not silent.
+        run: pytest -q -rs || [ $? -eq 5 ]
 
   secrets:
     runs-on: ubuntu-latest

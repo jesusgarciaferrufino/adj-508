@@ -1,0 +1,86 @@
+{
+  "adj.rules.blur-on-focus": {
+    "sc": "2.1.1",
+    "issue": "Links and controls throw away keyboard focus as soon as they get it",
+    "fix": "Remove onfocus=\"blur()\" (or any script that calls blur() on focus) so keyboard users can reach, see and activate the element. If the aim was to hide the focus outline, restyle it instead of removing focus.",
+    "technique": "F55",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/F55.html"
+  },
+  "adj.rules.select-navigates": {
+    "sc": "3.2.2",
+    "issue": "Choosing an option in a select list jumps to another page right away",
+    "fix": "Don't change pages in the select's onchange. Add a Go (submit) button next to the list and navigate only when it is pressed, so keyboard and screen reader users can move through the options first.",
+    "technique": "G80",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/G80.html"
+  },
+  "adj.rules.control-no-label": {
+    "sc": "3.3.2",
+    "issue": "Form fields have no label",
+    "fix": "Give each form field a visible text label and tie it to the field with <label for=\"field-id\">. Where a visible label truly can't fit, use aria-label or a title attribute.",
+    "technique": "H44",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/H44.html"
+  },
+  "adj.rules.link-color-only": {
+    "sc": "1.4.1",
+    "issue": "Links in running text are shown only by colour",
+    "fix": "Underline links in body text (or give them another non-colour cue, such as bold), and keep that cue on hover and focus.",
+    "technique": "F73",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/F73.html"
+  },
+  "adj.rules.no-skip-link": {
+    "sc": "2.4.1",
+    "issue": "No way to skip the repeated header and menu",
+    "fix": "Add a \"Skip to main content\" link as the first focusable item on each page, pointing at an id on the main content.",
+    "technique": "G1",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/G1.html"
+  },
+  "2.4.4": {
+    "sc": "2.4.4",
+    "issue": "Link text like \"Click here\" doesn't say where the link goes",
+    "fix": "Make each link's own text (or its sentence, list item or table cell) say where it goes, e.g. \"Read about killer bees\" instead of \"Click here\". Context the link sits outside of doesn't count.",
+    "technique": "F63",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/F63.html"
+  },
+  "image-alt": {
+    "sc": "1.1.1",
+    "issue": "Images have no text alternative",
+    "fix": "Add an alt attribute to every <img>. Describe what the image shows or does; use alt=\"\" for images that are only decoration.",
+    "technique": "F65",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/F65.html"
+  },
+  "link-name": {
+    "sc": "2.4.4",
+    "issue": "Links have no name a screen reader can announce",
+    "fix": "Give every link text that says where it goes. For a link that is only an image, put that text in the image's alt attribute.",
+    "technique": "F89",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/F89.html"
+  },
+  "select-name": {
+    "sc": "4.1.2",
+    "issue": "Select lists have no accessible name",
+    "fix": "Label every <select> with a <label for=\"select-id\"> naming what it chooses, so screen readers announce it.",
+    "technique": "H44",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/H44.html"
+  },
+  "label": {
+    "sc": "4.1.2",
+    "issue": "Form fields have no accessible name",
+    "fix": "Connect each input to its visible label with <label for=\"input-id\">, so screen readers announce what the field is for.",
+    "technique": "H44",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/H44.html"
+  },
+  "html-has-lang": {
+    "sc": "3.1.1",
+    "issue": "The page doesn't say what language it is in",
+    "fix": "Add the page language to the root element, e.g. <html lang=\"en\">, so screen readers pronounce the text correctly.",
+    "technique": "H57",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/H57.html"
+  },
+  "color-contrast": {
+    "sc": "1.4.3",
+    "issue": "Text is too faint against its background",
+    "fix": "Darken the text or lighten the background until normal text reaches a contrast ratio of at least 4.5:1 (3:1 for large text). Check each pair with a contrast checker.",
+    "technique": "G18",
+    "url": "https://www.w3.org/TR/WCAG20-TECHS/G18.html"
+  }
+}

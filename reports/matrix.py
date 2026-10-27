@@ -151,17 +151,18 @@ def criterion_status(finding_ids, decisions):
     return STATUS_SUPPORTS
 
 
-def _evidence(finding):
+def _evidence(finding, shot_text=lambda path: path):
     """Where a reviewer can see one finding: its selector and, when there is one, its screenshot.
 
     A finding on the <html> element is about the whole page (e.g. 3.1.1 page language), so it is
-    labelled that way instead of showing a bare "html".
+    labelled that way instead of showing a bare "html". shot_text turns the screenshot path into
+    what to print; it returns None when the screenshot isn't where this matrix is read (the evidence
+    package holds only the screenshots it shows), and then only the selector is printed.
     """
     ev = finding["evidence"]
     where = "page-level (whole page)" if ev["selector"] == "html" else ev["selector"]
-    if ev["screenshot"] is None:  # e.g. <title>: nothing on screen to photograph
-        return where
-    return f"{where} (screenshot: {ev['screenshot']})"
+    shot = shot_text(ev["screenshot"]) if ev["screenshot"] else None  # None: e.g. <title>, nothing on screen
+    return f"{where} (screenshot: {shot})" if shot else where
 
 
 def _leaning(finding):
@@ -194,13 +195,14 @@ def _sc_order(sc):
     return tuple(int(part) for part in sc.split("."))
 
 
-def build_matrix(findings, decisions, corpus, map508):
+def build_matrix(findings, decisions, corpus, map508, shot_text=lambda path: path):
     """One row per WCAG 2.0 A/AA criterion (38), in criterion order. Touches no files.
 
     findings   from load_run; grouped by wcag[0] (Track A's criterion), not mapping.sc
     decisions  from load_decisions; only these set a row's status
     corpus     from rag.corpus_tools.load_corpus(): {sc: {"name", "level", ...}}
     map508     rag/section508_map.json: {sc: {"web": "E205.4", ...}}
+    shot_text  how the evidence column names a screenshot (_evidence); the repo path by default
     """
     by_sc = {}
     for f in findings:
@@ -224,7 +226,7 @@ def build_matrix(findings, decisions, corpus, map508):
             "grey": buckets["grey"],
             "human_checks": buckets["human_checks"],
             "finding_ids": "; ".join(ids),
-            "evidence": "; ".join(_evidence(f) for f in group),  # same order as finding_ids
+            "evidence": "; ".join(_evidence(f, shot_text) for f in group),  # same order as finding_ids
             "ai_leaning": _ai_leaning(group),
             "reviewed_by": ", ".join(sorted({decisions[i]["reviewer"] for i in ids if i in decisions})),
         })

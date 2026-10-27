@@ -428,23 +428,28 @@ def _check_run(run_id, summary, findings):
 
 
 def load_before_site(run_ids):
-    """Read the Before site: one run per page, plus each page's human decisions.
+    """Read the Before site, which the ACR reports on: load_site(run_ids, "before")."""
+    return load_site(run_ids, "before")
+
+
+def load_site(run_ids, version):
+    """Read one site version: one run per page, plus each page's human decisions.
 
     Returns (runs, decisions_by_page, notes, model_ids): runs as (summary, findings) in PAGES order;
-    notes are warnings for the top of the ACR (stand-in runs, skipped reviews lines); model_ids are
-    the models the runs used. After runs in run_ids are ignored. Raises AcrError unless every
-    Before page has exactly one run, and for a malformed Before run (_check_run).
+    notes are warnings for the top of a report (stand-in runs, skipped reviews lines); model_ids are
+    the models the runs used. Runs of the other version in run_ids are ignored. Raises AcrError unless
+    every page has exactly one run of this version, and for a malformed run (_check_run).
     """
     found = {}
     for run_id in run_ids:
         summary, findings = matrix.load_run(run_id)
-        if summary["version"] == "before":
+        if summary["version"] == version:
             _check_run(run_id, summary, findings)
             found.setdefault(summary["page"], []).append((run_id, summary, findings))
     missing = [p for p in PAGES if p not in found]
     several = [p for p in PAGES if len(found.get(p, [])) > 1]
     if missing or several:
-        raise AcrError(f"the ACR needs exactly one Before run per page; missing: {missing or 'none'}, "
+        raise AcrError(f"need exactly one {version} run per page; missing: {missing or 'none'}, "
                        f"more than one: {several or 'none'}")
 
     runs, decisions_by_page, notes, model_ids = [], {}, [], set()
@@ -452,14 +457,14 @@ def load_before_site(run_ids):
         run_id, summary, findings = found[page][0]
         summary["run_id"] = run_id  # the folder name is the run's ID; the writers print it in the header
         runs.append((summary, findings))
-        decisions_by_page[page], skipped = matrix.load_decisions("before", page)
+        decisions_by_page[page], skipped = matrix.load_decisions(version, page)
         notes += _orphan_notes(decisions_by_page[page], findings)
         stub_note = matrix._stub_note(summary)
         if stub_note:
             notes.append(f"Run {run_id} ({page}): {stub_note}")
         # load_decisions names the file by its absolute path; the report shows it repo-style instead,
         # so a deliverable never carries someone's local folders
-        reviews_file = matrix.REVIEWS_DIR / f"before_{page}.jsonl"
+        reviews_file = matrix.REVIEWS_DIR / f"{version}_{page}.jsonl"
         notes += [f"Skipped reviews {s.replace(str(reviews_file), f'data/reviews/{reviews_file.name}')}. "
                   "Its decision is not counted; the criterion may show Pending." for s in skipped]
         model_ids.update(summary.get("model_ids", []))

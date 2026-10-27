@@ -56,7 +56,7 @@ def acr_level(page_statuses):
 
 
 def findings_by_criterion(runs):
-    """Group the Before pages' findings as {criterion: {page: [findings]}}.
+    """Group one site version's findings as {criterion: {page: [findings]}}.
 
     runs: (summary, findings) pairs from matrix.load_run, one per page. Groups by wcag[0], like
     matrix.build_matrix. A page with no findings for a criterion is absent from that criterion's dict.
@@ -409,7 +409,7 @@ def _orphan_notes(decisions, findings):
 
 
 def _check_run(run_id, summary, findings):
-    """Raise AcrError if a Before run can't be reported on as it is.
+    """Raise AcrError if a run can't be reported on as it is.
 
     matrix.load_run checks only that summary.json has version and page, so the fields the ACR prints
     (model_ids, stubs) and the run's page are checked here, and every finding must be for the page
@@ -440,6 +440,12 @@ def load_site(run_ids, version):
     the models the runs used. Runs of the other version in run_ids are ignored. Raises AcrError unless
     every page has exactly one run of this version, and for a malformed run (_check_run).
     """
+    runs, decisions_by_page, notes_by_page, model_ids = load_site_by_page(run_ids, version)
+    return runs, decisions_by_page, [n for page in PAGES for n in notes_by_page[page]], model_ids
+
+
+def load_site_by_page(run_ids, version):
+    """load_site, with the warnings kept per page ({page: [notes]}) for reports about one page."""
     found = {}
     for run_id in run_ids:
         summary, findings = matrix.load_run(run_id)
@@ -452,8 +458,9 @@ def load_site(run_ids, version):
         raise AcrError(f"need exactly one {version} run per page; missing: {missing or 'none'}, "
                        f"more than one: {several or 'none'}")
 
-    runs, decisions_by_page, notes, model_ids = [], {}, [], set()
+    runs, decisions_by_page, notes_by_page, model_ids = [], {}, {}, set()
     for page in PAGES:
+        notes = notes_by_page[page] = []
         run_id, summary, findings = found[page][0]
         summary["run_id"] = run_id  # the folder name is the run's ID; the writers print it in the header
         runs.append((summary, findings))
@@ -468,7 +475,7 @@ def load_site(run_ids, version):
         notes += [f"Skipped reviews {s.replace(str(reviews_file), f'data/reviews/{reviews_file.name}')}. "
                   "Its decision is not counted; the criterion may show Pending." for s in skipped]
         model_ids.update(summary.get("model_ids", []))
-    return runs, decisions_by_page, notes, sorted(model_ids)
+    return runs, decisions_by_page, notes_by_page, sorted(model_ids)
 
 
 def _write_together(files):

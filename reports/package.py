@@ -14,6 +14,7 @@ import re
 import shutil
 import sys
 from collections import Counter
+from urllib.parse import quote
 
 from agents.runlog import new_run_id
 from rag.corpus_tools import CorpusError, load_corpus, write_atomic
@@ -133,18 +134,21 @@ dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
 """
 
 
-def _ai_html(ai):
+def _ai_html(ai, bucket):
     """The FOR/AGAINST section, under a heading that says it is AI analysis and not a decision."""
     esc = html.escape
     out = ["<h2>AI analysis (not a decision)</h2>"]
+    if bucket != "grey":  # by design (router policy v1): FOR/AGAINST runs on grey-area findings only
+        return out + [f"<p>Not evaluated by AI: FOR/AGAINST runs only on grey-area findings, and this one is "
+                      f"{esc(str(bucket))}.</p>"]
     case_for = ai.get("case_for") or ""
     if case_for.startswith("SKIPPED:") or not (case_for or ai.get("case_against")):
         why = f" ({case_for})" if case_for else ""
         return out + [f"<p>Not evaluated by AI{esc(why)}. A human decides.</p>"]
     out += ["<p>The AI argues both sides; a human reviewer makes the decision.</p>",
-            "<dl>", f"<dt>AI leaning</dt><dd>{esc(str(ai.get('recommendation')))}</dd>",
-            f"<dt>Citations verified</dt><dd>Citations verified: {'yes' if ai.get('citations_verified') else 'no'}"
-            "</dd>", f"<dt>Model</dt><dd>{esc(str(ai.get('model_id', 'not recorded')))}</dd>",
+            "<dl>", f"<dt>AI leaning</dt><dd>{esc(ai.get('recommendation') or 'not evaluated')}</dd>",
+            f"<dt>Citations verified</dt><dd>{'yes' if ai.get('citations_verified') else 'no'}</dd>",
+            f"<dt>Model</dt><dd>{esc(ai.get('model_id') or 'not recorded')}</dd>",
             f"<dt>Prompts</dt><dd>{esc(str(ai.get('prompt_version') or 'not recorded'))}</dd>", "</dl>",
             "<h3>Case for a failure</h3>", f"<pre>{esc(case_for)}</pre>",
             "<h3>Case against a failure</h3>", f"<pre>{esc(ai.get('case_against') or '')}</pre>"]
@@ -189,8 +193,8 @@ def format_evidence_html(finding, decision, corpus, shot):
         out.append("<p>Pending human review: no reviewer has decided this finding yet.</p>")
     out.append("<h2>Evidence</h2>")
     if shot:
-        out.append(f'<p><a href="{esc(shot)}"><img src="{esc(shot)}" alt="Screenshot of the element for {esc(fid)}">'
-                   "</a></p>")
+        href = esc(quote(shot, safe="/._-~"))  # a # ? % or space in a file name would otherwise break the link
+        out.append(f'<p><a href="{href}"><img src="{href}" alt="Screenshot of the element for {esc(fid)}"></a></p>')
     else:
         out.append("<p>No screenshot for this finding; the selector below locates it.</p>")
     out += ["<dl>", f"<dt>Selector</dt><dd><code>{esc(ev['selector'])}</code></dd>", "</dl>",
@@ -201,22 +205,28 @@ def format_evidence_html(finding, decision, corpus, shot):
             *(f'<th scope="col">{h}</th>' for h in ("Scanner", "Rule", "Type", "Message")), "</tr></thead>", "<tbody>"]
     out += [f"<tr><td>{esc(d['scanner'])}</td><td>{esc(d['rule_id'])}</td><td>{esc(d['type'])}</td>"
             f"<td>{esc(d['message'])}</td></tr>" for d in finding["scanner_details"]]
-    out += ["</tbody>", "</table>", *_ai_html(finding["ai"]), "</main>", "</body>", "</html>", ""]
+    out += ["</tbody>", "</table>", *_ai_html(finding["ai"], finding.get("bucket")),
+            "</main>", "</body>", "</html>", ""]
     return "\n".join(out)
 
 
 SCORE_ROW = re.compile(r"\| (\((?:a|b|c)\) [^|]+?) \| ([^|]+?) \|")
 FALSE_ALARMS = re.compile(r"Total on \d of 4 After pages: .+")
+SCORES_FILE = "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md"  # what score.py --write names its files
+# score.py's lines that say the figures aren't final: lower bounds (grey never evaluated, runs before stub
+# tracking, stubbed nodes) or upper bounds (--stub-grey-counts). The index must not show the numbers without them.
+SCORE_CAVEAT = re.compile(r"LOWER BOUNDS|predate stub tracking|ran as a stub|--stub-grey-counts")
 
 
 def latest_scores(scores_dir=None):
     """The headline from the newest docs/scores/<date>.md (scripts/score.py --write), or None if there is none.
 
-    Returns {"file", "figures": [(label, value)]}: recall (a), (b), (c) and the After false-alarm total.
-    A file in a format this doesn't know gives no figures, and the index just links it.
+    Returns {"file", "figures": [(label, value)], "caveats": [lines]}: recall (a), (b), (c), the After
+    false-alarm total, and score.py's warnings that they are bounds, not final numbers. A file in a format
+    this doesn't know gives no figures, and the index just names it. Only dated files count.
     """
     scores_dir = SCORES_DIR if scores_dir is None else scores_dir
-    files = sorted(scores_dir.glob("*.md")) if scores_dir.is_dir() else []
+    files = sorted(scores_dir.glob(SCORES_FILE)) if scores_dir.is_dir() else []
     if not files:
         return None
     text = files[-1].read_text(encoding="utf-8")  # dated names, so the last is the newest
@@ -224,7 +234,8 @@ def latest_scores(scores_dir=None):
     alarms = FALSE_ALARMS.search(text)
     if alarms:
         figures.append(("After false alarms", alarms.group()))
-    return {"file": files[-1].name, "figures": figures}
+    caveats = [line.replace("**", "").strip() for line in text.splitlines() if SCORE_CAVEAT.search(line)]
+    return {"file": files[-1].name, "figures": figures, "caveats": caveats}
 
 
 INDEX_TITLE = "ADJ evidence package: CityLights"
@@ -270,13 +281,15 @@ def format_index_md(c):
     lines += ["## Runs", "", "| Version | Page | Run |", "| --- | --- | --- |",
               *(f"| {v} | {p} | {_md_text(run_id)} |" for (v, p), run_id in _ordered_runs(c)), ""]
     for heading, links in _index_sections(c):
-        lines += [f"## {heading}", "", *(f"- [{_md_text(text)}]({href})" for text, href in links), ""]
+        lines += [f"## {heading}", "", *(f"- [{_md_text(text)}]({quote(href, safe='/._-~')})" for text, href in links),
+                  ""]
     lines += ["## Benchmark", ""]
     s = c["scores"]
     if s is None:
         lines += ["No benchmark scores yet (docs/scores/ is empty).", ""]
     else:
         lines += [f"From docs/scores/{s['file']} ({SCORES_CAVEAT}).", ""]
+        lines += [f"> **Not final:** {_md_text(caveat)}" + "\n" for caveat in s.get("caveats", [])]
         if s["figures"]:
             lines += ["| Figure | Value |", "| --- | --- |",
                       *(f"| {_md_text(label)} | {_md_text(value)} |" for label, value in s["figures"]), ""]
@@ -301,13 +314,15 @@ def format_index_html(c):
               for (v, p), run_id in _ordered_runs(c)), "</tbody>", "</table>"]
     for heading, links in _index_sections(c):
         out += [f"<h2>{esc(heading)}</h2>", "<ul>",
-                *(f'<li><a href="{esc(href)}">{esc(text)}</a></li>' for text, href in links), "</ul>"]
+                *(f'<li><a href="{esc(quote(href, safe="/._-~"))}">{esc(text)}</a></li>' for text, href in links),
+                "</ul>"]
     out.append("<h2>Benchmark</h2>")
     s = c["scores"]
     if s is None:
         out.append("<p>No benchmark scores yet (docs/scores/ is empty).</p>")
     else:
         out.append(f"<p>From docs/scores/{esc(s['file'])} ({esc(SCORES_CAVEAT)}).</p>")
+        out += [f'<p class="warning"><strong>Not final:</strong> {esc(caveat)}</p>' for caveat in s.get("caveats", [])]
         if s["figures"]:
             out += ["<table>", "<caption>Benchmark headline</caption>", "<thead><tr>",
                     '<th scope="col">Figure</th><th scope="col">Value</th>', "</tr></thead>", "<tbody>",
@@ -336,8 +351,10 @@ def write_package(run_ids, folder):
     Reads one run per page of both site versions (acr.load_site) and data/reviews/. Everything shown
     comes from those; the ACR and backlog link screenshots copied into folder/shots/.
     """
-    b_runs, b_decisions, b_notes, model_ids = acr.load_site(run_ids, "before")
-    a_runs, a_decisions, a_notes, _ = acr.load_site(run_ids, "after")
+    b_runs, b_decisions, b_page_notes, model_ids = acr.load_site_by_page(run_ids, "before")
+    a_runs, a_decisions, a_page_notes, _ = acr.load_site_by_page(run_ids, "after")
+    b_notes = [n for page in PAGES for n in b_page_notes[page]]
+    a_notes = [n for page in PAGES for n in a_page_notes[page]]
     corpus = load_corpus()
     map508 = matrix._load_map508(corpus)
     acr_rows = acr.build_acr(b_runs, b_decisions, corpus)
@@ -365,22 +382,23 @@ def write_package(run_ids, folder):
         "acr.html": acr.format_acr_html(acr_rows, date, [*b_notes, *shot_notes], model_ids, at_root, tools,
                                         before_ids),
         "backlog.md": backlog.format_backlog_md(backlog_rows, date, [*b_notes, *shot_notes], at_root, before_ids),
-        "backlog.csv": backlog.format_backlog_csv(backlog_rows),
+        "backlog.csv": backlog.format_backlog_csv(backlog_rows, at_root),
     }
-    for version, runs, decisions, site_notes in (("before", b_runs, b_decisions, b_notes),
-                                                  ("after", a_runs, a_decisions, a_notes)):
+    for version, runs, decisions, site_notes, page_notes in (
+            ("before", b_runs, b_decisions, b_notes, b_page_notes),
+            ("after", a_runs, a_decisions, a_notes, a_page_notes)):
         rows = build_site_matrix(runs, decisions, corpus, map508)
         files[f"site_matrix_{version}.csv"] = format_site_matrix_csv(rows)
         files[f"site_matrix_{version}.md"] = format_site_matrix_md(rows, f"Site compliance matrix: {version}",
                                                                    site_notes)
         for summary, findings in runs:
-            page_rows = matrix.build_matrix(findings, decisions[summary["page"]], corpus, map508)
+            # the matrix names a screenshot only when the package holds it (shots/...), else just the selector
+            page_rows = matrix.build_matrix(findings, decisions[summary["page"]], corpus, map508, copied.get)
             name = f"matrix_{version}_{summary['page']}"
-            stub_note = matrix._stub_note(summary)
             matrix.write_csv(page_rows, folder / f"{name}.csv")
             matrix.write_markdown(page_rows, folder / f"{name}.md",
                                   f"Compliance matrix: {version} / {summary['page']} (run {summary['run_id']})",
-                                  [stub_note] if stub_note else [])
+                                  [_md_text(n) for n in page_notes[summary["page"]]])
     in_evidence = shot_href(copied, depth=1)
     for fid, (f, _) in shown.items():
         shot = in_evidence(f["evidence"]["screenshot"]) if f["evidence"]["screenshot"] else None
@@ -416,10 +434,12 @@ def main(argv=None):
         contents = write_package(args.runs, partial)
         os.replace(partial, final)
     except (PackageError, acr.AcrError, backlog.BacklogError, matrix.MatrixInputError, FindingsFileError,
-            CorpusError, OSError) as e:
-        shutil.rmtree(partial, ignore_errors=True)
+            CorpusError, OSError, UnicodeDecodeError) as e:
         print(f"ERROR {e}", file=sys.stderr)
         return 1
+    finally:
+        # whatever happened, even a bug or Ctrl-C: a package that didn't finish leaves nothing behind
+        shutil.rmtree(partial, ignore_errors=True)
 
     for note in contents["notes"]:
         print(f"WARNING {note}", file=sys.stderr)

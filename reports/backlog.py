@@ -62,7 +62,7 @@ STATUS_ORDER = (STATUS_CONFIRMED, STATUS_MACHINE, STATUS_AI)
 def group_issues(runs, decisions_by_page):
     """The backlog's issues, unranked: one per (criterion, rule_id) across all pages, in first-seen order.
 
-    runs               (summary, findings) per Before page, from matrix.load_run (or acr.load_before_site)
+    runs               (summary, findings) per Before page, from acr.load_before_site
     decisions_by_page  {page: {finding_id: decision line}}
 
     Issue: sc, rule_id, status (its strongest instance's), pages (each once, in run order), instances
@@ -207,10 +207,10 @@ def _criterion_text(r):
     return f"{r['sc']} {r['name']} (Level {r['level']}, 508 {r['section508']})"
 
 
-def _where(instance):
-    """An instance's screenshot path, or its selector when it has none (e.g. <title>)."""
+def _where(instance, shot_href):
+    """An instance's screenshot link, or its selector when it has none (e.g. <title>)."""
     evidence = instance["finding"]["evidence"]
-    return evidence["screenshot"] or evidence["selector"]
+    return shot_href(evidence["screenshot"]) if evidence["screenshot"] else evidence["selector"]
 
 
 def _status_text(r):
@@ -277,8 +277,11 @@ def format_backlog_md(rows, report_date, notes=(), shot_href=lambda path: path, 
     return "\n".join(lines + [""])
 
 
-def format_backlog_csv(rows):
-    """The backlog as CSV, one line per issue, with every instance and its own status in the evidence column."""
+def format_backlog_csv(rows, shot_href=lambda path: path):
+    """The backlog as CSV, one line per issue, with every instance and its own status in the evidence column.
+
+    shot_href as for format_backlog_md: the evidence paths point wherever the screenshots are next to the file.
+    """
     buf = io.StringIO()
     writer = csv.DictWriter(buf, fieldnames=CSV_COLUMNS, lineterminator="\n")
     writer.writeheader()
@@ -288,7 +291,7 @@ def format_backlog_csv(rows):
             "level": r["level"], "section508": r["section508"], "status": _status_text(r),
             "pages": ", ".join(r["pages"]), "instances": len(r["instances"]), "how_to_fix": r["fix"],
             "technique": r["technique"] or "", "technique_url": r["url"],
-            "evidence": "; ".join(f"{i['finding']['finding_id']} ({i['page']}, {i['status']}): {_where(i)}"
+            "evidence": "; ".join(f"{i['finding']['finding_id']} ({i['page']}, {i['status']}): {_where(i, shot_href)}"
                                   for i in _strongest_first(r["instances"])),
         })
     return buf.getvalue()

@@ -409,3 +409,8 @@ def test_main_out_writes_elsewhere_with_screenshot_links_relative_to_it(site, tm
     assert (out / "backlog.csv").exists() and not (matrix.REPORTS_DIR / "backlog").exists()
     shot = os.path.relpath(REPO / "data/findings/shots/before_home_el0210.jpg", out)
     assert f"[screenshot of F-before-home-el0210-2.4.4]({shot})" in (out / "backlog.md").read_text()
+
+
+def test_backlog_csv_evidence_uses_shot_href_like_the_markdown():
+    line = backlog.format_backlog_csv([row()], shot_href=lambda path: "shots/x.jpg").splitlines()[1]
+    assert "F-0 (home, Confirmed (human)): shots/x.jpg" in line and "data/findings" not in line

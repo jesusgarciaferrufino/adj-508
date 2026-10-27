@@ -2,6 +2,7 @@
 import html
 import json
 import re
+import shutil
 from urllib.parse import unquote
 
 import pytest
@@ -192,7 +193,7 @@ def test_evidence_page_labels_the_ai_cases_as_analysis_not_a_decision():
     assert "AI analysis (not a decision)" in p
     assert p.index("AI analysis (not a decision)") < p.index("Says nothing about bees.")
     assert "No honest case for a pass." in p and "likely_fail" in p and "test-model" in p
-    assert "Citations verified: yes" in p
+    assert "<dt>Citations verified</dt><dd>yes</dd>" in p
 
 
 @pytest.mark.parametrize("ai,shown", [
@@ -252,7 +253,7 @@ def test_latest_scores_reads_the_headline_from_the_newest_scores_file(tmp_path):
 def test_latest_scores_with_no_folder_or_no_file_is_none_and_an_unknown_format_has_no_figures(tmp_path):
     assert package.latest_scores(tmp_path / "nope") is None and package.latest_scores(tmp_path) is None
     (tmp_path / "2026-10-30.md").write_text("# something else\n")
-    assert package.latest_scores(tmp_path) == {"file": "2026-10-30.md", "figures": []}
+    assert package.latest_scores(tmp_path) == {"file": "2026-10-30.md", "figures": [], "caveats": []}
 
 
 def contents(**overrides):
@@ -395,3 +396,84 @@ def test_main_that_fails_while_writing_leaves_no_partial_package(eight_runs, mon
     assert package.main(["--runs", *eight_runs]) == 1
     assert "disk full" in capsys.readouterr().err
     assert not any(matrix.REPORTS_DIR.iterdir())
+
+
+# ---------------------------------------------------------------- audit follow-ups (Oct 27)
+
+def test_a_bug_while_writing_still_leaves_no_partial_package(eight_runs, monkeypatch):
+    def bug(*args, **kwargs):
+        raise KeyError("not a known error")
+    monkeypatch.setattr(package, "format_index_html", bug)
+    with pytest.raises(KeyError):  # a bug still shows its traceback...
+        package.main(["--runs", *eight_runs])
+    assert not any(matrix.REPORTS_DIR.iterdir())  # ...but leaves nothing behind
+
+
+def test_no_file_in_the_package_points_at_repo_paths(eight_runs):
+    package.main(["--runs", *eight_runs])
+    for path in the_package().rglob("*"):
+        if path.suffix in (".md", ".csv", ".html"):
+            for line in path.read_text().splitlines():  # only the missing-screenshot warning names the repo file
+                assert "data/findings" not in line or "is missing" in line, f"{path.name}: {line}"
+
+
+def test_backlog_csv_in_the_package_names_the_copied_screenshot(eight_runs):
+    package.main(["--runs", *eight_runs])
+    csv_text = (the_package() / "backlog.csv").read_text()
+    assert "F-before-home-el0210-2.4.4 (home, Confirmed (human)): shots/before_home_el0210.jpg" in csv_text
+
+
+def test_each_per_page_matrix_shows_its_own_pages_warnings(eight_runs):
+    with (matrix.REVIEWS_DIR / "before_home.jsonl").open("a") as fh:
+        fh.write("not json\n")
+    package.main(["--runs", *eight_runs])
+    folder = the_package()
+    assert "Skipped reviews" in (folder / "matrix_before_home.md").read_text()
+    assert "Skipped reviews" not in (folder / "matrix_before_news.md").read_text()
+
+
+def test_a_finding_with_no_screenshot_shows_its_selector_everywhere(eight_runs):
+    from tests.test_acr import example_finding, write_run
+    tickets = example_finding("before", "tickets", 3, "2.4.2")
+    tickets["bucket"], tickets["evidence"]["screenshot"] = "machine", None  # e.g. <title>
+    shutil.rmtree(matrix.RUNS_DIR / "run-before-tickets")
+    write_run(matrix.RUNS_DIR, "run-before-tickets", "before", "tickets", [tickets])
+    assert package.main(["--runs", *eight_runs]) == 0
+    p = (the_package() / "evidence" / "F-before-tickets-el0003-2.4.2.html").read_text()
+    assert "No screenshot" in p and "#content a" in p
+    assert "el0003" not in (the_package() / "index.md").read_text().split("## Runs")[0]  # no warning: none expected
+
+
+def test_copy_shots_refuses_a_symlink_inside_shots_that_points_outside(shots_repo, tmp_path):
+    (tmp_path / "secret.txt").write_text("secret")
+    (package.SHOTS_DIR / "link.jpg").symlink_to(tmp_path / "secret.txt")
+    copied, notes = package.copy_shots([shot_finding("F-x", "data/findings/shots/link.jpg")], shots_repo)
+    assert copied == {} and "outside data/findings/shots/" in notes[0]
+
+
+def test_latest_scores_ignores_files_that_are_not_dated_and_keeps_the_bound_warnings(tmp_path):
+    warning = ("**Warning: 12 grey finding(s) were never evaluated by FOR/AGAINST** (skipped), "
+               "so (a) and the After false alarms below are LOWER BOUNDS, not final numbers.")
+    (tmp_path / "2026-10-29.md").write_text(SCORES_MD.replace("## Before recall", warning + "\n\n## Before recall"))
+    (tmp_path / "README.md").write_text("# How to read these\n")  # sorts after the dates; must not be picked
+    s = package.latest_scores(tmp_path)
+    assert s["file"] == "2026-10-29.md" and len(s["figures"]) == 4
+    assert s["caveats"] == [warning.replace("**", "")]
+    md = package.format_index_md(contents(scores=s))
+    assert "> **Not final:** Warning: 12 grey finding(s)" in md and "LOWER BOUNDS" in md
+    assert "Not final:</strong> Warning: 12 grey" in package.format_index_html(contents(scores=s))
+
+
+@pytest.mark.parametrize("finding_kw,ai,shown,hidden", [
+    ({"bucket": "machine"}, {}, "FOR/AGAINST runs only on grey-area findings, and this one is machine", "Case for"),
+    ({}, {"model_id": None}, "<dt>Model</dt><dd>not recorded</dd>", "None"),
+    ({}, {"recommendation": None}, "<dt>AI leaning</dt><dd>not evaluated</dd>", "None"),
+])
+def test_evidence_page_ai_wording_never_prints_none(finding_kw, ai, shown, hidden):
+    f = {**full_finding(**ai), **finding_kw}
+    p = page(f)
+    assert shown in p and hidden not in p.split("AI analysis (not a decision)")[1]
+
+
+def test_evidence_and_index_links_are_url_encoded():
+    assert '<img src="../shots/a%20b%23c.jpg"' in page(shot="../shots/a b#c.jpg")

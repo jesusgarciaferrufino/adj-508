@@ -16,7 +16,7 @@
   "adj.rules.control-no-label": {
     "sc": "3.3.2",
     "issue": "Form fields have no label",
-    "fix": "Give each form field a visible text label and tie it to the field with <label for=\"field-id\">. Where a visible label truly can't fit, use aria-label or a title attribute.",
+    "fix": "Give each form field a visible text label and tie it to the field with <label for=\"field-id\">. A label only screen readers get (aria-label or title) is not enough here: everyone needs to see what to enter.",
     "technique": "H44",
     "url": "https://www.w3.org/TR/WCAG20-TECHS/H44.html"
   },

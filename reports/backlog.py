@@ -19,6 +19,7 @@ import csv
 import io
 import json
 import os
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -100,10 +101,37 @@ class BacklogError(ValueError):
     """The backlog can't be built, e.g. fix_guidance.json is missing or broken."""
 
 
-def load_guidance(path=GUIDANCE_PATH):
+GUIDANCE_FIELDS = ("sc", "issue", "fix", "technique", "url")
+W3C = "https://www.w3.org/"
+TECHNIQUE_ID = re.compile(r"(F|G|H|C|SCR|ARIA)\d+")  # W3C's WCAG 2.0 technique and failure IDs
+
+
+def _guidance_problem(key, entry, corpus):
+    """What's wrong with one fix_guidance.json entry, or None when it's fine."""
+    if not isinstance(entry, dict) or set(entry) != set(GUIDANCE_FIELDS):
+        return f"must be an object with exactly these fields: {', '.join(GUIDANCE_FIELDS)}"
+    if not all(isinstance(entry[field], str) and entry[field].strip() for field in GUIDANCE_FIELDS):
+        return "every field must be non-empty text"
+    sc, technique = entry["sc"], entry["technique"]
+    if sc not in corpus:
+        return f"{sc!r} is not a WCAG 2.0 A/AA criterion"
+    if key in corpus and key != sc:
+        return f"a criterion key must name its own criterion, not {sc}"
+    if not TECHNIQUE_ID.fullmatch(technique):
+        return f"{technique!r} is not a W3C technique or failure ID"
+    if technique.startswith("F") and technique not in corpus[sc]["common_failures"]:
+        return f"{technique} is not a failure rag/wcag20_aa.json lists for {sc}"  # no invented failures
+    if not (entry["url"].startswith(W3C) and entry["url"].endswith(f"/{technique}.html")):
+        return f"url must be W3C's page for {technique} ({W3C}.../{technique}.html), not {entry['url']!r}"
+    return None
+
+
+def load_guidance(path=GUIDANCE_PATH, corpus=None):
     """The written fix guidance: {rule_id or sc: {"sc", "issue", "fix", "technique", "url"}}.
 
-    Raises BacklogError naming the file when it's missing, unreadable or not a JSON object.
+    corpus: rag.corpus_tools.load_corpus(), read here when not given. Raises BacklogError naming the
+    file when it's missing, unreadable or not a JSON object, and naming the entry when one is broken,
+    so a bad edit stops the backlog with a clear message instead of a traceback halfway through.
     """
     if not path.exists():
         raise BacklogError(f"{path} not found")
@@ -113,6 +141,11 @@ def load_guidance(path=GUIDANCE_PATH):
         raise BacklogError(f"cannot read {path}: {e}") from None
     if not isinstance(guidance, dict):
         raise BacklogError(f"{path} must hold a JSON object keyed by rule_id or criterion")
+    corpus = load_corpus() if corpus is None else corpus
+    for key, entry in guidance.items():
+        problem = _guidance_problem(key, entry, corpus)
+        if problem:
+            raise BacklogError(f"{path} entry {key!r}: {problem}")
     return guidance
 
 
@@ -126,8 +159,15 @@ def guidance_for(issue, guidance, corpus):
 
     Written guidance for the issue's rule_id comes first, then for its criterion. Without either, the
     fix points at the criterion's Understanding page (cut-list item 5) and "written" is False.
+
+    One rule can fire on several criteria (blur-on-focus on four), but its entry is written for one. It is
+    used on another criterion only when its W3C failure is one rag/wcag20_aa.json lists for that criterion
+    too, so a row never cites a technique for a different requirement than the one it names.
     """
-    entry = guidance.get(issue["rule_id"]) or guidance.get(issue["sc"])
+    entry = guidance.get(issue["rule_id"])
+    if entry and not (entry["sc"] == issue["sc"] or entry["technique"] in corpus[issue["sc"]]["common_failures"]):
+        entry = None
+    entry = entry or guidance.get(issue["sc"])
     if entry:
         return {"issue": entry["issue"], "fix": entry["fix"], "technique": entry["technique"],
                 "url": entry["url"], "written": True}
@@ -173,16 +213,36 @@ def _where(instance):
     return evidence["screenshot"] or evidence["selector"]
 
 
+def _status_text(r):
+    """The issue's status, split by instance when they differ ("Confirmed (human): 1 of 122; ...").
+
+    An issue ranks by its strongest instance, but one human fail must not read as a human
+    decision on all of them, so a mixed issue says how many instances have each status.
+    """
+    counts = Counter(i["status"] for i in r["instances"])
+    if len(counts) == 1:
+        return r["status"]
+    return "; ".join(f"{s}: {counts[s]} of {len(r['instances'])}" for s in STATUS_ORDER if s in counts)
+
+
+def _strongest_first(instances):
+    """Instances with human-confirmed ones first, then machine, then AI; page order kept within each."""
+    return sorted(instances, key=lambda i: STATUS_ORDER.index(i["status"]))
+
+
 def _evidence_md(instances, shot_href):
-    """The first MD_INSTANCES instances, each with its page and screenshot link (or selector)."""
+    """The first MD_INSTANCES instances, strongest first, each with its page and screenshot link (or
+    selector). When the issue's instances differ in status, each one names its own."""
+    mixed = len({i["status"] for i in instances}) > 1
     items = []
-    for i in instances[:MD_INSTANCES]:
+    for i in _strongest_first(instances)[:MD_INSTANCES]:
         finding_id, screenshot = i["finding"]["finding_id"], i["finding"]["evidence"]["screenshot"]
         if screenshot:
             where = f"[screenshot of {_md_text(finding_id)}]({quote(shot_href(screenshot), safe='/._-~')})"
         else:
             where = _md_code(i["finding"]["evidence"]["selector"])
-        items.append(f"{_md_text(f'{finding_id} ({i['page']},')} {where})")
+        about = f"{finding_id} ({i['page']}, {i['status']}," if mixed else f"{finding_id} ({i['page']},"
+        items.append(f"{_md_text(about)} {where})")
     more = len(instances) - MD_INSTANCES
     return "; ".join(items) + (f"; and {more} more in backlog.csv" if more > 0 else "")
 
@@ -190,7 +250,9 @@ def _evidence_md(instances, shot_href):
 def _fix_md(r):
     """The fix text and its W3C link: the cited technique, or the Understanding page for fallback guidance."""
     label = f"W3C {r['technique']}" if r["written"] else f"W3C Understanding {r['sc']}"
-    return f"{_md_text(r['fix'])} [{label}]({r['url']})"
+    # load_guidance has checked both, but a ] in the label or a ) | or space in the url would still break
+    # the link or the table row, so they are escaped here like every other cell
+    return f"{_md_text(r['fix'])} [{_md_text(label).replace(']', '\\]')}]({quote(r['url'], safe=':/._-~#')})"
 
 
 def format_backlog_md(rows, report_date, notes=(), shot_href=lambda path: path, run_ids=None):
@@ -208,7 +270,7 @@ def format_backlog_md(rows, report_date, notes=(), shot_href=lambda path: path, 
         return "\n".join(lines + ["Nothing is on the backlog: no human-confirmed fails and no suspected issues.", ""])
     lines += ["| " + " | ".join(MD_COLUMNS) + " |", "|" + " --- |" * len(MD_COLUMNS)]
     for r in rows:
-        cells = (str(r["rank"]), _md_text(r["issue"]), _md_text(_criterion_text(r)), _md_text(r["status"]),
+        cells = (str(r["rank"]), _md_text(r["issue"]), _md_text(_criterion_text(r)), _md_text(_status_text(r)),
                  _md_text(", ".join(r["pages"])), str(len(r["instances"])), _fix_md(r),
                  _evidence_md(r["instances"], shot_href))
         lines.append("| " + " | ".join(cells) + " |")
@@ -216,17 +278,18 @@ def format_backlog_md(rows, report_date, notes=(), shot_href=lambda path: path, 
 
 
 def format_backlog_csv(rows):
-    """The backlog as CSV, one line per issue, with every instance in the evidence column."""
+    """The backlog as CSV, one line per issue, with every instance and its own status in the evidence column."""
     buf = io.StringIO()
     writer = csv.DictWriter(buf, fieldnames=CSV_COLUMNS, lineterminator="\n")
     writer.writeheader()
     for r in rows:
         writer.writerow({
             "rank": r["rank"], "issue": r["issue"], "sc": r["sc"], "criterion_name": r["name"],
-            "level": r["level"], "section508": r["section508"], "status": r["status"],
+            "level": r["level"], "section508": r["section508"], "status": _status_text(r),
             "pages": ", ".join(r["pages"]), "instances": len(r["instances"]), "how_to_fix": r["fix"],
             "technique": r["technique"] or "", "technique_url": r["url"],
-            "evidence": "; ".join(f"{i['finding']['finding_id']} ({i['page']}): {_where(i)}" for i in r["instances"]),
+            "evidence": "; ".join(f"{i['finding']['finding_id']} ({i['page']}, {i['status']}): {_where(i)}"
+                                  for i in _strongest_first(r["instances"])),
         })
     return buf.getvalue()
 
@@ -242,7 +305,8 @@ def main(argv=None):
     try:
         runs, decisions, notes, _ = acr.load_before_site(args.runs)
         corpus = load_corpus()
-        rows = build_backlog(runs, decisions, corpus, matrix._load_map508(corpus), load_guidance())
+        rows = build_backlog(runs, decisions, corpus, matrix._load_map508(corpus),
+                              load_guidance(GUIDANCE_PATH, corpus))
     except (BacklogError, acr.AcrError, matrix.MatrixInputError, FindingsFileError, CorpusError) as e:
         print(f"ERROR {e}", file=sys.stderr)
         return 1

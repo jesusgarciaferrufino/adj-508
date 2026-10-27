@@ -1,10 +1,13 @@
 """Track E: the remediation backlog (reports/backlog.py)."""
+import json
+import os
 import re
 
 import pytest
 
 from rag.corpus_tools import load_corpus
 from reports import backlog, matrix
+from scanners.findings import REPO
 from tests.test_acr import site  # noqa: F401  the ACR's fake Before site: 4 runs, home's 2.4.4 failed by jesus
 
 CONFIRMED, MACHINE, AI = backlog.STATUS_CONFIRMED, backlog.STATUS_MACHINE, backlog.STATUS_AI
@@ -170,6 +173,31 @@ def test_guidance_falls_back_to_the_criterion_entry_then_to_the_understanding_pa
                         "url": "https://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html"}
 
 
+@pytest.mark.parametrize("sc,technique", [
+    ("2.1.1", "F55"),   # the criterion the entry was written for
+    ("2.4.7", "F55"),   # another criterion F55 fails too: the entry still fits
+    ("3.2.1", "F55"),
+    ("4.1.2", None),    # F55 doesn't fail 4.1.2: no written guidance there, so the Understanding page
+])
+def test_a_rule_entry_is_used_only_on_criteria_its_technique_fits(sc, technique):
+    g = backlog.guidance_for(issue("x", sc=sc, rule_id="adj.rules.blur-on-focus"), WRITTEN, REAL_CORPUS)
+    assert g["technique"] == technique and g["written"] is (technique is not None)
+
+
+def test_a_rule_entry_that_does_not_fit_falls_through_to_the_criterion_entry():
+    """axe link-name fires on 2.4.4 and 4.1.2; its F89 entry fits both (F89 fails each). A G technique
+    written for 2.4.4 doesn't fit 4.1.2, so 4.1.2's own entry is used."""
+    written = {"link-name": {"sc": "2.4.4", "issue": "Links have no name", "fix": "Name them.",
+                             "technique": "F89", "url": "https://www.w3.org/TR/WCAG20-TECHS/F89.html"},
+               "other-rule": {"sc": "2.4.4", "issue": "Vague links", "fix": "Say where.",
+                              "technique": "G91", "url": "https://www.w3.org/TR/WCAG20-TECHS/G91.html"},
+               "4.1.2": {"sc": "4.1.2", "issue": "No name or role", "fix": "Give it a name.",
+                         "technique": "F68", "url": "https://www.w3.org/TR/WCAG20-TECHS/F68.html"}}
+    def technique(rule_id):
+        return backlog.guidance_for(issue("x", sc="4.1.2", rule_id=rule_id), written, REAL_CORPUS)["technique"]
+    assert technique("link-name") == "F89" and technique("other-rule") == "F68"
+
+
 def test_every_criterion_has_an_understanding_url_built_from_its_spec_anchor():
     for sc, c in REAL_CORPUS.items():  # all 38 checked live against w3.org on 2026-10-27
         assert backlog.understanding_url(sc, REAL_CORPUS) == (
@@ -198,6 +226,38 @@ def test_load_guidance_of_a_missing_or_broken_file_is_a_clear_error(tmp_path):
     (tmp_path / "bad.json").write_text("{not json")
     with pytest.raises(backlog.BacklogError, match="bad.json"):
         backlog.load_guidance(tmp_path / "bad.json")
+    (tmp_path / "list.json").write_text("[]")
+    with pytest.raises(backlog.BacklogError, match="JSON object"):
+        backlog.load_guidance(tmp_path / "list.json")
+
+
+GOOD_ENTRY = WRITTEN["adj.rules.blur-on-focus"]
+
+
+@pytest.mark.parametrize("key,entry,problem", [
+    ("r", "Remove blur()", "exactly these fields"),                                   # not an object
+    ("r", {k: v for k, v in GOOD_ENTRY.items() if k != "technique"}, "exactly these fields"),
+    ("r", {**GOOD_ENTRY, "extra": "x"}, "exactly these fields"),
+    ("r", {**GOOD_ENTRY, "technique": None}, "non-empty text"),
+    ("r", {**GOOD_ENTRY, "fix": "  "}, "non-empty text"),
+    ("r", {**GOOD_ENTRY, "sc": "2.2.3"}, "not a WCAG 2.0 A/AA criterion"),            # AAA: never cited
+    ("2.4.4", GOOD_ENTRY, "must name its own criterion"),                             # 2.4.4 key, 2.1.1 entry
+    ("r", {**GOOD_ENTRY, "technique": "F55 "}, "not a W3C technique"),
+    ("r", {**GOOD_ENTRY, "technique": "F63"}, "not a failure rag/wcag20_aa.json lists for 2.1.1"),
+    ("r", {**GOOD_ENTRY, "url": "https://example.com/F55.html"}, "url must be W3C's page for F55"),
+    ("r", {**GOOD_ENTRY, "url": "https://www.w3.org/TR/WCAG20-TECHS/F54.html"}, "url must be W3C's page for F55"),
+])
+def test_load_guidance_names_the_broken_entry_and_what_is_wrong(tmp_path, key, entry, problem):
+    path = tmp_path / "fix_guidance.json"
+    path.write_text(json.dumps({"image-alt": WRITTEN["2.1.1"] | {"sc": "2.1.1"}, key: entry}))
+    with pytest.raises(backlog.BacklogError, match=re.escape(f"entry {key!r}: ") + ".*" + re.escape(problem)):
+        backlog.load_guidance(path, REAL_CORPUS)
+
+
+def test_load_guidance_accepts_good_entries(tmp_path):
+    path = tmp_path / "fix_guidance.json"
+    path.write_text(json.dumps(WRITTEN))
+    assert backlog.load_guidance(path, REAL_CORPUS) == WRITTEN
 
 
 # ---------------------------------------------------------------- build_backlog and the writers
@@ -212,9 +272,9 @@ def shot(finding_id, page="home", status=MACHINE, screenshot="data/findings/shot
 
 
 def test_build_backlog_ranks_issues_and_adds_criterion_508_and_fix():
-    runs = site_runs = before_runs(home=[finding("h1", "machine", sc="1.1.1", rule_id="image-alt")],  # noqa: F841
-                            news=[finding("n1", "machine", sc="2.1.1", rule_id="adj.rules.blur-on-focus"),
-                                  finding("n2", "grey", "likely_pass")])
+    runs = before_runs(home=[finding("h1", "machine", sc="1.1.1", rule_id="image-alt")],
+                       news=[finding("n1", "machine", sc="2.1.1", rule_id="adj.rules.blur-on-focus"),
+                             finding("n2", "grey", "likely_pass")])
     rows = backlog.build_backlog(runs, {"news": {"n1": decision("fail")}}, REAL_CORPUS, MAP508, WRITTEN)
     assert [(r["rank"], r["sc"], r["status"]) for r in rows] == [(1, "2.1.1", CONFIRMED), (2, "1.1.1", MACHINE)]
     blur = rows[0]
@@ -228,12 +288,15 @@ def test_build_backlog_with_nothing_on_it_is_empty():
     assert backlog.build_backlog(before_runs(home=[]), {}, REAL_CORPUS, MAP508, WRITTEN) == []
 
 
+UNDERSTANDING_2_1_1 = backlog.understanding_url("2.1.1", REAL_CORPUS)
+
+
 def row(rank=1, instances=1, written=True, issue="Links lose focus", status=CONFIRMED):
     return {"rank": rank, "issue": issue, "sc": "2.1.1", "name": "Keyboard", "level": "A", "section508": "E205.4",
             "status": status, "pages": ["home", "news"], "fix": "Remove onfocus=\"blur()\".",
             "technique": "F55" if written else None, "written": written,
-            "url": "https://www.w3.org/TR/WCAG20-TECHS/F55.html",
-            "instances": [shot(f"F-{n}") for n in range(instances)]}
+            "url": "https://www.w3.org/TR/WCAG20-TECHS/F55.html" if written else UNDERSTANDING_2_1_1,
+            "instances": [shot(f"F-{n}", status=status) for n in range(instances)]}
 
 
 def test_backlog_md_says_it_is_a_draft_and_who_set_each_status():
@@ -254,7 +317,7 @@ def test_backlog_md_has_the_handoff_columns_and_a_row_per_issue():
 def test_backlog_md_fallback_guidance_links_the_understanding_page():
     first = next(line for line in backlog.format_backlog_md([row(written=False)], "d").splitlines()
                  if line.startswith("| 1 |"))
-    assert "[W3C Understanding 2.1.1](https://www.w3.org/TR/WCAG20-TECHS/F55.html)" in first
+    assert f"[W3C Understanding 2.1.1]({UNDERSTANDING_2_1_1})" in first and "F55" not in first
 
 
 def test_backlog_md_shows_five_instances_then_points_at_the_csv():
@@ -270,6 +333,13 @@ def test_backlog_md_shows_the_selector_when_there_is_no_screenshot_and_text_cann
     assert "a \\| b c" in first and "`[lang\\|=en]`" in first
 
 
+def test_backlog_md_fix_link_cannot_break_the_link_or_the_table():
+    r = row()
+    r["technique"], r["url"] = "F55]", "https://www.w3.org/x) |y.html"
+    first = next(line for line in backlog.format_backlog_md([r], "d").splitlines() if line.startswith("| 1 |"))
+    assert "[W3C F55\\]](https://www.w3.org/x%29%20%7Cy.html)" in first
+
+
 def test_backlog_md_with_nothing_on_it_says_so():
     assert "Nothing is on the backlog" in backlog.format_backlog_md([], "d")
 
@@ -277,7 +347,37 @@ def test_backlog_md_with_nothing_on_it_says_so():
 def test_backlog_csv_has_one_row_per_issue_and_every_instance():
     lines = backlog.format_backlog_csv([row(instances=7)]).splitlines()
     assert lines[0] == ",".join(backlog.CSV_COLUMNS)
-    assert len(lines) == 2 and all(f"F-{n} (home): data/findings/shots/x.jpg" in lines[1] for n in range(7))
+    assert len(lines) == 2 and all(f"F-{n} (home, {CONFIRMED}): data/findings/shots/x.jpg" in lines[1]
+                                   for n in range(7))
+
+
+def mixed_row():
+    """1 human-confirmed instance listed after 6 machine ones, as group_issues would make it."""
+    r = row(instances=6, status=MACHINE)
+    r["status"] = CONFIRMED
+    r["instances"].append(shot("F-human", page="news", status=CONFIRMED))
+    return r
+
+
+def test_one_human_fail_does_not_read_as_a_human_decision_on_every_instance():
+    md_row = next(line for line in backlog.format_backlog_md([mixed_row()], "d").splitlines()
+                  if line.startswith("| 1 |"))
+    assert f"{CONFIRMED}: 1 of 7; {MACHINE}: 6 of 7" in md_row
+    # the confirmed one is shown first, inside the first five, with its own status
+    assert md_row.index(f"F-human (news, {CONFIRMED},") < md_row.index(f"F-0 (home, {MACHINE},")
+    assert "and 2 more in backlog.csv" in md_row
+
+
+def test_csv_status_and_evidence_say_who_set_each_instance():
+    _, line = backlog.format_backlog_csv([mixed_row()]).splitlines()
+    assert f"{CONFIRMED}: 1 of 7; {MACHINE}: 6 of 7" in line
+    assert line.index(f"F-human (news, {CONFIRMED})") < line.index(f"F-0 (home, {MACHINE})")
+
+
+def test_an_issue_whose_instances_all_agree_shows_just_the_status():
+    md_row = next(line for line in backlog.format_backlog_md([row(instances=2)], "d").splitlines()
+                  if line.startswith("| 1 |"))
+    assert f"| {CONFIRMED} |" in md_row and "of 2" not in md_row and "F-0 (home, [screenshot" in md_row
 
 
 def test_main_writes_backlog_md_and_csv_from_the_runs_and_reviews(site):  # noqa: F811
@@ -291,3 +391,21 @@ def test_main_writes_backlog_md_and_csv_from_the_runs_and_reviews(site):  # noqa
 def test_main_reports_an_incomplete_site_and_exits_1(site, capsys):  # noqa: F811
     assert backlog.main(["--runs", "run-home"]) == 1
     assert "ERROR" in capsys.readouterr().err and not (matrix.REPORTS_DIR / "backlog").exists()
+
+
+def test_main_with_broken_guidance_reports_the_entry_and_exits_1(site, capsys, tmp_path, monkeypatch):  # noqa: F811
+    bad = tmp_path / "fix_guidance.json"
+    bad.write_text(json.dumps({"image-alt": {"sc": "1.1.1", "issue": "No alt"}}))
+    monkeypatch.setattr(backlog, "GUIDANCE_PATH", bad)
+    assert backlog.main(["--runs", *site]) == 1
+    err = capsys.readouterr().err
+    assert err.startswith("ERROR") and "'image-alt'" in err and "Traceback" not in err
+    assert not (matrix.REPORTS_DIR / "backlog").exists()
+
+
+def test_main_out_writes_elsewhere_with_screenshot_links_relative_to_it(site, tmp_path):  # noqa: F811
+    out = tmp_path / "somewhere" / "else"
+    assert backlog.main(["--runs", *site, "--out", str(out)]) == 0
+    assert (out / "backlog.csv").exists() and not (matrix.REPORTS_DIR / "backlog").exists()
+    shot = os.path.relpath(REPO / "data/findings/shots/before_home_el0210.jpg", out)
+    assert f"[screenshot of F-before-home-el0210-2.4.4]({shot})" in (out / "backlog.md").read_text()

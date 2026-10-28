@@ -328,8 +328,10 @@ def test_page_level_notice_counts_in_c_plus_not_c(tmp_path):
 
 
 def test_gt_candidates_labels_page_level_notices_only():
-    notice = gt_candidates.candidates("home", "2.4.1")
+    notice = gt_candidates.candidates("home", "2.4.5")  # Pa11y's "check manually" reminder only
     assert notice and all(r["page_level_notice"] for r in notice if r["selector"] == "html")
+    skip_link = gt_candidates.candidates("home", "2.4.1")  # the no-skip-link rule makes it a detection
+    assert skip_link and not any(r["page_level_notice"] for r in skip_link)
     assert "[page-level notice: not a match, use missed]" in gt_candidates.format_rows(notice)
     no_lang = gt_candidates.candidates("home", "3.1.1")  # axe violation: a real match in ground_truth.csv
     assert not any(r["page_level_notice"] for r in no_lang)

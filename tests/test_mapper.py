@@ -307,7 +307,7 @@ def test_committed_ground_truth_lines_up_with_the_findings():
     assert truth, "data/ground-truth/ground_truth.csv has finding IDs"
     assert set(truth) <= known, f"not a finding: {sorted(set(truth) - known)[:5]}"
     assert "missed" not in truth
-    assert truth["F-before-home-el0085-4.1.2"] == {"3.3.2", "4.1.2"}  # listed on two rows
+    assert truth["F-before-home-el0135-2.4.7"] == {"2.4.7"}  # listed on two rows (F55 and F78)
 
 
 # ---------------------------------------------------------------- Section 508 map (verified 2026-10-25)

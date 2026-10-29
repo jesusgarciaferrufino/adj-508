@@ -238,3 +238,101 @@ def test_skipped_result_passes_the_shared_loader(finding, monkeypatch):
     ai = evidence.build_cases(finding)["ai"]  # no client needed: skipped before any call
     merged = {**finding, "ai": {**finding["ai"], **ai}}
     assert validate_findings([merged])[0].ai.recommendation is None
+
+
+
+# ---------------------------------------------------------------- throttling (Oct 27)
+
+from botocore.exceptions import ClientError  # noqa: E402
+
+
+def aws_error(code):
+    return ClientError({"Error": {"Code": code, "Message": "Too many requests, please wait before trying again."}},
+                       "Converse")
+
+
+class ThrottlingClient(FakeClient):
+    """Raises the given errors on the calls listed in `fail_on` (1-based call numbers), else answers."""
+
+    def __init__(self, *replies, fail_on=(), code="ThrottlingException"):
+        super().__init__(*replies)
+        self.fail_on, self.code, self.calls = set(fail_on), code, 0
+
+    def converse(self, modelId, messages, inferenceConfig):
+        self.calls += 1
+        if self.calls in self.fail_on:
+            raise aws_error(self.code)
+        return super().converse(modelId, messages, inferenceConfig)
+
+
+@pytest.fixture
+def waits(monkeypatch):
+    """Instant sleeps; records how long each one would have been."""
+    slept = []
+    monkeypatch.setattr(evidence.time, "sleep", slept.append)
+    monkeypatch.setattr(evidence, "_billed", {"input_tokens": 0, "output_tokens": 0})
+    monkeypatch.setattr(evidence, "_findings_done", 0)
+    return slept
+
+
+def test_throttling_is_waited_out(finding, waits, capsys):
+    client = ThrottlingClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]), fail_on={1, 2})
+    ai = evidence.build_cases(finding, client=client)["ai"]
+    assert ai["recommendation"] == "likely_fail" and ai["citations_verified"] is True
+    assert waits == [15, 30] and client.calls == 4  # 2 throttled + FOR + AGAINST
+    assert evidence._calls_made == 2  # the cap counts calls meant, not retries
+    err = capsys.readouterr().err
+    assert "ThrottlingException, waiting 15s (attempt 1 of 5)" in err
+    assert "waiting 30s (attempt 2 of 5)" in err
+
+
+def test_service_unavailable_is_retried_too(finding, waits):
+    client = ThrottlingClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]),
+                              fail_on={1}, code="ServiceUnavailableException")
+    assert evidence.build_cases(finding, client=client)["ai"]["recommendation"] == "likely_fail"
+    assert waits == [15]
+
+
+def test_endless_throttling_gives_up_after_the_last_wait(finding, waits):
+    client = ThrottlingClient(fail_on=range(1, 100))
+    with pytest.raises(ClientError, match="ThrottlingException"):
+        evidence.build_cases(finding, client=client)
+    assert waits == list(evidence.RETRY_WAITS) and client.calls == len(evidence.RETRY_WAITS) + 1
+
+
+def test_other_aws_errors_are_not_retried(finding, waits):
+    client = ThrottlingClient(fail_on={1}, code="AccessDeniedException")
+    with pytest.raises(ClientError, match="AccessDeniedException"):
+        evidence.build_cases(finding, client=client)
+    assert waits == [] and client.calls == 1
+
+
+def test_tokens_from_a_half_finished_finding_are_billed(finding, waits):
+    """FOR succeeds, AGAINST throttles for good: the FOR call's tokens still count."""
+    client = ThrottlingClient(reply(4, ["Click here"]), fail_on=range(2, 100))
+    with pytest.raises(ClientError):
+        evidence.build_cases(finding, client=client)
+    assert evidence.tokens_billed() == {"input_tokens": 100, "output_tokens": 40}  # FakeClient's usage per call
+
+
+def test_unparseable_reply_is_still_billed(finding, waits):
+    with pytest.raises(evidence.EvidenceError):
+        evidence.build_cases(finding, client=FakeClient("not json"))
+    assert evidence.tokens_billed() == {"input_tokens": 100, "output_tokens": 40}
+
+
+def test_call_delay_pauses_before_every_call(finding, waits, monkeypatch):
+    monkeypatch.setattr(settings, "CALL_DELAY", 0.5)
+    client = FakeClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]))
+    evidence.build_cases(finding, client=client)
+    assert waits == [0.5, 0.5]
+
+
+def test_progress_line_every_ten_findings(finding, waits, capsys, monkeypatch):
+    monkeypatch.setattr(settings, "MAX_BEDROCK_CALLS", 100)
+    for _ in range(20):
+        client = FakeClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]))
+        evidence.build_cases(finding, client=client)
+    lines = [line for line in capsys.readouterr().err.splitlines() if "findings," in line]
+    assert lines == ["evidence: 10 findings, 20 calls, 2,000 in / 800 out tokens so far",
+                     "evidence: 20 findings, 40 calls, 4,000 in / 1,600 out tokens so far"]

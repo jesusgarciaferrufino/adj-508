@@ -15,7 +15,7 @@ PREFIX = "us." + "anthropic."
 MODEL_ID_RE = re.compile(r"anthropic" + r"\.claude")
 DEFAULT_MODEL = PREFIX + "claude-sonnet-4-6"
 CODE_DIRS = ["capture", "scanners", "agents", "rag", "scripts", "reports", "pulse"]
-ENV_VARS = ["ADJ_MODEL_ID", "ADJ_AWS_REGION", "ADJ_MAX_BEDROCK_CALLS"]
+ENV_VARS = ["ADJ_MODEL_ID", "ADJ_AWS_REGION", "ADJ_MAX_BEDROCK_CALLS", "ADJ_CALL_DELAY"]
 NO_ENV_FILE = "/nonexistent/.env"
 
 
@@ -91,3 +91,19 @@ def test_no_model_id_outside_settings():
             if MODEL_ID_RE.search(py.read_text(encoding="utf-8", errors="ignore")):
                 offenders.append(str(py.relative_to(REPO)))
     assert offenders == [], f"Model ID hard-coded outside settings.py: {offenders}. Use settings.MODEL_ID."
+
+
+def test_call_delay_defaults_to_zero_and_takes_fractions(fresh_settings):
+    importlib.reload(settings)
+    assert settings.CALL_DELAY == 0
+    fresh_settings.setenv("ADJ_CALL_DELAY", "0.5")
+    importlib.reload(settings)
+    assert settings.CALL_DELAY == 0.5
+
+
+@pytest.mark.parametrize("raw,match", [("soon", "must be a number of seconds"), ("-1", "must be 0 or more"),
+                                       ("nan", "must be 0 or more"), ("inf", "must be 0 or more")])
+def test_bad_call_delay_names_the_variable(fresh_settings, raw, match):
+    fresh_settings.setenv("ADJ_CALL_DELAY", raw)
+    with pytest.raises(ValueError, match=f"ADJ_CALL_DELAY {match}"):
+        importlib.reload(settings)

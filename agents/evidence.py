@@ -25,12 +25,27 @@ build_cases(finding) returns ONLY {"ai": {...}}; the graph merges it in and only
 it for findings with bucket == "grey".
 
 Cost controls (settings.py / .env):
-  ADJ_MAX_BEDROCK_CALLS  hard cap on calls per process (2 per finding)
+  ADJ_MAX_BEDROCK_CALLS  hard cap on calls per process (2 per finding). A call that is
+                         retried after throttling still counts once.
   ADJ_EVIDENCE_ONLY      comma-separated finding IDs; others are skipped without a call
+  ADJ_CALL_DELAY         seconds to wait before every call (default 0), to stay under a
+                         per-minute quota on long runs
+
+Throttling (Oct 27): Bedrock answers ThrottlingException once a per-minute quota is used
+up, and botocore's own retries are spent in seconds. _call waits it out instead: 15, 30, 60,
+120, 120 seconds (about 6 minutes), printing one line to stderr per wait, then raises as
+before (the graph records the finding as an error). ServiceUnavailableException is treated
+the same way.
+
+Tokens: every call that returns is added to a running total at once (tokens_billed()), so a
+finding whose FOR call succeeded and AGAINST call failed is still counted. The graph writes
+it to summary.json as tokens_billed. A progress line goes to stderr every 10 findings.
 """
 
 import json
 import re
+import sys
+import time
 from functools import cache
 from pathlib import Path
 
@@ -48,6 +63,11 @@ PLACEHOLDERS = ("sc", "sc_name", "level", "criterion_text", "needs_human_when",
                 "selector", "html_snippet", "context_text", "scanner_messages")
 
 _calls_made = 0  # Bedrock calls in this process; checked against settings.MAX_BEDROCK_CALLS
+_findings_done = 0  # findings that went through FOR/AGAINST in this process (progress line)
+_billed = {"input_tokens": 0, "output_tokens": 0}  # every call that returned, in this process
+RETRY_CODES = {"ThrottlingException", "ServiceUnavailableException"}
+RETRY_WAITS = (15, 30, 60, 120, 120)  # seconds; about 6 minutes in all, then give up
+PROGRESS_EVERY = 10  # findings
 
 
 class EvidenceError(ValueError):
@@ -183,16 +203,48 @@ def is_issue(finding: dict) -> bool:
     return bucket == "machine" or (bucket == "grey" and grey_is_issue(finding.get("ai")))
 
 
+def _error_code(exc: Exception) -> str | None:
+    """The AWS error code of a botocore ClientError (e.g. "ThrottlingException"), else None.
+
+    Read from the exception itself, so this module never has to import botocore.
+    """
+    response = getattr(exc, "response", None)
+    return ((response or {}).get("Error") or {}).get("Code") if isinstance(response, dict) else None
+
+
+def tokens_billed() -> dict:
+    """Input and output tokens of every call that returned in this process, including calls
+    from findings that later failed (FOR succeeded, AGAINST failed; or a reply that didn't parse)."""
+    return dict(_billed)
+
+
 def _call(client, prompt: str) -> tuple[str, dict]:
+    """One Converse call. Waits out throttling (RETRY_WAITS), then raises as before."""
     global _calls_made
-    _calls_made += 1
-    resp = client.converse(
-        modelId=settings.MODEL_ID,
-        messages=[{"role": "user", "content": [{"text": prompt}]}],
-        inferenceConfig={"maxTokens": MAX_TOKENS, "temperature": 0},
-    )
+    _calls_made += 1  # once per call, however many retries: the cap counts calls we meant to make
+    if settings.CALL_DELAY:
+        time.sleep(settings.CALL_DELAY)
+    for attempt in range(len(RETRY_WAITS) + 1):
+        try:
+            resp = client.converse(
+                modelId=settings.MODEL_ID,
+                messages=[{"role": "user", "content": [{"text": prompt}]}],
+                inferenceConfig={"maxTokens": MAX_TOKENS, "temperature": 0},
+            )
+            break
+        except Exception as e:
+            code = _error_code(e)
+            if code not in RETRY_CODES or attempt == len(RETRY_WAITS):
+                raise
+            wait = RETRY_WAITS[attempt]
+            print(f"evidence: {code}, waiting {wait}s (attempt {attempt + 1} of {len(RETRY_WAITS)})",
+                  file=sys.stderr, flush=True)
+            time.sleep(wait)
+    usage = resp.get("usage") or {}
+    _billed["input_tokens"] += usage.get("inputTokens", 0)
+    _billed["output_tokens"] += usage.get("outputTokens", 0)
     text = resp["output"]["message"]["content"][0]["text"]
-    return text, resp.get("usage") or {}
+    return text, usage
 
 
 def _skipped(reason: str) -> dict:
@@ -207,6 +259,15 @@ def _describe(side: dict) -> str:
     return f"{side['argument']}\nQuoted: {quotes}\nStrength: {side['strength']}/5"
 
 
+def _progress() -> None:
+    """Every PROGRESS_EVERY findings, one line on stderr, so a long run shows it is alive."""
+    global _findings_done
+    _findings_done += 1
+    if _findings_done % PROGRESS_EVERY == 0:
+        print(f"evidence: {_findings_done} findings, {_calls_made} calls, {_billed['input_tokens']:,} in / "
+              f"{_billed['output_tokens']:,} out tokens so far", file=sys.stderr, flush=True)
+
+
 def build_cases(finding: dict, client=None) -> dict:
     """FOR and AGAINST cases for one grey finding. Pass a fake client in tests."""
     if settings.EVIDENCE_ONLY and finding.get("finding_id") not in settings.EVIDENCE_ONLY:
@@ -216,11 +277,14 @@ def build_cases(finding: dict, client=None) -> dict:
     client = client or _bedrock_client()
 
     sides, usage = {}, {"input_tokens": 0, "output_tokens": 0}
-    for key, name in (("for", PROMPT_FOR), ("against", PROMPT_AGAINST)):
-        text, u = _call(client, fill_prompt(load_prompt(name), finding))
-        usage["input_tokens"] += u.get("inputTokens", 0)
-        usage["output_tokens"] += u.get("outputTokens", 0)
-        sides[key] = parse_side(text)
+    try:
+        for key, name in (("for", PROMPT_FOR), ("against", PROMPT_AGAINST)):
+            text, u = _call(client, fill_prompt(load_prompt(name), finding))
+            usage["input_tokens"] += u.get("inputTokens", 0)
+            usage["output_tokens"] += u.get("outputTokens", 0)
+            sides[key] = parse_side(text)
+    finally:
+        _progress()  # counted whether this finding worked or failed
 
     return {"ai": {
         "case_for": _describe(sides["for"]),

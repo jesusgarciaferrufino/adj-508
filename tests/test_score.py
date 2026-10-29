@@ -334,3 +334,37 @@ def test_gt_candidates_labels_page_level_notices_only():
     no_lang = gt_candidates.candidates("home", "3.1.1")  # axe violation: a real match in ground_truth.csv
     assert not any(r["page_level_notice"] for r in no_lang)
     assert "not a match" not in gt_candidates.format_rows(no_lang)
+
+
+def test_recall_by_criterion_matches_hand_counts(setup):
+    s = run_score(setup)
+    # home only (news not run): 1.1.1 machine; 2.4.4 verified likely_fail; 1.3.1 likely_pass;
+    # 3.1.1 human-only; 3.3.2 missed
+    c = s["by_criterion"]
+    assert list(c) == ["1.1.1", "1.3.1", "2.4.4", "3.1.1", "3.3.2"]  # numeric order, scored pages only
+    one = {"n": 1, "d": 1, "pct": 100.0}
+    assert c["1.1.1"] == {"rows": 1, "missed": 0, "a": one, "b": one}
+    assert c["1.3.1"]["a"]["n"] == 0 and c["1.3.1"]["b"]["n"] == 1   # flagged, not reported
+    assert c["3.3.2"] == {"rows": 1, "missed": 1, "a": {"n": 0, "d": 1, "pct": 0.0}, "b": {"n": 0, "d": 1, "pct": 0.0}}
+    assert "## Recall by criterion" in score.format_markdown(s)
+
+
+def test_served_page_figure_leaves_out_off_page_rows(setup, tmp_path):
+    gt_path, runs, ids = setup
+    rows = list(csv.DictReader(gt_path.open()))
+    rows[4]["notes"] = "Not found on served page; nothing like it in the source"  # the home 3.3.2 missed row
+    off = tmp_path / "gt_off.csv"
+    with off.open("w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=score.GT_COLUMNS)
+        w.writeheader()
+        w.writerows(rows)
+    s = score.score(score.load_ground_truth(off), score.runs_by_page(ids, runs))
+    assert s["recall"]["a"] == {"n": 2, "d": 5, "pct": 40.0}   # headline still out of every row
+    assert s["served"] == {"a": {"n": 2, "d": 4, "pct": 50.0}, "b": {"n": 4, "d": 4, "pct": 100.0}, "off_page_rows": 1}
+    md = score.format_markdown(s)
+    assert "Secondary, served page only (1 rows" in md
+    assert md.index("Secondary, served page") < md.index("## After false alarms")
+
+
+def test_no_served_line_when_every_row_is_on_the_page(setup):
+    assert "Secondary, served page" not in score.format_markdown(run_score(setup))

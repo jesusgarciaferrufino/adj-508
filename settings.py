@@ -14,6 +14,7 @@ ADJ_MODEL_ID. Never hard-code a model ID anywhere else; tests/test_settings.py
 fails if one appears.
 """
 
+import math
 import os
 from pathlib import Path
 
@@ -41,6 +42,18 @@ def load_dotenv(path: Path = ENV_FILE) -> None:
         os.environ.setdefault(key, value)
 
 
+def _seconds_env(name: str, default: float) -> float:
+    """Seconds, 0 or more, from the environment (e.g. "0.5")."""
+    raw = os.environ.get(name, str(default))
+    try:
+        value = float(raw)
+    except ValueError:
+        raise ValueError(f"{name} must be a number of seconds, got {raw!r} (check your shell or .env)") from None
+    if not (math.isfinite(value) and value >= 0):
+        raise ValueError(f"{name} must be 0 or more seconds, got {raw!r} (check your shell or .env)")
+    return value
+
+
 def _int_env(name: str, default: int) -> int:
     """A whole number of 0 or more from the environment. 0 is allowed: for ADJ_MAX_BEDROCK_CALLS
     it means a dry run with no Bedrock calls at all."""
@@ -59,6 +72,9 @@ load_dotenv()
 MODEL_ID = os.environ.get("ADJ_MODEL_ID", "us.anthropic.claude-sonnet-4-6")
 AWS_REGION = os.environ.get("ADJ_AWS_REGION", "us-east-1")
 MAX_BEDROCK_CALLS = _int_env("ADJ_MAX_BEDROCK_CALLS", 20)
+# Seconds to wait before every Bedrock call (agents/evidence.py). 0 = no pause. Throttling is
+# waited out either way; this only spreads a long run out to stay under a per-minute quota.
+CALL_DELAY = _seconds_env("ADJ_CALL_DELAY", 0)
 # Comma-separated finding IDs. When set, only these get FOR/AGAINST calls; other grey
 # findings are marked skipped. Empty means every grey finding (up to MAX_BEDROCK_CALLS).
 EVIDENCE_ONLY = frozenset(x.strip() for x in os.environ.get("ADJ_EVIDENCE_ONLY", "").split(",") if x.strip())

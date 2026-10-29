@@ -8,6 +8,8 @@ import pytest
 import settings
 from agents import evidence
 
+REAL_BEDROCK_CLIENT = evidence._bedrock_client  # captured before conftest swaps it for a refusal
+
 REPO = Path(__file__).resolve().parent.parent
 CLICK_HERE = "F-before-home-el0210-2.4.4"
 
@@ -238,3 +240,219 @@ def test_skipped_result_passes_the_shared_loader(finding, monkeypatch):
     ai = evidence.build_cases(finding)["ai"]  # no client needed: skipped before any call
     merged = {**finding, "ai": {**finding["ai"], **ai}}
     assert validate_findings([merged])[0].ai.recommendation is None
+
+
+
+# ---------------------------------------------------------------- throttling (Oct 27)
+
+from botocore.exceptions import ClientError  # noqa: E402
+
+
+def aws_error(code):
+    return ClientError({"Error": {"Code": code, "Message": "Too many requests, please wait before trying again."}},
+                       "Converse")
+
+
+class ThrottlingClient(FakeClient):
+    """Raises the given errors on the calls listed in `fail_on` (1-based call numbers), else answers."""
+
+    def __init__(self, *replies, fail_on=(), code="ThrottlingException"):
+        super().__init__(*replies)
+        self.fail_on, self.code, self.calls = set(fail_on), code, 0
+
+    def converse(self, modelId, messages, inferenceConfig):
+        self.calls += 1
+        if self.calls in self.fail_on:
+            raise aws_error(self.code)
+        return super().converse(modelId, messages, inferenceConfig)
+
+
+@pytest.fixture
+def waits(monkeypatch):
+    """Instant sleeps; records how long each one would have been."""
+    slept = []
+    monkeypatch.setattr(evidence.time, "sleep", slept.append)
+    monkeypatch.setattr(evidence, "_billed", {"input_tokens": 0, "output_tokens": 0})
+    monkeypatch.setattr(evidence, "_findings_done", 0)
+    return slept
+
+
+def test_throttling_is_waited_out(finding, waits, capsys):
+    client = ThrottlingClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]), fail_on={1, 2})
+    ai = evidence.build_cases(finding, client=client)["ai"]
+    assert ai["recommendation"] == "likely_fail" and ai["citations_verified"] is True
+    assert waits == [15, 30] and client.calls == 4  # 2 throttled + FOR + AGAINST
+    assert evidence._calls_made == 2  # the cap counts calls meant, not retries
+    err = capsys.readouterr().err
+    assert "ThrottlingException, waiting 15s (attempt 1 of 5)" in err
+    assert "waiting 30s (attempt 2 of 5)" in err
+
+
+def test_service_unavailable_is_retried_too(finding, waits):
+    client = ThrottlingClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]),
+                              fail_on={1}, code="ServiceUnavailableException")
+    assert evidence.build_cases(finding, client=client)["ai"]["recommendation"] == "likely_fail"
+    assert waits == [15]
+
+
+def test_endless_throttling_gives_up_after_the_last_wait(finding, waits):
+    client = ThrottlingClient(fail_on=range(1, 100))
+    with pytest.raises(ClientError, match="ThrottlingException"):
+        evidence.build_cases(finding, client=client)
+    assert waits == list(evidence.RETRY_WAITS) and client.calls == len(evidence.RETRY_WAITS) + 1
+
+
+def test_other_aws_errors_are_not_retried(finding, waits):
+    client = ThrottlingClient(fail_on={1}, code="AccessDeniedException")
+    with pytest.raises(ClientError, match="AccessDeniedException"):
+        evidence.build_cases(finding, client=client)
+    assert waits == [] and client.calls == 1
+
+
+def test_tokens_from_a_half_finished_finding_are_billed(finding, waits):
+    """FOR succeeds, AGAINST throttles for good: the FOR call's tokens still count."""
+    client = ThrottlingClient(reply(4, ["Click here"]), fail_on=range(2, 100))
+    with pytest.raises(ClientError):
+        evidence.build_cases(finding, client=client)
+    assert evidence.tokens_billed() == {"input_tokens": 100, "output_tokens": 40}  # FakeClient's usage per call
+
+
+def test_unparseable_reply_is_still_billed(finding, waits):
+    with pytest.raises(evidence.EvidenceError):
+        evidence.build_cases(finding, client=FakeClient("not json"))
+    assert evidence.tokens_billed() == {"input_tokens": 100, "output_tokens": 40}
+
+
+def test_call_delay_pauses_before_every_call(finding, waits, monkeypatch):
+    monkeypatch.setattr(settings, "CALL_DELAY", 0.5)
+    client = FakeClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]))
+    evidence.build_cases(finding, client=client)
+    assert waits == [0.5, 0.5]
+
+
+def test_progress_line_every_ten_findings(finding, waits, capsys, monkeypatch):
+    monkeypatch.setattr(settings, "MAX_BEDROCK_CALLS", 100)
+    for _ in range(20):
+        client = FakeClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]))
+        evidence.build_cases(finding, client=client)
+    lines = [line for line in capsys.readouterr().err.splitlines() if "findings," in line]
+    assert lines == ["evidence: 10 findings, 20 calls attempted (0 failed), 2,000 in / 800 out tokens billed so far",
+                     "evidence: 20 findings, 40 calls attempted (0 failed), 4,000 in / 1,600 out tokens billed so far"]
+
+
+
+# ---------------------------------------------------------------- circuit breaker and one retry layer (Oct 29)
+
+def test_breaker_skips_the_rest_of_the_run_once_throttling_wont_clear(finding, waits, capsys):
+    client = ThrottlingClient(fail_on=range(1, 100))
+    with pytest.raises(ClientError):
+        evidence.build_cases(finding, client=client)  # the first finding waits it out, then gives up
+    assert waits == list(evidence.RETRY_WAITS)
+    assert "stopping Bedrock calls for the rest of this run" in capsys.readouterr().err
+    calls = client.calls
+    ai = evidence.build_cases(finding, client=client)["ai"]  # the next finding: no wait, no call
+    assert client.calls == calls and waits == list(evidence.RETRY_WAITS)
+    assert ai["recommendation"] is None and ai["case_for"].startswith("SKIPPED: Bedrock unavailable")
+    assert not evidence.grey_is_issue(ai)
+
+
+def test_daily_quota_trips_the_breaker_with_no_waits(finding, waits):
+    class DailyQuota:
+        calls = 0
+
+        def converse(self, **kw):
+            self.calls += 1
+            raise ClientError({"Error": {"Code": "ThrottlingException", "Message": "Too many tokens per day, please "
+                                         "wait before trying again."}}, "Converse")
+    client = DailyQuota()
+    with pytest.raises(ClientError, match="per day"):
+        evidence.build_cases(finding, client=client)
+    assert waits == [] and client.calls == 1 and "daily quota" in evidence._gave_up
+    assert evidence.build_cases(finding, client=client)["ai"]["case_for"].startswith("SKIPPED: Bedrock unavailable")
+
+
+def test_one_ordinary_error_does_not_trip_the_breaker(finding, waits):
+    with pytest.raises(ClientError):
+        evidence.build_cases(finding, client=ThrottlingClient(fail_on={1}, code="ValidationException"))
+    assert evidence._gave_up is None and waits == []
+    client = FakeClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]))
+    assert evidence.build_cases(finding, client=client)["ai"]["recommendation"] == "likely_fail"
+
+
+def test_breaker_does_not_override_evidence_only(finding, monkeypatch):
+    monkeypatch.setattr(evidence, "_gave_up", "ThrottlingException after 5 waits")
+    monkeypatch.setattr(settings, "EVIDENCE_ONLY", frozenset({"F-some-other-finding"}))
+    assert evidence.build_cases(finding)["ai"]["case_for"].startswith("SKIPPED: not selected")
+
+
+@pytest.mark.parametrize("code", ["InternalServerException", "ModelNotReadyException"])
+def test_other_transient_aws_errors_are_retried(finding, waits, code):
+    client = ThrottlingClient(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]), fail_on={1}, code=code)
+    assert evidence.build_cases(finding, client=client)["ai"]["recommendation"] == "likely_fail"
+    assert waits == [15]
+
+
+def test_timeouts_are_retried_by_class_name(finding, waits, capsys):
+    class ReadTimeoutError(Exception):  # stands in for botocore's, matched by name only
+        pass
+
+    class Flaky(FakeClient):
+        def converse(self, modelId, messages, inferenceConfig):
+            if not getattr(self, "failed", False):
+                self.failed = True
+                raise ReadTimeoutError("Read timeout on endpoint URL")
+            return super().converse(modelId, messages, inferenceConfig)
+
+    client = Flaky(reply(4, ["Click here"]), reply(1, ["Killer bees. Click here."]))
+    assert evidence.build_cases(finding, client=client)["ai"]["recommendation"] == "likely_fail"
+    assert waits == [15] and "ReadTimeoutError, waiting 15s" in capsys.readouterr().err
+
+
+def test_validation_errors_and_other_exceptions_raise_at_once(finding, waits):
+    with pytest.raises(ClientError, match="ValidationException"):
+        evidence.build_cases(finding, client=ThrottlingClient(fail_on={1}, code="ValidationException"))
+
+    class Broken:
+        def converse(self, **kw):
+            raise KeyError("not transient")
+    with pytest.raises(KeyError):
+        evidence.build_cases(finding, client=Broken())
+    assert waits == [] and evidence._calls_failed == 2
+
+
+def test_progress_line_counts_failed_calls(finding, waits, capsys, monkeypatch):
+    monkeypatch.setattr(settings, "MAX_BEDROCK_CALLS", 100)
+    for _ in range(10):
+        with pytest.raises(ClientError):
+            evidence.build_cases(finding, client=ThrottlingClient(fail_on={1}, code="ValidationException"))
+    assert "10 findings, 10 calls attempted (10 failed), 0 in / 0 out tokens billed" in capsys.readouterr().err
+
+
+def test_botocore_does_no_retries_of_its_own(monkeypatch):
+    """One retry layer: _call. botocore is told to make exactly one attempt per request."""
+    import boto3
+    seen = {}
+    monkeypatch.setattr(boto3, "client", lambda service, region_name, config: seen.update(
+        service=service, region=region_name, config=config) or "client")
+    assert REAL_BEDROCK_CLIENT.__wrapped__() == "client"  # bypass the cache; build a fresh one
+    assert seen["service"] == "bedrock-runtime" and seen["region"] == settings.AWS_REGION
+    assert seen["config"].retries == {"mode": "standard", "max_attempts": 1}
+    assert seen["config"].read_timeout == 60
+
+
+def test_error_code_reads_client_errors_only():
+    assert evidence._error_code(aws_error("ThrottlingException")) == "ThrottlingException"
+    assert evidence._error_code(ValueError("x")) is None
+
+    class Odd(Exception):
+        response = "not a dict"
+    assert evidence._error_code(Odd()) is None
+
+
+def test_module_never_imports_botocore_at_load():
+    import subprocess
+    import sys
+    code = ("import sys; import agents.evidence, agents.router; "
+            "print(any(m == 'botocore' or m.startswith('botocore.') or m == 'boto3' for m in sys.modules))")
+    out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, cwd=evidence.REPO, check=True)
+    assert out.stdout.strip() == "False"

@@ -120,3 +120,83 @@ def test_case_file_counts_split_written_skipped_and_failed():
     errors = [{"node": "evidence", "finding_id": "c", "error": "RuntimeError: boom"}]
     written, skipped = graph.case_file_counts(findings, errors)
     assert [a["case_for"] for a in written] == ["Specific argument."] and skipped == 1
+
+
+
+def test_summary_bills_tokens_from_findings_that_failed(tmp_path, monkeypatch):
+    """tokens_billed counts the FOR call of a finding whose AGAINST call then failed (Oct 27 fix)."""
+    from botocore.exceptions import ClientError
+
+    import agents.evidence as evidence
+    import settings
+
+    class Client:
+        """FOR answers on every finding; AGAINST throttles for good on the second finding only."""
+        def __init__(self):
+            self.n = 0
+
+        def converse(self, modelId, messages, inferenceConfig):
+            self.n += 1
+            if self.n >= 4:  # call 1-2: first finding; call 3: second finding's FOR; then AGAINST fails
+                raise ClientError({"Error": {"Code": "ThrottlingException", "Message": "slow down"}}, "Converse")
+            text = json.dumps({"argument": "x", "cited_sc": "1.1.1", "quoted_evidence": ["nothing here"],
+                               "strength": 3})
+            return {"output": {"message": {"content": [{"text": text}]}},
+                    "usage": {"inputTokens": 1000, "outputTokens": 300}}
+
+    two = sorted(f.finding_id for f in load_findings("before", "home"))[:2]
+    monkeypatch.setattr(graph, "route_finding", lambda f: {"bucket": "grey", "route_reason": "test"})
+    monkeypatch.setattr(graph, "build_cases", evidence.build_cases)
+    monkeypatch.setattr(evidence, "_bedrock_client", lambda: client)
+    monkeypatch.setattr(evidence.time, "sleep", lambda s: None)
+    monkeypatch.setattr(evidence, "_calls_made", 0)
+    monkeypatch.setattr(settings, "MAX_BEDROCK_CALLS", 50)
+    monkeypatch.setattr(settings, "EVIDENCE_ONLY", frozenset(two))
+    client = Client()
+
+    final, log = run_pipeline(tmp_path, monkeypatch)
+    summary = json.loads((log.dir / "summary.json").read_text())
+    assert [e["finding_id"] for e in log.errors] == [two[1]]
+    assert summary["case_files"] == 1 and summary["tokens"] == {"input": 2000, "output": 600}  # finished only
+    assert summary["tokens_billed"] == {"input": 3000, "output": 900}  # plus the failed finding's FOR call
+
+
+def test_tokens_billed_is_none_without_track_c(tmp_path, monkeypatch):
+    monkeypatch.setattr(graph, "route_finding", lambda f: {"bucket": "grey", "route_reason": "test"})
+    monkeypatch.setattr(graph, "build_cases", lambda f: {"ai": {"case_for": "for", "case_against": "against"}})
+    monkeypatch.setattr(graph, "tokens_billed", lambda: None)  # load_agent's stub when Track C is missing
+    final, log = run_pipeline(tmp_path, monkeypatch)
+    assert json.loads((log.dir / "summary.json").read_text())["tokens_billed"] is None
+
+
+def test_tokens_billed_is_per_run_when_one_graph_runs_twice(tmp_path, monkeypatch):
+    """The snapshot is taken when each run starts, not when the graph is built."""
+    counter = {"input_tokens": 0, "output_tokens": 0}
+
+    def billing_build_cases(f):  # a fake evidence agent that bills 10 in / 1 out per finding
+        counter["input_tokens"] += 10
+        counter["output_tokens"] += 1
+        return {"ai": {"case_for": "for", "case_against": "against"}}
+
+    monkeypatch.setattr(graph, "route_finding", lambda f: {"bucket": "grey", "route_reason": "test"})
+    monkeypatch.setattr(graph, "build_cases", billing_build_cases)
+    monkeypatch.setattr(graph, "tokens_billed", lambda: dict(counter))
+    monkeypatch.setattr(runlog, "RUNS_DIR", tmp_path)
+    log = runlog.RunLog("run-a")
+    app = graph.build_graph(log)
+    counter["input_tokens"] = 999  # tokens spent between building the graph and running it don't count
+    summaries = []
+    for run_id, page in (("run-a", "home"), ("run-a", "news")):
+        app.invoke({"run_id": run_id, "version": "before", "page": page, "findings": []})
+        summaries.append(json.loads((log.dir / "summary.json").read_text()))
+    log.close()
+    n_home, n_news = len(load_findings("before", "home")), len(load_findings("before", "news"))
+    assert summaries[0]["tokens_billed"] == {"input": 10 * n_home, "output": n_home}
+    assert summaries[1]["tokens_billed"] == {"input": 10 * n_news, "output": n_news}  # only its own
+
+
+def test_a_missing_track_is_listed_once_in_stubs(monkeypatch):
+    monkeypatch.setattr(graph, "STUBS", [])
+    graph.load_agent("evidence", "agents.no_such_module", "build_cases", None)
+    graph.load_agent("evidence", "agents.no_such_module", "tokens_billed", None)
+    assert graph.STUBS == ["evidence"]

@@ -99,7 +99,24 @@ def case_file_counts(findings, errors):
     return written, skipped
 
 
+def _billed_now():
+    """Track C's running token total (agents.evidence.tokens_billed), or None when the evidence
+    node is a stand-in without one (a stub, or a fake in tests)."""
+    fn = getattr(sys.modules.get(getattr(build_cases, "__module__", "")), "tokens_billed", None)
+    return fn() if callable(fn) else None
+
+
+def _tokens_billed_since(start):
+    now = _billed_now()
+    if start is None or now is None:
+        return None
+    return {"input": now["input_tokens"] - start["input_tokens"],
+            "output": now["output_tokens"] - start["output_tokens"]}
+
+
 def build_graph(log):
+    billed_at_start = _billed_now()  # the total is per process; this run's share is the difference
+
     def per_finding_node(name, fn, only_bucket=None):
         """Wrap a one-finding function as a graph node that logs what it adds."""
         def node(state):
@@ -146,6 +163,9 @@ def build_graph(log):
                 "input": sum((a.get("usage") or {}).get("input_tokens", 0) for a in ai),
                 "output": sum((a.get("usage") or {}).get("output_tokens", 0) for a in ai),
             },
+            # Every call that returned, including findings that later failed (FOR ok, AGAINST failed).
+            # "tokens" above counts finished case files only. Use tokens_billed for cost.
+            "tokens_billed": _tokens_billed_since(billed_at_start),
             "timings_sec": log.timings,
             "errors": log.errors,
             "stubs": STUBS,  # nodes that were stand-ins, not the real track code

@@ -741,6 +741,54 @@
     }
   },
   {
+    "finding_id": "F-before-survey-el0000-4.1.1",
+    "page": "survey",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "violation",
+    "rule_id": "adj.validator.parse-error",
+    "wcag": [
+      "4.1.1"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "html",
+      "html_snippet": "<HTML>",
+      "screenshot": "data/findings/shots/before_survey_page.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+      "captured_at": "2026-10-27T19:58:57.893Z",
+      "context_text": "",
+      "dom_index": 0
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.validator.parse-error",
+        "type": "rule",
+        "message": "8 parse error(s) in the page source (F70): Bad start tag in b in noscript in head (line 46); Stray end tag noscript (line 46); Stray end tag head (line 48); Start tag body seen but an element of the same type was already open (line 49); Unclosed element font (line 118); End tag td seen, but there were open elements (line 130); No space between attributes (line 541); Stray end tag tr (line 591). Note: <noscript> in <head> ends the head early, so the checker stopped; the rest of the page was checked again with that <noscript> removed."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
     "finding_id": "F-before-survey-el0002-2.4.2",
     "page": "survey",
     "site_version": "before",
@@ -811,7 +859,7 @@
       "screenshot": "data/findings/shots/before_survey_el0054.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026ta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Les\u2026",
+      "context_text": "\u2026rta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Le\u2026",
       "dom_index": 54
     },
     "scanner_details": [
@@ -865,7 +913,7 @@
       "screenshot": "data/findings/shots/before_survey_el0054.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026ta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Les\u2026",
+      "context_text": "\u2026rta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Le\u2026",
       "dom_index": 54
     },
     "scanner_details": [
@@ -913,7 +961,7 @@
       "screenshot": "data/findings/shots/before_survey_el0057.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026ta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Les\u2026",
+      "context_text": "\u2026rta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Le\u2026",
       "dom_index": 57
     },
     "scanner_details": [
@@ -961,7 +1009,7 @@
       "screenshot": "data/findings/shots/before_survey_el0058.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026ta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Les\u2026",
+      "context_text": "\u2026rta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Le\u2026",
       "dom_index": 58
     },
     "scanner_details": [
@@ -1015,7 +1063,7 @@
       "screenshot": "data/findings/shots/before_survey_el0058.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026ta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Les\u2026",
+      "context_text": "\u2026rta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Le\u2026",
       "dom_index": 58
     },
     "scanner_details": [
@@ -1307,7 +1355,7 @@
       "screenshot": "data/findings/shots/before_survey_el0070.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026ta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Les\u2026",
+      "context_text": "\u2026rta Iran, Tehran Iraq, Baghdad Ireland, Dublin Israel, Jerusalem Italy, Rome Jamaica, Kingston Japan, Tokyo Jordan, Amman Kazakhstan, Astana Kenya, Nairobi Kiribati, Tarawa Korea, North, P'yongyang Korea, South, Seoul Kuwait, Kuwait Kyrgyzstan, Bishkek Laos, Vientiane Latvia, Riga Lebanon, Beirut Le\u2026",
       "dom_index": 70
     },
     "scanner_details": [
@@ -1355,7 +1403,7 @@
       "screenshot": "data/findings/shots/before_survey_el0071.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026NU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Tuesday 27 October 2026, Sunn\u2026",
+      "context_text": "\u2026U ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sun\u2026",
       "dom_index": 71
     },
     "scanner_details": [
@@ -1403,7 +1451,7 @@
       "screenshot": "data/findings/shots/before_survey_el0071.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "\u2026NU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Tuesday 27 October 2026, Sunn\u2026",
+      "context_text": "\u2026U ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sun\u2026",
       "dom_index": 71
     },
     "scanner_details": [
@@ -1736,7 +1784,7 @@
       "screenshot": "data/findings/shots/before_survey_el0084.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Tuesday 27 October 202\u2026",
+      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2\u2026",
       "dom_index": 84
     },
     "scanner_details": [
@@ -2146,7 +2194,7 @@
       "screenshot": "data/findings/shots/before_survey_el0107.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Tuesday 27 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
       "dom_index": 107
     },
     "scanner_details": [
@@ -2194,7 +2242,7 @@
       "screenshot": "data/findings/shots/before_survey_el0110.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Tuesday 27 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
       "dom_index": 110
     },
     "scanner_details": [
@@ -2386,7 +2434,7 @@
       "screenshot": "data/findings/shots/before_survey_el0113.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Tuesday 27 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
       "dom_index": 113
     },
     "scanner_details": [
@@ -2434,7 +2482,7 @@
       "screenshot": "data/findings/shots/before_survey_el0113.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Tuesday 27 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
       "dom_index": 113
     },
     "scanner_details": [
@@ -2482,7 +2530,7 @@
       "screenshot": "data/findings/shots/before_survey_el0114.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "Today: Tuesday 27 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
       "dom_index": 114
     },
     "scanner_details": [
@@ -2530,7 +2578,7 @@
       "screenshot": "data/findings/shots/before_survey_el0114.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "Today: Tuesday 27 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
       "dom_index": 114
     },
     "scanner_details": [
@@ -2578,7 +2626,7 @@
       "screenshot": "data/findings/shots/before_survey_el0115.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "Today: Tuesday 27 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
       "dom_index": 115
     },
     "scanner_details": [
@@ -2789,7 +2837,7 @@
       "screenshot": "data/findings/shots/before_survey_el0125.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
       "captured_at": "2026-10-27T19:58:57.893Z",
-      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Tuesday 27 October 202\u2026",
+      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2\u2026",
       "dom_index": 125
     },
     "scanner_details": [
@@ -3334,6 +3382,54 @@
     }
   },
   {
+    "finding_id": "F-before-survey-el0135-3.2.4",
+    "page": "survey",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.compare.unidentified",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#home > a",
+      "html_snippet": "<a href=\"javascript:location.href='home.html';\" onfocus=\"blur();\"><img name=\"nav_home\" src=\"./img/nav_home.gif\" width=\"88\" height=\"27\" hspace=\"15\" border=\"0px\"></a>",
+      "screenshot": "data/findings/shots/before_survey_el0135.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+      "captured_at": "2026-10-27T19:58:57.893Z",
+      "context_text": "",
+      "dom_index": 135
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.compare.unidentified",
+        "type": "rule",
+        "message": "This link (to javascript:location.href='home.html';) appears on 4 of the 4 pages but has no accessible name here: no text, no alt text on its image, no aria-label or title. The same component is not identified (3.2.4)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
     "finding_id": "F-before-survey-el0135-4.1.2",
     "page": "survey",
     "site_version": "before",
@@ -3837,6 +3933,54 @@
         "rule_id": "adj.rules.blur-on-focus",
         "type": "rule",
         "message": "Element removes its own focus with blur() when it receives focus: receiving focus changes the context (F55)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-before-survey-el0142-3.2.4",
+    "page": "survey",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.compare.unidentified",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#news > a",
+      "html_snippet": "<a href=\"javascript:location.href='news.html';\" onfocus=\"blur();\"><img src=\"./img/nav_news.gif\" name=\"nav_news\" width=\"90\" height=\"21\" hspace=\"12\" border=\"0px\"></a>",
+      "screenshot": "data/findings/shots/before_survey_el0142.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+      "captured_at": "2026-10-27T19:58:57.893Z",
+      "context_text": "",
+      "dom_index": 142
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.compare.unidentified",
+        "type": "rule",
+        "message": "This link (to javascript:location.href='news.html';) appears on 4 of the 4 pages but has no accessible name here: no text, no alt text on its image, no aria-label or title. The same component is not identified (3.2.4)."
       }
     ],
     "ai": {
@@ -4374,6 +4518,54 @@
     }
   },
   {
+    "finding_id": "F-before-survey-el0149-3.2.4",
+    "page": "survey",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.compare.unidentified",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#tickets > a",
+      "html_snippet": "<a href=\"javascript:location.href='tickets.html';\" onfocus=\"blur();\"><img name=\"nav_facts\" src=\"./img/nav_facts.gif\" width=\"105\" height=\"23\" hspace=\"9\" border=\"0px\"></a>",
+      "screenshot": "data/findings/shots/before_survey_el0149.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+      "captured_at": "2026-10-27T19:58:57.893Z",
+      "context_text": "",
+      "dom_index": 149
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.compare.unidentified",
+        "type": "rule",
+        "message": "This link (to javascript:location.href='tickets.html';) appears on 4 of the 4 pages but has no accessible name here: no text, no alt text on its image, no aria-label or title. The same component is not identified (3.2.4)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
     "finding_id": "F-before-survey-el0149-4.1.2",
     "page": "survey",
     "site_version": "before",
@@ -4877,6 +5069,54 @@
         "rule_id": "adj.rules.blur-on-focus",
         "type": "rule",
         "message": "Element removes its own focus with blur() when it receives focus: receiving focus changes the context (F55)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-before-survey-el0156-3.2.4",
+    "page": "survey",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.compare.unidentified",
+    "wcag": [
+      "3.2.4"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#survey > a",
+      "html_snippet": "<a href=\"javascript:location.href='survey.html';\" onfocus=\"blur();\"><img src=\"./img/nav_survey.gif\" name=\"nav_survey\" width=\"107\" height=\"32\" hspace=\"8\" border=\"0px\"></a>",
+      "screenshot": "data/findings/shots/before_survey_el0156.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/survey.html",
+      "captured_at": "2026-10-27T19:58:57.893Z",
+      "context_text": "",
+      "dom_index": 156
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.compare.unidentified",
+        "type": "rule",
+        "message": "This link (to javascript:location.href='survey.html';) appears on 4 of the 4 pages but has no accessible name here: no text, no alt text on its image, no aria-label or title. The same component is not identified (3.2.4)."
       }
     ],
     "ai": {

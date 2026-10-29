@@ -2,10 +2,11 @@
   "name": "adj-508",
   "version": "0.1.0",
   "private": true,
-  "description": "Node tools for ADJ scanners (axe-core, Pa11y). Python code lives in capture/, scanners/, agents/.",
+  "description": "Node tools for ADJ scanners (axe-core, Pa11y, Nu HTML Checker). Python code lives in capture/, scanners/, agents/.",
   "license": "UNLICENSED",
   "dependencies": {
     "axe-core": "4.13.0",
-    "pa11y": "10.0.0"
+    "pa11y": "10.0.0",
+    "vnu-jar": "26.10.12"
   }
 }

@@ -25,6 +25,7 @@ create placeholder copies of another track's files on your branch.
 | F. PULSE | Reviewer-UI lead (Daniel) | `pulse/`, `extension/`, `data/reviews/`, `tests/test_pulse_api.py`, `docs/human_review.md` |
 | S. Scoring | Repo owner (Jesus) | `scripts/gt_candidates.py`, `scripts/score.py`, `docs/scores/`, `tests/test_score.py`, `scanners/vision_scan.py`, `docs/benchmark.md`, `docs/deck_outline.md` |
 | R. Code-rule checks | Daniel | `scanners/rules_scan.py`, `tests/test_rules.py` |
+| K. Keyboard walk (experimental) | Jesus | `scanners/keyboard_scan.py`, `tests/test_keyboard.py` |
 | V. Validator + page comparison | Ershad | `scanners/validator_scan.py`, `scanners/compare_scan.py`, `tests/test_validator.py`, `tests/test_compare.py`, `docs/triage_study.md`, `docs/triage_timing_sheet.csv`, `scripts/triage_sample.py`, `tests/test_triage_sample.py` |
 
 Tests: each track owns `tests/test_<track or module>.py` for its own code (for example

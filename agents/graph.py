@@ -39,7 +39,8 @@ def load_agent(node, module, name, stub):
     except ModuleNotFoundError as e:
         if e.name != module:
             raise  # e.g. a typo'd import inside agents/mapper.py
-        STUBS.append(node)
+        if node not in STUBS:  # a track can supply more than one function (evidence: two)
+            STUBS.append(node)
         return stub
 
 
@@ -59,14 +60,17 @@ def _stub_build_cases(f):
 map_finding = load_agent("mapper", "agents.mapper", "map_finding", _stub_map_finding)  # Track B
 route_finding = load_agent("router", "agents.router", "route_finding", _stub_route_finding)  # Track C
 build_cases = load_agent("evidence", "agents.evidence", "build_cases", _stub_build_cases)  # Track C
+# Track C's running total of tokens from every call that returned (None without Track C)
+tokens_billed = load_agent("evidence", "agents.evidence", "tokens_billed", lambda: None)
 
 
 # ---------- State passed between nodes ----------
-class State(TypedDict):
+class State(TypedDict, total=False):
     run_id: str
     version: str
     page: str
     findings: list
+    billed_at_start: dict | None  # tokens_billed() when this run started (set by the load node)
 
 
 def add_fields(finding, added):
@@ -99,15 +103,9 @@ def case_file_counts(findings, errors):
     return written, skipped
 
 
-def _billed_now():
-    """Track C's running token total (agents.evidence.tokens_billed), or None when the evidence
-    node is a stand-in without one (a stub, or a fake in tests)."""
-    fn = getattr(sys.modules.get(getattr(build_cases, "__module__", "")), "tokens_billed", None)
-    return fn() if callable(fn) else None
-
-
 def _tokens_billed_since(start):
-    now = _billed_now()
+    """This run's tokens: the running total now minus the total when the run started."""
+    now = tokens_billed()
     if start is None or now is None:
         return None
     return {"input": now["input_tokens"] - start["input_tokens"],
@@ -115,8 +113,6 @@ def _tokens_billed_since(start):
 
 
 def build_graph(log):
-    billed_at_start = _billed_now()  # the total is per process; this run's share is the difference
-
     def per_finding_node(name, fn, only_bucket=None):
         """Wrap a one-finding function as a graph node that logs what it adds."""
         def node(state):
@@ -143,7 +139,9 @@ def build_graph(log):
         findings = [f.model_dump() for f in load_findings(state["version"], state["page"])]
         path = findings_path(state["version"], state["page"]).relative_to(REPO)
         log.save("input_findings.json", {"source_file": str(path), "findings": findings})
-        return {"findings": findings}
+        # Taken when the run starts, not when the graph is built, so one graph invoked per page
+        # still gives each run only its own tokens.
+        return {"findings": findings, "billed_at_start": tokens_billed()}
 
     def write_output(state):
         findings = state["findings"]
@@ -165,7 +163,7 @@ def build_graph(log):
             },
             # Every call that returned, including findings that later failed (FOR ok, AGAINST failed).
             # "tokens" above counts finished case files only. Use tokens_billed for cost.
-            "tokens_billed": _tokens_billed_since(billed_at_start),
+            "tokens_billed": _tokens_billed_since(state.get("billed_at_start")),
             "timings_sec": log.timings,
             "errors": log.errors,
             "stubs": STUBS,  # nodes that were stand-ins, not the real track code

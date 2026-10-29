@@ -161,8 +161,42 @@ def test_summary_bills_tokens_from_findings_that_failed(tmp_path, monkeypatch):
     assert summary["tokens_billed"] == {"input": 3000, "output": 900}  # plus the failed finding's FOR call
 
 
-def test_tokens_billed_is_none_for_a_stand_in_evidence_node(tmp_path, monkeypatch):
+def test_tokens_billed_is_none_without_track_c(tmp_path, monkeypatch):
     monkeypatch.setattr(graph, "route_finding", lambda f: {"bucket": "grey", "route_reason": "test"})
     monkeypatch.setattr(graph, "build_cases", lambda f: {"ai": {"case_for": "for", "case_against": "against"}})
+    monkeypatch.setattr(graph, "tokens_billed", lambda: None)  # load_agent's stub when Track C is missing
     final, log = run_pipeline(tmp_path, monkeypatch)
     assert json.loads((log.dir / "summary.json").read_text())["tokens_billed"] is None
+
+
+def test_tokens_billed_is_per_run_when_one_graph_runs_twice(tmp_path, monkeypatch):
+    """The snapshot is taken when each run starts, not when the graph is built."""
+    counter = {"input_tokens": 0, "output_tokens": 0}
+
+    def billing_build_cases(f):  # a fake evidence agent that bills 10 in / 1 out per finding
+        counter["input_tokens"] += 10
+        counter["output_tokens"] += 1
+        return {"ai": {"case_for": "for", "case_against": "against"}}
+
+    monkeypatch.setattr(graph, "route_finding", lambda f: {"bucket": "grey", "route_reason": "test"})
+    monkeypatch.setattr(graph, "build_cases", billing_build_cases)
+    monkeypatch.setattr(graph, "tokens_billed", lambda: dict(counter))
+    monkeypatch.setattr(runlog, "RUNS_DIR", tmp_path)
+    log = runlog.RunLog("run-a")
+    app = graph.build_graph(log)
+    counter["input_tokens"] = 999  # tokens spent between building the graph and running it don't count
+    summaries = []
+    for run_id, page in (("run-a", "home"), ("run-a", "news")):
+        app.invoke({"run_id": run_id, "version": "before", "page": page, "findings": []})
+        summaries.append(json.loads((log.dir / "summary.json").read_text()))
+    log.close()
+    n_home, n_news = len(load_findings("before", "home")), len(load_findings("before", "news"))
+    assert summaries[0]["tokens_billed"] == {"input": 10 * n_home, "output": n_home}
+    assert summaries[1]["tokens_billed"] == {"input": 10 * n_news, "output": n_news}  # only its own
+
+
+def test_a_missing_track_is_listed_once_in_stubs(monkeypatch):
+    monkeypatch.setattr(graph, "STUBS", [])
+    graph.load_agent("evidence", "agents.no_such_module", "build_cases", None)
+    graph.load_agent("evidence", "agents.no_such_module", "tokens_billed", None)
+    assert graph.STUBS == ["evidence"]

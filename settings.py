@@ -14,6 +14,7 @@ ADJ_MODEL_ID. Never hard-code a model ID anywhere else; tests/test_settings.py
 fails if one appears.
 """
 
+import math
 import os
 from pathlib import Path
 
@@ -48,7 +49,7 @@ def _seconds_env(name: str, default: float) -> float:
         value = float(raw)
     except ValueError:
         raise ValueError(f"{name} must be a number of seconds, got {raw!r} (check your shell or .env)") from None
-    if not value >= 0 or value == float("inf"):  # also rejects nan
+    if not (math.isfinite(value) and value >= 0):
         raise ValueError(f"{name} must be 0 or more seconds, got {raw!r} (check your shell or .env)")
     return value
 

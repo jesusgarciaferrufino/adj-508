@@ -31,11 +31,18 @@ Cost controls (settings.py / .env):
   ADJ_CALL_DELAY         seconds to wait before every call (default 0), to stay under a
                          per-minute quota on long runs
 
-Throttling (Oct 27): Bedrock answers ThrottlingException once a per-minute quota is used
-up, and botocore's own retries are spent in seconds. _call waits it out instead: 15, 30, 60,
-120, 120 seconds (about 6 minutes), printing one line to stderr per wait, then raises as
-before (the graph records the finding as an error). ServiceUnavailableException is treated
-the same way.
+Retries live in ONE place, _call (Oct 29; botocore's own retries are off, max_attempts 1).
+Transient errors are waited out: 15, 30, 60, 120, 120 seconds (about 6 minutes), one line
+on stderr per wait, then the call raises as before (the graph records the finding as an
+error). Transient means the AWS error codes in RETRY_CODES (throttling, service unavailable,
+internal error, model not ready) or a timeout or connection error (RETRY_CLASSES, matched by
+class name, so this module never imports botocore at load time). Anything else raises at once.
+
+Circuit breaker: when a transient error is still there after the last wait, or a throttling
+message names a per-day quota (fatal at once, no waits), _gave_up is set and every later
+finding in this process is returned skipped (recommendation None, "SKIPPED: Bedrock
+unavailable..."), with no call. The run then finishes in minutes instead of hours, and
+scripts/score.py warns that those findings were not evaluated.
 
 Tokens: every call that returns is added to a running total at once (tokens_billed()), so a
 finding whose FOR call succeeded and AGAINST call failed is still counted. The graph writes
@@ -64,8 +71,13 @@ PLACEHOLDERS = ("sc", "sc_name", "level", "criterion_text", "needs_human_when",
 
 _calls_made = 0  # Bedrock calls in this process; checked against settings.MAX_BEDROCK_CALLS
 _findings_done = 0  # findings that went through FOR/AGAINST in this process (progress line)
+_calls_failed = 0  # calls that still raised after their retries (progress line)
 _billed = {"input_tokens": 0, "output_tokens": 0}  # every call that returned, in this process
-RETRY_CODES = {"ThrottlingException", "ServiceUnavailableException"}
+_gave_up: str | None = None  # set by the circuit breaker; then no more calls in this process
+RETRY_CODES = {"ThrottlingException", "ServiceUnavailableException", "InternalServerException",
+               "ModelNotReadyException"}
+RETRY_CLASSES = {"ReadTimeoutError", "ConnectTimeoutError", "EndpointConnectionError"}  # botocore, by name
+DAILY_QUOTA_RE = re.compile(r"per\s+day", re.IGNORECASE)  # e.g. "Too many tokens per day"
 RETRY_WAITS = (15, 30, 60, 120, 120)  # seconds; about 6 minutes in all, then give up
 PROGRESS_EVERY = 10  # findings
 
@@ -88,7 +100,8 @@ def load_prompt(name: str) -> str:
 def _bedrock_client():
     import boto3  # imported here so tests and the router never need AWS
     from botocore.config import Config
-    cfg = Config(retries={"mode": "adaptive", "max_attempts": 5}, read_timeout=60)
+    # No botocore retries: _call owns every retry, so its waits and stderr lines are the whole story.
+    cfg = Config(retries={"mode": "standard", "max_attempts": 1}, read_timeout=60)
     return boto3.client("bedrock-runtime", region_name=settings.AWS_REGION, config=cfg)
 
 
@@ -209,7 +222,24 @@ def _error_code(exc: Exception) -> str | None:
     Read from the exception itself, so this module never has to import botocore.
     """
     response = getattr(exc, "response", None)
-    return ((response or {}).get("Error") or {}).get("Code") if isinstance(response, dict) else None
+    return response.get("Error", {}).get("Code") if isinstance(response, dict) else None
+
+
+def _transient(exc: Exception) -> str | None:
+    """A short name for a transient error worth waiting out, or None if it should raise at once."""
+    code = _error_code(exc)
+    if code in RETRY_CODES:
+        return code
+    name = type(exc).__name__
+    return name if name in RETRY_CLASSES else None
+
+
+def _trip(reason: str) -> None:
+    """The circuit breaker: no more Bedrock calls in this process."""
+    global _gave_up
+    _gave_up = reason
+    print(f"evidence: stopping Bedrock calls for the rest of this run ({reason}); remaining grey findings "
+          "are marked skipped", file=sys.stderr, flush=True)
 
 
 def tokens_billed() -> dict:
@@ -219,8 +249,9 @@ def tokens_billed() -> dict:
 
 
 def _call(client, prompt: str) -> tuple[str, dict]:
-    """One Converse call. Waits out throttling (RETRY_WAITS), then raises as before."""
-    global _calls_made
+    """One Converse call. Waits out transient errors (RETRY_WAITS), trips the breaker if they
+    don't clear, then raises as before. At most len(RETRY_WAITS) + 1 requests per call."""
+    global _calls_made, _calls_failed
     _calls_made += 1  # once per call, however many retries: the cap counts calls we meant to make
     if settings.CALL_DELAY:
         time.sleep(settings.CALL_DELAY)
@@ -233,11 +264,20 @@ def _call(client, prompt: str) -> tuple[str, dict]:
             )
             break
         except Exception as e:
-            code = _error_code(e)
-            if code not in RETRY_CODES or attempt == len(RETRY_WAITS):
+            kind = _transient(e)
+            if kind is None:
+                _calls_failed += 1
+                raise  # not transient (bad request, access denied, ...): no wait, no breaker
+            if DAILY_QUOTA_RE.search(str(e)):
+                _calls_failed += 1
+                _trip(f"{kind}: daily quota reached")
+                raise
+            if attempt == len(RETRY_WAITS):
+                _calls_failed += 1
+                _trip(f"{kind} after {len(RETRY_WAITS)} waits")
                 raise
             wait = RETRY_WAITS[attempt]
-            print(f"evidence: {code}, waiting {wait}s (attempt {attempt + 1} of {len(RETRY_WAITS)})",
+            print(f"evidence: {kind}, waiting {wait}s (attempt {attempt + 1} of {len(RETRY_WAITS)})",
                   file=sys.stderr, flush=True)
             time.sleep(wait)
     usage = resp.get("usage") or {}
@@ -264,14 +304,17 @@ def _progress() -> None:
     global _findings_done
     _findings_done += 1
     if _findings_done % PROGRESS_EVERY == 0:
-        print(f"evidence: {_findings_done} findings, {_calls_made} calls, {_billed['input_tokens']:,} in / "
-              f"{_billed['output_tokens']:,} out tokens so far", file=sys.stderr, flush=True)
+        print(f"evidence: {_findings_done} findings, {_calls_made} calls attempted ({_calls_failed} failed), "
+              f"{_billed['input_tokens']:,} in / {_billed['output_tokens']:,} out tokens billed so far",
+              file=sys.stderr, flush=True)
 
 
 def build_cases(finding: dict, client=None) -> dict:
     """FOR and AGAINST cases for one grey finding. Pass a fake client in tests."""
     if settings.EVIDENCE_ONLY and finding.get("finding_id") not in settings.EVIDENCE_ONLY:
         return _skipped("not selected (ADJ_EVIDENCE_ONLY)")
+    if _gave_up:
+        return _skipped(f"Bedrock unavailable, stopped calling for the rest of this run: {_gave_up}")
     if _calls_made + 2 > settings.MAX_BEDROCK_CALLS:
         return _skipped("call cap reached")
     client = client or _bedrock_client()

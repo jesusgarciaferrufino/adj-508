@@ -21,11 +21,11 @@ create placeholder copies of another track's files on your branch.
 | C. Router + FOR/AGAINST | Orchestration lead | `agents/router.py`, `agents/evidence.py`, `prompts/`, `tests/test_router.py`, `tests/test_evidence.py`, `docs/evidence_samples.md`, `scripts/compare_against.py`, `tests/test_compare_against.py`, `docs/against_v2_comparison.md` |
 | D. Graph + run log | Reviewer-experience lead | `agents/graph.py`, `data/runs/` |
 | Ground truth | Sheet owner | `data/ground-truth/ground_truth.csv`, `tests/test_ground_truth.py` |
-| E. Outputs | Outputs lead (Abel) | `reports/` (including `reports/acr.py`, `reports/backlog.py`, `reports/package.py`, `reports/fix_guidance.json`), `tests/test_matrix.py`, `tests/test_acr.py`, `tests/test_backlog.py` |
-| F. PULSE | Reviewer-UI lead | `pulse/`, `extension/`, `data/reviews/`, `tests/test_pulse_api.py` |
+| E. Outputs | Outputs lead (Abel) | `reports/` (including `reports/acr.py`, `reports/backlog.py`, `reports/package.py`, `reports/fix_guidance.json`), `tests/test_matrix.py`, `tests/test_acr.py`, `tests/test_backlog.py`, `tests/test_package.py` |
+| F. PULSE | Reviewer-UI lead (Daniel) | `pulse/`, `extension/`, `data/reviews/`, `tests/test_pulse_api.py`, `docs/human_review.md` |
 | S. Scoring | Repo owner (Jesus) | `scripts/gt_candidates.py`, `scripts/score.py`, `docs/scores/`, `tests/test_score.py`, `scanners/vision_scan.py`, `docs/benchmark.md`, `docs/deck_outline.md` |
 | R. Code-rule checks | Daniel | `scanners/rules_scan.py`, `tests/test_rules.py` |
-| V. Validator + page comparison | Ershad | `scanners/validator_scan.py`, `scanners/compare_scan.py`, `tests/test_validator.py`, `tests/test_compare.py`, `docs/triage_study.md` |
+| V. Validator + page comparison | Ershad | `scanners/validator_scan.py`, `scanners/compare_scan.py`, `tests/test_validator.py`, `tests/test_compare.py`, `docs/triage_study.md`, `docs/triage_timing_sheet.csv`, `scripts/triage_sample.py`, `tests/test_triage_sample.py` |
 
 Tests: each track owns `tests/test_<track or module>.py` for its own code (for example
 `tests/test_mapper.py`, `tests/test_graph.py`). `tests/test_contracts.py`,

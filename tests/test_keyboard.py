@@ -149,6 +149,26 @@ def test_hidden_disabled_and_nested_elements_are_not_flagged(page):
     assert of(scan(page, body), "unreachable") == []
 
 
+def test_radio_group_reached_once_is_not_unreachable(page):
+    """Tab stops on one radio per group; the others are reached with the arrow keys (After survey, Oct 29)."""
+    body = ('<form><input type="radio" name="r" value="1"> <input type="radio" name="r" value="2"> '
+            '<input type="radio" name="r" value="3"> <input type="radio" name="s" value="1" checked> '
+            '<input type="radio" name="s" value="2"> <button>Send</button></form>')
+    assert of(scan(page, body), "unreachable") == []
+
+
+def test_radio_group_never_reached_is_unreachable(page):
+    body = ('<a href="a.html">A</a> <input type="radio" name="r" value="1" tabindex="-1"> '
+            '<input type="radio" name="r" value="2" tabindex="-1">')
+    assert len(of(scan(page, body), "unreachable")) == 2
+
+
+def test_same_radio_name_in_another_form_is_a_different_group(page):
+    body = ('<form><input type="radio" name="r" value="1"></form>'
+            '<form><input type="radio" name="r" value="1" tabindex="-1"></form>')
+    assert len(of(scan(page, body), "unreachable")) == 1
+
+
 def test_image_map_area_counts_when_its_image_is_visible(page):
     body = ('<img src="nav.gif" usemap="#nav" width="200" height="40" alt="Navigation">'
             '<map name="nav"><area shape="rect" coords="0,0,100,40" href="a.html" alt="Home"></map>')

@@ -21,7 +21,9 @@ W3C's wrapper (#meta-header, #meta-footer) are walked but never numbered or repo
 
 | rule_id                        | criterion | hit when                                                    |
 | adj.keyboard.unreachable       | 2.1.1     | a visible link, button, form control or onclick element is   |
-|                                |           | never a tab stop (and no tab stop is inside it or around it) |
+|                                |           | never a tab stop (and no tab stop is inside it or around it; |
+|                                |           | a radio counts as reached when its group was: Tab stops on   |
+|                                |           | one radio per group, the arrow keys move between them)       |
 | adj.keyboard.no-visible-focus  | 2.4.7     | a tab stop that keeps focus looks the same focused/unfocused |
 | adj.keyboard.order-jump        | 2.4.3     | a stop is >300px above the one before it, in the same column |
 |                                |           | (they overlap horizontally), AND the next stop is >300px     |
@@ -156,10 +158,15 @@ ACTIONABLE_JS = r"""
 }
 """
 
-# Is element a inside element b, or b inside a?
+# Is the element covered by a tab stop: inside one, around one, or a radio button whose group
+# was reached? (Tab stops on one radio per group; the arrow keys move between the rest.)
 NESTED_JS = r"""
 ([i, reached]) => { const A = window.__adj, el = A.ALL[i];
-  return reached.some(j => { const o = A.ALL[j]; return el.contains(o) || o.contains(el); }); }
+  const radio = e => e.localName === "input" && e.type === "radio" && e.name;
+  return reached.some(j => { const o = A.ALL[j];
+    if (el.contains(o) || o.contains(el)) return true;
+    return radio(el) && radio(o) && o.name === el.name && o.form === el.form;
+  }); }
 """
 
 UNFOCUSED_JS = r"""

@@ -153,7 +153,12 @@ def parse_side(text: str) -> dict:
     if side is None:
         raise EvidenceError(f"no JSON object in reply: {text[:200]!r}")
     missing = {"argument", "cited_sc", "quoted_evidence", "strength"} - side.keys()
-    if missing:
+    if missing == {"cited_sc"}:
+        # Only the cited criterion is missing (Oct 29: 2 After findings). Keep the reply but cite
+        # nothing: citations_ok() then fails, so citations_verified is False and the finding can
+        # never count as an issue. A sloppy reply can only make a finding less likely to count.
+        side["cited_sc"] = None
+    elif missing:
         raise EvidenceError(f"reply missing {sorted(missing)}")
     strength = _strength(side["strength"])
     if strength is None:

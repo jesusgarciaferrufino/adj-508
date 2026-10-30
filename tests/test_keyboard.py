@@ -209,16 +209,38 @@ def test_dom_order_against_visual_order_without_tabindex_cites_the_criterion(pag
     assert "(2.4.3)" in h["message"] and "F44" not in h["message"]
 
 
-# ---------------------------------------------------------------- focus-lost (2.4.3)
+# ---------------------------------------------------------------- focus lost: counted, not filed
 
 
-def test_blur_on_focus_link_loses_focus(page):
-    r = scan(page, '<a href="a.html">A</a> <a href="b.html" onfocus="blur()">Click here</a> <a href="c.html">C</a>')
-    [h] = of(r, "focus-lost")
-    assert h["sc"] == "2.4.3" and "onfocus" in at(page, h)
-    assert 'Tab stop 2 (link "Click here") loses focus as soon as it gets it' in h["message"]
-    assert of(r, "no-visible-focus") == []  # the blur rule owns 2.4.7 for these
+BLUR_LINKS = '<a href="a.html">A</a> <a href="b.html" onfocus="blur()">Click here</a> <a href="c.html">C</a>'
+
+
+def test_focus_lost_is_counted_not_filed(page):
+    """blur() links: adj.rules.blur-on-focus files them under F55's four criteria; no 2.4.3 hit here."""
+    r = scan(page, BLUR_LINKS)
+    assert r["hits"] == []  # no focus-lost hit, and no no-visible-focus hit either
+    assert r["walk"]["focus_lost"] == 1
+    [stop] = r["walk"]["focus_lost_stops"]
+    assert stop["n"] == 2 and 'onfocus="blur()"' in at(page, stop)
     assert r["walk"]["end"] == "wrapped" and r["walk"]["numbered_stops"] == 3  # the walk goes on past it
+
+
+def test_summary_line_labels_focus_lost(page):
+    line = kb.summarize(scan(page, BLUR_LINKS))
+    assert "0 hits (none)" in line and "3 tab stops, focus lost (blur(), reported by the blur rule) 1" in line
+    assert "focus lost" not in kb.summarize(scan(page, '<a href="a.html">A</a>'))
+
+
+def test_focus_lost_stops_are_marked_on_the_screenshot(page):
+    page.set_content(f"<!doctype html><html lang='en'><body>{BLUR_LINKS}</body></html>")
+    numbered = kb.check_walk(page, kb.tab_walk(page))[1]
+    marks = kb.overlay_marks(numbered)
+    assert [(m["n"], m["lost"]) for m in marks] == [(1, False), (2, True), (3, False)]
+    page.evaluate(kb.OVERLAY_JS, marks)
+    labels = page.evaluate("Array.from(document.querySelectorAll('#__adj_keyboard_overlay span'))"
+                           ".map(s => [s.textContent, s.style.backgroundColor, s.parentElement.style.borderStyle])")
+    assert labels[1][0] == "2\u00d7" and labels[1][2] == "dashed"
+    assert labels[0][0] == "1" and labels[0][2] == "solid" and labels[0][1] != labels[1][1]
 
 
 # ---------------------------------------------------------------- wrapper, format, merge
@@ -236,8 +258,7 @@ def test_hits_point_at_their_element_and_use_the_shared_format(page):
     body = ('<a href="a.html">A</a> <a href="b.html" onfocus="blur()">B</a> <div onclick="c()">C</div>'
             '<button>D</button>')
     r = scan(page, body, head="<style>button:focus { outline: none }</style>")
-    assert {h["rule_id"] for h in r["hits"]} == {"adj.keyboard.focus-lost", "adj.keyboard.unreachable",
-                                                 "adj.keyboard.no-visible-focus"}
+    assert {h["rule_id"] for h in r["hits"]} == {"adj.keyboard.unreachable", "adj.keyboard.no-visible-focus"}
     for h in r["hits"]:
         assert set(h) == set(merge.ADJ_HIT_KEYS) and h["status"] == "needs_review"
         same = page.evaluate("([i, sel]) => document.querySelectorAll('*')[i] === document.querySelector(sel)",

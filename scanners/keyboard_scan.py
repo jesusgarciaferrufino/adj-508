@@ -29,7 +29,13 @@ W3C's wrapper (#meta-header, #meta-footer) are walked but never numbered or repo
 |                                |           | (they overlap horizontally), AND the next stop is >300px     |
 |                                |           | below it: focus order bounces against the layout. Moving up  |
 |                                |           | to start a new column is normal and is not a hit.            |
-| adj.keyboard.focus-lost        | 2.4.3     | focus leaves the element as soon as it arrives (to body)     |
+
+Focus lost (not a rule, no hits; Oct 29): a stop where focus leaves the element as soon as it
+arrives is a blur() link. adj.rules.blur-on-focus already files those as violations under the
+four criteria W3C cites for F55 (2.1.1, 2.4.7, 3.2.1, 4.1.2); a fifth filing under 2.4.3 would
+be a criterion W3C doesn't cite, cost two Bedrock calls and a review each, and add no recall.
+They are counted in the walk ("focus_lost", "focus_lost_stops"), shown on the numbered
+screenshot in grey with an "x" after the number, and get no no-visible-focus hit either.
 
 unreachable runs only when the walk finished normally (wrapped round, left the page, or found
 nothing to focus); after a trap or MAX_TABS presses the unvisited part of the page is unknown.
@@ -69,10 +75,10 @@ MESSAGES = {
                         "outline, border, shadow, background, colour or underline (F78).",
     "order-jump": 'Tab stop {n} ({what} "{name}") is {up}px above stop {prev}, then stop {next} jumps back down '
                   "{down}px: the focus order does not follow the visual order ({ref}).",
-    "focus-lost": 'Tab stop {n} ({what} "{name}") loses focus as soon as it gets it: focus goes back to the page '
-                  "itself, so the keyboard user can't see or use where they are (F55).",
 }
-CRITERIA = {"unreachable": "2.1.1", "no-visible-focus": "2.4.7", "order-jump": "2.4.3", "focus-lost": "2.4.3"}
+CRITERIA = {"unreachable": "2.1.1", "no-visible-focus": "2.4.7", "order-jump": "2.4.3"}
+LOST_LABEL = "focus lost (blur(), reported by the blur rule)"
+STOP_COLOUR, LOST_COLOUR = "#c00", "#666"  # numbered boxes; focus-lost stops are grey with an "x"
 
 # Installed once per page, before the walk. Keeps the clean element list and logs every focus.
 SETUP_JS = r"""
@@ -180,19 +186,21 @@ OVERLAY_JS = r"""
   layer.id = "__adj_keyboard_overlay";
   layer.style.cssText = "position:absolute;left:0;top:0;width:0;height:0;z-index:2147483647;pointer-events:none";
   for (const s of stops) {
+    const colour = s.lost ? "__LOST__" : "__STOP__";
     const b = document.createElement("div");
     b.style.cssText = `position:absolute;left:${s.x - 2}px;top:${s.y - 2}px;width:${Math.max(s.w, 4)}px;` +
-      `height:${Math.max(s.h, 4)}px;border:2px solid #c00;box-sizing:content-box`;
+      `height:${Math.max(s.h, 4)}px;border:2px ${s.lost ? "dashed" : "solid"} ${colour};box-sizing:content-box`;
     const n = document.createElement("span");
-    n.textContent = s.n;
-    n.style.cssText = "position:absolute;left:-2px;top:-18px;background:#c00;color:#fff;font:bold 12px/16px " +
+    n.textContent = s.lost ? `${s.n}\u00d7` : String(s.n);   // "7x": focus lost on this stop
+    n.title = s.lost ? "__LOST_LABEL__" : "";
+    n.style.cssText = `position:absolute;left:-2px;top:-18px;background:${colour};color:#fff;font:bold 12px/16px ` +
       "sans-serif;padding:0 4px;border-radius:2px";
     b.appendChild(n);
     layer.appendChild(b);
   }
   document.body.appendChild(layer);
 }
-"""
+""".replace("__LOST__", LOST_COLOUR).replace("__STOP__", STOP_COLOUR).replace("__LOST_LABEL__", LOST_LABEL)
 
 
 def tab_walk(page: Page) -> dict:
@@ -250,10 +258,7 @@ def check_walk(page: Page, walk: dict) -> tuple[list[dict], list[dict]]:
     numbered = [{**s, "n": n} for n, s in enumerate(stops, start=1)]
     hits = []
 
-    for s in numbered:
-        if s["lost"]:
-            hits.append(_hit("focus-lost", info[s["i"]], {"n": s["n"]}, s["i"]))
-
+    # Focus-lost stops (blur() links) get no hit here: the blur rule reports them (see the docstring).
     kept = [s for s in numbered if not s["lost"] and s["look"] is not None]
     unfocused = page.evaluate(UNFOCUSED_JS, [s["i"] for s in kept]) if kept else []
     for s, plain in zip(kept, unfocused, strict=True):
@@ -308,6 +313,11 @@ def reading_order(page: Page) -> list[str]:
     return lines
 
 
+def overlay_marks(numbered: list[dict]) -> list[dict]:
+    """One box per numbered stop for the screenshot; focus-lost stops are marked."""
+    return [{**s["box"], "n": s["n"], "lost": bool(s["lost"])} for s in numbered]
+
+
 def build_result(page: Page, version: str, name: str, url: str, artifacts_dir: Path | None = None) -> dict:
     """The file's contents for the page that is loaded now. With artifacts_dir, also writes the
     numbered screenshot and the reading-order text there."""
@@ -318,14 +328,16 @@ def build_result(page: Page, version: str, name: str, url: str, artifacts_dir: P
         artifacts_dir.mkdir(parents=True, exist_ok=True)
         (artifacts_dir / f"keyboard_{version}_{name}_reading_order.txt").write_text(
             "\n".join(lines) + "\n", encoding="utf-8")
-        page.evaluate(OVERLAY_JS, [{**s["box"], "n": s["n"]} for s in numbered])
+        page.evaluate(OVERLAY_JS, overlay_marks(numbered))
         try:
             page.screenshot(path=artifacts_dir / f"keyboard_{version}_{name}.png", full_page=True)
         finally:
             page.evaluate("() => document.getElementById('__adj_keyboard_overlay')?.remove()")
     return {"check": "keyboard", "version": version, "page": name, "url": url, "tool_version": TOOL_VERSION,
             "walk": {"presses": walk["presses"], "stops": len(walk["stops"]), "numbered_stops": len(numbered),
-                     "end": walk["end"], "reading_order_lines": len(lines)},
+                     "end": walk["end"], "reading_order_lines": len(lines),
+                     "focus_lost": sum(s["lost"] for s in numbered),
+                     "focus_lost_stops": [{"n": s["n"], "dom_index": s["i"]} for s in numbered if s["lost"]]},
             "hits": hits}
 
 
@@ -350,7 +362,8 @@ def summarize(result: dict) -> str:
         counts[short] = counts.get(short, 0) + 1
     w = result["walk"]
     per_rule = ", ".join(f"{r} {n}" for r, n in counts.items()) or "none"
-    return f"{len(result['hits']):3} hits ({per_rule}) | {w['numbered_stops']} tab stops, walk {w['end']}"
+    lost = f", {LOST_LABEL} {w['focus_lost']}" if w.get("focus_lost") else ""
+    return f"{len(result['hits']):3} hits ({per_rule}) | {w['numbered_stops']} tab stops{lost}, walk {w['end']}"
 
 
 def main() -> int:

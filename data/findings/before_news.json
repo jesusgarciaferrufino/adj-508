@@ -344,7 +344,7 @@
       "pa11y",
       "adj-rules"
     ],
-    "scanner_status": "needs_review",
+    "scanner_status": "violation",
     "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124,H69",
     "wcag": [
       "2.4.1"
@@ -373,7 +373,7 @@
         "scanner": "adj-rules",
         "rule_id": "adj.rules.no-skip-link",
         "type": "rule",
-        "message": "No in-page link (skip link) comes before the page's navigation, so keyboard users must tab through the repeated header and menu on every page (2.4.1)."
+        "message": "No in-page link (skip link) comes before the page's navigation, so keyboard users must tab through the repeated header and menu on every page (2.4.1). The page also has no headings and no landmarks, so none of the usual bypass techniques (G1, H69, ARIA11) is present."
       }
     ],
     "ai": {
@@ -859,7 +859,7 @@
       "screenshot": "data/findings/shots/before_news_el0054.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the out\u2026",
+      "context_text": "\u2026e a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the outs\u2026",
       "dom_index": 54
     },
     "scanner_details": [
@@ -868,6 +868,54 @@
         "rule_id": "WCAG2AA.Principle1.Guideline1_3.1_3_1.LayoutTable",
         "type": "notice",
         "message": "This table appears to be a layout table. If it is meant to instead be a data table, ensure header cells are identified using th elements."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-before-news-el0054-1.3.2",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.layout-table-order",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#page > table",
+      "html_snippet": "<table width=\"100%\" border=\"0px\" cellspacing=\"0px\" cellpadding=\"0px\" bgcolor=\"#D7D7CD\"><tbody><tr valign=\"MIDDLE\"><td width=\"100%\" align=\"CENTER\">\n    <table width=\"800px\" border=\"0px\" cellspacing=\"0px\" cellpadding=\"0px\" bgcolor=\"WHITE\">\n      <tbody><tr height=\"10px\">\n        <td width=\"10px\" background=\"./img/border_left_top.gif\"><img src=\"./img/border_left_top.gif\" width=\"10px\" height=\"10px\"></td>\n        <td width=\"780px\" background=\"./img/border_top.gif\"><img src=\"./img/border_top.gif\" height=\"10px\"></td>\n        <td width=\"10px\" background=\"./img/border_right_top.gif\"><img src=\"./img/border_right_top.gif\" width=\"10px\" height=\"10px\"></td>\n      </tr>\n      <tr>\n        <td width=\"10px\" background=\"./img/border_left.gif\"><img src=\"./img/border_left.gif\" width=\"10px\"></td>\n        <td width=\"780px\" align=\"CENTER\">\n    <table width=\"780px\" height=\"144px\" border=\"0px\" cellspacing=\"0px\" cellpadding=\"0px\" bgcolor=\"WHITE\">\n      <tbody><tr height=\"86px\">\n        <td width=\"443px\" background=\"./img/top_logo_next.gif\" valign=\"MIDDLE\"><div><a href=\"home.html\"><img src=\"./img/top_logo.gif\" width=\"443px\" height=\"86px\" alt=\"Red dot with a white letter 'C' that symbolizes a moon crescent as well as the sun. This logo is followed by a black banner that says 'CITYLIGHTS' which is the name of this online portal. Finally, the slogan of the portal, 'your access to the city', follows in a turquoise green handwriting style and with a slight slant across the top banner.\"></a></div></td>\n        <td width=\"24px\" valign=\"MIDDLE\"><img src=\"./img/top_logo_next_end.gif\" width=\"24px\" height=\"86px\"></td>\n        <td width=\"128px\" valign=\"MIDDLE\"><img src=\"./img/top_weather.gif\" width=\"128px\" height=\"86px\"></td>\n        <td width=\"22px\" valign=\"MIDDLE\"><img src=\"./img/top_logo_next_start.gif\" width=\"22px\" height=\"86px\"></td>\n        <td width=\"163px\" background=\"./img/top_logo_next.gif\" align=\"CENTER\" valign=\"MIDDLE\">\n          <select onchange=\"location.href = this.value;\">\n            <option selected=\"\">QUICKMENU ----&gt;\n            </option><option value=\"../offsite.html\">Broadcasting\n            </option><option value=\"../offsite.html\">Education\n            </option><option value=\"../offsite.html\">Electricity\n            </option><option value=\"../offsite.html\">Fire service\n            </option><option value=\"../offsite.html\">Gas service\n            </option><option value=\"../offsite.html\">Health care\n            </option><option value=\"../offsite.html\">Police service\n            </option><option value=\"../offsite.html\">Public Libraries\n            </option><option value=\"../offsite.html\">Social services\n            </option><option value=\"../offsite.html\">Social housing\n            </option><option value=\"../offsite.html\">Telecommunications\n            </option><option value=\"../offsite.html\">Town planning\n            </option><option value=\"../offsite.html\">Transportation\n            </option><option value=\"../offsite.html\">Waste management\n            </option><option value=\"../offsite.html\">Water services\n          </option></select>\n        </td>\n      </tr>\n      <tr height=\"7px\">\n        <td width=\"780px\" background=\"./img/mark.gif\" colspan=\"5\"><img src=\"./img/mark.gif\" width=\"158px\" height=\"7px\"></td>\n      </tr>\n      <tr height=\"25px\">\n        <td colspan=\"5\">\n          <table width=\"780px\" border=\"0px\" cellspacing=\"0px\" cellpadding=\"0px\">\n            <tbody><tr height=\"25px\">\n              <td bgcolor=\"#EDEDED\" width=\"380px\"><font color=\"BLACK\" face=\"Verdana\" size=\"2\">&nbsp;&nbsp;<b>Traffic:</b> Construction work on Main Road</font></td>\n              <td bgcolor=\"#EDEDED\" align=\"RIGHT\" id=\"WEATHER\"><font color=\"BLACK\" face=\"Verdana\" size=\"2\"><b>Today:</b>\n                <script language=\"JavaScript\">\n                  var now = new Date();\n                  var days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');\n                  var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');\n                  var date = ((now.getDate()<10) ? \"0\" : \"\")+ now.getDate();\n                  function fourdigits(number)\t{\n                    return (number < 1000) ? number + 1900 : number;\n                  }\n                  today =  days[now.getDay()] + \" \" + date + \" \" + months[now.getMonth()] + \" \" + (fourdigits(now.getYear())) + \", Sunny, 23&deg;C&nbsp;&nbsp;</FONT>\";\n                  document.all.WEATHER.setAttribute(\"BGCOLOR\", \"#EDEDED\", 0);\n                  document.write(today);\n                </script>Friday 30 October 2026, Sunny, 23\u00b0C&nbsp;&nbsp;</font></td>\n            </tr>\n          </tbody></table>\n        </td>\n      </tr>\n      <tr height=\"1px\">\n        <td width=\"780px\" background=\"./img/marker2_w.gif\" colspan=\"5\"><img src=\".img/marker2_w.gif\" width=\"78px\" height=\"1px\"></td>\n      </tr>\n      <tr height=\"25px\">\n        <td colspan=\"5\">&nbsp;</td>\n      </tr>\n    </tbody></t",
+      "screenshot": "data/findings/shots/before_news_el0054.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "\u2026e a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the outs\u2026",
+      "dom_index": 54
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.layout-table-order",
+        "type": "rule",
+        "message": "This table holds 10 nested table(s), a sign of a layout table. Read in code order (linearized), cell by cell, the content may not make sense (F49)."
       }
     ],
     "ai": {
@@ -907,7 +955,7 @@
       "screenshot": "data/findings/shots/before_news_el0054.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the out\u2026",
+      "context_text": "\u2026e a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the outs\u2026",
       "dom_index": 54
     },
     "scanner_details": [
@@ -955,7 +1003,7 @@
       "screenshot": "data/findings/shots/before_news_el0057.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the out\u2026",
+      "context_text": "\u2026e a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the outs\u2026",
       "dom_index": 57
     },
     "scanner_details": [
@@ -1003,7 +1051,7 @@
       "screenshot": "data/findings/shots/before_news_el0058.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the out\u2026",
+      "context_text": "\u2026e a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the outs\u2026",
       "dom_index": 58
     },
     "scanner_details": [
@@ -1051,7 +1099,7 @@
       "screenshot": "data/findings/shots/before_news_el0058.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the out\u2026",
+      "context_text": "\u2026e a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the outs\u2026",
       "dom_index": 58
     },
     "scanner_details": [
@@ -1343,7 +1391,7 @@
       "screenshot": "data/findings/shots/before_news_el0070.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the out\u2026",
+      "context_text": "\u2026e a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that's ducted away to the outs\u2026",
       "dom_index": 70
     },
     "scanner_details": [
@@ -1391,7 +1439,7 @@
       "screenshot": "data/findings/shots/before_news_el0071.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026U ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sun\u2026",
+      "context_text": "\u2026ENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Friday 30 October 2026, Sunn\u2026",
       "dom_index": 71
     },
     "scanner_details": [
@@ -1439,7 +1487,7 @@
       "screenshot": "data/findings/shots/before_news_el0071.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "\u2026U ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sun\u2026",
+      "context_text": "\u2026ENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Friday 30 October 2026, Sunn\u2026",
       "dom_index": 71
     },
     "scanner_details": [
@@ -1772,7 +1820,7 @@
       "screenshot": "data/findings/shots/before_news_el0084.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2\u2026",
+      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Friday 30 October 2026\u2026",
       "dom_index": 84
     },
     "scanner_details": [
@@ -2182,7 +2230,7 @@
       "screenshot": "data/findings/shots/before_news_el0107.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Friday 30 October 2026, Sunny, 23\u00b0C",
       "dom_index": 107
     },
     "scanner_details": [
@@ -2230,7 +2278,7 @@
       "screenshot": "data/findings/shots/before_news_el0110.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Friday 30 October 2026, Sunny, 23\u00b0C",
       "dom_index": 110
     },
     "scanner_details": [
@@ -2422,7 +2470,7 @@
       "screenshot": "data/findings/shots/before_news_el0113.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Friday 30 October 2026, Sunny, 23\u00b0C",
       "dom_index": 113
     },
     "scanner_details": [
@@ -2470,7 +2518,7 @@
       "screenshot": "data/findings/shots/before_news_el0113.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "Traffic: Construction work on Main Road Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Traffic: Construction work on Main Road Today: Friday 30 October 2026, Sunny, 23\u00b0C",
       "dom_index": 113
     },
     "scanner_details": [
@@ -2518,7 +2566,7 @@
       "screenshot": "data/findings/shots/before_news_el0114.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Today: Friday 30 October 2026, Sunny, 23\u00b0C",
       "dom_index": 114
     },
     "scanner_details": [
@@ -2566,7 +2614,7 @@
       "screenshot": "data/findings/shots/before_news_el0114.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Today: Friday 30 October 2026, Sunny, 23\u00b0C",
       "dom_index": 114
     },
     "scanner_details": [
@@ -2614,7 +2662,7 @@
       "screenshot": "data/findings/shots/before_news_el0115.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "Today: Wednesday 28 October 2026, Sunny, 23\u00b0C",
+      "context_text": "Today: Friday 30 October 2026, Sunny, 23\u00b0C",
       "dom_index": 115
     },
     "scanner_details": [
@@ -2819,7 +2867,7 @@
       "screenshot": "data/findings/shots/before_news_el0125.jpg",
       "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
       "captured_at": "2026-10-27T19:58:55.922Z",
-      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Wednesday 28 October 2\u2026",
+      "context_text": "QUICKMENU ----> Broadcasting Education Electricity Fire service Gas service Health care Police service Public Libraries Social services Social housing Telecommunications Town planning Transportation Waste management Water services Traffic: Construction work on Main Road Today: Friday 30 October 2026\u2026",
       "dom_index": 125
     },
     "scanner_details": [
@@ -3522,6 +3570,54 @@
     }
   },
   {
+    "finding_id": "F-before-news-el0136-1.4.5",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.image-of-text",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#home > a > img",
+      "html_snippet": "<img name=\"nav_home\" src=\"./img/nav_home.gif\" width=\"88\" height=\"27\" hspace=\"15\" border=\"0px\">",
+      "screenshot": "data/findings/shots/before_news_el0136.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "",
+      "dom_index": 136
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.image-of-text",
+        "type": "rule",
+        "message": "Image nav_home.gif (88x27 px) is a short, wide graphic of the kind used for text such as menu items, headings and phone numbers; if it shows text, that text could be real text (1.4.5)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
     "finding_id": "F-before-news-el0139-1.1.1",
     "page": "news",
     "site_version": "before",
@@ -4073,6 +4169,54 @@
         "rule_id": "WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74",
         "type": "notice",
         "message": "If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-before-news-el0143-1.4.5",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.image-of-text",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#news > a > img",
+      "html_snippet": "<img src=\"./img/nav_news.gif\" name=\"nav_news\" width=\"90\" height=\"21\" hspace=\"12\" border=\"0px\">",
+      "screenshot": "data/findings/shots/before_news_el0143.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "",
+      "dom_index": 143
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.image-of-text",
+        "type": "rule",
+        "message": "Image nav_news.gif (90x21 px) is a short, wide graphic of the kind used for text such as menu items, headings and phone numbers; if it shows text, that text could be real text (1.4.5)."
       }
     ],
     "ai": {
@@ -4658,6 +4802,54 @@
     }
   },
   {
+    "finding_id": "F-before-news-el0150-1.4.5",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.image-of-text",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#tickets > a > img",
+      "html_snippet": "<img name=\"nav_facts\" src=\"./img/nav_facts.gif\" width=\"105\" height=\"23\" hspace=\"9\" border=\"0px\">",
+      "screenshot": "data/findings/shots/before_news_el0150.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "",
+      "dom_index": 150
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.image-of-text",
+        "type": "rule",
+        "message": "Image nav_facts.gif (105x23 px) is a short, wide graphic of the kind used for text such as menu items, headings and phone numbers; if it shows text, that text could be real text (1.4.5)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
     "finding_id": "F-before-news-el0153-1.1.1",
     "page": "news",
     "site_version": "before",
@@ -5226,6 +5418,54 @@
     }
   },
   {
+    "finding_id": "F-before-news-el0157-1.4.5",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.image-of-text",
+    "wcag": [
+      "1.4.5"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#survey > a > img",
+      "html_snippet": "<img src=\"./img/nav_survey.gif\" name=\"nav_survey\" width=\"107\" height=\"32\" hspace=\"8\" border=\"0px\">",
+      "screenshot": "data/findings/shots/before_news_el0157.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "",
+      "dom_index": 157
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.image-of-text",
+        "type": "rule",
+        "message": "Image nav_survey.gif (107x32 px) is a short, wide graphic of the kind used for text such as menu items, headings and phone numbers; if it shows text, that text could be real text (1.4.5)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
     "finding_id": "F-before-news-el0160-1.1.1",
     "page": "news",
     "site_version": "before",
@@ -5540,6 +5780,102 @@
     }
   },
   {
+    "finding_id": "F-before-news-el0173-1.3.2",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.css-reading-order",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#main > div:nth-of-type(2) > div:nth-of-type(1)",
+      "html_snippet": "<div style=\"float:left;width:48%;padding:10px 0px 10px 0px;margin:0px;\">After three years of effort city scientists now agree that the primary cause of the 2003 heatwave was hot air from our air conditioning units. \"The study cost the city taxpayer under 10 million dollars\" said Prof. Steve 'Call me Stephen' Wahoonie, of City University Public Expenditure on Science dept. \"We had five top statisticians working on it: one to write the grant proposal, one to do the mathematical modelling, two to collaborate on the research paper, and one to hire a student to do the job.\"</div>",
+      "screenshot": "data/findings/shots/before_news_el0173.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "\u2026 hot air from our air conditioning units. \"The study cost the city taxpayer under 10 million dollars\" said Prof. Steve 'Call me Stephen' Wahoonie, of City University Public Expenditure on Science dept. \"We had five top statisticians working on it: one to write the grant proposal, one to do the mathe\u2026",
+      "dom_index": 173
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.css-reading-order",
+        "type": "rule",
+        "message": "CSS floats place this block (\"After three years of effort city scie...\") directly below another block in the same column, but in the code it comes after content from another column (\"Man Gets Nine Months in Violin Case\"), so the reading order differs from what is shown (F1)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-before-news-el0174-1.3.2",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.css-reading-order",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#main > div:nth-of-type(2) > div:nth-of-type(2)",
+      "html_snippet": "<div style=\"float:right; width: 48%;padding:10px 10px 10px 0px;margin:0px;\">As news of the conviction and sentencing of infamous violin thief Pasquale Ginkgo-Biloba reached city hall, Mayor Auberon 'Slim' Shadi stated that he was furious at the boring sentence handed down by the judge in the case, and is demanding a review of sentencing policy. This is not the first time that judges have come under fire for lenient sentencing in musical-instrument related cases. Last year's <a href=\"../offsite.html\">trombone forgery debacle</a> also resulted in a formal rebuke from the Mayor.</div>",
+      "screenshot": "data/findings/shots/before_news_el0174.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "\u2026 reached city hall, Mayor Auberon 'Slim' Shadi stated that he was furious at the boring sentence handed down by the judge in the case, and is demanding a review of sentencing policy. This is not the first time that judges have come under fire for lenient sentencing in musical-instrument related case\u2026",
+      "dom_index": 174
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.css-reading-order",
+        "type": "rule",
+        "message": "CSS floats place this block (\"As news of the conviction and sentenc...\") directly below another block in the same column, but in the code it comes after content from another column (\"After three years of effort city scie...\"), so the reading order differs from what is shown (F1)."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
     "finding_id": "F-before-news-el0175-1.4.1",
     "page": "news",
     "site_version": "before",
@@ -5619,6 +5955,54 @@
         "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
         "type": "notice",
         "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-before-news-el0177-1.3.2",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.css-reading-order",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#main > div:nth-of-type(3) > div:nth-of-type(1)",
+      "html_snippet": "<div style=\"float:left;width:48%;padding:10px 0px 10px 0px;margin:0px;\"><p class=\"headline\" align=\"center\"><font size=\"3\">Tough Wahoonie</font></p> \"We soon realized that we were seeing a rise in temperatures every time a heatwave occurred. Also, the more air conditioning used, the bigger the heatwave. We knew it couldn't just be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from <a href=\"../offsite.html\">the way that air conditioning works</a>. Air conditioners produce cold air to go into the room <span style=\"font-style: italic;\">but also hot air that's ducted away to the outside</span>. We are recommending a new city ordinance restricting use of air conditioning to winter months, when the heat will come in useful.\"</div>",
+      "screenshot": "data/findings/shots/before_news_el0177.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "\u2026ave. We knew it couldn't just be a coincidence, the match was 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,\" the Prof. explained. \"It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air\u2026",
+      "dom_index": 177
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.css-reading-order",
+        "type": "rule",
+        "message": "CSS floats place this block (\"Tough Wahoonie \"We soon realized that...\") directly below another block in the same column, but in the code it comes after content from another column (\"As news of the conviction and sentenc...\"), so the reading order differs from what is shown (F1)."
       }
     ],
     "ai": {
@@ -5811,6 +6195,54 @@
         "rule_id": "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81",
         "type": "notice",
         "message": "Check that the link text combined with programmatically determined link context identifies the purpose of the link."
+      }
+    ],
+    "ai": {
+      "case_for": "",
+      "case_against": "",
+      "citations_verified": false,
+      "confidence": null,
+      "prompt_version": ""
+    },
+    "review": {
+      "final_status": null,
+      "reviewer": null,
+      "decided_at": null,
+      "comment": null
+    }
+  },
+  {
+    "finding_id": "F-before-news-el0182-1.3.2",
+    "page": "news",
+    "site_version": "before",
+    "source": "adj-rules",
+    "sources": [
+      "adj-rules"
+    ],
+    "scanner_status": "needs_review",
+    "rule_id": "adj.rules.css-reading-order",
+    "wcag": [
+      "1.3.2"
+    ],
+    "section508": [
+      "E205.4 (WCAG 2.0 A/AA)"
+    ],
+    "bucket": null,
+    "evidence": {
+      "selector": "#main > div:nth-of-type(3) > div:nth-of-type(2)",
+      "html_snippet": "<div style=\"float:right; width: 48%;padding:10px 10px 10px 0px;margin:0px;\">\n              <table cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" border=\"0\">\n                <tbody>\n                  <tr>\n                    <td valign=\"top\" width=\"1\" background=\"./img/marker2_t.gif\" rowspan=\"9\"><img height=\"30\" src=\"./img/marker2_t.gif\" width=\"1\"></td>\n                    <td background=\"./img/marker2_w.gif\"><img height=\"1\" src=\"./img/marker2_w.gif\" width=\"78\"></td>\n                  </tr>\n                  <tr bgcolor=\"#ededed\">\n                    <td><p class=\"headline\"><img height=\"24\" src=\"./img/headline_middle.gif\" width=\"23\" align=\"absmiddle\"><font size=\"3\"> Your Shout</font></p></td>\n                    <td valign=\"top\" width=\"1\" background=\"./img/marker2_t.gif\" rowspan=\"9\"><img height=\"30\" src=\"./img/marker2_t.gif\" width=\"1\"></td>\n                  </tr>\n                  <tr>\n                    <td><blockquote><a href=\"../offsite.html\"><img src=\"./img/smzappa2.jpg\" width=\"65\" height=\"80\" alt=\"picture of Clara F.\" style=\"float:left;margin-right:5px;\" align=\"left\"></a> \"Well I think the Mayor's getting all heated up about nothing. Remember that 15 months is pretty much a lifetime to someone like me. But hey, I'm just a baby, and can't even vote, so you can ignore my opinion. And I can tell you that I'm standing for mayor on a ticket of infant suffrage\".</blockquote> <strong>&nbsp;Clara F., 15 months, via email</strong><br><br></td>\n                  </tr>\n                    <tr><td width=\"275\" background=\"./img/marker2_w.gif\"><img height=\"1\" src=\"./img/marker2_w.gif\" width=\"78\"></td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>",
+      "screenshot": "data/findings/shots/before_news_el0182.jpg",
+      "page_url": "https://www.w3.org/WAI/demos/bad/before/news.html",
+      "captured_at": "2026-10-27T19:58:55.922Z",
+      "context_text": "\u2026l I think the Mayor's getting all heated up about nothing. Remember that 15 months is pretty much a lifetime to someone like me. But hey, I'm just a baby, and can't even vote, so you can ignore my opinion. And I can tell you that I'm standing for mayor on a ticket of infant suffrage\". Clara F., 15 m\u2026",
+      "dom_index": 182
+    },
+    "scanner_details": [
+      {
+        "scanner": "adj-rules",
+        "rule_id": "adj.rules.css-reading-order",
+        "type": "rule",
+        "message": "CSS floats place this block (\"Your Shout \"Well I think the Mayor's ...\") directly below another block in the same column, but in the code it comes after content from another column (\"Tough Wahoonie \"We soon realized that...\"), so the reading order differs from what is shown (F1)."
       }
     ],
     "ai": {

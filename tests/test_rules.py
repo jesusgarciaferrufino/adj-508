@@ -364,3 +364,145 @@ def test_summarize_counts_per_rule_and_leaves_out_the_wrapper():
     hit = {"rule_id": "adj.rules.blur-on-focus", "in_wrapper": False}
     result = {"hits": [hit, hit, {**hit, "in_wrapper": True}]}
     assert rules_scan.summarize(result) == "  2 hits (blur-on-focus 2; wrapper 1)"
+
+
+# ---------------------------------------------------------------- no-skip-link: certain when nothing bypasses
+
+
+MENU = ("<table><tr>" + "".join(f'<td><a href="{p}.html">{p}</a></td>' for p in ("home", "news", "survey"))
+        + "</tr></table>")
+
+
+def test_no_skip_link_no_headings_no_landmarks_is_a_violation(page):
+    """A menu to bypass, and G1, H69 and ARIA11 all absent: 2.4.1 fails for certain."""
+    body = f'<div id="meta-header"><h1>W3C demo</h1></div><div id="page">{MENU}<p>Story text.</p></div>'
+    [h] = of(hits_on(page, body), "no-skip-link")
+    assert (h["status"], h["dom_index"]) == ("violation", 0)
+    assert "no headings and no landmarks" in h["message"]
+
+
+@pytest.mark.parametrize("extra", ["<h2>News</h2>", "<main><p>Story</p></main>", '<div role="navigation"></div>',
+                                   '<iframe title="t" srcdoc="x"></iframe>'])
+def test_no_skip_link_stays_needs_review_when_another_bypass_exists(page, extra):
+    [h] = of(hits_on(page, f'<div id="page">{MENU}{extra}</div>'), "no-skip-link")
+    assert h["status"] == "needs_review"
+    assert "no headings and no landmarks" not in h["message"]
+
+
+def test_no_skip_link_is_not_certain_without_a_menu(page):
+    """A page with one link in a sentence (a login or error page) has no repeated block to prove."""
+    [h] = of(hits_on(page, '<p>Read our <a href="terms.html">terms</a>.</p>'), "no-skip-link")
+    assert h["status"] == "needs_review"
+
+
+def test_headings_and_landmarks_outside_page_still_count(page):
+    """On a real site #page can be just the content wrapper; its header and nav sit outside it."""
+    body = f'<header><h1>Site</h1><nav>{MENU}</nav></header><div id="page"><a href="x.html">More</a></div>'
+    assert [h["status"] for h in of(hits_on(page, body), "no-skip-link")] == ["needs_review"]
+
+
+# ---------------------------------------------------------------- 10. layout-table-order (1.3.2 F49)
+
+
+def test_layout_table_with_nested_tables_is_flagged_once(page):
+    inner = "<td><table><tr><td>{}</td></tr></table></td>"
+    table = "<table><tr>" + inner.format("Nav") + inner.format("News") + "</tr></table>"
+    [h] = of(hits_on(page, CLEAN + table), "layout-table-order")
+    assert (h["sc"], h["status"]) == ("1.3.2", "needs_review")
+    assert h["html"].startswith("<table") and "2 nested table(s)" in h["message"]
+
+
+def test_plain_data_table_is_not_a_layout_table_for_order(page):
+    table = "<table><tr><th>Event</th><th>Price</th></tr><tr><td>Concert</td><td>10</td></tr></table>"
+    assert of(hits_on(page, CLEAN + table), "layout-table-order") == []
+
+
+# ---------------------------------------------------------------- 11. css-reading-order (1.3.2 F1)
+
+# Before home's teaser: three rows (headlines, images, stories), each row three floated columns.
+# The code reads all headlines, then all images, then all stories; the eye reads each column.
+COL = 'style="float:left;width:120px;height:{h}px"'
+GRID = "".join(
+    '<div style="float:left;width:400px">'
+    + "".join(f'<div {COL.format(h=h)}>{label} {n}</div>' for n in (1, 2, 3))
+    + "</div>"
+    for label, h in (("Headline", 30), ("Story", 60)))
+
+
+def test_floats_that_stack_columns_across_rows_are_flagged(page):
+    hits = of(hits_on(page, CLEAN + f'<div style="width:400px">{GRID}</div>'), "css-reading-order")
+    assert {(h["sc"], h["status"]) for h in hits} == {("1.3.2", "needs_review")}
+    # The three stories, each directly below its headline; not the row containers.
+    assert [h["html"].endswith(f"Story {n}</div>") for n, h in zip((1, 2, 3), hits, strict=True)] == [True] * 3
+    assert '"Headline 2"' in hits[0]["message"]
+
+
+def test_one_float_per_row_or_whole_columns_are_fine(page):
+    """After's layout: each column is one block, so the code reads a column at a time."""
+    whole_columns = "".join(f'<div style="float:left;width:120px"><p>Headline {n}</p><p>Story {n}</p></div>'
+                            for n in (1, 2, 3))
+    stacked = ('<div style="float:left;width:300px;height:40px">One</div>'
+               '<div style="float:left;clear:left;width:300px;height:40px">Two</div>')
+    assert of(hits_on(page, CLEAN + whole_columns), "css-reading-order") == []
+    assert of(hits_on(page, CLEAN + stacked), "css-reading-order") == []
+
+
+def test_a_story_with_one_floated_photo_is_still_a_block(page):
+    """News "Your Shout" holds a small floated photo; it must still count as a block in its column."""
+    photo = f'<img style="float:left;width:60px;height:60px" src="{PIXEL}" alt="Clara">'
+    body = ('<div style="width:500px">'
+            '<div style="float:left;width:240px;height:50px">Left top</div>'
+            '<div style="float:right;width:240px;height:50px">Right top</div>'
+            '<div style="float:left;width:240px;height:80px">Left bottom</div>'
+            f'<div style="float:right;width:240px;height:80px">{photo}Your Shout</div></div>')
+    hits = of(hits_on(page, CLEAN + body), "css-reading-order")
+    assert any("Your Shout" in h["message"] for h in hits)
+
+
+# ---------------------------------------------------------------- 12. image-of-text (1.4.5)
+
+
+@pytest.mark.parametrize(("src", "w", "h"), [("nav_home.gif", 88, 27), ("headline_ticket_offers.gif", 216, 21),
+                                             ("telefon.png", 110, 20)])
+def test_short_wide_graphic_is_flagged_as_image_of_text(page, src, w, h):
+    body = CLEAN + f'<img src="./img/{src}" width="{w}" height="{h}" style="display:inline-block">'
+    [hit] = of(hits_on(page, body), "image-of-text")
+    assert (hit["sc"], hit["status"]) == ("1.4.5", "needs_review")
+    assert src in hit["message"] and f"{w}x{h} px" in hit["message"]
+
+
+@pytest.mark.parametrize(("src", "w", "h", "alt"), [
+    ("toplogo.png", 443, 30, "Citylights"),        # logo: exempt from 1.4.5
+    ("weather.png", 145, 86, "Sunny Spells"),      # too tall
+    ("photo.jpg", 300, 40, "Penguins"),            # a photograph
+    ("morearrow.gif", 48, 10, ""),                 # tiny arrow
+    ("marker.gif", 78, 1, ""),                     # a rule line
+    ("square.gif", 40, 40, "x"),                   # not wide
+])
+def test_logos_photos_and_spacers_are_not_images_of_text(page, src, w, h, alt):
+    body = CLEAN + f'<img src="./img/{src}" width="{w}" height="{h}" alt="{alt}" style="display:inline-block">'
+    assert of(hits_on(page, body), "image-of-text") == []
+
+
+def test_a_uniform_card_grid_is_meant_to_be_read_row_by_row(page):
+    card = '<div class="card" style="float:left;width:120px;height:80px">Product {}</div>'
+    grid = '<div style="width:360px">' + "".join(card.format(n) for n in range(1, 7)) + "</div>"
+    assert of(hits_on(page, CLEAN + grid), "css-reading-order") == []
+
+
+def test_reading_order_names_image_blocks_by_tag(page):
+    row = '<div style="float:left;width:300px">{}</div>'
+    blocks = (row.format('<div style="float:left;width:140px;height:30px">Headline A</div>'
+                         '<div style="float:left;width:140px;height:30px">Headline B</div>')
+              + row.format('<svg class="pic" style="float:left;width:140px;height:60px"></svg>'
+                           '<div style="float:left;width:140px;height:60px">Story B</div>'))
+    hits = of(hits_on(page, CLEAN + f'<div style="width:300px">{blocks}</div>'), "css-reading-order")
+    assert hits and '<svg class="pic">' in hits[0]["message"] and "object" not in hits[0]["message"]
+
+
+@pytest.mark.parametrize(("src", "name"), [(f"{PIXEL}", "(inline image)"), ("", "(no src)"),
+                                           ("./img/logout.png", "logout.png")])
+def test_image_of_text_names_odd_sources_and_does_not_skip_logout(page, src, name):
+    body = CLEAN + f'<img src="{src}" width="100" height="25" alt="x" style="display:inline-block">'
+    [h] = of(hits_on(page, body), "image-of-text")
+    assert f"Image {name} (100x25 px)" in h["message"]

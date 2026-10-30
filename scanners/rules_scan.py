@@ -21,7 +21,9 @@ element and criterion. Nothing is injected into the page, so the indices stay cl
 
 | rule_id                        | criteria (status)                       |
 | adj.rules.blur-on-focus        | 2.1.1, 2.4.7, 3.2.1, 4.1.2 (violation)  |
-| adj.rules.no-skip-link         | 2.4.1, page-level (needs_review)        |
+| adj.rules.no-skip-link         | 2.4.1, page-level (needs_review; violation |
+|                                | when a menu of links has no skip link,  |
+|                                | headings, landmarks or frames to bypass)|
 | adj.rules.no-headings          | 2.4.6, page-level (needs_review)        |
 | adj.rules.ascii-lookalike      | 1.1.1 (needs_review)                    |
 | adj.rules.link-color-only      | 1.4.1 (needs_review)                    |
@@ -29,6 +31,9 @@ element and criterion. Nothing is injected into the page, so the indices stay cl
 | adj.rules.control-no-label     | 3.3.2 (violation)                       |
 | adj.rules.layout-table-th      | 1.3.1 (needs_review)                    |
 | adj.rules.css-bg-info          | 1.1.1 (needs_review)                    |
+| adj.rules.layout-table-order   | 1.3.2 (needs_review)                    |
+| adj.rules.css-reading-order    | 1.3.2 (needs_review)                    |
+| adj.rules.image-of-text        | 1.4.5 (needs_review)                    |
 
 Run from the repo root:
   python -m scanners.rules_scan                          # all 4 Before pages
@@ -61,7 +66,7 @@ MESSAGES = {
     "blur-on-focus 3.2.1": f"{BLUR}: receiving focus changes the context (F55).",
     "blur-on-focus 4.1.2": f"{BLUR}, so its focus state can't be determined or kept (F79).",
     "no-skip-link 2.4.1": "No in-page link (skip link) comes before the page's navigation, so keyboard users "
-                          "must tab through the repeated header and menu on every page (2.4.1).",
+                          "must tab through the repeated header and menu on every page (2.4.1).{also}",
     "no-headings 2.4.6": "The page has no h1-h6 headings, but {count} short block(s) are styled like headings "
                          "(large or bold), e.g. {examples}. Headings are not programmatically determined (2.4.6).",
     "ascii-lookalike 1.1.1": 'Text "{text}" uses ASCII characters as a picture (an arrow); a screen reader reads '
@@ -74,6 +79,14 @@ MESSAGES = {
                               "or title (3.3.2).",
     "layout-table-th 1.3.1": "Header cell <th> in a table that looks like a layout table (it {why}), so layout "
                              "is marked up as data structure (F46).",
+    "layout-table-order 1.3.2": "This table holds {count} nested table(s), a sign of a layout table. Read in code "
+                                "order (linearized), cell by cell, the content may not make sense (F49).",
+    "css-reading-order 1.3.2": "CSS floats place this block ({text}) directly below another block in the same "
+                               "column, but in the code it comes after content from another column ({between}), "
+                               "so the reading order differs from what is shown (F1).",
+    "image-of-text 1.4.5": "Image {file} ({width}x{height} px) is a short, wide graphic of the kind used for "
+                           "text such as menu items, headings and phone numbers; if it shows text, that text "
+                           "could be real text (1.4.5).",
     "css-bg-info 1.1.1": "Element shows an image only as a CSS background and has no text and no text "
                          "alternative, so the image's information is lost without CSS or to a screen reader (F3).",
 }
@@ -174,7 +187,29 @@ const isSkip = a => a.getAttribute("href").startsWith("#") && targetOf(a) && tar
 // The navigation starts at the page's first ordinary link; a skip link must come before it.
 // -1: no ordinary links, so no repeated navigation to bypass. Above 0: a skip link comes first.
 if (links.findIndex(a => !isSkip(a)) !== 0) return [];
-return [pageHit("no-skip-link", "2.4.1", "needs_review")];
+// Certain only when there is a block of links to bypass and none of the usual bypass techniques:
+// no headings (H69), no landmarks (ARIA11), no frames, anywhere on the page outside W3C's wrapper.
+// A navigation block: an element holding 3 or more ordinary links and little other text.
+const ordinary = links.filter(a => !isSkip(a));
+const otherText = el => {
+  let t = "";
+  const walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  for (let n = walk.nextNode(); n; n = walk.nextNode()) if (!n.parentElement.closest("a")) t += n.nodeValue;
+  return t.replace(/\s/g, "").length;
+};
+const candidates = new Set();
+for (const a of ordinary)
+  for (let e = a.parentElement; e && e !== BODY.parentElement; e = e.parentElement) candidates.add(e);
+const navBlock = Array.from(candidates)
+  .some(el => ordinary.filter(a => el.contains(a)).length >= 3 && otherText(el) <= 100);
+const LANDMARKS = "main, nav, header, footer, aside, [role=main], [role=navigation], [role=banner], "
+  + "[role=contentinfo], [role=complementary], [role=search], [role=region]";
+const outside = sel => Array.from(BODY.querySelectorAll(sel)).some(el => !inWrapper(el));
+const certain = navBlock && !outside("h1, h2, h3, h4, h5, h6, [role=heading]") && !outside(LANDMARKS)
+  && !outside("frame, iframe");
+const also = certain ? " The page also has no headings and no landmarks, so none of the usual bypass techniques"
+  + " (G1, H69, ARIA11) is present." : "";
+return [pageHit("no-skip-link", "2.4.1", certain ? "violation" : "needs_review", {also})];
 """
 
 # 3. Text styled like headings, but no h1-h6 at all.
@@ -325,6 +360,73 @@ return hits;
 """
 
 
+# 10. A layout table built from nested tables: its code order is the reading order.
+LAYOUT_TABLE_ORDER = r"""
+const hits = [];
+for (const table of BODY.querySelectorAll("table")) {
+  if (table.parentElement.closest("table") || inWrapper(table)) continue;  // outermost tables only
+  const nested = table.querySelectorAll("table").length;
+  if (nested) hits.push(hit(table, "layout-table-order", "1.3.2", "needs_review", {count: nested}));
+}
+return hits;
+"""
+
+# 11. Floats that stack blocks into columns while the code runs across the columns.
+# Block B sits directly below block A, at the same left edge, but between A and B in the code
+# there is content from another column, so a screen reader leaves the column and comes back.
+CSS_READING_ORDER = r"""
+const GAP = 4;  // px: blocks touching edge to edge, as floats with fixed heights and no margins do
+const boxes = [];
+for (const el of SCOPE.querySelectorAll("*")) {
+  if (getComputedStyle(el).float === "none" || inWrapper(el) || !visible(el)) continue;
+  const b = el.getBoundingClientRect();
+  if (b.width >= 50 && b.height >= 10) boxes.push({el, b});
+}
+const related = (x, y) => x.contains(y) || y.contains(x);
+// Blocks only: a float holding two or more floats is a row container, not a block in a column.
+// (A story with one floated photo in it is still a block.)
+const blocks = boxes.filter(X => boxes.filter(Y => Y !== X && X.el.contains(Y.el)).length < 2);
+const describe = el => text(el) ? `"${quote(text(el), 40)}"`  // an image block has no text: name its tag
+  : `<${el.localName}${el.getAttribute("class") ? ` class="${quote(el.getAttribute("class"), 30)}"` : ""}>`;
+// Cards of one size and class in a grid are meant to be read row by row; only mixed blocks
+// (a headline above an image above a story) make a column that the code doesn't follow.
+const sameKind = (x, y) => x.el.getAttribute("class") === y.el.getAttribute("class")
+  && x.el.localName === y.el.localName
+  && Math.abs(x.b.width - y.b.width) <= GAP && Math.abs(x.b.height - y.b.height) <= GAP;
+const hits = [];
+for (const [i, B] of blocks.entries()) {
+  const A = blocks.slice(0, i).reverse().find(A => !related(A.el, B.el)
+    && Math.abs(A.b.left - B.b.left) <= GAP && Math.abs(A.b.bottom - B.b.top) <= GAP);
+  if (!A || sameKind(A, B)) continue;
+  const between = blocks.slice(blocks.indexOf(A) + 1, i).find(C => !related(C.el, A.el) && !related(C.el, B.el)
+    && Math.abs(C.b.left - A.b.left) > GAP);
+  if (between) hits.push(hit(B.el, "css-reading-order", "1.3.2", "needs_review",
+    {text: describe(B.el), between: describe(between.el)}));
+}
+return hits;
+"""
+
+# 12. Short, wide images: the shape of menu items, headings and phone numbers drawn as pictures.
+# Photographs (.jpg) and logos (exempt from 1.4.5) are left out; tiny spacers and rules too.
+IMAGE_OF_TEXT = r"""
+const hits = [];
+for (const img of BODY.querySelectorAll("img, input[type=image]")) {
+  if (inWrapper(img) || !visible(img)) continue;
+  const raw = (img.getAttribute("src") || "").trim();
+  const src = raw.split(/[?#]/)[0];
+  if (/^data:image\/jpe?g/i.test(raw) || /\.jpe?g$/i.test(src)) continue;  // photographs
+  // Logos are exempt from 1.4.5 ("toplogo", "logos", "logotype"; not "logout" or "logon").
+  if (/logo(?![un])/i.test(src.split("/").pop() + " " + (img.getAttribute("alt") || ""))) continue;
+  const file = raw.startsWith("data:") ? "(inline image)" : src.split("/").pop() || "(no src)";
+  const {width, height} = img.getBoundingClientRect();
+  if (height < 15 || height > 40 || width < 60 || width < 3 * height) continue;
+  hits.push(hit(img, "image-of-text", "1.4.5", "needs_review",
+    {file, width: Math.round(width), height: Math.round(height)}));
+}
+return hits;
+"""
+
+
 def _run(page: Page, body: str, index: int | None = None) -> Any:
     code = body.replace("__INDEX__", str(index)) if index is not None else body
     return page.evaluate(f"() => {{ {HELPERS}\n{code} }}")
@@ -377,7 +479,8 @@ def run_rules(page: Page) -> list[dict]:
     for body in (BLUR_ON_FOCUS, NO_SKIP_LINK, NO_HEADINGS, ASCII_LOOKALIKE):
         hits += _run(page, body)
     hits += link_color_only(page)
-    for body in (SELECT_NAVIGATES, CONTROL_NO_LABEL, LAYOUT_TABLE_TH, CSS_BG_INFO):
+    for body in (SELECT_NAVIGATES, CONTROL_NO_LABEL, LAYOUT_TABLE_TH, CSS_BG_INFO,
+                 LAYOUT_TABLE_ORDER, CSS_READING_ORDER, IMAGE_OF_TEXT):
         hits += _run(page, body)
     return hits
 

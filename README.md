@@ -50,3 +50,4 @@ how to name branches, and what goes in git. The shared finding format is
 - Jesus Garcia-Ferrufino
 - Daniel Etuk (POC)
 - Abel
+- Ershad

@@ -456,3 +456,45 @@ def test_module_never_imports_botocore_at_load():
             "print(any(m == 'botocore' or m.startswith('botocore.') or m == 'boto3' for m in sys.modules))")
     out = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, cwd=evidence.REPO, check=True)
     assert out.stdout.strip() == "False"
+
+
+
+# ---------------------------------------------------------------- a reply without cited_sc (Oct 29)
+
+def reply_without(field, strength, quotes, sc="2.4.4"):
+    body = {"argument": "Specific argument.", "cited_sc": sc, "quoted_evidence": quotes, "strength": strength}
+    body.pop(field)
+    return json.dumps(body)
+
+
+def test_missing_cited_sc_is_kept_but_never_verified(finding):
+    """FOR beats AGAINST by 4, but FOR cited no criterion: likely_fail, unverified, never an issue."""
+    client = FakeClient(reply_without("cited_sc", 5, ["Click here"]), reply(1, ["Killer bees. Click here."]))
+    ai = evidence.build_cases(finding, client=client)["ai"]
+    assert ai["recommendation"] == "likely_fail"
+    assert ai["citations_verified"] is False
+    assert not evidence.grey_is_issue(ai)
+    assert not evidence.is_issue({"bucket": "grey", "ai": ai})
+
+
+def test_missing_cited_sc_on_against_side_is_never_verified_either(finding):
+    client = FakeClient(reply(5, ["Click here"]), reply_without("cited_sc", 1, ["Killer bees. Click here."]))
+    ai = evidence.build_cases(finding, client=client)["ai"]
+    assert ai["citations_verified"] is False and not evidence.grey_is_issue(ai)
+
+
+def test_parse_side_fills_only_a_missing_cited_sc():
+    side = evidence.parse_side(reply_without("cited_sc", 3, ["Click here"]))
+    assert side["cited_sc"] is None and side["strength"] == 3
+
+
+@pytest.mark.parametrize("field", ["strength", "argument", "quoted_evidence"])
+def test_any_other_missing_field_still_raises(field):
+    with pytest.raises(evidence.EvidenceError, match=f"reply missing \\['{field}'\\]"):
+        evidence.parse_side(reply_without(field, 3, ["Click here"]))
+
+
+def test_missing_cited_sc_and_another_field_still_raises():
+    body = json.dumps({"argument": "x", "quoted_evidence": ["Click here"]})
+    with pytest.raises(evidence.EvidenceError, match="cited_sc"):
+        evidence.parse_side(body)

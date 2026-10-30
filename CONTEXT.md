@@ -48,13 +48,25 @@ format) and returns ONLY the fields it adds. The graph merges them in; nested di
 - `agents/evidence.py`: `build_cases(finding) -> {"ai": {"case_for", "case_against", "recommendation": "likely_fail"|"likely_pass"|"unsure"|None, "confidence": None, "citations_verified": bool, "model_id", "prompt_version", "usage": {"input_tokens", "output_tokens"}}}` (Track C, grey findings only). A skipped finding has `case_for` starting `SKIPPED:` and `recommendation: None`; count it as not evaluated, not as a result (and not as `unsure`).
 Until a track's file is merged, agents/graph.py uses a stub in its place.
 
-## Router policy v1 (decided Oct 9)
+## Router policy v2 (v1 Oct 9; rules 2b and 2c added Oct 29)
 `route_finding` applies these in order and names the rule in `route_reason`:
 1. `scanner_status == "violation"`: `machine`.
 2. Page-level notice (`scanner_status == "notice"` and `evidence.selector == "html"`): `human-only`.
    These are human checks, not issues; reports collapse them to one check per page and criterion.
+2b. Every `scanner_details` entry is a scanner check known to be unreliable for its criterion
+   (`UNRELIABLE_CHECKS` in `agents/router.py`): `human-only`. Today: HTMLCS `H43.IncorrectAttr`
+   on 1.3.1 (its guess at a complex table's headers), `.Placeholder` on 4.1.2 (an `<a>` with no
+   href), `.Value` on 4.1.2 for a `select`. Any other scanner detail on the finding keeps it grey.
+2c. A criterion that can only be judged by interacting with the page (`NEEDS_INTERACTION`):
+   `human-only`. Today: 3.3.1 (needs a form submitted and an error triggered).
 3. Criterion marked `human_only: true` in `rag/wcag20_aa.json`: `human-only`.
 4. Everything else (`needs_review`, element-level notices): `grey`. FOR/AGAINST runs on these.
+
+Why 2b and 2c: the Oct 29 full run had 38 false alarms on the After site, all from these four
+scanner warnings, where FOR/AGAINST leaned likely_fail. Re-scored with them routed to a person:
+After false alarms 38 -> 0, recall (a) 70/130 and (b) 105/130 unchanged, and no Before
+ground-truth match is moved (`tests/test_router.py` checks that last one on every run). The
+rules describe when a scanner warning can't be trusted, never this site's content.
 
 **Issue rule (decided Oct 17).** A finding is an **issue** if `bucket == "machine"`, or if
 `bucket == "grey"` and `ai.recommendation == "likely_fail"` and `ai.citations_verified` is true.

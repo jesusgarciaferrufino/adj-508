@@ -88,23 +88,41 @@ class AcrError(ValueError):
 
 
 def criterion_evidence(sc, level, by_page, decisions_by_page):
-    """The decided findings behind one criterion's level, one dict per finding, in page order.
+    """The findings behind one criterion's row, one dict per finding, in page order.
 
-    Undecided findings are left out: they are not evidence for any level yet. A Pending row needs
-    none. Any other level with no decided finding behind it is a bug, so it raises AcrError.
+    Decided findings are the evidence for the level. On a Pending row, undecided machine findings are
+    listed too (decision None): they back ADJ's proposal, for a human to ratify. Other undecided
+    findings are left out. A level other than Pending with no decided finding behind it is a bug, so
+    it raises AcrError; undecided findings never count for that.
     """
     evidence = []
     for page, findings in by_page.items():
         decisions = decisions_by_page.get(page, {})
         for f in findings:
             d = decisions.get(f["finding_id"])
-            if d:
-                evidence.append({"finding_id": f["finding_id"], "page": page, "decision": d["decision"],
-                                 "reviewer": d["reviewer"], "selector": f["evidence"]["selector"],
-                                 "screenshot": f["evidence"]["screenshot"]})
-    if level != LEVEL_PENDING and not evidence:
+            if d or (level == LEVEL_PENDING and f.get("bucket") == "machine"):
+                evidence.append({"finding_id": f["finding_id"], "page": page,
+                                 "decision": d["decision"] if d else None, "reviewer": d["reviewer"] if d else None,
+                                 "selector": f["evidence"]["selector"], "screenshot": f["evidence"]["screenshot"]})
+    if level != LEVEL_PENDING and not any(e["decision"] for e in evidence):
         raise AcrError(f"{sc}: level {level!r} has no decided finding behind it")
     return evidence
+
+
+PROPOSAL = "Proposed by ADJ (machine-verified, awaiting human ratification): Does Not Support."
+
+
+def adj_proposal(level, by_page, decisions_by_page):
+    """ADJ's proposed level for a human to ratify, or "" when it has none.
+
+    Only a Pending row with at least one undecided machine finding (a deterministic scanner or rule
+    violation) gets one. AI leanings never do, and a row a human has decided has nothing to ratify.
+    """
+    if level != LEVEL_PENDING:
+        return ""
+    undecided_machine = any(f.get("bucket") == "machine" and f["finding_id"] not in decisions_by_page.get(page, {})
+                            for page, findings in by_page.items() for f in findings)
+    return PROPOSAL if undecided_machine else ""
 
 
 def criterion_remarks(by_page, decisions_by_page):
@@ -172,8 +190,9 @@ def build_acr(runs, decisions_by_page, corpus):
     for sc in sorted(corpus, key=_sc_order):
         by_page = grouped.get(sc, {})
         level = criterion_level(by_page, decisions_by_page, pages)
-        remarks = " ".join([*reviewer_comments(by_page, decisions_by_page),
-                            criterion_remarks(by_page, decisions_by_page)]).strip()
+        remarks = " ".join(part for part in [*reviewer_comments(by_page, decisions_by_page),
+                                             adj_proposal(level, by_page, decisions_by_page),
+                                             criterion_remarks(by_page, decisions_by_page)] if part)
         rows.append({"sc": sc, "name": corpus[sc]["name"], "wcag_level": corpus[sc]["level"],
                      "conformance": level, "remarks": remarks,
                      "evidence": criterion_evidence(sc, level, by_page, decisions_by_page)})
@@ -278,8 +297,14 @@ def _md_code(text):
     return f"{fence}{pad}{text}{pad}{fence}"
 
 
+def _decided_text(e):
+    """'fail by jesus' for a decided finding; an undecided machine finding is waiting for a human."""
+    return f"{e['decision']} by {e['reviewer']}" if e["decision"] else "machine-verified, awaiting review"
+
+
 def _evidence_cell(evidence, shot_href):
-    """One row's Evidence cell: each decided finding with its page, decision, reviewer and screenshot link.
+    """One row's Evidence cell: each finding with its page, decision and reviewer (or that it awaits
+    review) and screenshot link.
 
     A finding with no screenshot (e.g. <title>) shows its selector instead. Each piece is escaped on
     its own, so the cell's own link and code span keep working.
@@ -291,7 +316,7 @@ def _evidence_cell(evidence, shot_href):
             where = f"[screenshot of {_md_text(e['finding_id'])}]({quote(shot_href(e['screenshot']), safe='/._-~')})"
         else:
             where = _md_code(e["selector"])
-        about = _md_text(f"{e['finding_id']} ({e['page']}, {e['decision']} by {e['reviewer']}, ")
+        about = _md_text(f"{e['finding_id']} ({e['page']}, {_decided_text(e)}, ")
         items.append(f"{about}{where})")
     return "; ".join(items) or "—"
 
@@ -349,7 +374,7 @@ def _evidence_html(evidence, shot_href):
                      f'screenshot of {html.escape(e["finding_id"])}</a>')
         else:
             where = f"<code>{html.escape(e['selector'])}</code>"
-        head = html.escape(f"{e['finding_id']} ({e['page']}, {e['decision']} by {e['reviewer']}, ")
+        head = html.escape(f"{e['finding_id']} ({e['page']}, {_decided_text(e)}, ")
         items.append(f"<li>{head}{where})</li>")
     return "<ul>" + "".join(items) + "</ul>"
 

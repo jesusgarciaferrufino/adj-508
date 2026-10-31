@@ -229,7 +229,8 @@ def test_build_acr_row_for_a_confirmed_failure_and_one_still_pending():
     assert link["remarks"].startswith('jesus: "Click here is not descriptive."')  # reviewer comment leads
     assert "Confirmed failures: home (1)." in link["remarks"] and "Pending human review: news 1." in link["remarks"]
     alt = by_sc["1.1.1"]
-    assert alt["conformance"] == acr.LEVEL_PENDING and alt["evidence"] == []
+    assert alt["conformance"] == acr.LEVEL_PENDING
+    assert [(e["finding_id"], e["decision"]) for e in alt["evidence"]] == [("h2", None)]  # machine, undecided
 
 
 # ---------------------------------------------------------------- format_acr_md
@@ -681,6 +682,70 @@ def test_remarks_never_state_a_level_or_an_unlabelled_ai_result():
         assert not row["remarks"].startswith("AI") and "AI: " not in row["remarks"]
         for level in (acr.LEVEL_SUPPORTS, acr.LEVEL_PARTIAL, acr.LEVEL_FAIL, acr.LEVEL_NOT_APPLICABLE):
             assert level not in row["remarks"], (row["sc"], row["remarks"])
+
+
+# ---------------------------------------------------------------- ADJ proposes, a human ratifies
+
+PROPOSAL = "Proposed by ADJ (machine-verified, awaiting human ratification): Does Not Support."
+
+
+def proposal_site():
+    """1.1.1: machine findings on home (two) and news (one), all undecided. 1.4.3: only a grey finding the
+    AI is sure fails, undecided. 2.4.4: a machine finding a human already failed."""
+    sure = {"case_for": "FOR ...", "recommendation": "likely_fail", "citations_verified": True}
+    findings = {p: [] for p in PAGES}
+    findings["home"] += [finding("home-alt1", "1.1.1"), finding("home-alt2", "1.1.1"), finding("home-link", "2.4.4")]
+    findings["news"] += [finding("news-alt", "1.1.1"), finding("news-contrast", "1.4.3", "grey", sure)]
+    runs = [({"version": "before", "page": p}, fs) for p, fs in findings.items()]
+    decisions = {"home": {"home-link": reviewed("fail", "jesus", "", "2026-10-30T10:00:00Z")}}
+    return runs, decisions
+
+
+def test_a_pending_row_with_machine_findings_shows_adjs_proposal_and_lists_them_as_evidence():
+    runs, decisions = proposal_site()
+    alt = next(r for r in acr.build_acr(runs, decisions, load_corpus()) if r["sc"] == "1.1.1")
+    assert alt["conformance"] == acr.LEVEL_PENDING  # the level column stays human-only
+    assert PROPOSAL in alt["remarks"]
+    assert "Does Not Support" not in alt["remarks"].replace(PROPOSAL, "")  # only ever inside the proposal
+    assert [(e["finding_id"], e["page"], e["decision"], e["screenshot"]) for e in alt["evidence"]] == [
+        ("home-alt1", "home", None, "data/findings/shots/home-alt1.jpg"),
+        ("home-alt2", "home", None, "data/findings/shots/home-alt2.jpg"),
+        ("news-alt", "news", None, "data/findings/shots/news-alt.jpg"),
+    ]
+
+
+def test_an_undecided_machine_finding_reads_as_awaiting_review_in_both_formats():
+    rows = [acr_row("1.1.1", "A", remarks=PROPOSAL, evidence=[
+        ev("h1", "data/findings/shots/h1.jpg", decision=None, reviewer=None),
+        ev("h2", "data/findings/shots/h2.jpg", decision="pass", reviewer="alice")])]
+    md = acr.format_acr_md(rows, "2026-10-30", shot_href=lambda path: f"../../../{path}")
+    html = acr.format_acr_html(rows, "2026-10-30", shot_href=lambda path: f"../../../{path}")
+    assert "h1 (home, machine-verified, awaiting review, [screenshot of h1](../../../data/findings/shots/h1.jpg))" in md
+    assert ('h1 (home, machine-verified, awaiting review, '
+            '<a href="../../../data/findings/shots/h1.jpg">screenshot of h1</a>)') in html
+    assert "h2 (home, pass by alice, " in md and "h2 (home, pass by alice, " in html  # decided ones unchanged
+    assert "None" not in md and "None" not in html
+
+
+def test_an_ai_only_likely_fail_gets_no_proposal_and_no_evidence():
+    runs, decisions = proposal_site()
+    contrast = next(r for r in acr.build_acr(runs, decisions, load_corpus()) if r["sc"] == "1.4.3")
+    assert contrast["conformance"] == acr.LEVEL_PENDING
+    assert "Proposed by ADJ" not in contrast["remarks"] and contrast["evidence"] == []
+    assert "AI analysis (not a decision): likely_fail 1" in contrast["remarks"]
+
+
+def test_a_row_a_human_already_decided_gets_no_proposal():
+    """Nothing is awaiting ratification once a human has set the level."""
+    runs, decisions = proposal_site()
+    link = next(r for r in acr.build_acr(runs, decisions, load_corpus()) if r["sc"] == "2.4.4")
+    assert link["conformance"] == acr.LEVEL_FAIL and "Proposed by ADJ" not in link["remarks"]
+
+
+def test_undecided_machine_findings_never_count_as_evidence_for_a_level():
+    """The no-evidence guard counts human decisions only: a machine finding alone can't back Supports."""
+    with pytest.raises(acr.AcrError, match="1.1.1"):
+        acr.criterion_evidence("1.1.1", acr.LEVEL_SUPPORTS, {"home": [finding("home-alt1", "1.1.1")]}, {})
 
 
 def test_main_exits_1_and_writes_nothing_when_a_level_has_no_evidence(site, monkeypatch, capsys):

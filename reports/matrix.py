@@ -53,9 +53,16 @@ AI_LEANINGS = ("likely_fail", "unverified_fail", "likely_pass", "unsure", "none"
 # Track C's router buckets -> the matrix column that counts them
 BUCKET_COLUMNS = {"machine": "machine", "grey": "grey", "human-only": "human_checks"}
 
-# The matrix's columns, in order (the handoff's list). The Week 5 ACR reads the CSV by these names.
-COLUMNS = ("section508", "sc", "name", "level", "status", "machine", "grey", "human_checks",
+# The matrix's columns, in order (the handoff's list, plus "test": which checks flagged the criterion).
+# The Week 5 ACR reads the CSV by these names.
+COLUMNS = ("section508", "sc", "name", "level", "test", "status", "machine", "grey", "human_checks",
            "finding_ids", "evidence", "ai_leaning", "reviewed_by")
+
+# The "test" column's names for each check, in report order (short forms of reports.acr.TOOL_LABELS).
+# ADJ's checks all have scanner adj-rules; the rule_id "adj.{check}.{rule}" tells them apart.
+TEST_LABELS = {"axe-core": "axe-core", "pa11y": "Pa11y", "adj.rules": "ADJ rules", "adj.validator": "Nu HTML Checker",
+               "adj.compare": "ADJ page comparison", "adj-vision": "AI on screenshots"}
+NO_TEST = "No automated test flagged this; manual check"
 
 
 class MatrixInputError(ValueError):
@@ -190,6 +197,41 @@ def _ai_leaning(findings):
     return "AI: " + ", ".join(f"{name} {counts[name]}" for name in names)
 
 
+def _check_and_rule(detail):
+    """One scanner_details entry as (check, short rule ID): ("pa11y", "H37"), ("adj.rules", "no-skip-link").
+
+    The row already names the criterion, so a Pa11y ID loses its "WCAG2AA.PrincipleN.GuidelineN_N.N_N_N."
+    part, and an ADJ ID its "adj.{check}." part. An ID in another form is kept whole.
+    """
+    scanner, rule = detail["scanner"], detail["rule_id"]
+    parts = rule.split(".", 2)
+    if scanner in ("adj-rules", "adj-vision") and len(parts) == 3 and parts[0] == "adj":
+        return ("adj-vision" if scanner == "adj-vision" else f"adj.{parts[1]}"), parts[2]
+    parts = rule.split(".", 4)
+    if scanner == "pa11y" and len(parts) == 5 and parts[0].startswith("WCAG2"):
+        return scanner, parts[4]
+    return scanner, rule
+
+
+def criterion_tests(findings):
+    """Which checks flagged a criterion's findings, e.g. "axe-core: image-alt; Pa11y: H37, G73,G74".
+
+    Checks come in TEST_LABELS order, then any this code doesn't know, by name, so none is hidden.
+    Each check's rules come busiest first, ties A-Z. With no findings: NO_TEST.
+    """
+    counts = Counter(_check_and_rule(d) for f in findings for d in f.get("scanner_details", []))
+    if not counts:
+        return NO_TEST
+    known = [c for c in TEST_LABELS if any(check == c for check, _ in counts)]
+    unknown = sorted({check for check, _ in counts} - set(TEST_LABELS))
+    parts = []
+    for check in known + unknown:
+        rules = sorted((rule for c, rule in counts if c == check), key=lambda r: (-counts[check, r], r))
+        label = TEST_LABELS.get(check) or (f"ADJ check {check[4:]}" if check.startswith("adj.") else check)
+        parts.append(f"{label}: {', '.join(rules)}")
+    return "; ".join(parts)
+
+
 def _sc_order(sc):
     """Sort key so "1.4.10" would come after "1.4.9" (plain text order puts it first)."""
     return tuple(int(part) for part in sc.split("."))
@@ -221,6 +263,7 @@ def build_matrix(findings, decisions, corpus, map508, shot_text=lambda path: pat
             "sc": sc,
             "name": corpus[sc]["name"],
             "level": corpus[sc]["level"],
+            "test": criterion_tests(group),
             "status": criterion_status(ids, decisions),
             "machine": buckets["machine"],
             "grey": buckets["grey"],

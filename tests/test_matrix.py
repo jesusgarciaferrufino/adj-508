@@ -202,6 +202,45 @@ def test_decisions_on_other_findings_dont_count():
     assert matrix.criterion_status(["a"], decided(z="fail")) == matrix.STATUS_PENDING
 
 
+# ---------------------------------------------------------------- criterion_tests
+
+def found_by(*details):
+    """A finding with just scanner_details: (scanner, rule_id) pairs."""
+    return {"scanner_details": [{"scanner": s, "rule_id": r} for s, r in details]}
+
+
+PA11Y = "WCAG2AA.Principle1.Guideline1_1.1_1_1"  # the criterion part of a Pa11y rule ID
+
+
+def test_tests_name_each_scanner_in_tool_order_with_its_busiest_rules_first():
+    findings = [found_by(("pa11y", f"{PA11Y}.H37"), ("axe-core", "image-alt")),
+                found_by(("pa11y", f"{PA11Y}.H37"), ("axe-core", "image-alt")),
+                found_by(("pa11y", f"{PA11Y}.H30.2"), ("adj-rules", "adj.rules.blur-on-focus")),
+                found_by(("pa11y", f"{PA11Y}.G73,G74"))]
+    assert matrix.criterion_tests(findings) == (
+        "axe-core: image-alt; Pa11y: H37, G73,G74, H30.2; ADJ rules: blur-on-focus")  # ties: A-Z
+
+
+def test_tests_tell_adj_checks_apart_by_rule_id_like_the_acr_tool_list():
+    findings = [found_by(("adj-vision", "adj.vision.text-in-image"), ("adj-rules", "adj.compare.order-differs"),
+                         ("adj-rules", "adj.validator.duplicate-id"), ("adj-rules", "adj.rules.no-skip-link"))]
+    assert matrix.criterion_tests(findings) == ("ADJ rules: no-skip-link; Nu HTML Checker: duplicate-id; "
+                                                "ADJ page comparison: order-differs; AI on screenshots: text-in-image")
+
+
+def test_tests_name_an_unknown_check_or_scanner_instead_of_hiding_it():
+    findings = [found_by(("adj-rules", "adj.newcheck.some-rule"), ("lighthouse", "image-alt"))]
+    assert matrix.criterion_tests(findings) == "ADJ check newcheck: some-rule; lighthouse: image-alt"
+
+
+def test_a_pa11y_rule_id_in_an_unexpected_form_is_shown_whole():
+    assert matrix.criterion_tests([found_by(("pa11y", "Custom.Rule"))]) == "Pa11y: Custom.Rule"
+
+
+def test_a_criterion_no_test_flagged_says_it_needs_a_manual_check():
+    assert matrix.criterion_tests([]) == matrix.NO_TEST == "No automated test flagged this; manual check"
+
+
 # ---------------------------------------------------------------- build_matrix
 
 CORPUS = load_corpus()
@@ -231,6 +270,12 @@ def test_38_rows_in_criterion_order(fake_run):
 def test_row_details_from_corpus_and_508_map(rows):
     row = rows["1.1.1"]
     assert (row["section508"], row["name"], row["level"]) == ("E205.4", "Non-text Content", "A")
+
+
+def test_test_column_follows_the_requirement_and_names_the_checks_behind_its_findings(rows):
+    assert matrix.COLUMNS.index("test") == matrix.COLUMNS.index("level") + 1  # requirement, then its test
+    assert rows["1.1.1"]["test"] == "axe-core: image-alt; Pa11y: G73,G74, H37"  # docs/finding.example.json's
+    assert rows["1.2.1"]["test"] == matrix.NO_TEST
 
 
 def test_criterion_without_findings(rows):

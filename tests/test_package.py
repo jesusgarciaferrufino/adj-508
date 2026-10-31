@@ -54,6 +54,18 @@ def test_site_matrix_cell_is_each_page_status_from_human_decisions_only(site_row
     assert by_sc["1.1.1"]["tickets"] == matrix.STATUS_PENDING  # AI likely_fail sets nothing
 
 
+def test_site_matrix_test_column_names_the_checks_behind_the_findings_on_every_page():
+    def found(finding_id, scanner, rule_id):
+        return {**finding(finding_id, "2.4.4"), "scanner_details": [{"scanner": scanner, "rule_id": rule_id}]}
+    runs = runs_of(home=[found("h1", "axe-core", "link-name")],
+                   news=[found("n1", "pa11y", "WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81")],
+                   tickets=[], survey=[])
+    by_sc = {r["sc"]: r for r in package.build_site_matrix(runs, {}, CORPUS, MAP508)}
+    assert package.SITE_COLUMNS.index("test") == package.SITE_COLUMNS.index("level") + 1
+    assert by_sc["2.4.4"]["test"] == "axe-core: link-name; Pa11y: H77,H78,H79,H80,H81"  # home's and news's
+    assert by_sc["1.2.1"]["test"] == matrix.NO_TEST
+
+
 def test_site_matrix_csv_has_the_columns_and_a_line_per_criterion(site_rows):
     lines = package.format_site_matrix_csv(site_rows).splitlines()
     assert lines[0] == ",".join(package.SITE_COLUMNS) and len(lines) == 39
@@ -64,9 +76,9 @@ def test_site_matrix_md_says_where_status_comes_from_and_shows_each_page(site_ro
     assert md.startswith("# Site compliance matrix: before")
     assert "Status comes only from human reviewers' decisions" in md
     assert "> **Warning:** a \\| b" in md
-    assert "| 508 | Criterion | Level | home | news | tickets | survey |" in md
+    assert "| 508 | Criterion | Level | Test | home | news | tickets | survey |" in md
     row = next(line for line in md.splitlines() if line.startswith("| E205.4 | 2.4.4 "))
-    assert row.count("|") == 8 and matrix.STATUS_FAIL in row
+    assert row.count("|") == 9 and matrix.STATUS_FAIL in row
 
 
 # ---------------------------------------------------------------- screenshots

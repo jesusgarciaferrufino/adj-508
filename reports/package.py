@@ -20,7 +20,7 @@ from agents.runlog import new_run_id
 from rag.corpus_tools import CorpusError, load_corpus, write_atomic
 from reports import acr, backlog, matrix
 from reports.acr import PAGES, PRODUCT, STYLE, _md_text, findings_by_criterion
-from reports.matrix import _sc_order, criterion_status
+from reports.matrix import _sc_order, criterion_status, criterion_tests
 from scanners.findings import REPO, FindingsFileError
 from scripts.score import SCORES_DIR, git_commit
 
@@ -32,7 +32,7 @@ class PackageError(ValueError):
     """The package can't be built honestly, e.g. a finding ID that can't be a file name."""
 
 
-SITE_COLUMNS = ("section508", "sc", "name", "level", *PAGES)
+SITE_COLUMNS = ("section508", "sc", "name", "level", "test", *PAGES)
 
 
 def build_site_matrix(runs, decisions_by_page, corpus, map508):
@@ -41,13 +41,16 @@ def build_site_matrix(runs, decisions_by_page, corpus, map508):
     runs               (summary, findings) per page of one site version, from acr.load_site
     decisions_by_page  {page: {finding_id: decision line}}
     A cell is matrix.criterion_status for that page, so it sees finding IDs and human decisions only.
+    "test" names the checks behind the criterion's findings on all pages (matrix.criterion_tests).
     """
     grouped = findings_by_criterion(runs)
     rows = []
     for sc in sorted(corpus, key=_sc_order):
-        row = {"section508": map508[sc]["web"], "sc": sc, "name": corpus[sc]["name"], "level": corpus[sc]["level"]}
+        by_page = grouped.get(sc, {})
+        row = {"section508": map508[sc]["web"], "sc": sc, "name": corpus[sc]["name"], "level": corpus[sc]["level"],
+               "test": criterion_tests([f for findings in by_page.values() for f in findings])}
         for page in PAGES:
-            ids = [f["finding_id"] for f in grouped.get(sc, {}).get(page, [])]
+            ids = [f["finding_id"] for f in by_page.get(page, [])]
             row[page] = criterion_status(ids, decisions_by_page.get(page, {}))
         rows.append(row)
     return rows
@@ -69,9 +72,9 @@ def format_site_matrix_md(rows, title, notes=()):
         lines += [f"> **Warning:** {_md_text(note)}", ""]
     lines += ["Status comes only from human reviewers' decisions. \"Pending human review\" means findings on that "
               "page wait for a reviewer; \"No automated findings\" still needs a human check.", "",
-              "| 508 | Criterion | Level | " + " | ".join(PAGES) + " |", "|" + " --- |" * (3 + len(PAGES))]
+              "| 508 | Criterion | Level | Test | " + " | ".join(PAGES) + " |", "|" + " --- |" * (4 + len(PAGES))]
     for r in rows:
-        cells = (r["section508"], f"{r['sc']} {r['name']}", r["level"], *(r[p] for p in PAGES))
+        cells = (r["section508"], f"{r['sc']} {r['name']}", r["level"], r["test"], *(r[p] for p in PAGES))
         lines.append("| " + " | ".join(_md_text(c) for c in cells) + " |")
     return "\n".join(lines + [""])
 

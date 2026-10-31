@@ -71,7 +71,8 @@ def format_site_matrix_md(rows, title, notes=()):
     for note in notes:
         lines += [f"> **Warning:** {_md_text(note)}", ""]
     lines += ["Status comes only from human reviewers' decisions. \"Pending human review\" means findings on that "
-              "page wait for a reviewer; \"No automated findings\" still needs a human check.", "",
+              "page wait for a reviewer; \"No automated findings\" still needs a human check.",
+              "", matrix.TEST_NOTE.replace("`test`", "Test") + " Here it covers all four pages together.", "",
               "| 508 | Criterion | Level | Test | " + " | ".join(PAGES) + " |", "|" + " --- |" * (4 + len(PAGES))]
     for r in rows:
         cells = (r["section508"], f"{r['sc']} {r['name']}", r["level"], r["test"], *(r[p] for p in PAGES))

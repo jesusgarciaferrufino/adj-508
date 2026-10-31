@@ -54,15 +54,19 @@ AI_LEANINGS = ("likely_fail", "unverified_fail", "likely_pass", "unsure", "none"
 BUCKET_COLUMNS = {"machine": "machine", "grey": "grey", "human-only": "human_checks"}
 
 # The matrix's columns, in order (the handoff's list, plus "test": which checks flagged the criterion).
-# The Week 5 ACR reads the CSV by these names.
+# Nothing reads the CSV back by these names today; the ACR and package call this module's functions.
 COLUMNS = ("section508", "sc", "name", "level", "test", "status", "machine", "grey", "human_checks",
            "finding_ids", "evidence", "ai_leaning", "reviewed_by")
 
 # The "test" column's names for each check, in report order (short forms of reports.acr.TOOL_LABELS).
-# ADJ's checks all have scanner adj-rules; the rule_id "adj.{check}.{rule}" tells them apart.
-TEST_LABELS = {"axe-core": "axe-core", "pa11y": "Pa11y", "adj.rules": "ADJ rules", "adj.validator": "Nu HTML Checker",
-               "adj.compare": "ADJ page comparison", "adj-vision": "AI on screenshots"}
-NO_TEST = "No automated test flagged this; manual check"
+# ADJ's checks all have scanner adj-rules; the rule_id "adj.{check}.{rule}" tells them apart. A Pa11y
+# notice is HTML_CodeSniffer asking a person to check something, not a test result, so it gets its own label.
+TEST_LABELS = {"axe-core": "axe-core", "pa11y": "Pa11y", "pa11y-notice": "Pa11y reminder (manual check)",
+               "adj.rules": "ADJ rules", "adj.validator": "Nu HTML Checker", "adj.compare": "ADJ page comparison",
+               "adj-vision": "AI on screenshots"}
+NO_TEST = STATUS_NO_FINDINGS  # the column only knows checks that produced findings, so it says what the status says
+TEST_NOTE = ("The `test` column names the scanner checks behind the criterion's findings; it does not list "
+             "checks that ran and found nothing. A Pa11y reminder asks for a manual check; it is not a test result.")
 
 
 class MatrixInputError(ValueError):
@@ -201,25 +205,30 @@ def _check_and_rule(detail):
     """One scanner_details entry as (check, short rule ID): ("pa11y", "H37"), ("adj.rules", "no-skip-link").
 
     The row already names the criterion, so a Pa11y ID loses its "WCAG2AA.PrincipleN.GuidelineN_N.N_N_N."
-    part, and an ADJ ID its "adj.{check}." part. An ID in another form is kept whole.
+    part, and an ADJ ID its "adj.{check}." part. An ID in another form is kept whole, under "ADJ rules"
+    for adj-rules. A Pa11y notice is the check "pa11y-notice".
     """
     scanner, rule = detail["scanner"], detail["rule_id"]
-    parts = rule.split(".", 2)
-    if scanner in ("adj-rules", "adj-vision") and len(parts) == 3 and parts[0] == "adj":
-        return ("adj-vision" if scanner == "adj-vision" else f"adj.{parts[1]}"), parts[2]
-    parts = rule.split(".", 4)
-    if scanner == "pa11y" and len(parts) == 5 and parts[0].startswith("WCAG2"):
-        return scanner, parts[4]
+    if scanner in ("adj-rules", "adj-vision"):
+        parts = rule.split(".", 2)
+        if len(parts) == 3 and parts[0] == "adj":
+            return ("adj-vision" if scanner == "adj-vision" else f"adj.{parts[1]}"), parts[2]
+        return ("adj-vision" if scanner == "adj-vision" else "adj.rules"), rule
+    if scanner == "pa11y":
+        check = "pa11y-notice" if detail.get("type") == "notice" else "pa11y"
+        parts = rule.split(".", 4)
+        return check, parts[4] if len(parts) == 5 and parts[0].startswith("WCAG2") else rule
     return scanner, rule
 
 
 def criterion_tests(findings):
-    """Which checks flagged a criterion's findings, e.g. "axe-core: image-alt; Pa11y: H37, G73,G74".
+    """Which checks flagged a criterion's findings, e.g. "axe-core: image-alt; Pa11y: H37 / H30.2".
 
     Checks come in TEST_LABELS order, then any this code doesn't know, by name, so none is hidden.
-    Each check's rules come busiest first, ties A-Z. With no findings: NO_TEST.
+    Each check's rules come busiest first, ties A-Z, separated by " / " because HTML_CodeSniffer IDs
+    like G73,G74 have commas of their own. With no findings: NO_TEST.
     """
-    counts = Counter(_check_and_rule(d) for f in findings for d in f.get("scanner_details", []))
+    counts = Counter(_check_and_rule(d) for f in findings for d in f["scanner_details"])
     if not counts:
         return NO_TEST
     known = [c for c in TEST_LABELS if any(check == c for check, _ in counts)]
@@ -228,7 +237,7 @@ def criterion_tests(findings):
     for check in known + unknown:
         rules = sorted((rule for c, rule in counts if c == check), key=lambda r: (-counts[check, r], r))
         label = TEST_LABELS.get(check) or (f"ADJ check {check[4:]}" if check.startswith("adj.") else check)
-        parts.append(f"{label}: {', '.join(rules)}")
+        parts.append(f"{label}: {' / '.join(rules)}")
     return "; ".join(parts)
 
 
@@ -292,6 +301,12 @@ def _md_cell(value):
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
+def _md_scanner_text(value):
+    """A cell that holds text from scanners (test, evidence): backslashes are doubled first, so a \\| in it
+    can't turn _md_cell's pipe escape back into a cell border."""
+    return _md_cell(str(value).replace("\\", "\\\\"))
+
+
 def write_markdown(rows, path, title, notes=()):
     """Write the rows as a Markdown table for people to read.
 
@@ -303,10 +318,11 @@ def write_markdown(rows, path, title, notes=()):
         lines += [f"> **Warning:** {note}", ""]  # blank line between, or Markdown joins them into one paragraph
     lines += ["Status comes only from human reviewers' decisions. The `ai_leaning` column is the AI's advice "
               "on grey-area findings, not a status. `unverified_fail` means the AI leaned fail but its quotes "
-              "couldn't be checked against the evidence, so a human decides.", ""]
+              "couldn't be checked against the evidence, so a human decides. " + TEST_NOTE, ""]
     lines.append("| " + " | ".join(COLUMNS) + " |")
     lines.append("|" + " --- |" * len(COLUMNS))
-    lines += ["| " + " | ".join(_md_cell(row[c]) for c in COLUMNS) + " |" for row in rows]
+    lines += ["| " + " | ".join((_md_scanner_text if c in ("test", "evidence") else _md_cell)(row[c])
+                                for c in COLUMNS) + " |" for row in rows]
     write_atomic(path, "\n".join(lines) + "\n")
 
 

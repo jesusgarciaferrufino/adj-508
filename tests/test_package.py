@@ -16,6 +16,7 @@ MAP508 = {sc: {"web": "E205.4"} for sc in CORPUS}
 
 def finding(finding_id, sc, bucket="grey", recommendation=None):
     return {"finding_id": finding_id, "wcag": [sc], "bucket": bucket,
+            "scanner_details": [{"scanner": "axe-core", "rule_id": "test-rule", "type": "violations"}],
             "ai": {"recommendation": recommendation, "citations_verified": True}}
 
 
@@ -77,6 +78,7 @@ def test_site_matrix_md_says_where_status_comes_from_and_shows_each_page(site_ro
     assert "Status comes only from human reviewers' decisions" in md
     assert "> **Warning:** a \\| b" in md
     assert "| 508 | Criterion | Level | Test | home | news | tickets | survey |" in md
+    assert "it does not list checks that ran and found nothing" in md and "all four pages" in md
     row = next(line for line in md.splitlines() if line.startswith("| E205.4 | 2.4.4 "))
     assert row.count("|") == 9 and matrix.STATUS_FAIL in row
 

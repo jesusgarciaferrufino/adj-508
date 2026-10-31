@@ -353,15 +353,30 @@ def test_main_writes_every_file_of_the_package(eight_runs):
     assert names == expected
 
 
+def acr_cells(folder, sc):
+    """One acr.md row split into its cells: criterion, conformance level, remarks, evidence."""
+    row = next(line for line in (folder / "acr.md").read_text().splitlines() if line.startswith(f"| {sc} "))
+    return [cell.strip() for cell in re.split(r"(?<!\\)\|", row)[1:-1]]
+
+
 def test_main_package_says_who_decided_and_flags_the_missing_screenshot(eight_runs):
     package.main(["--runs", *eight_runs])
     folder = the_package()
-    acr_row = next(line for line in (folder / "acr.md").read_text().splitlines() if line.startswith("| 2.4.4"))
-    assert "Does Not Support" in acr_row and "(shots/before_home_el0210.jpg)" in acr_row
+    _, level, _, evidence = acr_cells(folder, "2.4.4")
+    assert level == "Does Not Support" and "(shots/before_home_el0210.jpg)" in evidence  # the level cell, not Remarks
     index = (folder / "index.md").read_text()
     assert "before_news_el0007.jpg" in index and "missing" in index  # the warning is on the front page
     news_page = (folder / "evidence" / "F-before-news-el0007-1.1.1.html").read_text()
     assert "No screenshot" in news_page and "Pending human review" in news_page
+
+
+def test_main_package_acr_shows_the_adj_proposal_but_the_level_stays_pending(eight_runs):
+    """1.1.1's only finding is an undecided machine finding on news: ADJ proposes, no human has ratified."""
+    package.main(["--runs", *eight_runs])
+    _, level, remarks, evidence = acr_cells(the_package(), "1.1.1")
+    assert level == "Pending human review"
+    assert "Proposed by ADJ (machine-verified, awaiting human ratification): Does Not Support." in remarks
+    assert "F-before-news-el0007-1.1.1 (news, machine-verified, awaiting review" in evidence
 
 
 LINK = re.compile(r'(?:href|src)="([^"]+)"|\]\(([^)]+)\)')

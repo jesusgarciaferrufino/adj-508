@@ -29,8 +29,8 @@ per reviewer, plus 30 minutes of setup.
 
 | Role | Who | Does |
 | --- | --- | --- |
-| Reviewers R1, R2 | Two people who did not build PULSE (Track F, #14) and have not seen the sample | Triage the findings |
-| Adjudicator | A third person, not R1 or R2 | Writes the reference answers before the study, without seeing anyone's decisions |
+| Reviewers R1, R2 | Abel and Jesus (Daniel built PULSE, Track F, #14, so he is out) | Triage the findings |
+| Adjudicator | Ershad | Writes the reference answers before the study, without seeing anyone's decisions |
 | Facilitator | Ershad | Setup, timing, results |
 
 ## 3. The sample
@@ -52,18 +52,22 @@ per reviewer, plus 30 minutes of setup.
 - The draw is a SHA-256 of the seed and the finding ID, so it gives the same 30 on any machine.
   Rerunning it after later regenerations can give a different list; **this list is the
   sample**.
+- **One swap (Oct 31):** #52 made `adj.rules.no-skip-link` a certain violation, so item 3,
+  `F-before-home-el0000-2.4.1`, moved from grey to machine and is no longer eligible. It is
+  replaced by the draw's next home pick on the same data (`ea41667`), `F-before-home-el0269-1.4.3`,
+  in the same position and half. The other 29 are unchanged.
 
 All 30 are grey. No human-only finding survives the rules above: on the Before pages every
 human-only finding is a page-level notice, except 3.2.4 hits from the page-comparison check,
-which were not in `data/findings/` when the sample was drawn. 11 criteria are covered: 1.1.1,
-1.3.1 and 2.4.4 (5 each), 1.4.3 and 2.1.1 (4 each), 3.2.1 (2), and 1.4.1, 2.4.1, 2.4.2, 2.4.6
-and 3.3.4 (1 each).
+which were not in `data/findings/` when the sample was drawn. 10 criteria are covered: 1.1.1,
+1.3.1, 1.4.3 and 2.4.4 (5 each), 2.1.1 (4), 3.2.1 (2), and 1.4.1, 2.4.2, 2.4.6 and 3.3.4
+(1 each).
 
 | # | Half | Finding | What it is | Scanner said | Reference answer from |
 | --- | --- | --- | --- | --- | --- |
 | 1 | A | `F-before-home-el0085-3.2.1` | QUICKMENU select | Pa11y G107 (notice) | adjudicator |
 | 2 | B | `F-before-home-el0122-1.3.1` | 780px layout table | Pa11y LayoutTable (notice) | adjudicator |
-| 3 | A | `F-before-home-el0000-2.4.1` | page (no skip link) | Pa11y + adj no-skip-link (needs_review) | W3C report: 2.4.1 |
+| 3 | A | `F-before-home-el0269-1.4.3` | footer copyright text (`<font color="BLACK">`) | Pa11y F24 FGColour (needs_review) | adjudicator |
 | 4 | B | `F-before-home-el0000-2.4.6` | page (no headings) | Pa11y + adj no-headings (needs_review) | W3C report: 2.4.6 |
 | 5 | A | `F-before-home-el0155-2.1.1` | nav cell "survey" | Pa11y MouseOver/MouseOut (needs_review) | adjudicator |
 | 6 | B | `F-before-home-el0002-2.4.2` | <title> | Pa11y H25 (notice) | W3C report: 2.4.2 F25 |
@@ -92,9 +96,9 @@ and 3.3.4 (1 each).
 | 29 | A | `F-before-survey-el0585-2.4.4` | footer link "ERCIM" | Pa11y H77-H81 (notice) | adjudicator |
 | 30 | B | `F-before-survey-el0493-1.1.1` | gif.gif spacer (alt="") | Pa11y + G73/G74 (needs_review) | adjudicator |
 
-"Reference answer from": 7 findings are linked to a row in `data/ground-truth/ground_truth.csv`,
-so W3C's report says Fail. The adjudicator decides the other 23 (section 4, step 6) and also
-checks the 7.
+"Reference answer from": 6 findings are linked to a row in `data/ground-truth/ground_truth.csv`,
+so W3C's report says Fail. The adjudicator decides the other 24 (section 4, step 6) and also
+checks the 6.
 
 ## 4. Before the session (facilitator, about 30 minutes)
 
@@ -124,7 +128,7 @@ checks the 7.
    reviewer, filtered to their rows.
 6. **Reference answers.** The adjudicator decides all 30 findings (Fail, Pass or Not applicable,
    with a one-line reason) in a separate sheet, before the session, without seeing any reviewer's
-   decisions. For the 7 linked findings, if the adjudicator disagrees with W3C's report, W3C wins
+   decisions. For the 6 linked findings, if the adjudicator disagrees with W3C's report, W3C wins
    and the disagreement is noted.
 7. **Warm-up findings:** two grey After findings that are not in the sample,
    `F-after-home-el0099-2.4.4` (Manual) and `F-after-news-el0097-1.4.3` (ADJ), so the
@@ -188,7 +192,7 @@ Put the raw files in `data/triage_study/`: each reviewer's timing tab as CSV, th
   adds noise. The crossover balances it but doesn't remove it.
 - All 30 are grey Before findings on one demo site. Human-only findings and other sites aren't
   covered.
-- The adjudicator's answers are one person's judgement for 23 of the 30.
+- The adjudicator's answers are one person's judgement for 24 of the 30.
 - Reviewers know they are being timed and know which condition they are in. That can't be
   hidden.
 - PULSE needs a finished pipeline run, which is not counted in the ADJ time. The study measures

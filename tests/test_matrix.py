@@ -5,6 +5,7 @@ Tests never touch the real data/ folder: fixtures build a tiny fake run and revi
 import copy
 import csv
 import json
+import re
 
 import pytest
 
@@ -202,6 +203,65 @@ def test_decisions_on_other_findings_dont_count():
     assert matrix.criterion_status(["a"], decided(z="fail")) == matrix.STATUS_PENDING
 
 
+# ---------------------------------------------------------------- criterion_tests
+
+def found_by(*details):
+    """A finding with just scanner_details: (scanner, rule_id) pairs, or (scanner, rule_id, type)."""
+    return {"scanner_details": [{"scanner": d[0], "rule_id": d[1], "type": d[2] if len(d) > 2 else "error"}
+                                for d in details]}
+
+
+PA11Y = "WCAG2AA.Principle1.Guideline1_1.1_1_1"  # the criterion part of a Pa11y rule ID
+
+
+def test_tests_name_each_scanner_in_tool_order_with_its_busiest_rules_first():
+    findings = [found_by(("pa11y", f"{PA11Y}.H37"), ("axe-core", "image-alt")),
+                found_by(("pa11y", f"{PA11Y}.H37"), ("axe-core", "image-alt")),
+                found_by(("pa11y", f"{PA11Y}.H30.2"), ("adj-rules", "adj.rules.blur-on-focus")),
+                found_by(("pa11y", f"{PA11Y}.G73,G74"))]
+    assert matrix.criterion_tests(findings) == (
+        "axe-core: image-alt; Pa11y: H37 / G73,G74 / H30.2; ADJ rules: blur-on-focus")  # ties: A-Z
+
+
+def test_a_pa11y_notice_is_a_reminder_for_a_person_not_a_test():
+    """HTML_CodeSniffer notices ask a human to check (e.g. G57 reading order); they must not read as a test."""
+    assert matrix.criterion_tests([found_by(("pa11y", "WCAG2AA.Principle1.Guideline1_3.1_3_2.G57", "notice"))]) == (
+        "Pa11y reminder (manual check): G57")
+    both = [found_by(("pa11y", f"{PA11Y}.H37", "error"), ("pa11y", f"{PA11Y}.G73,G74", "notice"))]
+    assert matrix.criterion_tests(both) == "Pa11y: H37; Pa11y reminder (manual check): G73,G74"
+
+
+def test_a_pa11y_id_with_a_failure_technique_in_its_criterion_part_keeps_the_rest():
+    """A real 1.4.3 ID: the criterion part is 1_4_3_F24, and F24.BGColour is the rule."""
+    rule = "WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.BGColour"
+    assert matrix.criterion_tests([found_by(("pa11y", rule, "warning"))]) == "Pa11y: F24.BGColour"
+
+
+def test_adj_ids_without_the_adj_prefix_stay_under_their_own_check():
+    findings = [found_by(("adj-rules", "plain-rule"), ("adj-vision", "plain-vision"))]
+    assert matrix.criterion_tests(findings) == "ADJ rules: plain-rule; AI on screenshots: plain-vision"
+
+
+def test_tests_tell_adj_checks_apart_by_rule_id_like_the_acr_tool_list():
+    findings = [found_by(("adj-vision", "adj.vision.text-in-image"), ("adj-rules", "adj.compare.order-differs"),
+                         ("adj-rules", "adj.validator.duplicate-id"), ("adj-rules", "adj.rules.no-skip-link"))]
+    assert matrix.criterion_tests(findings) == ("ADJ rules: no-skip-link; Nu HTML Checker: duplicate-id; "
+                                                "ADJ page comparison: order-differs; AI on screenshots: text-in-image")
+
+
+def test_tests_name_an_unknown_check_or_scanner_instead_of_hiding_it():
+    findings = [found_by(("adj-rules", "adj.newcheck.some-rule"), ("lighthouse", "image-alt"))]
+    assert matrix.criterion_tests(findings) == "ADJ check newcheck: some-rule; lighthouse: image-alt"
+
+
+def test_a_pa11y_rule_id_in_an_unexpected_form_is_shown_whole():
+    assert matrix.criterion_tests([found_by(("pa11y", "Custom.Rule"))]) == "Pa11y: Custom.Rule"
+
+
+def test_a_criterion_no_test_flagged_says_what_its_status_says():
+    assert matrix.criterion_tests([]) == matrix.NO_TEST == matrix.STATUS_NO_FINDINGS
+
+
 # ---------------------------------------------------------------- build_matrix
 
 CORPUS = load_corpus()
@@ -231,6 +291,13 @@ def test_38_rows_in_criterion_order(fake_run):
 def test_row_details_from_corpus_and_508_map(rows):
     row = rows["1.1.1"]
     assert (row["section508"], row["name"], row["level"]) == ("E205.4", "Non-text Content", "A")
+
+
+def test_test_column_follows_the_requirement_and_names_the_checks_behind_its_findings(rows):
+    assert matrix.COLUMNS.index("test") == matrix.COLUMNS.index("level") + 1  # requirement, then its test
+    assert rows["1.1.1"]["test"] == (  # docs/finding.example.json's: H37 is a Pa11y error, G73,G74 a notice
+        "axe-core: image-alt; Pa11y: H37; Pa11y reminder (manual check): G73,G74")
+    assert rows["1.2.1"]["test"] == matrix.NO_TEST
 
 
 def test_criterion_without_findings(rows):
@@ -389,6 +456,25 @@ def test_markdown_escapes_pipes(fake_run, reports_dir):
     line = next(x for x in md(reports_dir).splitlines() if x.startswith("| E205.4 | 3.1.1 |"))
     assert "html[lang\\|=en]" in line
     assert line.count(" | ") == len(matrix.COLUMNS) - 1  # every unescaped | is a cell border
+
+
+def test_csv_keeps_a_test_cell_with_commas_in_one_cell_and_markdown_explains_the_column(fake_run, reports_dir):
+    assert matrix.main(["--run", RUN_ID]) == 0
+    with (reports_dir / f"matrix_{VERSION}_{PAGE}.csv").open(newline="") as fh:
+        out = {row["sc"]: row for row in csv.DictReader(fh)}
+    assert out["1.1.1"]["test"] == "axe-core: image-alt; Pa11y: H37; Pa11y reminder (manual check): G73,G74"
+    assert matrix.TEST_NOTE in md(reports_dir)
+
+
+def test_a_backslash_pipe_from_a_scanner_cannot_break_the_markdown_row(fake_run, reports_dir):
+    findings = copy.deepcopy(fake_run)
+    findings[3]["scanner_details"][0]["rule_id"] = "odd\\|rule"  # the 3.1.1 finding
+    findings[3]["evidence"]["selector"] = "a[title='x\\|y']"
+    (matrix.RUNS_DIR / RUN_ID / "output_findings.json").write_text(json.dumps(findings))
+    assert matrix.main(["--run", RUN_ID]) == 0
+    line = next(x for x in md(reports_dir).splitlines() if x.startswith("| E205.4 | 3.1.1 |"))
+    borders = re.findall(r"(?<!\\)(?:\\\\)*\|", line)  # a | after an even number of backslashes ends a cell
+    assert len(borders) == len(matrix.COLUMNS) + 1
 
 
 @pytest.mark.parametrize("stubs, expected", [

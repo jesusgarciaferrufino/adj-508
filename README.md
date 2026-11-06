@@ -76,7 +76,7 @@ python -m reports.package --runs <8 run ids>
 
 ## Security and trust
 
-- **Minimal AWS use:** the only AWS service the code calls is Bedrock Runtime, to invoke the model (`agents/evidence.py`). AWS keys come from `aws configure` on the reviewer's machine and are never in the repo or `.env`.
+- **Minimal AWS use:** the only AWS service the code calls is Bedrock Runtime, to invoke the model (`agents/evidence.py`). AWS keys come from `aws configure` on the machine running the pipeline and are never in the repo or `.env`.
 - **Reviewer tokens** of 16+ characters, kept in the gitignored `.env`, never committed; the reviewer's name comes from the token, never from the request.
 - **Secret scanning:** gitleaks runs on every pull request in CI.
 - **Append-only, attributed decisions** in `data/reviews/`: every decision names its reviewer and time, and none is ever edited.

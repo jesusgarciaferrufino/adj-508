@@ -12,7 +12,7 @@ and VPAT/ACR Automation*. Test site: W3C's [Before and After Demonstration](http
 
 - **89.2%** of W3C's 130 Before issues reported or sent to a person (**98.3%** of the 118 on the served page)
 - **59.2%** reported as issues by ADJ itself (65.3% of the 118 on the served page)
-- **0** false alarms on the After site (every After finding evaluated)
+- **0** false alarms on the After site (every After grey finding evaluated)
 - **$7.78** and about 2.5 hours for all 8 pages (1.2 M input, 0.27 M output tokens)
 
 Method, per-criterion results, progress and limits: [`docs/benchmark.md`](docs/benchmark.md).
@@ -76,7 +76,7 @@ python -m reports.package --runs <8 run ids>
 
 ## Security and trust
 
-- **Least-privilege AWS access:** a dedicated IAM user that can only invoke Bedrock models (it can't even read Service Quotas).
+- **Minimal AWS use:** the only AWS service the code calls is Bedrock Runtime, to invoke the model (`agents/evidence.py`). AWS keys come from `aws configure` on the reviewer's machine and are never in the repo or `.env`.
 - **Reviewer tokens** of 16+ characters, kept in the gitignored `.env`, never committed; the reviewer's name comes from the token, never from the request.
 - **Secret scanning:** gitleaks runs on every pull request in CI.
 - **Append-only, attributed decisions** in `data/reviews/`: every decision names its reviewer and time, and none is ever edited.

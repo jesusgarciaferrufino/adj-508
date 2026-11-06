@@ -4,7 +4,7 @@
 reviewing the same findings manually, without losing accuracy? This is the brief's stretch
 goal: "triage at least 30% faster than a person reviewing the same list manually".
 
-**When.** Sat Oct 31 to Sun Nov 1, 2026, before the feature freeze (Mon Nov 2). About 75 minutes
+**When.** Thu Nov 5, 2026, on Jesus's Nov 4 runs (originally planned for Oct 31 to Nov 1). About 75 minutes
 per reviewer, plus 30 minutes of setup.
 
 ## 1. Design at a glance
@@ -29,7 +29,7 @@ per reviewer, plus 30 minutes of setup.
 
 | Role | Who | Does |
 | --- | --- | --- |
-| Reviewers R1, R2 | Abel and Jesus (Daniel built PULSE, Track F, #14, so he is out) | Triage the findings |
+| Reviewers R1, R2 | R1 Abel, R2 Jesus (Daniel built PULSE, Track F, #14, so he is out) | Triage the findings |
 | Adjudicator | Ershad | Writes the reference answers before the study, without seeing anyone's decisions |
 | Facilitator | Ershad | Setup, timing, results |
 
@@ -105,14 +105,17 @@ checks the 6.
 1. **Use a separate copy of the repo.** PULSE writes every decision to `data/reviews/`, which is
    the ACR's evidence, so study decisions must never reach main:
    ```bash
-   git worktree add ../adj-triage main
+   git worktree add --detach ../adj-triage origin/main
    cd ../adj-triage
    ```
+   Use `--detach`: `git worktree add ../adj-triage main` fails when main is already checked out.
    Never commit from this copy. Section 7 says where the results go.
-2. **Run the pipeline** on the 4 Before pages, so each grey finding has its FOR/AGAINST case:
-   ```bash
-   for p in home news tickets survey; do python -m agents.graph --version before --page $p; done
-   ```
+2. **Copy in the Nov 4 runs** instead of re-running the pipeline, so both reviewers see the same
+   FOR/AGAINST cases. `data/runs/` is gitignored, so Jesus shares the 8 run folders over Drive
+   (4 Before pages plus after/home and after/news for the warm-up):
+   `20261104-201006-c7db`, `-203152-e226`, `-205001-1599`, `-212616-13d7`, `-215539-836d`,
+   `-220745-db53`, `-222024-6be1`, `-223514-c3a3`. Unzip them into this copy's `data/runs/`.
+   Each reviewer needs them in their own copy, because PULSE runs on localhost.
    Check that `stubs` is empty in each run's `summary.json`, and that all 30 sampled IDs are in
    the runs' `output_findings.json`. If the evidence step skipped a sampled finding, keep the
    finding and write it down: PULSE then says the AI gave no case, which is how ADJ really
@@ -125,15 +128,16 @@ checks the 6.
    It gives the page URL, criterion, selector and scanner message for each finding, and nothing
    else.
 5. **Share the timing sheet** (`docs/triage_timing_sheet.csv`) as a Google Sheet, one tab per
-   reviewer, filtered to their rows.
+   reviewer, filtered to their rows. It must be a Google Sheet: Ctrl+Shift+; (section 5) is a
+   Sheets shortcut.
 6. **Reference answers.** The adjudicator decides all 30 findings (Fail, Pass or Not applicable,
    with a one-line reason) in a separate sheet, before the session, without seeing any reviewer's
    decisions. For the 6 linked findings, if the adjudicator disagrees with W3C's report, W3C wins
    and the disagreement is noted.
 7. **Warm-up findings:** two grey After findings that are not in the sample,
    `F-after-home-el0099-2.4.4` (Manual) and `F-after-news-el0097-1.4.3` (ADJ), so the
-   reviewers learn the tools before the clock matters. Run the pipeline on after/home and
-   after/news too, so they appear in PULSE.
+   reviewers learn the tools before the clock matters. They come from the after/home and
+   after/news runs copied in at step 2.
 
 ## 5. Session (each reviewer, about 75 minutes)
 
@@ -166,7 +170,7 @@ call but doesn't help with decisions.
   separately: Pass or Not applicable on a finding whose reference is Fail. That is a missed
   issue, the costliest kind of error.
 
-## 7. Results and report (Sun Nov 1)
+## 7. Results and report
 
 Put the raw files in `data/triage_study/`: each reviewer's timing tab as CSV, the worktree's
 `data/reviews/before_*.jsonl` and the adjudicator's sheet. Then write `docs/triage_results.md`:

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-survey-el0206-4.1.2</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-survey-el0206-4.1.2</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>4.1.2 Name, Role, Value (Level A)</dd>
+<dt>Site and page</dt><dd>before / survey: <a href="https://www.w3.org/WAI/demos/bad/before/survey.html">https://www.w3.org/WAI/demos/bad/before/survey.html</a></dd>
+<dt>Rule</dt><dd>label (found by axe-core, pa11y; scanner status violation)</dd>
+<dt>Route</dt><dd>machine: rule 1: deterministic violation reported by axe-core, pa11y (scanner_status=violation)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_survey_el0206.jpg"><img src="../shots/before_survey_el0206.jpg" alt="Screenshot of the element for F-before-survey-el0206-4.1.2"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>input[value=&quot;3&quot;]</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;input class=&quot;align&quot; type=&quot;radio&quot; name=&quot;res&quot; value=&quot;3&quot;&gt;</code></pre>
+<h3>Text around it</h3>
+<p>None Central Park Grand Park Jurassic Park South Park Other</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>axe-core</td><td>label</td><td>violations</td><td>Element does not have an implicit (wrapped) &lt;label&gt;</td></tr>
+<tr><td>pa11y</td><td>WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.InputRadio.Name</td><td>error</td><td>This radioinput element does not have a name available to an accessibility API. Valid names are: label element, title , aria-label , aria-labelledby .</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>Not evaluated by AI: FOR/AGAINST runs only on grey-area findings, and this one is machine.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-news-el0200-2.4.4</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-news-el0200-2.4.4</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>2.4.4 Link Purpose (In Context) (Level A)</dd>
+<dt>Site and page</dt><dd>before / news: <a href="https://www.w3.org/WAI/demos/bad/before/news.html">https://www.w3.org/WAI/demos/bad/before/news.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81 (found by pa11y; scanner status notice)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=notice, criterion 2.4.4)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p>No screenshot for this finding; the selector below locates it.</p>
+<dl>
+<dt>Selector</dt><dd><code>#main &gt; div:nth-child(4) &gt; div:nth-child(2) &gt; table &gt; tbody &gt; tr:nth-child(3) &gt; td &gt; blockquote &gt; a</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;a href=&quot;../offsite.html&quot;&gt;&lt;img src=&quot;./img/smzappa2.jpg&quot; width=&quot;65&quot; height=&quot;80&quot; alt=&quot;picture of Clara F.&quot; style=&quot;float:left;margin-right:5px;&quot; align=&quot;left&quot;&gt;&lt;/a&gt;</code></pre>
+<h3>Text around it</h3>
+<p>&quot;Well I think the Mayor&#x27;s getting all heated up about nothing. Remember that 15 months is pretty much a lifetime to someone like me. But hey, I&#x27;m just a baby, and can&#x27;t even vote, so you can ignore my opinion. And I can tell you that I&#x27;m standing for mayor on a ticket of infant suffrage&quot;.</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81</td><td>notice</td><td>Check that the link text combined with programmatically determined link context identifies the purpose of the link.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The link contains only an image. The image has alt text &#x27;picture of Clara F.&#x27; which describes the image content but does not convey the link&#x27;s destination or purpose. Knowing the link leads to a picture of Clara F. does not tell users where the link goes or what action it performs. The surrounding text discusses mayoral opinions but establishes no clear link purpose. The scanner flagged this as requiring human verification of link purpose.
+Quoted: &quot;alt=&quot;picture of Clara F.&quot;&quot;; &quot;Check that the link text combined with programmatically determined link context identifies the purpose of the link&quot;
+Strength: 3/5</pre>
+<h3>Case against a failure</h3>
+<pre>The link contains only an image with alt text &#x27;picture of Clara F.&#x27; This alt text describes who is depicted but does not convey the destination or purpose of the link. The surrounding text discusses opinions about a mayor but provides no indication of where the link leads. The link purpose cannot be determined from the image alt text alone or combined with the surrounding context.
+Quoted: &quot;alt=&quot;picture of Clara F.&quot;&quot;; &quot;Well I think the Mayor&#x27;s getting all heated up about nothing.&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

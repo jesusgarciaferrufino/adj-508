@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-news-el0228-1.1.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-news-el0228-1.1.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.1.1 Non-text Content (Level A)</dd>
+<dt>Site and page</dt><dd>before / news: <a href="https://www.w3.org/WAI/demos/bad/before/news.html">https://www.w3.org/WAI/demos/bad/before/news.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2 (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.1.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_news_el0228.jpg"><img src="../shots/before_news_el0228.jpg" alt="Screenshot of the element for F-before-news-el0228-1.1.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#main &gt; div:nth-child(5) &gt; table &gt; tbody &gt; tr:nth-child(3) &gt; td &gt; div &gt; img</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;img src=&quot;./img/chart1.jpg&quot; alt=&quot;&quot; width=&quot;270&quot; height=&quot;150&quot; border=&quot;0&quot;&gt;</code></pre>
+<h3>Text around it</h3>
+<p>Lack of Brains Hinders Research Brain donations at city hospital (by month)</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_1.1_1_1.H67.2</td><td>warning</td><td>Img element is marked so that it is ignored by Assistive Technology.</td></tr>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74</td><td>notice</td><td>If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The element is a chart titled &#x27;Brain donations at city hospital (by month)&#x27; — a data visualization conveying specific statistical information. The surrounding text identifies it as meaningful content, not decoration. Yet the image has alt=&quot;&quot;, marking it as ignored by assistive technology. A chart presenting monthly data is not decorative; it communicates information that users of assistive technology cannot access. This is a clear failure of 1.1.1.
+Quoted: &quot;alt=&quot;&quot;&quot;; &quot;Brain donations at city hospital (by month)&quot;; &quot;Img element is marked so that it is ignored by Assistive Technology.&quot;
+Strength: 4/5</pre>
+<h3>Case against a failure</h3>
+<pre>The surrounding visible text &#x27;Brain donations at city hospital (by month)&#x27; directly identifies the chart&#x27;s subject and data category. However, the image src is &#x27;chart1.jpg&#x27; indicating a data chart with meaningful content, and an empty alt attribute causes assistive technology to ignore it entirely. A chart presenting data is not decorative — it conveys information that users of assistive technology cannot access. No honest case for a pass exists.
+Quoted: &quot;alt=&quot;&quot;&quot;; &quot;Brain donations at city hospital (by month)&quot;; &quot;Img element is marked so that it is ignored by Assistive Technology&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

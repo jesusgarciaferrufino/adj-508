@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-survey-el0201-1.3.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-survey-el0201-1.3.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.3.1 Info and Relationships (Level A)</dd>
+<dt>Site and page</dt><dd>before / survey: <a href="https://www.w3.org/WAI/demos/bad/before/survey.html">https://www.w3.org/WAI/demos/bad/before/survey.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_3.1_3_1.F68 (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.3.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_survey_el0201.jpg"><img src="../shots/before_survey_el0201.jpg" alt="Screenshot of the element for F-before-survey-el0201-1.3.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#main &gt; div &gt; form &gt; table:nth-child(1) &gt; tbody &gt; tr &gt; td &gt; table &gt; tbody &gt; tr &gt; td:nth-child(2) &gt; table &gt; tbody &gt; tr:nth-child(3) &gt; td:nth-child(1) &gt; table &gt; tbody &gt; tr:nth-child(2) &gt; td:nth-child(1) &gt; span &gt; input</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;input class=&quot;align&quot; type=&quot;radio&quot; name=&quot;res&quot; value=&quot;2&quot;&gt;</code></pre>
+<h3>Text around it</h3>
+<p>None Central Park Grand Park Jurassic Park South Park Other</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_3.1_3_1.F68</td><td>error</td><td>This form field should be labelled in some way. Use the label element (either with a &quot;for&quot; attribute or wrapped around the form field), or &quot;title&quot;, &quot;aria-label&quot; or &quot;aria-labelledby&quot; attributes as appropriate.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The radio input has no label element, no title attribute, no aria-label, and no aria-labelledby. The scanner confirms &#x27;This form field should be labelled in some way.&#x27; Without a programmatic label, the relationship between this radio button and its visible option text (one of: None, Central Park, Grand Park, Jurassic Park, South Park, Other) cannot be programmatically determined, violating 1.3.1.
+Quoted: &quot;This form field should be labelled in some way.&quot;; &quot;Use the label element (either with a &quot;for&quot; attribute or wrapped around the form field), or &quot;title&quot;, &quot;aria-label&quot; or &quot;aria-labelledby&quot; attributes as appropriate.&quot;; &quot;&lt;input class=&quot;align&quot; type=&quot;radio&quot; name=&quot;res&quot; value=&quot;2&quot;&gt;&quot;
+Strength: 4/5</pre>
+<h3>Case against a failure</h3>
+<pre>No honest case exists. The scanner confirms the radio input has no label element, no title, no aria-label, and no aria-labelledby. The surrounding visible text lists option names but none is programmatically associated with this specific input. The relationship between this radio button and its intended label (&#x27;Central Park&#x27;, &#x27;Grand Park&#x27;, etc.) cannot be programmatically determined, directly failing 1.3.1.
+Quoted: &quot;This form field should be labelled in some way.&quot;; &quot;type=&quot;radio&quot; name=&quot;res&quot; value=&quot;2&quot;&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-home-el0210-2.4.4</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-home-el0210-2.4.4</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>2.4.4 Link Purpose (In Context) (Level A)</dd>
+<dt>Site and page</dt><dd>before / home: <a href="https://www.w3.org/WAI/demos/bad/before/home.html">https://www.w3.org/WAI/demos/bad/before/home.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81 (found by pa11y; scanner status notice)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=notice, criterion 2.4.4)</dd>
+</dl>
+<h2>Human decision</h2>
+<dl>
+<dt>Decision</dt><dd>Fail</dd>
+<dt>Reviewer</dt><dd>jesus</dd>
+<dt>Decided at</dt><dd>2026-11-06T21:47:36Z</dd>
+<dt>Comment</dt><dd>Link text &quot;Click here&quot; (after &quot;Killer bees.&quot;) does not identify its purpose, and the surrounding text does not distinguish it from the other &quot;Click here&quot; link. Fails 2.4.4 (F63).</dd>
+</dl>
+<h2>Evidence</h2>
+<p><a href="../shots/before_home_el0210.jpg"><img src="../shots/before_home_el0210.jpg" alt="Screenshot of the element for F-before-home-el0210-2.4.4"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#content &gt; p:nth-child(7) &gt; span &gt; a:nth-child(2)</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;a onfocus=&quot;blur();&quot; href=&quot;../offsite.html&quot; target=&quot;_blank&quot;&gt;Click here&lt;/a&gt;</code></pre>
+<h3>Text around it</h3>
+<p>Please see the following websites for important information. Citylights take no responsibility for their content. For artichoke advice, call the number below. Killer bees. Click here. Onions. Click here. Artichoke advice telephone hotline:</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle2.Guideline2_4.2_4_4.H77,H78,H79,H80,H81</td><td>notice</td><td>Check that the link text combined with programmatically determined link context identifies the purpose of the link.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The link text is &#x27;Click here&#x27;, which conveys no destination or purpose on its own. The surrounding context lists multiple topics (&#x27;Killer bees&#x27;, &#x27;Onions&#x27;) each followed by a separate &#x27;Click here&#x27; link, making the programmatically determined context ambiguous — a user cannot determine which &#x27;Click here&#x27; leads where. The scanner flagged this link specifically for failing to identify its purpose through text or context.
+Quoted: &quot;Click here&quot;; &quot;Killer bees. Click here. Onions. Click here.&quot;; &quot;Check that the link text combined with programmatically determined link context identifies the purpose of the link&quot;
+Strength: 4/5</pre>
+<h3>Case against a failure</h3>
+<pre>The link text &#x27;Click here&#x27; is generic and provides no indication of its destination or purpose. The surrounding text lists multiple topics (&#x27;Killer bees&#x27;, &#x27;Onions&#x27;) each followed by their own &#x27;Click here&#x27; link, making the programmatic context insufficient to distinguish between them. No honest case exists that this link passes 2.4.4.
+Quoted: &quot;Click here&quot;; &quot;Killer bees. Click here. Onions. Click here.&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

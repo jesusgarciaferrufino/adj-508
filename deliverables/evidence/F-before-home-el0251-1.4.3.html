@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-home-el0251-1.4.3</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-home-el0251-1.4.3</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.4.3 Contrast (Minimum) (Level AA)</dd>
+<dt>Site and page</dt><dd>before / home: <a href="https://www.w3.org/WAI/demos/bad/before/home.html">https://www.w3.org/WAI/demos/bad/before/home.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.BGColour (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.4.3)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_home_el0251.jpg"><img src="../shots/before_home_el0251.jpg" alt="Screenshot of the element for F-before-home-el0251-1.4.3"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#page &gt; table &gt; tbody &gt; tr &gt; td &gt; table &gt; tbody &gt; tr:nth-child(2) &gt; td:nth-child(2) &gt; table:nth-child(2) &gt; tbody &gt; tr &gt; td:nth-child(5) &gt; table &gt; tbody &gt; tr:nth-child(7) &gt; td</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;td width=&quot;150px&quot; bgcolor=&quot;#A9B8BF&quot;&gt;&lt;font color=&quot;#41545D&quot; face=&quot;Verdana&quot; size=&quot;2&quot;&gt;&amp;nbsp;&lt;b&gt;More City Parks&lt;/b&gt;&lt;/font&gt;&lt;/td&gt;</code></pre>
+<h3>Text around it</h3>
+<p>Free Penguins &quot;Free penguins&quot; slogan at zoo benefit concert causes confusion among city rockers. Adjective or verb? Read More... More City Parks More parks and more green throughout the city at the price of already rare car parking spaces, how will this affect you? Read More...</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.BGColour</td><td>warning</td><td>Check that this element has an inherited foreground colour to complement the corresponding inline background colour or image.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The element renders bold text in color &#x27;#41545D&#x27; on background &#x27;#41545D&#x27; — wait, the foreground is &#x27;#41545D&#x27; on background &#x27;#A9B8BF&#x27;. Calculating: #41545D (R:65,G:84,B:93) against #A9B8BF (R:169,G:184,B:191) yields a contrast ratio of approximately 3.6:1, which falls below the 4.5:1 minimum required for normal-sized text under 1.4.3. The text &#x27;More City Parks&#x27; is rendered at font size=&#x27;2&#x27; in Verdana, which does not qualify as large text.
+Quoted: &quot;bgcolor=&quot;#A9B8BF&quot;&quot;; &quot;color=&quot;#41545D&quot;&quot;; &quot;size=&quot;2&quot;&quot;; &quot;&lt;b&gt;More City Parks&lt;/b&gt;&quot;
+Strength: 3/5</pre>
+<h3>Case against a failure</h3>
+<pre>The scanner issued only a &#x27;Check&#x27; (manual review needed), not a failure. The foreground color &#x27;#41545D&#x27; on background &#x27;#bgcolor=&quot;#A9B8BF&quot;&#x27; must be measured. These are both muted blue-grey tones with low luminance difference, but the text &#x27;More City Parks&#x27; is bold, and bold text at size 2 (Verdana) is borderline large-scale. However, without a confirmed contrast ratio, no honest pass case can be made from the evidence provided.
+Quoted: &quot;bgcolor=&quot;#A9B8BF&quot;&quot;; &quot;color=&quot;#41545D&quot;&quot;; &quot;Check that this element has an inherited foreground colour to complement the corresponding inline background colour or image&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

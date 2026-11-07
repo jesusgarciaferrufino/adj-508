@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-survey-el0536-1.3.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-survey-el0536-1.3.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.3.1 Info and Relationships (Level A)</dd>
+<dt>Site and page</dt><dd>before / survey: <a href="https://www.w3.org/WAI/demos/bad/before/survey.html">https://www.w3.org/WAI/demos/bad/before/survey.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_3.1_3_1.LayoutTable (found by pa11y; scanner status notice)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=notice, criterion 1.3.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_survey_el0536.jpg"><img src="../shots/before_survey_el0536.jpg" alt="Screenshot of the element for F-before-survey-el0536-1.3.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#data &gt; table</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;table width=&quot;560px&quot; border=&quot;1&quot; style=&quot;float:left; border: 1px dashed silver;&quot;&gt;
+                &lt;tbody&gt;&lt;tr bgcolor=&quot;#DBDBDB&quot;&gt;
+                  &lt;td rowspan=&quot;4&quot; bgcolor=&quot;#ffffff&quot; style=&quot;border-right: 1px dashed silver;&quot;&gt;&lt;p style=&quot;background:#DBDBDB;padding-top:3px;padding-bottom:2px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin-bottom:0px;padding-top:3px; padding-bottom:5px&quot; align=&quot;right&quot;&gt;&lt;strong&gt;love it&lt;/strong&gt;&lt;/p&gt;&lt;p style=&quot;margin-top:5px;background:#DBDBDB;padding-top:3px; padding-bottom:4px&quot; align=&quot;right&quot;&gt;&lt;strong&gt;hate it&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
+                  &lt;td title=&quot;question&quot; width=&quot;70&quot;&gt;&lt;b&gt;Lung&lt;/b&gt;&lt;/td&gt;
+                  &lt;td title=&quot;question&quot; width=&quot;70&quot;&gt;&lt;b&gt;Pancreas&lt;/b&gt;&lt;/td&gt;
+                  &lt;td title=&quot;question&quot; width=&quot;70&quot;&gt;&lt;b&gt;Spleen&lt;/b&gt;&lt;/td&gt;
+                  &lt;td title=&quot;question&quot; width=&quot;70&quot;&gt;&lt;b&gt;Liver&lt;/b&gt;&lt;/td&gt;
+                  &lt;td title=&quot;question&quot; width=&quot;70&quot;&gt;&lt;b&gt;Skin&lt;/b&gt;&lt;/td&gt;
+                  &lt;td title=&quot;question&quot; width=&quot;70&quot;&gt;&lt;b&gt;Brain&lt;/b&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                  &lt;td&gt;&lt;/td&gt;
+                  &lt;td&gt;4&lt;/td&gt;
+                  &lt;td&gt;10&lt;/td&gt;
+                  &lt;td&gt;4&lt;/td&gt;
+                  &lt;td&gt;&lt;/td&gt;
+                  &lt;td&gt;1&lt;/td&gt;
+                &lt;/tr&gt;
+                &lt;tr&gt;
+                &lt;/tr&gt;
+                &lt;tr bgcolor=&quot;#DBDBDB&quot;&gt;
+                  &lt;td&gt;5&lt;/td&gt;
+                  &lt;td&gt;6&lt;/td&gt;
+                  &lt;td&gt;&lt;/td&gt;
+                  &lt;td&gt;14&lt;/td&gt;
+                  &lt;td&gt;1&lt;/td&gt;
+                  &lt;td&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+              &lt;/tbody&gt;&lt;/table&gt;</code></pre>
+<h3>Text around it</h3>
+<p>Last Weeks&#x27;s Survey Results What is your favorite and least favorite organ? love it hate it Lung Pancreas Spleen Liver Skin Brain 4 10 4 1 5 6 14 1</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_3.1_3_1.LayoutTable</td><td>notice</td><td>This table appears to be a layout table. If it is meant to instead be a data table, ensure header cells are identified using th elements.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>This is a data table presenting survey results with row and column relationships, but uses no &lt;th&gt; elements to mark headers. The organ names (Lung, Pancreas, etc.) and row labels (love it, hate it) are marked only with &lt;b&gt; or &lt;strong&gt; styling, not semantic header markup. The data values (4, 10, 5, etc.) cannot be programmatically associated with their headers, so the structure and relationships are not programmatically determinable.
+Quoted: &quot;ensure header cells are identified using th elements&quot;; &quot;&lt;b&gt;Lung&lt;/b&gt;&quot;; &quot;&lt;strong&gt;love it&lt;/strong&gt;&quot;; &quot;&lt;strong&gt;hate it&lt;/strong&gt;&quot;; &quot;This table appears to be a layout table&quot;
+Strength: 4/5</pre>
+<h3>Case against a failure</h3>
+<pre>The scanner flagged this as a layout table, but the surrounding text confirms it is a data table presenting survey results. The structural relationships in this table are NOT programmatically determinable: row and column headers use bold `&lt;b&gt;` and `&lt;td&gt;` elements instead of `&lt;th&gt;`, and the &#x27;love it&#x27;/&#x27;hate it&#x27; row labels are embedded in a rowspan cell with no header markup. Data cells cannot be programmatically associated with their headers. No honest pass case exists.
+Quoted: &quot;ensure header cells are identified using th elements&quot;; &quot;&lt;b&gt;Lung&lt;/b&gt;&quot;; &quot;&lt;td rowspan=&quot;4&quot; bgcolor=&quot;#ffffff&quot;&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-survey-el0000-4.1.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-survey-el0000-4.1.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>4.1.1 Parsing (Level A)</dd>
+<dt>Site and page</dt><dd>before / survey: <a href="https://www.w3.org/WAI/demos/bad/before/survey.html">https://www.w3.org/WAI/demos/bad/before/survey.html</a></dd>
+<dt>Rule</dt><dd>adj.validator.parse-error (found by adj-rules; scanner status violation)</dd>
+<dt>Route</dt><dd>machine: rule 1: deterministic violation reported by adj-rules (scanner_status=violation)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_survey_page.jpg"><img src="../shots/before_survey_page.jpg" alt="Screenshot of the element for F-before-survey-el0000-4.1.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>html</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;HTML&gt;</code></pre>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>adj-rules</td><td>adj.validator.parse-error</td><td>rule</td><td>8 parse error(s) in the page source (F70): Bad start tag in b in noscript in head (line 46); Stray end tag noscript (line 46); Stray end tag head (line 48); Start tag body seen but an element of the same type was already open (line 49); Unclosed element font (line 118); End tag td seen, but there were open elements (line 130); No space between attributes (line 541); Stray end tag tr (line 591). Note: &lt;noscript&gt; in &lt;head&gt; ends the head early, so the checker stopped; the rest of the page was checked again with that &lt;noscript&gt; removed.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>Not evaluated by AI: FOR/AGAINST runs only on grey-area findings, and this one is machine.</p>
+</main>
+</body>
+</html>

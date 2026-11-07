@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-news-el0233-1.3.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-news-el0233-1.3.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.3.1 Info and Relationships (Level A)</dd>
+<dt>Site and page</dt><dd>before / news: <a href="https://www.w3.org/WAI/demos/bad/before/news.html">https://www.w3.org/WAI/demos/bad/before/news.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.AlignAttr (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.3.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_news_el0233.jpg"><img src="../shots/before_news_el0233.jpg" alt="Screenshot of the element for F-before-news-el0233-1.3.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#main &gt; div:nth-child(6) &gt; p</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;p class=&quot;headline&quot; align=&quot;center&quot;&gt;&lt;font size=&quot;3&quot;&gt;Return To Sender&lt;/font&gt;&lt;/p&gt;</code></pre>
+<h3>Text around it</h3>
+<p>Return To Sender When questioned whether their results would be affected if air conditioners were found to be used on cold days, Wahoonie responded: &quot;we had one guy in the lab whining those kinds of questions. &#x27;Why are you doing this? Why are there all those discrepencies in the department accounts?…</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.AlignAttr</td><td>warning</td><td>Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The element uses the class &#x27;headline&#x27; and visual styling (centered alignment, font size 3) to present &#x27;Return To Sender&#x27; as a heading, but is marked up as a plain paragraph element. This visual heading role is not programmatically determinable. The scanner confirms semantic markup is absent for this special text. The structure and relationship conveyed visually through presentation cannot be programmatically determined.
+Quoted: &quot;class=&quot;headline&quot;&quot;; &quot;align=&quot;center&quot;&quot;; &quot;&lt;font size=&quot;3&quot;&gt;Return To Sender&lt;/font&gt;&quot;; &quot;Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.&quot;
+Strength: 3/5</pre>
+<h3>Case against a failure</h3>
+<pre>The element uses the class &#x27;headline&#x27; and visual styling to convey that &#x27;Return To Sender&#x27; functions as a heading, but this structure is not programmatically determinable. A plain &lt;p&gt; element with font styling cannot be identified as a heading by assistive technologies. The scanner confirms the semantic markup is missing. No honest case for a pass exists.
+Quoted: &quot;class=&quot;headline&quot;&quot;; &quot;&lt;font size=&quot;3&quot;&gt;Return To Sender&lt;/font&gt;&quot;; &quot;Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

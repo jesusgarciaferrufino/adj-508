@@ -299,7 +299,7 @@ That is about 12 seconds per grey finding, almost all of it waiting on Bedrock.
 Whether ADJ makes a reviewer at least 30% faster than manual review (the brief's stretch goal).
 Protocol: [`docs/triage_study.md`](triage_study.md).
 
-Results: <filled in by Jesus>
+Results: Protocol designed; study not run.
 
 ## Reproduce
 

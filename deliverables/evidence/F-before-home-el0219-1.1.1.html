@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-home-el0219-1.1.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-home-el0219-1.1.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.1.1 Non-text Content (Level A)</dd>
+<dt>Site and page</dt><dd>before / home: <a href="https://www.w3.org/WAI/demos/bad/before/home.html">https://www.w3.org/WAI/demos/bad/before/home.html</a></dd>
+<dt>Rule</dt><dd>image-alt (found by axe-core, pa11y; scanner status violation)</dd>
+<dt>Route</dt><dd>machine: rule 1: deterministic violation reported by axe-core, pa11y (scanner_status=violation)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_home_el0219.jpg"><img src="../shots/before_home_el0219.jpg" alt="Screenshot of the element for F-before-home-el0219-1.1.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>td[width=&quot;20px&quot;]:nth-child(4) &gt; img[src$=&quot;blank_5x5.gif&quot;][height=&quot;5px&quot;][width=&quot;20px&quot;]</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;img src=&quot;./img/blank_5x5.gif&quot; width=&quot;20px&quot; height=&quot;5px&quot;&gt;</code></pre>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>axe-core</td><td>image-alt</td><td>violations</td><td>Element does not have an alt attribute</td></tr>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_1.1_1_1.H37</td><td>error</td><td>Img element missing an alt attribute. Use the alt attribute to specify a short text alternative.</td></tr>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_1.1_1_1.G73,G74</td><td>notice</td><td>If this image cannot be fully described in a short text alternative, ensure a long text alternative is also available, such as in the body text or through a link.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>Not evaluated by AI: FOR/AGAINST runs only on grey-area findings, and this one is machine.</p>
+</main>
+</body>
+</html>

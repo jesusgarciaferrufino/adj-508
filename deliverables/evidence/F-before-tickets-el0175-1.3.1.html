@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-tickets-el0175-1.3.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-tickets-el0175-1.3.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.3.1 Info and Relationships (Level A)</dd>
+<dt>Site and page</dt><dd>before / tickets: <a href="https://www.w3.org/WAI/demos/bad/before/tickets.html">https://www.w3.org/WAI/demos/bad/before/tickets.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.AlignAttr (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.3.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_tickets_el0175.jpg"><img src="../shots/before_tickets_el0175.jpg" alt="Screenshot of the element for F-before-tickets-el0175-1.3.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#main &gt; table:nth-child(2) &gt; tbody &gt; tr:nth-child(1) &gt; td:nth-child(2)</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;td valign=&quot;top&quot; align=&quot;center&quot; width=&quot;300px&quot;&gt;&lt;div&gt;&lt;b&gt;concert dates&lt;/b&gt;
+                &lt;table width=&quot;250px&quot; border=&quot;1&quot; bordercolor=&quot;#C0C0C0&quot; rules=&quot;rows&quot;&gt;
+                  &lt;tbody&gt;&lt;tr bgcolor=&quot;#A9B8BF&quot;&gt;
+                    &lt;td&gt;&lt;b&gt;&lt;font color=&quot;41545D&quot;&gt;Les Garçons&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;b&gt;&lt;font color=&quot;41545D&quot;&gt;The Obelisks&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;12/2/06&lt;/td&gt;
+                    &lt;td&gt;24/3/06&lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;
+              &lt;/td&gt;</code></pre>
+<h3>Text around it</h3>
+<p>…ns &amp; The Obelisks These special deals are exclusive to Citylights and can only be purchased by calling the ticket hotline: concert dates Les Garçons The Obelisks 12/2/06 24/3/06 Buy tickets by phoning the M-u-s-i-c line ---- get your tickets now!: ADULT FS RS DC ST Obelisks - Monkey, Monkey $20.90 $…</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_3.1_3_1.H49.AlignAttr</td><td>warning</td><td>Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The inner table presents structured data — band names &#x27;Les Garçons&#x27; and &#x27;The Obelisks&#x27; paired with dates &#x27;12/2/06&#x27; and &#x27;24/3/06&#x27; — but contains no &lt;th&gt; elements or headers attributes to programmatically associate column headers with data cells. The header row is distinguished only through visual styling (bgcolor, bold, font color), not semantic markup, so the relationship between band names and their concert dates cannot be programmatically determined.
+Quoted: &quot;&lt;td&gt;&lt;b&gt;&lt;font color=&quot;41545D&quot;&gt;Les Garçons&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;&quot;; &quot;&lt;td&gt;&lt;b&gt;&lt;font color=&quot;41545D&quot;&gt;The Obelisks&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;&quot;; &quot;bgcolor=&quot;#A9B8BF&quot;&quot;; &quot;Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.&quot;
+Strength: 3/5</pre>
+<h3>Case against a failure</h3>
+<pre>The inner table presents two band names as column headers in a visually distinct header row, with corresponding date data below. The structure conveys a data relationship: band name to concert date. However, the header row uses only visual styling (bgcolor, bold, font color) rather than &lt;th&gt; elements, so the column header relationship is not programmatically determinable. No honest case for a pass exists.
+Quoted: &quot;&lt;tr bgcolor=&quot;#A9B8BF&quot;&gt;&quot;; &quot;&lt;td&gt;&lt;b&gt;&lt;font color=&quot;41545D&quot;&gt;Les Garçons&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;&quot;; &quot;Semantic markup should be used to mark emphasised or special text so that it can be programmatically determined.&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

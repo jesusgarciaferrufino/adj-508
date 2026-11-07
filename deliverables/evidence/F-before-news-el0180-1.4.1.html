@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-news-el0180-1.4.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-news-el0180-1.4.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.4.1 Use of Color (Level A)</dd>
+<dt>Site and page</dt><dd>before / news: <a href="https://www.w3.org/WAI/demos/bad/before/news.html">https://www.w3.org/WAI/demos/bad/before/news.html</a></dd>
+<dt>Rule</dt><dd>adj.rules.link-color-only (found by adj-rules; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.4.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_news_el0180.jpg"><img src="../shots/before_news_el0180.jpg" alt="Screenshot of the element for F-before-news-el0180-1.4.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#main &gt; div:nth-of-type(3) &gt; div:nth-of-type(1) &gt; a</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;a href=&quot;../offsite.html&quot;&gt;the way that air conditioning works&lt;/a&gt;</code></pre>
+<h3>Text around it</h3>
+<p>…s 100%. Air conditioning was driving temperatures up, which in turn resulted in a heatwave,&quot; the Prof. explained. &quot;It all comes from the way that air conditioning works. Air conditioners produce cold air to go into the room but also hot air that&#x27;s ducted away to the outside. We are recommending a ne…</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>adj-rules</td><td>adj.rules.link-color-only</td><td>rule</td><td>Link &quot;the way that air conditioning works&quot; in running text differs from the text around it only by colour: no underline or other cue, also on hover and focus (F73).</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The scanner confirms the link &#x27;the way that air conditioning works&#x27; is embedded in running prose and is distinguished from surrounding text solely by color. No underline, border, icon, or other non-color visual cue differentiates it as a link, even on hover and focus. Color alone conveys the interactive nature of this element, which directly violates 1.4.1&#x27;s requirement that color not be the only visual means of distinguishing a visual element.
+Quoted: &quot;differs from the text around it only by colour: no underline or other cue, also on hover and focus (F73)&quot;; &quot;the way that air conditioning works&quot;
+Strength: 5/5</pre>
+<h3>Case against a failure</h3>
+<pre>The scanner explicitly found that the link differs from surrounding text only by color, with no underline or other non-color cue present on normal state, hover, or focus. The link text &#x27;the way that air conditioning works&#x27; is embedded in running prose with no icon, border, font weight change, or other visual differentiator. No honest case for a pass exists.
+Quoted: &quot;differs from the text around it only by colour: no underline or other cue, also on hover and focus (F73)&quot;; &quot;the way that air conditioning works&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-tickets-el0277-1.4.3</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-tickets-el0277-1.4.3</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.4.3 Contrast (Minimum) (Level AA)</dd>
+<dt>Site and page</dt><dd>before / tickets: <a href="https://www.w3.org/WAI/demos/bad/before/tickets.html">https://www.w3.org/WAI/demos/bad/before/tickets.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.BGColour (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.4.3)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_tickets_el0277.jpg"><img src="../shots/before_tickets_el0277.jpg" alt="Screenshot of the element for F-before-tickets-el0277-1.4.3"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#main &gt; table:nth-child(6) &gt; tbody &gt; tr:nth-child(7)</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;tr bgcolor=&quot;#A9B8BF&quot;&gt;
+              &lt;td colspan=&quot;5&quot;&gt;&lt;b&gt;&lt;font color=&quot;41545D&quot;&gt;Group (5 or more)&lt;/font&gt;&lt;/b&gt;&lt;/td&gt;
+            &lt;/tr&gt;</code></pre>
+<h3>Text around it</h3>
+<p>….90 $27.90 $30.90 $33.90 Concession Obelisks - Monkey, Monkey $20.90 $20.90 $20.90 $20.90 Les Garçons de la Plage $20.90 $27.90 $30.90 $33.90 Group (5 or more) Obelisks - Monkey, Monkey $14.90 $14.90 $14.90 $14.90 Les Garçons de la Plage $14.90 $20.90 $22.90 $23.90 Buy tickets by phoning the M-u-s-i…</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_4.1_4_3_F24.F24.BGColour</td><td>warning</td><td>Check that this element has an inherited foreground colour to complement the corresponding inline background colour or image.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The element sets background color &#x27;#A9B8BF&#x27; and font color &#x27;41545D&#x27; (missing the &#x27;#&#x27; prefix, meaning the browser may not parse it as a valid hex color and could render it as black or default). The scanner flagged an inherited foreground color issue. If &#x27;41545D&#x27; is parsed correctly as #41545D against #A9B8BF, the contrast ratio is approximately 2.8:1, failing the 4.5:1 minimum for normal-weight text.
+Quoted: &quot;bgcolor=&quot;#A9B8BF&quot;&quot;; &quot;color=&quot;41545D&quot;&quot;; &quot;Check that this element has an inherited foreground colour to complement the corresponding inline background colour or image&quot;
+Strength: 3/5</pre>
+<h3>Case against a failure</h3>
+<pre>The font color attribute value &#x27;41545D&#x27; is missing the &#x27;#&#x27; prefix, meaning the browser cannot parse it as a valid hex color. The scanner flagged this as needing a human check for inherited color. Without a valid foreground color declaration, the actual rendered text color is determined by browser inheritance or defaults, which is unknown from the evidence. No honest case for a pass can be made from the available evidence.
+Quoted: &quot;&lt;font color=&quot;41545D&quot;&gt;&quot;; &quot;bgcolor=&quot;#A9B8BF&quot;&quot;; &quot;Check that this element has an inherited foreground colour to complement the corresponding inline background colour or image&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

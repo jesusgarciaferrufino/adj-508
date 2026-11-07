@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-tickets-el0141-2.1.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-tickets-el0141-2.1.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>2.1.1 Keyboard (Level A)</dd>
+<dt>Site and page</dt><dd>before / tickets: <a href="https://www.w3.org/WAI/demos/bad/before/tickets.html">https://www.w3.org/WAI/demos/bad/before/tickets.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle2.Guideline2_1.2_1_1.SCR20.MouseOver (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 2.1.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_tickets_el0141.jpg"><img src="../shots/before_tickets_el0141.jpg" alt="Screenshot of the element for F-before-tickets-el0141-2.1.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#news</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;td width=&quot;154px&quot; bgcolor=&quot;#EDEDED&quot; id=&quot;news&quot; onmouseover=&quot;switchImage(&#x27;nav_news&#x27;, &#x27;./img/nav_news2.gif&#x27;); ChangeColor(&#x27;news&#x27;,&#x27;#FFF&#x27;)&quot; onmouseout=&quot;switchImage(&#x27;nav_news&#x27;, &#x27;./img/nav_news.gif&#x27;); ChangeColor(&#x27;news&#x27;,&#x27;#EDEDED&#x27;)&quot;&gt;&lt;a href=&quot;javascript:location.href=&#x27;news.html&#x27;;&quot; onfocus=&quot;blur();&quot;&gt;&lt;img src=&quot;./img/nav_news.gif&quot; name=&quot;nav_news&quot; width=&quot;90&quot; height=&quot;21&quot; hspace=&quot;12&quot; border=&quot;0px&quot;&gt;&lt;/a&gt;&lt;/td&gt;</code></pre>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle2.Guideline2_1.2_1_1.SCR20.MouseOver</td><td>warning</td><td>Ensure the functionality provided by mousing over this element is available through the keyboard; for instance, using the focus event.</td></tr>
+<tr><td>pa11y</td><td>WCAG2AA.Principle2.Guideline2_1.2_1_1.SCR20.MouseOut</td><td>warning</td><td>Ensure the functionality provided by mousing out of this element is available through the keyboard; for instance, using the blur event.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The element relies exclusively on `onmouseover` and `onmouseout` for its interactive visual feedback, with no keyboard equivalents. Critically, the anchor inside uses `onfocus=&quot;blur()&quot;`, which programmatically removes focus the instant a keyboard user reaches it, making the link completely inoperable via keyboard. This actively blocks keyboard access to the navigation functionality.
+Quoted: &quot;onfocus=&quot;blur();&quot;&quot;; &quot;onmouseover=&quot;switchImage(&#x27;nav_news&#x27;, &#x27;./img/nav_news2.gif&#x27;); ChangeColor(&#x27;news&#x27;,&#x27;#FFF&#x27;)&quot;&quot;; &quot;onmouseout=&quot;switchImage(&#x27;nav_news&#x27;, &#x27;./img/nav_news.gif&#x27;); ChangeColor(&#x27;news&#x27;,&#x27;#EDEDED&#x27;)&quot;&quot;; &quot;Ensure the functionality provided by mousing over this element is available through the keyboard&quot;
+Strength: 5/5</pre>
+<h3>Case against a failure</h3>
+<pre>The onmouseover and onmouseout handlers only change visual styling (image swap and background color). These are purely decorative hover effects. The actual navigation functionality is delivered by the anchor element with href=&#x27;javascript:location.href=&#x27;news.html&#x27;;&#x27;. However, that anchor uses onfocus=&#x27;blur()&#x27; which programmatically removes focus, making the link itself inoperable by keyboard. No honest pass case exists.
+Quoted: &quot;onfocus=&quot;blur();&quot;&quot;; &quot;javascript:location.href=&#x27;news.html&#x27;;&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

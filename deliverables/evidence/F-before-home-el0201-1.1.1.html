@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-home-el0201-1.1.1</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-home-el0201-1.1.1</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.1.1 Non-text Content (Level A)</dd>
+<dt>Site and page</dt><dd>before / home: <a href="https://www.w3.org/WAI/demos/bad/before/home.html">https://www.w3.org/WAI/demos/bad/before/home.html</a></dd>
+<dt>Rule</dt><dd>WCAG2AA.Principle1.Guideline1_1.1_1_1.H30.2 (found by pa11y; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.1.1)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_home_el0201.jpg"><img src="../shots/before_home_el0201.jpg" alt="Screenshot of the element for F-before-home-el0201-1.1.1"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#content &gt; div:nth-child(4) &gt; div:nth-child(3) &gt; span &gt; a</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;a href=&quot;news.html&quot; onfocus=&quot;blur();&quot;&gt;&lt;img src=&quot;./img/morearrow.gif&quot; width=&quot;48&quot; height=&quot;10&quot; alt=&quot;&quot; border=&quot;0&quot; onmouseover=&quot;this.src=&#x27;./img/morearrow_a.gif&#x27;&quot; onmouseout=&quot;this.src=&#x27;./img/morearrow.gif&#x27;&quot; style=&quot;vertical-align: bottom&quot;&gt;&lt;/a&gt;</code></pre>
+<h3>Text around it</h3>
+<p>Brain donations: huge drop off in brain donations due to the great &#x27;success&#x27; of &#x27;Slow Traffic, Safe Streets&#x27; policy</p>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>pa11y</td><td>WCAG2AA.Principle1.Guideline1_1.1_1_1.H30.2</td><td>error</td><td>Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The image is the sole content of a link, making it a control under 1.1.1. Controls must have a name describing their purpose. The alt attribute is explicitly empty (&quot;&quot;), providing no name whatsoever. A screen reader user receives no information about where the link leads. The scanner confirms this: the image is the only link content and alt text is missing. The empty alt leaves the link&#x27;s purpose completely undescribed.
+Quoted: &quot;alt=&quot;&quot;&quot;; &quot;Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.&quot;
+Strength: 5/5</pre>
+<h3>Case against a failure</h3>
+<pre>No honest case exists. The image is the sole content of the link, has empty alt text, and the scanner correctly identifies that the link&#x27;s purpose is not conveyed to assistive technology. The surrounding text describes a news story, not the link&#x27;s destination or action. An empty alt on a functional link image fails 1.1.1 because the control has no accessible name describing its purpose.
+Quoted: &quot;alt=&quot;&quot;&quot;; &quot;Img element is the only content of the link, but is missing alt text. The alt text should describe the purpose of the link.&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

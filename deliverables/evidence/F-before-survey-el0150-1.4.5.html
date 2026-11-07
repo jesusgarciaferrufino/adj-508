@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence: F-before-survey-el0150-1.4.5</title>
+<style>
+body { font: 16px/1.5 system-ui, sans-serif; max-width: 72rem; margin: 0 auto; padding: 1rem;
+       color: #111; background: #fff; }
+table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+caption { text-align: left; font-weight: bold; font-size: 1.2rem; margin: 1rem 0 .5rem; }
+th, td { border: 1px solid #555; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+thead th { background: #eee; }
+.warning { border-left: 4px solid #333; padding-left: .75rem; }
+td ul { margin: 0; padding-left: 1.1rem; }
+@media print { body { max-width: none; font-size: 11pt; } tr { break-inside: avoid; } }
+
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f4f4f4; padding: .5rem; }
+img { max-width: 100%; height: auto; border: 1px solid #555; }
+dt { font-weight: bold; } dd { margin: 0 0 .5rem 0; }
+</style>
+</head>
+<body>
+<main>
+<h1>Evidence: F-before-survey-el0150-1.4.5</h1>
+<p><a href="../index.html">Back to the package index</a></p>
+<dl>
+<dt>Criterion</dt><dd>1.4.5 Images of Text (Level AA)</dd>
+<dt>Site and page</dt><dd>before / survey: <a href="https://www.w3.org/WAI/demos/bad/before/survey.html">https://www.w3.org/WAI/demos/bad/before/survey.html</a></dd>
+<dt>Rule</dt><dd>adj.rules.image-of-text (found by adj-rules; scanner status needs_review)</dd>
+<dt>Route</dt><dd>grey: rule 4: scanner can flag but not judge (scanner_status=needs_review, criterion 1.4.5)</dd>
+</dl>
+<h2>Human decision</h2>
+<p>Pending human review: no reviewer has decided this finding yet.</p>
+<h2>Evidence</h2>
+<p><a href="../shots/before_survey_el0150.jpg"><img src="../shots/before_survey_el0150.jpg" alt="Screenshot of the element for F-before-survey-el0150-1.4.5"></a></p>
+<dl>
+<dt>Selector</dt><dd><code>#tickets &gt; a &gt; img</code></dd>
+</dl>
+<h3>HTML</h3>
+<pre><code>&lt;img name=&quot;nav_facts&quot; src=&quot;./img/nav_facts.gif&quot; width=&quot;105&quot; height=&quot;23&quot; hspace=&quot;9&quot; border=&quot;0px&quot;&gt;</code></pre>
+<table>
+<caption>Scanner messages</caption>
+<thead><tr>
+<th scope="col">Scanner</th>
+<th scope="col">Rule</th>
+<th scope="col">Type</th>
+<th scope="col">Message</th>
+</tr></thead>
+<tbody>
+<tr><td>adj-rules</td><td>adj.rules.image-of-text</td><td>rule</td><td>Image nav_facts.gif (105x23 px) is a short, wide graphic of the kind used for text such as menu items, headings and phone numbers; if it shows text, that text could be real text (1.4.5).</td></tr>
+</tbody>
+</table>
+<h2>AI analysis (not a decision)</h2>
+<p>The AI argues both sides; a human reviewer makes the decision.</p>
+<dl>
+<dt>AI leaning</dt><dd>likely_fail</dd>
+<dt>Citations verified</dt><dd>yes</dd>
+<dt>Model</dt><dd>us.anthropic.claude-sonnet-4-6</dd>
+<dt>Prompts</dt><dd>evidence_for_v1+evidence_against_v1</dd>
+</dl>
+<h3>Case for a failure</h3>
+<pre>The scanner identifies nav_facts.gif as a navigation element — short, wide, 105x23 pixels — matching the exact dimensions of a text-based menu item. The filename &#x27;nav_facts&#x27; strongly indicates it renders the word &#x27;Facts&#x27; as a navigation label. No surrounding text exists, meaning all information is conveyed through the image. CSS and HTML text can replicate styled navigation labels, so no essential exception applies. This is a navigation image of text where real text could achieve the same presentation.
+Quoted: &quot;nav_facts.gif&quot;; &quot;short, wide graphic of the kind used for text such as menu items&quot;; &quot;if it shows text, that text could be real text (1.4.5)&quot;; &quot;width=&quot;105&quot; height=&quot;23&quot;&quot;
+Strength: 3/5</pre>
+<h3>Case against a failure</h3>
+<pre>The image is named &#x27;nav_facts&#x27; and serves as a navigation link inside an anchor element. Navigation items styled as graphical buttons are a common logotype-adjacent use where the visual presentation (styling, color, font treatment consistent with site branding) is essential to the navigation design. However, the scanner explicitly flags this as likely text-as-image, and no evidence shows it is a logo or that the presentation is essential. No honest pass case exists.
+Quoted: &quot;nav_facts.gif&quot;; &quot;if it shows text, that text could be real text (1.4.5)&quot;
+Strength: 1/5</pre>
+</main>
+</body>
+</html>

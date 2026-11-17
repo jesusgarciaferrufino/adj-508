@@ -17,3 +17,27 @@ data/findings/shots/.tmp_*/
 
 # Matrix, ACR and backlog (Track E): regenerated from a run plus data/reviews/
 data/reports/
+
+# Secrets: any .env variant except the committed templates
+.env.*
+!.env.example
+*.key
+*.p12
+*.pfx
+*.crx
+
+# Tool caches, editors, logs, test output
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage/
+test-results/
+playwright-report/
+*.log
+.idea/
+.vscode/
+.python-version
+
+# Ad hoc single-URL assessments (scripts/assess_url.py)
+data/adhoc/
